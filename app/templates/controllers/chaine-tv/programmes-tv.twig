@@ -1,0 +1,40 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+
+  {% embed "controllers/chaine-tv/skeleton.twig" with {"tab_active": "broadcasts"} %}
+
+    {% block embed_content %}
+
+      <div class="block-title margin">
+
+        <form id="programs-date-select" class="right">
+          <select onchange="window.location.assign($(this).val());return false;" class="pmd-Select">
+          {% set date_format = is_website_fr ? 'd-m-Y' : 'Y-m-d' %}
+          {% for date in dates %}
+            {% set route_params = {
+              'channel_id': infos.id,
+              'channel_alias': infos.alias,
+              'date': date|date(date_format)
+            } %}
+            <option value="{{ path('chaine_tv_programmes_date', route_params) }}"{% if selected_date == date %} selected="selected"{% endif%}>
+              {% if now_date == date %}{% trans %}Today{% endtrans %}{% else %}{{ date|localizeddate('full', 'none', locale)|capitalize }}{% endif %}
+            </option>
+          {% endfor %}
+          </select>
+        </form>
+
+        <h2>{% trans with {'%channel%': infos.name} %}TV guide for <strong>%channel%</strong>{% endtrans %}</h2>
+
+      </div>
+
+      <div class="text">
+        <h3>{% if selected_date == now_date %}{% trans %}Today{% endtrans %}{% else %}{{ selected_date|localizeddate('full', 'none', locale)|capitalize }}{% endif %}</h3>
+      </div>
+
+      {{ block_broadcasts|raw }}
+    {% endblock %}
+
+  {% endembed %}
+
+{% endblock %}

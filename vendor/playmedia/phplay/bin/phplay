@@ -1,0 +1,113 @@
+#!/usr/bin/php
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+
+/**
+ * PHPlay Framework command line script
+ *
+ * Usage:  console [<uri>]
+ *
+ * EXAMPLES
+ *
+ *     phplay
+ *         This execute with / as default uri
+ *
+ *     phplay /foo/bar
+ *         This execute with /foo/bar as uri
+ *
+ *
+ * REMINDER : Redirection is unsupported
+ *
+ * @author Playmedia <contact at playmedia dot fr>
+ * @version 0.2.4
+ */
+final class ppl_cli
+{
+    const
+        DEFAULT_MAX_EXECUTION_TIME = 7200; // 2 hours (7200 seconds)
+
+    private
+        $app,
+        $level,
+        $cache;
+
+    /**
+     * Constructor
+     *
+     * @see PHPlay bootsrap application documentation
+     */
+    public function __construct()
+    {
+        $this->set_max_execution_time(self::DEFAULT_MAX_EXECUTION_TIME);
+    }
+
+    /**
+     * Execute current application and terminate the script
+     *
+     * @param string $uri the requested URI
+     */
+    public function execute($uri='/')
+    {
+        $this->set_server_info($uri);
+        $rootDir = __DIR__.'/../';
+
+        $phplay = new phplay('phplay', $rootDir, false, 0, 'none', false);
+        $phplay->run();
+    }
+
+    /**
+     * Set the maximum execution time of current script
+     *
+     * @param string $duration maximum execution time in seconds
+     */
+    public function set_max_execution_time($duration)
+    {
+        set_time_limit($duration);
+    }
+
+    /**
+     * Output a message preceded by datetime
+     *
+     * @param string $message the message
+     */
+    public function tsprint($message)
+    {
+        return print date('d-m-Y H:i:s ') . "{$message}\n";
+    }
+
+    /**
+     * Set server and execution environment information
+     *
+     * @param string $uri the requested URI
+     */
+    private function set_server_info($uri)
+    {
+        // TODO : check $uri syntax
+        $_SERVER['REQUEST_URI'] = $uri;
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
+        $_SERVER['HTTP_HOST'] = 'localhost';
+        $_SERVER['HTTP_USER_AGENT'] = 'Phplay/2.x (Compatible; Linux)';
+    }
+}
+
+/**
+ * Main
+ */
+if (($argc <= 1) || ($argc > 3))
+{
+    $usage = "Usage: console [<uri>]\n\n";
+    exit($usage);
+}
+
+$uri = (isset($argv[1])) ? $argv[1] : '/';
+if (($uri === '') || ($uri[0] !== '/'))
+{
+    echo "uri is invalid\n";
+    exit(1);
+}
+
+// Framework execution
+$a = new ppl_cli();
+$a->execute($uri);

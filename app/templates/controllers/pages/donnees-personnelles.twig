@@ -1,0 +1,20 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+<div id="content">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="span3 sep">
+        {% include "controllers/pages/_menu.twig" %}
+      </div>
+
+      {% include "controllers/pages/_donnees-personnelles.twig" %}
+
+    </div>
+
+  </div>
+</div>
+<!-- /#content -->
+{% endblock %}

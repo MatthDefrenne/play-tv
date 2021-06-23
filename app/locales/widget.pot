@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "broadcasts_live.title"
+msgstr ""
+
+msgid "broadcasts_tonight.title"
+msgstr ""
+
+msgid "replays_news.title"
+msgstr ""
+
+msgid "replays_last.title"
+msgstr ""
+
+msgid "channels_arabic.title"
+msgstr ""
+
+msgid "channels_news.title"
+msgstr ""
+
+msgid "channels_thematic.title"
+msgstr ""
+
+msgid "channels_local.title"
+msgstr ""
+
+msgid "channels_community.title"
+msgstr ""
+
+msgid "channels_turk.title"
+msgstr ""

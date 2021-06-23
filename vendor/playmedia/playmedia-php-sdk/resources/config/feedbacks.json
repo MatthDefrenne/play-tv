@@ -1,0 +1,171 @@
+{
+    "operations": {
+        "feedbacks.base.object": {
+            "responseClass": "Playmedia\\Api\\Entity\\Entity",
+            "data": {
+                "class": "Playmedia\\Api\\Entity\\Feedback",
+                "type": "object"
+            }
+        },
+        "feedbacks.base.array": {
+            "responseClass": "Playmedia\\Api\\Entity\\Entity",
+            "data": {
+                "class": "Playmedia\\Api\\Entity\\Feedback",
+                "type": "array"
+            }
+        },
+        "feedbacks.show": {
+            "extends": "feedbacks.base.object",
+            "httpMethod": "GET",
+            "uri": "feedbacks/{id}/",
+            "summary": "Gets one feedback",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                },
+                "embed" : {
+                    "location": "query"
+                }
+            }
+        },
+        "feedbacks.collection": {
+            "extends": "feedbacks.base.array",
+            "httpMethod": "GET",
+            "uri": "feedbacks/",
+            "summary": "Gets a list of feedbacks",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "feedbacks.create": {
+            "httpMethod": "POST",
+            "uri": "feedbacks/",
+            "summary": "Create a feedback",
+            "parameters": {
+                "email": {
+                    "type": "string",
+                    "location": "json"
+                },
+                "message": {
+                    "type": "string",
+                    "location": "json"
+                }
+            },
+            "additionalParameters": {
+                "location": "json"
+            }
+        },
+        "feedbacks.answer": {
+            "httpMethod": "POST",
+            "uri": "feedbacks/{id}/message/",
+            "summary": "Answer a feedback",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                },
+                "message": {
+                    "type": "string",
+                    "location": "json"
+                }
+            }
+        },
+        "feedbacks.addTag": {
+            "httpMethod": "POST",
+            "uri": "feedbacks/{id}/tags/",
+            "summary": "Add a tag to a feedback",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                },
+                "tag": {
+                    "type": "string",
+                    "location": "json",
+                    "sentAs": "name"
+                }
+            }
+        },
+        "feedbacks.new": {
+            "httpMethod": "PUT",
+            "uri": "feedbacks/{id}/",
+            "summary": "Mark a feedback as new",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                },
+                "status": {
+                    "type": "string",
+                    "location": "json",
+                    "default": "new",
+                    "static": true
+                }
+            }
+        },
+        "feedbacks.open": {
+            "httpMethod": "PUT",
+            "uri": "feedbacks/{id}/",
+            "summary": "Open a feedback",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                },
+                "status": {
+                    "type": "string",
+                    "location": "json",
+                    "default": "open",
+                    "static": true
+                }
+            }
+        },
+        "feedbacks.close": {
+            "httpMethod": "PUT",
+            "uri": "feedbacks/{id}/",
+            "summary": "Close a feedback",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                },
+                "status": {
+                    "type": "string",
+                    "location": "json",
+                    "default": "closed",
+                    "static": true
+                }
+            }
+        },
+        "feedbacks.addToSpam": {
+            "httpMethod": "POST",
+            "uri": "feedbacks/spam/",
+            "summary": "Add an IP address to spam",
+            "parameters": {
+                "ipAddress": {
+                    "type": "string",
+                    "location": "json",
+                    "sentAs": "ip_address"
+                }
+            }
+        },
+        "feedbacks.search": {
+            "extends": "feedbacks.base.array",
+            "httpMethod": "GET",
+            "uri": "feedbacks/search/",
+            "summary": "Search for feedbacks",
+            "parameters": {
+                "q": {
+                    "type": "string",
+                    "location": "query"
+                }
+            }
+        },
+        "feedbacks.tagged": {
+            "extends": "feedbacks.base.array",
+            "httpMethod": "GET",
+            "uri": "feedbacks/tagged/",
+            "summary": "Search for a tagged feedbacks",
+            "parameters": {
+                "tags": {
+                    "location": "query"
+                }
+            }
+        }
+    }
+}

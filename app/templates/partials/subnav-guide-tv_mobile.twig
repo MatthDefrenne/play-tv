@@ -1,0 +1,14 @@
+{% if subnav_active is not defined %}{% set subnav_active = "" %}{% endif %}
+<div class="pmd-Heading pmd-Heading--large pmd-Heading--3x pmd-Heading--multichoice">
+  {% spaceless %}
+  <a href="{{ path('programmes_en_direct') }}" class="pmd-Heading-words{% if subnav_active == 'live' %} pmd-Heading-words--active{% endif %}">
+    <span>{% trans %}Now{% endtrans %}</span>
+  </a>
+  <a href="{{ path('programmes_prime_tonight') }}" class="pmd-Heading-words{% if subnav_active == 'primetime' %} pmd-Heading-words--active{% endif %}">
+    <span>{% trans %}Prime time{% endtrans %}</span>
+  </a>
+  <a href="{{ path('programmes_prime_tonight', {'presets': 'latefringe'}) }}" class="pmd-Heading-words{% if subnav_active == 'latefringe' %} pmd-Heading-words--active{% endif %}">
+    <span>{% trans %}Late fringe{% endtrans %}</span>
+  </a>
+  {% endspaceless %}
+</div>

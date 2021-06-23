@@ -1,0 +1,25 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="content">
+
+    <div class="container">
+
+      <h4 class="ptv-AccountProfile-heading">
+        <span class="ptv-AccountProfile-headingMain">Etat de votre commande</span>
+      </h4>
+
+      <div class="pmd-js-OrderConfirm pmd-OrderConfirm">
+
+        <img src="{{ apps_base_url }}/images/icons/order-success.png" alt="">
+        <p class="pmd-OrderConfirm-message">Vous êtes déjà abonné à cette offre. Profitez-en dès à présent en cliquant sur le bouton ci-dessous.</p>
+        <a href="{{ return_url }}" class="pmd-js-OrderConfirm-link">
+          <span class="pmd-Button pmd-Button--lg pmd-Button--premium">Accéder au Live TV</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+{% endblock content %}

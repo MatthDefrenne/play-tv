@@ -1,0 +1,3 @@
+{% for channel in channels_broadcasts_presets %}
+   {% include "partials/item-broadcast_mobile.twig" with {'channel': channel, 'broadcasts': channel.broadcasts, 'is_live': false} %}
+{% endfor %}

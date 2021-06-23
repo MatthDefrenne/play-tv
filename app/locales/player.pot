@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "watch_var_channel"
+msgstr ""
+
+msgid "discover_var_channel"
+msgstr ""
+
+msgid "access_to_channel"
+msgstr ""
+
+msgid "no_ads"
+msgstr ""
+
+msgid "hi_quality"
+msgstr ""
+
+msgid "free_of_engagement"
+msgstr ""
+
+msgid "try_for_free"
+msgstr ""
+
+msgid "discover_channel"
+msgstr ""
+
+msgid "channel_available_at_home"
+msgstr ""
+
+msgid "channel_unavailable"
+msgstr ""
+
+msgid "channel_unavailable_in_country"
+msgstr ""
+
+msgid "not_subcribed.tagline"
+msgstr ""
+
+msgid "not_subcribed.tagline_trial_period"
+msgstr ""
+
+msgid "not_available.available_between"
+msgstr ""
+
+msgid "not_available.program_beginning_in"
+msgstr ""
+
+msgid "not_available.meanwhile"
+msgstr ""
+
+msgid "external_live.meanwhile"
+msgstr ""
+
+msgid "external_live.go_channel_website"
+msgstr ""
+
+msgid "stop_ad_banner_button"
+msgstr ""

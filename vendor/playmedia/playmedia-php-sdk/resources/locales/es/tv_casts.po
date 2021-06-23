@@ -1,0 +1,327 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-03-17 14:44+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.6.8\n"
+
+msgid "Accessoiriste"
+msgstr "Utilero"
+
+msgid "Acteur"
+msgstr "Actor"
+
+msgid "Adaptation"
+msgstr "Adaptación"
+
+msgid "Animalier"
+msgstr "Animalista"
+
+msgid "Animation"
+msgstr "Animación"
+
+msgid "Armurier"
+msgstr "Armero"
+
+msgid "Arrangement musical"
+msgstr "Arreglo musical"
+
+msgid "Assistant Réalisateur"
+msgstr "Asistente de dirección"
+
+msgid "Auteur"
+msgstr "Autor"
+
+msgid "Bruitage"
+msgstr "Efectos sonoros"
+
+msgid "Cascades"
+msgstr "Dobles de riesgo"
+
+msgid "Casting"
+msgstr "Casting"
+
+msgid "Chansons"
+msgstr "Canciones"
+
+msgid "Chanteur lyrique"
+msgstr "Cantante lírico"
+
+msgid "Chef d'orchestre"
+msgstr "Director de orquesta"
+
+msgid "Chorégraphie"
+msgstr "Coreografía"
+
+msgid "Chroniqueur"
+msgstr "Cronista"
+
+msgid "Co-producteur"
+msgstr "Coproductor"
+
+msgid "Coiffure"
+msgstr "Estilista"
+
+msgid "Combats"
+msgstr "Peleas"
+
+msgid "Commentaires"
+msgstr "Comentarios"
+
+msgid "Compositeur"
+msgstr "Compositor"
+
+msgid "Conseiller"
+msgstr "Asesor"
+
+msgid "Conseiller animalier"
+msgstr "Asesor animalista"
+
+msgid "Conseiller historique"
+msgstr "Asesor histórico"
+
+msgid "Conseiller scientifique"
+msgstr "Asesor científico"
+
+msgid "Consultant"
+msgstr "Consultor"
+
+msgid "Costumes"
+msgstr "Vestuario"
+
+msgid "Créateur"
+msgstr "Creador"
+
+msgid "Création personnages"
+msgstr "Creación de personajes"
+
+msgid "Créatures"
+msgstr "Criaturas"
+
+msgid "D'après"
+msgstr "Basado en"
+
+msgid "D'après l'oeuvre de"
+msgstr "Basado en la obra de"
+
+msgid "D'après la bande dessinée de"
+msgstr "Basado en la historieta de"
+
+msgid "D'après la pièce de"
+msgstr "Basado en la obra de"
+
+msgid "D'après la série de"
+msgstr "Basado en la serie de"
+
+msgid "D'après le film de"
+msgstr "Basado en la película de"
+
+msgid "D'après le livre de"
+msgstr "Basada en el libro de"
+
+msgid "D'après le roman de"
+msgstr "Basada en la novela de"
+
+msgid "D'après les personnages de"
+msgstr "Basado en los personajes de"
+
+msgid "D'après un sujet original"
+msgstr "Basado en un guion original"
+
+msgid "D'après une histoire de"
+msgstr "Basado en una historia de"
+
+msgid "D'après une idée de"
+msgstr "Inspirado en una idea de"
+
+msgid "D'après une nouvelle de"
+msgstr "Basado en una novela de"
+
+msgid "Danseur"
+msgstr "Bailarín"
+
+msgid "Décors"
+msgstr "Decorado"
+
+msgid "Dessins"
+msgstr "Dibujos"
+
+msgid "Dialogues"
+msgstr "Diálogos"
+
+msgid "Direction artistique"
+msgstr "Dirección artística"
+
+msgid "Direction orchestrale"
+msgstr "Dirección de orquesta"
+
+msgid "Documentation"
+msgstr "Documentación"
+
+msgid "Doublure"
+msgstr "Doble"
+
+msgid "Dressage"
+msgstr "Amaestramiento"
+
+msgid "Eclairages"
+msgstr "Iluminación"
+
+msgid "Effets sonores"
+msgstr "Efectos sonoros"
+
+msgid "Effets spéciaux"
+msgstr "Efectos especiales"
+
+msgid "Effets spéciaux numériques"
+msgstr "Efectos especiales digitales"
+
+msgid "Effets visuels"
+msgstr "Efectos visuales"
+
+msgid "Equitation"
+msgstr "Equitación"
+
+msgid "Générique"
+msgstr "Créditos"
+
+msgid "Graphisme"
+msgstr "Grafismo"
+
+msgid "Gravure"
+msgstr "Grabado"
+
+msgid "Images"
+msgstr "Imágenes"
+
+msgid "Interview"
+msgstr "Entrevista"
+
+msgid "Invité"
+msgstr "Invitado"
+
+msgid "Juré"
+msgstr "Jurado"
+
+msgid "Machiniste"
+msgstr "Maquinista"
+
+msgid "Magie"
+msgstr "Magia"
+
+msgid "Maître d'armes"
+msgstr "Maestro de armas"
+
+msgid "Maquette"
+msgstr "Maqueta"
+
+msgid "Maquillage"
+msgstr "Maquillaje"
+
+msgid "Marionnettes"
+msgstr "Marionetas"
+
+msgid "Metteur en scène"
+msgstr "Director"
+
+msgid "Mise en scène"
+msgstr "Puesta en escena"
+
+msgid "Mixage"
+msgstr "Mezcla"
+
+msgid "Montage"
+msgstr "Montaje"
+
+msgid "Musicien"
+msgstr "Músico"
+
+msgid "Musique"
+msgstr "Música"
+
+msgid "Narration"
+msgstr "Narración"
+
+msgid "Orchestration"
+msgstr "Orquestación"
+
+msgid "Paroles"
+msgstr "Letra"
+
+msgid "Photographie"
+msgstr "Fotografía"
+
+msgid "Présentateur"
+msgstr "Presentador"
+
+msgid "Presse"
+msgstr "Prensa"
+
+msgid "Producteur"
+msgstr "Productor"
+
+msgid "Producteur délégué"
+msgstr "Productor delegado"
+
+msgid "Producteur exécutif"
+msgstr "Productor ejecutivo"
+
+msgid "Réalisateur"
+msgstr "Director"
+
+msgid "Restauration"
+msgstr "Restauración"
+
+msgid "Scénario"
+msgstr "Escenario"
+
+msgid "Scripte"
+msgstr "Guion"
+
+msgid "Sculptures"
+msgstr "Esculturas"
+
+msgid "Société de Production"
+msgstr "Productora"
+
+msgid "Son"
+msgstr "Sonido"
+
+msgid "Story board"
+msgstr "Guion gráfico"
+
+msgid "Traduction"
+msgstr "Traducción"
+
+msgid "Voix française"
+msgstr "Voz francesa"
+
+msgid "Voix originale"
+msgstr "Voz original"
+
+msgid "Régisseur"
+msgstr "Administrador"
+
+msgid "Mixage son"
+msgstr "Mezcla de sonido"
+
+msgid "Orchestre"
+msgstr "Orquesta"
+
+msgid "Chanteur"
+msgstr "Cantante"
+
+msgid "Ballet"
+msgstr "Ballet"
+
+msgid "Voix"
+msgstr "Voz"
+
+msgid "Choeur"
+msgstr "Coro"

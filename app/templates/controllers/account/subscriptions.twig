@@ -1,0 +1,13 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+
+  {% embed "controllers/account/skeleton.twig" with {"tab_selected": "subscriptions"} %}
+
+    {% block embed_content %}
+      {% include "controllers/account/_offer.twig" %}
+    {% endblock %}
+
+  {% endembed %}
+
+{% endblock %}

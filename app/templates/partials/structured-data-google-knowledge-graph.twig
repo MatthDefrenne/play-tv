@@ -1,0 +1,18 @@
+{% spaceless %}
+{% if is_website_fr and controller_name == 'index' and action_name == 'index' %}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name" : "Play TV",
+  "url": "https://playtv.fr",
+  "logo": "https://static.playmedia-cdn.net/play-tv.svg",
+  "sameAs" : [
+    "https://www.facebook.com/www.playtv.fr",
+    "https://twitter.com/PLAYTV_FR",
+    "https://plus.google.com/+playtv"
+  ]
+}
+</script>
+{% endif %}
+{% endspaceless %}

@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /search/
+Disallow: /ad/
+Disallow: /adblock/
+Disallow: /adsltv/
+Disallow: /cotep/
+Disallow: /novancia/
+Disallow: /player/

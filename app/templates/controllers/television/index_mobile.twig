@@ -1,0 +1,11 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<script src="{{ assets.scripts['inline-television-index-mobile.js'] }}"></script>
+<div class="pmd-Remote">
+  <div class="pmd-MosaicChannels">
+    <ul class="pmd-MosaicChannels-container">
+    {{ mosaic|raw }}
+    </ul>
+</div>
+{% endblock content %}

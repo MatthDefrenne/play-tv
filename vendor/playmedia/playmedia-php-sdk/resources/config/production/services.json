@@ -1,0 +1,6 @@
+{
+    "includes": [
+        "../services.json"
+    ],
+    "baseUrl": "http://api.playmedia.fr/v1"
+}

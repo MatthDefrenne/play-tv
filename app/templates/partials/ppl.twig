@@ -1,0 +1,38 @@
+<script>
+if ( typeof ppl !== 'object' ) {
+  ppl={};
+  ppl.vars={};
+}
+
+ppl.baseApiUrl = '{% if debug %}/index_debug.php{% endif %}';
+
+ppl.vars.controller="{{ controller_name }}";
+ppl.vars.action="{{ action_name }}";
+ppl.vars.datetime="{{ datetime }}";
+ppl.vars.time={{ now }};
+ppl.vars.timezone={{ timezone }};
+
+ppl.vars.hosts={};
+ppl.vars.hosts.static="{{ static_base_url }}";
+ppl.vars.hosts.adserver="{{ hosts.ad }}";
+ppl.vars.hosts.web="{{ hosts.current }}";
+ppl.vars.hosts.currentFull="{{ hosts.current_full }}";
+ppl.vars.hosts.currentFullSecure="{{ hosts.current_full_secure }}";
+ppl.vars.hosts.desktopFullSecure="{{ hosts.current_full_secure }}";
+ppl.vars.cookieConsentCountry="{{ cookie_consent_cc }}";
+
+ppl.vars.show_skin_ad = {% if show_skin_ad == true %}true{% else %}false{% endif %};
+ppl.vars.displayInflowPopin = {% if display_inflow_popin == true %}true{% else %}false{% endif %};
+ppl.vars.iefInflow = {% if display_inflow_popin == true %}true{% else %}false{% endif %};
+ppl.vars.iefAccount = true;
+
+{% if report_level is defined %}ppl.vars.lvl={{ report_level }};{% endif %}
+
+{% if is_connected == true and current_account.debts is not empty %}
+ppl.debt={{ current_account.debts.0|json_encode() }};
+{% endif %}
+
+if ( typeof ppl.init === 'function' ) {
+  ppl.init();
+}
+</script>

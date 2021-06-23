@@ -1,0 +1,30 @@
+{% spaceless %}
+<div class="pmd-js-root">
+
+{% if
+  (is_connected == false or (is_connected and false == current_account.isPremium())) and
+  (controller_name not in ['account', 'bouncer', 'adblock', 'aide', 'oauth', 'order', 'sales', 'television', 'trailer', 'url', 'player', 'errors', 'newsletter']) and
+  (controller_name != 'pages' and action_name != 'browser_choice')
+%}
+
+  {% if is_website_fr %}
+    {% include "partials/ads-impactify.twig" %}
+    {% if crowdfunding_iscapped %}
+    <div id="stickyadstv-slot"></div>
+    {% endif %}
+    {# forced to sync download :-( #}
+    <script src="https://ads.ayads.co/ajs.php?zid=83"></script>
+    <script async defer src="{{ assets.scripts['app-ads.js'] }}"></script>
+  {% endif %}
+
+  {% if is_website_uk %}
+  {% if route_name in ['programmes_prime_tonight', 'programmes_en_direct'] %}
+    <div id="teads-slot"></div>
+    <script async defer src="{{ assets.scripts['app-ads.js'] }}"></script>
+  {% endif %}
+  {% endif %}
+
+{% endif %}
+
+</div>
+{% endspaceless %}

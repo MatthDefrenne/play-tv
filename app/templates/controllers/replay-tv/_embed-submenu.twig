@@ -1,0 +1,44 @@
+<div class="sub-menu">
+  <div class="container pmd-js-ReplayTvMenu">
+    <ul>
+      {% spaceless %}
+        <li class="pmd-js-ReplayTvMenu-tab">
+          <a href="#replay-information">
+            <span class="sub-menu_text">{% trans %}All the videos{% endtrans %}</span>
+          </a>
+        </li>
+        <li>
+          <a href="/replay-tv/videos/{{ channel.alias }}/">
+            <span class="sub-menu_text">{% trans with {'%channel%': channel.name} %}All the videos from %channel%{% endtrans %}</span>
+          </a>
+        </li>
+        {% if has_feature('social_tv') %}
+        <li class="pmd-js-ReplayTvMenu-tab">
+          <a href="#twitter-tweets" title="{% if channel is defined %}Live tweets sur {{ channel.name }}{% else %}Live tweets{% endif %}">
+            <span class="sub-menu_text">
+            {% spaceless %}
+              <svg role="img" class="pmd-Svg pmd-Svg--twitter pmd-TelevisionMenuTab-twitterIcon">
+                <use xlink:href="#pmd-Svg--twitter"></use>
+              </svg>
+              {% trans %}Live tweets{% endtrans %}
+            {% endspaceless %}
+            </span>
+          </a>
+        </li>
+        {% endif %}
+        <li class="pmd-js-ReplayTvMenu-tab">
+          <a href="#facebook-comments" title="{% if channel is defined %}Commentez en direct sur {{ channel.name }}{% else %}Commentez en direct{% endif %}">
+            <span class="sub-menu_text">
+            {% spaceless %}
+              <svg role="img" class="pmd-Svg pmd-Svg--facebook pmd-TelevisionMenuTab-facebookIcon">
+                <use xlink:href="#pmd-Svg--facebook"></use>
+              </svg>
+              {% trans %}Live comments{% endtrans %}
+            {% endspaceless %}
+            </span>
+          </a>
+        </li>
+      {% endspaceless %}
+    </ul>
+  </div>
+</div>

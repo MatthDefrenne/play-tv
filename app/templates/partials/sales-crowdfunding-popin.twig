@@ -1,0 +1,71 @@
+<div class="pmd-CrowdfundingPopin pmd-js-CrowdfundingPopin">
+
+  <h1>Play TV est en danger !</h1>
+
+  <div class="pmd-CrowdfundingPopin-video">
+    <iframe
+      width="560"
+      height="315"
+      data-src="https://www.youtube.com/embed/HhrOvDrBiA8?rel=0"
+      src="about:blank"
+      onload="lzld(this)"
+      frameborder="0"
+      allowfullscreen
+    >
+    </iframe>
+  </div>
+
+  {% include "partials/sales-crowdfunding-form.twig" %}
+  {% include "partials/sales-crowdfunding-prices.twig" %}
+
+  <p>Chers Utilisateurs,</p>
+
+  <p>Depuis notre lancement nous présentons <strong>Play TV</strong> comme la première plateforme de télévision gratuite et légale sur Internet.</p>
+  <p>Lancé en 2010, avec le soutien du <strong>Ministère de la recherche</strong>, de la <strong>Chambre de Commerce et d'Industrie de Paris</strong> et d'<strong>Oséo Innovation</strong>, nous développons avec notre <strong>équipe de 10 personnes</strong> des technologies innovantes de diffusion vidéo en direct sur Internet.</p>
+
+  <p>Comme vous le savez, notre site vous permet de visionner <strong>une centaine de chaines du monde entier !</strong></p>
+  <p>Nous avons créé des modèles de partage de recette innovants avec les différentes chaines de TV et la SACEM.</p>
+  <p><strong>Vous êtes plus 2,5 millions d'utilisateurs à visiter le site tous les mois</strong>, et à bénéficier gratuitement de nos services, et <strong>nous vous remercions de votre fidélité.</strong></p>
+
+  <p>Cependant nous sommes aujourd'hui face à une décision judiciaire qui met en péril l'avenir du service.</p>
+  <p><strong>Reconnus par le CSA</strong> dès notre lancement, nous avons respecté l'ensemble de nos obligations. D'ailleurs le <strong><u>CSA a dernièrement mis en demeure France Télévisions de se conformer à la loi</u></strong> et de ne pas s'opposer la reprise de ses chaines sur Play TV.</p>
+  <p>Mais parallèlement, <strong><u>la Cour d'Appel de Paris voit les choses autrement</u></strong> et nous condamne lourdement pour la reprise des chaînes de France Télévisions. Nous sommes extrêmement surpris et nous le contestons devant la cour de cassation. Le verdict devrait redistribuer les cartes mais d'ici là nous devons appliquer l'arrêt de la Cour d'Appel bien que de son coté FTV n'applique pas la décision du CSA…</p>
+
+  <p>Nous avons aujourd'hui besoin de fonds pour dynamiser nos développements et obtenir les partenariats avec les grandes chaînes absentes de Play TV.</p>
+
+  <h2>Voila ce que nous vous proposons, pour une contribution :</h2>
+
+  {% include "partials/sales-crowdfunding-prices.twig" %}
+  {% include "partials/sales-crowdfunding-form.twig" %}
+
+  <p><strong>Play TV Premium</strong> c'est l'intégralité du service en <strong>haute qualité</strong> et <strong>sans publicité</strong></p>
+  <p>Merci de votre soutien, on compte sur vous !</p>
+  <p>L'Equipe Play TV !</p>
+
+</div>
+
+<script>
+  (function(win, doc, app) {
+    app.Data = app.Data || {};
+    {% if
+      crowdfunding_open_popin and
+      controller_name not in [
+        'account',
+        'bouncer',
+        'adblock',
+        'oauth',
+        'order',
+        'sales',
+        'trailer',
+        'url',
+        'player',
+        'errors',
+        'newsletter'
+      ]
+    %}
+    app.Data.openCrowdfundingPopin = true;
+    {% else %}
+    app.Data.openCrowdfundingPopin = false;
+    {% endif %}
+  })(window, window.document, window.pmd || (window.pmd = {}));
+</script>

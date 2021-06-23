@@ -1,0 +1,1080 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Actualité"
+msgstr "Attualità"
+
+msgid "Actualité / JT"
+msgstr "Attualità"
+
+msgid "Alpinisme"
+msgstr "Alpinismo"
+
+msgid "Animalier"
+msgstr "Animalista"
+
+msgid "Animation"
+msgstr "Animazione"
+
+msgid "Anticipation"
+msgstr "Fantascienza"
+
+msgid "Aquathlon"
+msgstr "Aquathlon"
+
+msgid "Architecture"
+msgstr "Architettura"
+
+msgid "Art"
+msgstr "Arte"
+
+msgid "Arts martiaux"
+msgstr "Arti marziali"
+
+msgid "Athlétisme"
+msgstr "Atletica"
+
+msgid "Automobile"
+msgstr "Automobilistico"
+
+msgid "Autres"
+msgstr "Altro"
+
+msgid "Autres vidéos"
+msgstr "Altri video"
+
+msgid "Aventure"
+msgstr "Avventura"
+
+msgid "Aviation"
+msgstr "Aviazione"
+
+msgid "Aviron"
+msgstr "Canottaggio"
+
+msgid "Aérobic"
+msgstr "Aerobica"
+
+msgid "BMX"
+msgstr "BMX"
+
+msgid "Babyfoot"
+msgstr "Calcio balilla"
+
+msgid "Badminton"
+msgstr "Badminton"
+
+msgid "Ballet"
+msgstr "Danza classica"
+
+msgid "Base-ball/Soft-ball"
+msgstr "Baseball/Softball"
+
+msgid "Basket-ball"
+msgstr "Basketball"
+
+msgid "Beach Soccer"
+msgstr "Beach Soccer"
+
+msgid "Beach Volley"
+msgstr "Beach Volley"
+
+msgid "Biathlon"
+msgstr "Biathlon"
+
+msgid "Billard"
+msgstr "Biliardo"
+
+msgid "Biographie"
+msgstr "Biografia"
+
+msgid "Biographique"
+msgstr "Biografico"
+
+msgid "Blues"
+msgstr "Blues"
+
+msgid "Bobsleigh"
+msgstr "Slittino"
+
+msgid "Body-building"
+msgstr "Body building"
+
+msgid "Bowling"
+msgstr "Bowling"
+
+msgid "Boxe"
+msgstr "Boxe"
+
+msgid "Boxe française"
+msgstr "Boxe francese"
+
+msgid "Boxe thaïlandaise"
+msgstr "Boxe thailandese"
+
+msgid "Bras de fer"
+msgstr "Braccio di ferro"
+
+msgid "Burlesque"
+msgstr "Burlesque"
+
+msgid "Bûcheronnage"
+msgstr "Tagliare la legna"
+
+msgid "Canoé-kayak"
+msgstr "Canoa"
+
+msgid "Cape et d'épée"
+msgstr "Cappa e spada"
+
+msgid "Cart (Indy)"
+msgstr "Cart (Indy)"
+
+msgid "Catastrophe"
+msgstr "Catastrofe"
+
+msgid "Catch"
+msgstr "Lotta"
+
+msgid "Cerf-volant"
+msgstr "Aquilone"
+
+msgid "Cesta Punta"
+msgstr "Cesta Punta"
+
+msgid "Cheerleading"
+msgstr "Cheerleading"
+
+msgid "Chiens de traîneaux"
+msgstr "Cane da slitta"
+
+msgid "Chronique"
+msgstr "Cronaca"
+
+msgid "Cinéma"
+msgstr "Cinema"
+
+msgid "Cirque"
+msgstr "Circo"
+
+msgid "Civilisation"
+msgstr "Civiltà"
+
+msgid "Classique"
+msgstr "Classico"
+
+msgid "Clips"
+msgstr "Clip"
+
+msgid "Combiné nordique"
+msgstr "Combinata nordica"
+
+msgid "Comique"
+msgstr "Comico"
+
+msgid "Comédie"
+msgstr "Commedia"
+
+msgid "Comédie Burlesque"
+msgstr "Commedia Burlesque"
+
+msgid "Comédie d'action"
+msgstr "Commedia d'azione"
+
+msgid "Comédie d'aventure"
+msgstr "Commedia d'avventura"
+
+msgid "Comédie de moeurs"
+msgstr "Commedia di costume"
+
+msgid "Comédie dramatique"
+msgstr "Commedia drammatica"
+
+msgid "Comédie fantastique"
+msgstr "Commedia fantastica"
+
+msgid "Comédie historique"
+msgstr "Commedia storica"
+
+msgid "Comédie macabre"
+msgstr "Commedia horror"
+
+msgid "Comédie musicale"
+msgstr "Commedia musicale"
+
+msgid "Comédie noire"
+msgstr "Commedia nera"
+
+msgid "Comédie onirique"
+msgstr "Commedia immaginaria"
+
+msgid "Comédie policière"
+msgstr "Commedia poliziesca"
+
+msgid "Comédie romantique"
+msgstr "Commedia romantica"
+
+msgid "Comédie satirique"
+msgstr "Commedia satirica"
+
+msgid "Comédie sentimentale"
+msgstr "Commedia sentimentale"
+
+msgid "Comédie sociale"
+msgstr "Commedia sociale"
+
+msgid "Concert"
+msgstr "Concerto"
+
+msgid "Conte"
+msgstr "Racconto"
+
+msgid "Conte fantastique"
+msgstr "Racconto fantastico"
+
+msgid "Conte érotique"
+msgstr "Racconto erotico"
+
+msgid "Corde à sauter"
+msgstr "Corda per saltare"
+
+msgid "Corrida"
+msgstr "Corrida"
+
+msgid "Country"
+msgstr "Country"
+
+msgid "Course camarguaise"
+msgstr "Corsa camarghese"
+
+msgid "Course de camions"
+msgstr "Gara dei camion"
+
+msgid "Course de tracteur"
+msgstr "Corsa in trattore"
+
+msgid "Court métrage"
+msgstr "Cortometraggio"
+
+msgid "Court-métrage"
+msgstr "Cortometraggio"
+
+msgid "Courts métrages"
+msgstr "Cortometraggi"
+
+msgid "Cricket"
+msgstr "Cricket"
+
+msgid "Cross"
+msgstr "Cross"
+
+msgid "Culinaire"
+msgstr "Culinario"
+
+msgid "Culturel"
+msgstr "Culturale"
+
+msgid "Curling"
+msgstr "Curling"
+
+msgid "Cyclisme"
+msgstr "Ciclismo"
+
+msgid "Cyclisme sur piste"
+msgstr "Ciclismo su pista"
+
+msgid "Cyclo-cross"
+msgstr "Ciclocross"
+
+msgid "Cérémonie"
+msgstr "Cerimonia"
+
+msgid "Cérémonie religieuse"
+msgstr "Cerimonia religiosa"
+
+msgid "Danse"
+msgstr "Ballo"
+
+msgid "Delta"
+msgstr "Delta"
+
+msgid "Dessin animé"
+msgstr "Cartoni animati"
+
+msgid "Divertissement"
+msgstr "Spettacolo"
+
+msgid "Documentaire"
+msgstr "Documentario"
+
+msgid "Documentaire Politique"
+msgstr "Documentario politico"
+
+msgid "Documentaire fiction"
+msgstr "Documentario fantascienza"
+
+msgid "Documentaires"
+msgstr "Documentari"
+
+msgid "Dragster"
+msgstr "Dragster"
+
+msgid "Dramatique"
+msgstr "Drammatico"
+
+msgid "Drame"
+msgstr "Dramma"
+
+msgid "Drame allégorique"
+msgstr "Dramma allegorico"
+
+msgid "Drame criminel"
+msgstr "Dramma criminale"
+
+msgid "Drame fantastique"
+msgstr "Dramma fantastico"
+
+msgid "Drame historique"
+msgstr "Dramma storico"
+
+msgid "Drame lyrique"
+msgstr "Dramma lirico"
+
+msgid "Drame policier"
+msgstr "Dramma poliziesco"
+
+msgid "Drame politique"
+msgstr "Dramma politico"
+
+msgid "Drame psychologique"
+msgstr "Dramma psicologico"
+
+msgid "Drame romantique"
+msgstr "Dramma romantico"
+
+msgid "Drame satirique"
+msgstr "Dramma satirico"
+
+msgid "Drame sentimental"
+msgstr "Dramma sentimentale"
+
+msgid "Drame social"
+msgstr "Dramma sociale"
+
+msgid "Dramma giocosco"
+msgstr "Dramma giocoso"
+
+msgid "Duathlon"
+msgstr "Duathlon"
+
+msgid "Débat"
+msgstr "Dibattito"
+
+msgid "Déclamation baroque"
+msgstr "Declamazioni barocche"
+
+msgid "Découverte"
+msgstr "Scoperta"
+
+msgid "Economique"
+msgstr "Economico"
+
+msgid "Education"
+msgstr "Istruzione"
+
+msgid "Emission religieuse"
+msgstr "Trasmissione religiosa"
+
+msgid "Environnement"
+msgstr "Ambientale"
+
+msgid "Epouvante"
+msgstr "Paura"
+
+msgid "Equitation"
+msgstr "Equitazione"
+
+msgid "Erotique"
+msgstr "Erotico"
+
+msgid "Escalade"
+msgstr "Arrampicata"
+
+msgid "Escrime"
+msgstr "Scherma"
+
+msgid "Espionnage"
+msgstr "Spionaggio"
+
+msgid "Essai"
+msgstr "Prova"
+
+msgid "Etude de moeurs"
+msgstr "Studio di costume"
+
+msgid "Evocation historique"
+msgstr "Evocazione storica"
+
+msgid "F3"
+msgstr "F3"
+
+msgid "Fable"
+msgstr "Favola"
+
+msgid "Fantastique"
+msgstr "Fantastico"
+
+msgid "Feuilleton"
+msgstr "Puntata"
+
+msgid "Fictions"
+msgstr "Narrativa"
+
+msgid "Film"
+msgstr "Film"
+
+msgid "Film de montage"
+msgstr "Film di montaggio"
+
+msgid "Films"
+msgstr "Film"
+
+msgid "Fin des émissions"
+msgstr "Fine delle trasmissioni"
+
+msgid "Fitness"
+msgstr "Fitness"
+
+msgid "Fléchettes"
+msgstr "Freccette"
+
+msgid "Football"
+msgstr "Football"
+
+msgid "Football US"
+msgstr "Football americano"
+
+msgid "Football américain en salle"
+msgstr "Football americano al coperto"
+
+msgid "Football australien"
+msgstr "Football australiano"
+
+msgid "Football en salle"
+msgstr "Football al coperto"
+
+msgid "Formule 1"
+msgstr "Formula 1"
+
+msgid "Formule 3000"
+msgstr "Formula 3000"
+
+msgid "Free Running"
+msgstr "Free Running"
+
+msgid "Freeride"
+msgstr "Freeride"
+
+msgid "Frisbee"
+msgstr "Frisbee"
+
+msgid "Funboard"
+msgstr "Funboard"
+
+msgid "GRS"
+msgstr "GRS"
+
+msgid "GT3"
+msgstr "GT3"
+
+msgid "Gala"
+msgstr "Gala"
+
+msgid "Golf"
+msgstr "Golf"
+
+msgid "Grand opéra"
+msgstr "Grand opéra"
+
+msgid "Guerre"
+msgstr "Guerra"
+
+msgid "Gymnastique"
+msgstr "Ginnastica"
+
+msgid "Générique"
+msgstr "Titoli di testa"
+
+msgid "Haltérophilie"
+msgstr "Sollevamento pesi"
+
+msgid "Handball"
+msgstr "Pallamano"
+
+msgid "Handysport"
+msgstr "Handysport"
+
+msgid "Hippisme"
+msgstr "Ippica"
+
+msgid "Historique"
+msgstr "Storico"
+
+msgid "Hockey sur gazon"
+msgstr "Hochey su prato"
+
+msgid "Hockey sur glace"
+msgstr "Hochey su ghiaccio"
+
+msgid "Horreur"
+msgstr "Orrore"
+
+msgid "Indycar"
+msgstr "Indycar"
+
+msgid "Information"
+msgstr "Informazione"
+
+msgid "Informatique"
+msgstr "Informatica"
+
+msgid "Inshore"
+msgstr "Inshore"
+
+msgid "JO"
+msgstr "Giochi olimpici"
+
+msgid "Jardinage"
+msgstr "Giardinaggio"
+
+msgid "Jazz"
+msgstr "Jazz"
+
+msgid "Jetski"
+msgstr "Jetski"
+
+msgid "Jeu"
+msgstr "Gioco"
+
+msgid "Jeunesse"
+msgstr "Gioventù"
+
+msgid "Jeux olympiques"
+msgstr "Giochi olimpici"
+
+msgid "Journal"
+msgstr "Giornale"
+
+msgid "Judo"
+msgstr "Judo"
+
+msgid "Karaté"
+msgstr "Karate"
+
+msgid "Karting"
+msgstr "Karting"
+
+msgid "Kick Boxing"
+msgstr "Kick Boxing"
+
+msgid "Lacrosse"
+msgstr "Lacrosse"
+
+msgid "Langue"
+msgstr "Lingua"
+
+msgid "Libertin"
+msgstr "Libertinismo"
+
+msgid "Littéraire"
+msgstr "Letterario"
+
+msgid "Luge"
+msgstr "Slittino"
+
+msgid "Lutte"
+msgstr "Lotta"
+
+msgid "Magazine"
+msgstr "Rivista"
+
+msgid "Making-of"
+msgstr "Making of"
+
+msgid "Marathon"
+msgstr "Maratona"
+
+msgid "Melodramma"
+msgstr "Melodramma"
+
+msgid "Mer"
+msgstr "Mare"
+
+msgid "Mode"
+msgstr "Moda"
+
+msgid "Monster Truck"
+msgstr "Monster Truck"
+
+msgid "Moto"
+msgstr "Moto"
+
+msgid "Moto superbike"
+msgstr "Superbike"
+
+msgid "Motocross"
+msgstr "Motocross"
+
+msgid "Motonautisme"
+msgstr "Motonautica"
+
+msgid "Motoneige"
+msgstr "Motoslitta"
+
+msgid "Moyen-métrage"
+msgstr "Mediometraggio"
+
+msgid "Musical"
+msgstr "Musical"
+
+msgid "Musique"
+msgstr "Musica"
+
+msgid "Musique / Clips"
+msgstr "Musica / Clip"
+
+msgid "Musique du monde"
+msgstr "Musica del mondo"
+
+msgid "Musique folklorique"
+msgstr "Musica folk"
+
+msgid "Médias"
+msgstr "Media"
+
+msgid "Médical"
+msgstr "Medico"
+
+msgid "Mélodrame"
+msgstr "Melodramma"
+
+msgid "Météo"
+msgstr "Meteo"
+
+msgid "Natation"
+msgstr "Nuoto"
+
+msgid "Natation synchronisée"
+msgstr "Nuoto sincronizzato"
+
+msgid "Nature"
+msgstr "Natura"
+
+msgid "One-man-show"
+msgstr "One-man-show"
+
+msgid "One-woman-show"
+msgstr "One-woman-show"
+
+msgid "Opéra"
+msgstr "Opera"
+
+msgid "Opéra anglais"
+msgstr "Opera inglese"
+
+msgid "Opéra ballet"
+msgstr "Opera ballet"
+
+msgid "Opéra bouffe"
+msgstr "Opera buffa"
+
+msgid "Opéra comique"
+msgstr "Opera comica"
+
+msgid "Opéra semiseria"
+msgstr "Opera semiseria"
+
+msgid "Opéra seria"
+msgstr "Opera seria"
+
+msgid "Opérette"
+msgstr "Operetta"
+
+msgid "Oratorio"
+msgstr "Oratorio"
+
+msgid "Parachutisme"
+msgstr "Paracadutismo"
+
+msgid "Parapente"
+msgstr "Parapendio"
+
+msgid "Patinage artistique"
+msgstr "Pattinaggio artistico"
+
+msgid "Patinage de vitesse"
+msgstr "Pattinaggio di velocità"
+
+msgid "Peinture"
+msgstr "Pittura"
+
+msgid "Peinture sociale"
+msgstr "Pittura sociale"
+
+msgid "Pelote Basque"
+msgstr "Palla basca"
+
+msgid "Pentathlon"
+msgstr "Pentathlon"
+
+msgid "People"
+msgstr "People"
+
+msgid "Philosophique"
+msgstr "Filosofico"
+
+msgid "Photographie"
+msgstr "Fotografia"
+
+msgid "Pirogue"
+msgstr "Piroga"
+
+msgid "Planche à voile"
+msgstr "Windsurf"
+
+msgid "Planeur"
+msgstr "Aliante"
+
+msgid "Plongeon"
+msgstr "Tuffo"
+
+msgid "Plongée sous-marine"
+msgstr "Immersione subacquea"
+
+msgid "Poker"
+msgstr "Poker"
+
+msgid "Policier"
+msgstr "Poliziesco"
+
+msgid "Politique"
+msgstr "Politico"
+
+msgid "Polo"
+msgstr "Polo"
+
+msgid "Pop/Rock"
+msgstr "Pop/Rock"
+
+msgid "Pornographique"
+msgstr "Pornografico"
+
+msgid "Programme court"
+msgstr "Programma breve"
+
+msgid "Psychologique"
+msgstr "Psicologico"
+
+msgid "Péplum"
+msgstr "Peplum"
+
+msgid "Pétanque/Boules"
+msgstr "Bocce"
+
+msgid "Pêche"
+msgstr "Pesca"
+
+msgid "R&B"
+msgstr "R&B"
+
+msgid "Rallye"
+msgstr "Rally"
+
+msgid "Rap"
+msgstr "Rap"
+
+msgid "Reconstitution historique"
+msgstr "Ricostruzione storica"
+
+msgid "Reggae"
+msgstr "Reggae"
+
+msgid "Religieux"
+msgstr "Religioso"
+
+msgid "Religion"
+msgstr "Religione"
+
+msgid "Reportage"
+msgstr "Reportage"
+
+msgid "Rock"
+msgstr "Rock"
+
+msgid "Rodéo"
+msgstr "Rodeo"
+
+msgid "Roller Skate"
+msgstr "Pattini a rotelle"
+
+msgid "Rugby"
+msgstr "Rugby"
+
+msgid "Rugby à  XIII"
+msgstr "Rugby a 13"
+
+msgid "Rugby à XV"
+msgstr "Rugby a 15"
+
+msgid "Sandboard"
+msgstr "Sandboard"
+
+msgid "Santé"
+msgstr "Salute"
+
+msgid "Saut de falaise"
+msgstr "Tuffo dalla scogliera"
+
+msgid "Saut à ski"
+msgstr "Salto con gli sci"
+
+msgid "Science et technique"
+msgstr "Scienza e tecnica"
+
+msgid "Science-fiction"
+msgstr "Fantascienza"
+
+msgid "Scientifique"
+msgstr "Scientifico"
+
+msgid "Sculpture"
+msgstr "Scultura"
+
+msgid "Semi-opéra"
+msgstr "Semi-opera"
+
+msgid "Sepak takraw"
+msgstr "Sepak takraw"
+
+msgid "Service"
+msgstr "Servizio"
+
+msgid "Side-car"
+msgstr "Sidecar"
+
+msgid "Sidecar"
+msgstr "Sidecar"
+
+msgid "Singspiel"
+msgstr "Singspiel"
+
+msgid "Skateboard"
+msgstr "Skateboard"
+
+msgid "Skeleton"
+msgstr "Skeleton"
+
+msgid "Sketches"
+msgstr "Sketch"
+
+msgid "Ski acrobatique"
+msgstr "Sci acrobatico"
+
+msgid "Ski alpin"
+msgstr "Sci alpino"
+
+msgid "Ski artistique"
+msgstr "Sci artistico"
+
+msgid "Ski de fond"
+msgstr "Sci di fondo"
+
+msgid "Ski de vitesse"
+msgstr "Sci di velocità"
+
+msgid "Ski nautique"
+msgstr "Sci nautico"
+
+msgid "Ski nordique"
+msgstr "Sci nordico"
+
+msgid "Snooker"
+msgstr "Snooker"
+
+msgid "Snowboard"
+msgstr "Snowboard"
+
+msgid "Société"
+msgstr "Società"
+
+msgid "Spectacle"
+msgstr "Spettacolo"
+
+msgid "Sport"
+msgstr "Sport"
+
+msgid "Sport de force"
+msgstr "Sport di forza"
+
+msgid "Sport de vitesse"
+msgstr "Sport di velocità"
+
+msgid "Sportif"
+msgstr "Sportivo"
+
+msgid "Sports de combat"
+msgstr "Sport da combattimento"
+
+msgid "Sports extrêmes"
+msgstr "Sport estremi"
+
+msgid "Sports mécaniques"
+msgstr "Sport meccanici"
+
+msgid "Squash"
+msgstr "Squash"
+
+msgid "Stock-car"
+msgstr "Stock car"
+
+msgid "Street Workout"
+msgstr "Street Workout"
+
+msgid "Sumo"
+msgstr "Sumo"
+
+msgid "Supercars"
+msgstr "Supercar"
+
+msgid "Surf"
+msgstr "Surf"
+
+msgid "Suspense"
+msgstr "Suspense"
+
+msgid "Série"
+msgstr "Serie"
+
+msgid "Série TV"
+msgstr "Serie TV"
+
+msgid "Série documentaire"
+msgstr "Serie di documentari"
+
+msgid "Série télévisée"
+msgstr "Serie televisiva"
+
+msgid "Séries TV"
+msgstr "Serie televisiva"
+
+msgid "Talk-show"
+msgstr "Talk-show"
+
+msgid "Techno"
+msgstr "Tecnologia"
+
+msgid "Tennis"
+msgstr "Tennis"
+
+msgid "Tennis de table"
+msgstr "Tennis da tavolo"
+
+msgid "Thriller"
+msgstr "Thriller"
+
+msgid "Théâtre"
+msgstr "Teatro"
+
+msgid "Timber sport"
+msgstr "Timbersport"
+
+msgid "Tir"
+msgstr "Tiro"
+
+msgid "Tir à l'arc"
+msgstr "Tiro con l'arco"
+
+msgid "Tractor Pulling"
+msgstr "Tractor Pulling"
+
+msgid "Tragédie lyrique"
+msgstr "Tragedia lirica"
+
+msgid "Trail"
+msgstr "Trail"
+
+msgid "Trampoline"
+msgstr "Trampolino"
+
+msgid "Trial"
+msgstr "Trial"
+
+msgid "Triathlon"
+msgstr "Triathlon"
+
+msgid "Télé-achat"
+msgstr "Televendita"
+
+msgid "Téléfilm"
+msgstr "Telefilm"
+
+msgid "Télénovela"
+msgstr "Telenovela"
+
+msgid "Téléréalité"
+msgstr "Reality show"
+
+msgid "Unihockey"
+msgstr "Unihockey"
+
+msgid "VTT"
+msgstr "Mountain bike"
+
+msgid "Variétés"
+msgstr "Varietà"
+
+msgid "Vie pratique"
+msgstr "Pratica"
+
+msgid "Voile"
+msgstr "Vela"
+
+msgid "Voitures de tourisme"
+msgstr "Vetture turismo"
+
+msgid "Vol à voile"
+msgstr "Volo a vela"
+
+msgid "Volley"
+msgstr "Pallavolo"
+
+msgid "Voltige aérienne"
+msgstr "Acrobazia aerea"
+
+msgid "Water polo"
+msgstr "Water polo"
+
+msgid "Western"
+msgstr "Western"
+
+msgid "Yoga"
+msgstr "Yoga"
+
+msgid "Émission"
+msgstr "Trasmissione"
+
+msgid "Émission de télé"
+msgstr "Trasmissione televisiva"

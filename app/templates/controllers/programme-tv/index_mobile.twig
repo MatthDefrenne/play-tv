@@ -1,0 +1,185 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<div class="pmd-ProgrammeDetails">
+
+  <div class="pmd-ProgrammeDetailsHeading pmd-Cf">
+
+    {% if program.trailer %}
+    <a class="pmd-ProgrammeDetailsHeading-preview" rel="nofollow" target="_blank" href="/trailer/{{ program.id }}/?autoplay=1">
+    {% else %}
+    <div class="pmd-ProgrammeDetailsHeading-preview">
+    {% endif %}
+
+      <img
+        src="{{ program.images.medium|default(apps_base_url ~ "/images/tv-default-mobile.svg") }}"
+        width="107"
+        height="80"
+      />
+
+      {% if program.trailer %}
+      <span class="pmd-TrailerIcon pmd-Icons-trailer pmd-ProgrammeDetailsHeading-preview-trailer"></span>
+      {% endif %}
+
+    {% if program.trailer %}
+    </a>
+    {% else %}
+    </div>
+    {% endif %}
+
+    <h2 class="pmd-ProgrammeDetailsHeading-title">{{ program.fulltitle }}</h2>
+
+    <div class="pmd-ProgrammeDetailsHeading-info">
+      {% if program.gender %}
+      <span class="pmd-ProgrammeGenre pmd-ProgrammeGenre--{{ program.gender_id }} pmd-ProgrammeGenre--white pmd-ProgrammeGenre--small">
+        {{ program.gender }}
+      </span>
+      {% endif %}
+
+      {% if program.stars > 0 %}
+      <span class="pmd-ProgrammeDetailsHeading-stars">
+        <img
+          src="{{ apps_base_url }}/images/stars-{{ program.stars }}-mobile.svg"
+          width="36"
+        />
+      </span>
+      {% endif %}
+
+      {% if program.csa_id and program.csa_id != 1 %}
+        {% if program.csa_id == 2 %}
+          {% set csa_id = 10 %}
+        {% elseif program.csa_id == 3 %}
+          {% set csa_id = 12 %}
+        {% elseif program.csa_id == 4 %}
+          {% set csa_id = 16 %}
+        {% elseif program.csa_id == 5 %}
+          {% set csa_id = 18 %}
+        {% endif %}
+      <span class="pmd-ProgrammeDetailsHeading-ageLimitation">
+        <img
+          src="{{ apps_base_url }}/images/csa-{{ csa_id }}-mobile.svg"
+          width="15"
+        />
+      </span>
+      {% endif %}
+
+    </div>
+
+    {% if program.duration %}
+    <div class="pmd-ProgrammeDetailsHeading-time">
+      <em>{{ program.duration|diff_for_humans }}</em>
+    </div>
+    {% endif %}
+
+  </div>
+
+  {% if is_live %}
+    {% if is_live.broadcast.channel.streamable %}
+    <a
+      href="{{ path('television_channel_single', {'channel_id': is_live.broadcast.channel.id, 'channel_alias': is_live.broadcast.channel.alias}) }}"
+      class="pmd-ProgrammeDetailsLive"
+    >
+      {% trans %}This program is on air. Watch it now.{% endtrans %}
+    </a>
+    {% else %}
+    <div class="pmd-ProgrammeDetailsLive">
+      {% trans %}This program is on air.{% endtrans %}
+    </div>
+    {% endif %}
+  {% endif %}
+
+  <div class="pmd-ProgrammeDetailsContent">
+
+    <div class="pmd-Heading pmd-Heading--2x pmd-Heading--light">
+    {% spaceless %}
+      <a href="#" class="pmd-js-ProgrammeDetails-summary pmd-Heading-words">
+        <span>{% trans %}Summary{% endtrans %}</span>
+      </a>
+      <a href="#" class="pmd-js-ProgrammeDetails-broadcast pmd-Heading-words">
+        <span>{% trans %}Rebroadcasts{% endtrans %}</span>
+      </a>
+    {% endspaceless %}
+    </div>
+
+    <div class="pmd-js-ProgrammeDetails-summaryContent pmd-ProgrammeDetailsSummary">
+
+      <div class="pmd-ProgrammeDetailsMiniSummary">
+        <h3 class="pmd-ProgrammeDetailsMiniSummary-heading">{{ program.fulltitle }} {% if program.year %}({{ program.year }}){% endif %}</h3>
+        {% if program.subtitle %}
+        <h4 class="pmd-ProgrammeDetailsMiniSummary-subheading">{{ program.subtitle }}</h4>
+        {% endif %}
+        <p class="pmd-ProgrammeDetailsMiniSummary-sentence">
+          {% if program.summary %}
+            {{ program.summary|raw }}
+          {% else %}
+          {% trans %}No summary for this program{% endtrans %}
+          {% endif %}
+        </p>
+      </div>
+
+      {% if casts %}
+      <div class="pmd-ProgrammeDetailsCasting">
+
+        <ul class="pmd-ProgrammeDetailsCasting-headingList">
+          {% if casts.according_to is defined %}
+          {% for status in casts.according_to %}
+          <li class="pmd-ProgrammeDetailsCasting-headingListItem">
+            <p class="pmd-ProgrammeDetailsCasting-headingWord">{{ status.status }} :</p>
+            <ul class="pmd-ProgrammeDetailsCasting-contentList">
+              {% for cast in status.casts %}
+              <li class="pmd-ProgrammeDetailsCasting-contentListItem">{{ cast.fullname }}{% if cast.role %} ({{ cast.role }}){% endif %}</li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% endfor %}
+          {% endif %}
+
+          {% if casts.casting is defined %}
+          {% for status in casts.casting %}
+          <li class="pmd-ProgrammeDetailsCasting-headingListItem">
+            <p class="pmd-ProgrammeDetailsCasting-headingWord">{{ status.status }} :</p>
+            <ul class="pmd-ProgrammeDetailsCasting-contentList">
+              {% for cast in status.casts %}
+              <li class="pmd-ProgrammeDetailsCasting-contentListItem">{{ cast.fullname }}{% if cast.role %} ({{ cast.role }}){% endif %}</li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+
+      </div>
+      {% endif %}
+
+    </div>
+
+    <div class="pmd-js-ProgrammeDetails-broadcastContent pmd-ProgrammeDetailsBroadcast">
+
+      <ul class="pmd-ProgrammeDetailsBroadcast-list">
+        {% for broadcast in broadcasts %}
+        {% spaceless %}
+        <li class="pmd-ProgrammeDetailsBroadcast-listItem">
+          {% trans with {'%date%': date_for_humans(broadcast.start)|capitalize, '%hour%': broadcast.start|localizeddate('none', 'short'), '%channel%': broadcast.channel.name} %}
+          <strong>%date%</strong> at %hour% on %channel%
+          {% endtrans %}
+        </li>
+        {% endspaceless %}
+        {% else %}
+        <li class="pmd-ProgrammeDetailsBroadcast-listItem">
+          {% trans with {'%program%': program.fulltitle} %}
+          No rebroadcast for <strong>%program%</strong> in the next 7 days.
+          {% endtrans %}
+        </li>
+        {% endfor %}
+      </ul>
+
+    </div>
+
+  </div>
+
+  {% if is_website_fr %}
+  <div id="taboola-fiche-programme-mobile"></div>
+  {% endif %}
+
+</div>
+{% endblock %}

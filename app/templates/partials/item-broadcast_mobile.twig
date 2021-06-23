@@ -1,0 +1,94 @@
+{% if is_live is not defined %}
+  {% set is_live = false %}
+{% endif %}
+<li class="pmd-TvProgrammeListItem">
+  <div class="pmd-TvProgrammeListItem-wrapper">
+
+    <a href="{% if is_live %}{{ path('television_channel_single', {'channel_id': channel.id, 'channel_alias': channel.alias}) }}{% else %}{{ path('chaine_tv', {'channel_id': channel.id, 'channel_alias': channel.alias}) }}{% endif %}" class="pmd-TvProgrammeListItem-channel{% if channel.streamable and channel.streaming_source == 'internal' %} pmd-TvProgrammeListItem-channel--streamable{% endif %}">
+      <img
+        src="{{ channel.images.medium }}"
+        alt="{{ channel.name }}"
+        width="57"
+        height="57"
+      />
+    </a>
+
+    {% for broadcast in broadcasts %}
+    {% if broadcast.program is defined %}
+      <a href="{{ broadcast.program.program_url }}" class="pmd-TvProgrammeListItem-content">
+
+        <h4 class="pmd-TvProgrammeListItem-heading pmd-Text--truncate">
+          {% if broadcast.program.fulltitle is not empty %}
+            {{ broadcast.program.fulltitle }}
+          {% else %}
+            {% trans %}No information{% endtrans %}
+          {% endif %}
+        </h4>
+
+        <div class="pmd-TvProgrammeListItem-info">
+
+          {% if broadcast.program.stars > 0 %}
+          <div class="pmd-TvProgrammeListItem-star">
+            <img
+              src="{{ apps_base_url }}/images/stars-{{ broadcast.program.stars }}-mobile.svg"
+              width="36"
+              height="11"
+            />
+          </div>
+          {% endif %}
+
+          <div class="pmd-TvProgrammeListItem-genre pmd-Text--truncate">
+            {% if broadcast.program.gender %}
+            <span class="pmd-ProgrammeGenre pmd-ProgrammeGenre--{{ broadcast.program.gender_id }} pmd-ProgrammeGenre--small">{{ broadcast.program.gender }}</span>
+            {% else %}
+            <span> </span>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="pmd-TvProgrammeListItem-time{% if is_live == false %} pmd-TvProgrammeListItem-time--withoutProgress{% endif %}">
+          <div class="pmd-TvProgrammeListItem-start">
+            {{ broadcast.start|date("H:i")|default("--:--") }}
+          </div>
+          {% if is_live %}
+          <div class="pmd-Progress">
+            <div class="pmd-Progress-bar" style="width: {{ broadcast.progress }}%;"></div>
+          </div>
+          {% else %}
+          -
+          {% endif %}
+          <div class="pmd-TvProgrammeListItem-end">
+            {{ broadcast.end|date("H:i")|default("--:--") }}
+          </div>
+        </div>
+
+      </a>
+
+      {% if broadcast.program.trailer %}
+      <a class="pmd-TvProgrammeListItem-preview" rel="nofollow" target="_blank" href="/trailer/{{ broadcast.program.id }}/?autoplay=true">
+      {% else %}
+      <div class="pmd-TvProgrammeListItem-preview">
+      {% endif %}
+        <img
+          src="{{ broadcast.program.images.small|default(apps_base_url ~ "/images/tv-default-mobile.svg") }}"
+          alt=""
+          width="69"
+          height="52"
+          class="pmd-TvProgrammeListItem-preview-picture"
+        />
+
+        {% if broadcast.program.trailer %}
+        <span class="pmd-TrailerIcon pmd-TrailerIcon--small pmd-TvProgrammeListItem-preview-trailer pmd-Icons-trailer"></span>
+        {% endif %}
+
+      {% if broadcast.program.trailer %}
+      </a>
+      {% else %}
+      </div>
+      {% endif %}
+
+    {% endif %}
+    {% endfor %}
+
+  </div>
+</li>

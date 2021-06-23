@@ -1,0 +1,112 @@
+{# https://adblockplus.org/en/getting_started #}
+{% extends "controllers/faq/_header.twig" %}
+{% block faq_content %}
+{% if is_website_fr %}
+<div class="ptv-Notifier ptv-Notifier--alert ptv-Notifier--active">
+  <p>{% trans %}Warning, the latest version of Adblock Plus isn't compatible anymore with our website. Please <a href="#adb-happen" style="color: white;">see why</a>.{% endtrans %}</p>
+</div>
+{% endif %}
+<h2 class="margin">{% if is_website_fr %}1.4. {% endif %}{% trans %}My browser has been redirected after I wanted to watch a stream{% endtrans %}</h2>
+<p>
+  <strong>{% trans %}You have been redirected because we think you are using Adblock Plus.{% endtrans %}</strong>
+</p>
+<p>
+  {% trans %}We do not detect you have a plugin, we simply verify if the ads are well displayed after the loading of the page. If it's not the case, the access of our service is defiend and we assume you use this kind of software. <strong>You are free to disable or not the plugin on our website.</strong>{% endtrans %}</strong>
+</p>
+<p>{% trans %}You are also free not to come on our website.{% endtrans %}</p>
+<!-- <p>
+  Nous avons fait le choix d'un modèle basé sur la publicité mais gratuit pour l'utilisateur final contrairement à d'autres opérateurs qui proposent un abonnement payant. Ces recettes nous permettent de couvrir notamment une partie des charges de diffusion. Ce modèle permet à des millions d'internautes de profiter de programmes en direct chaque mois.
+</p> -->
+<p>
+  {% trans %}
+  Our system has detected that you are blocking ads with <a href="https://adblockplus.org/" target="_blank" rel="nofollow"><strong>Adblock Plus</strong></a> or a similar software.
+  {% endtrans %}
+</p>
+<p class="bigger">
+  <strong>
+  {% trans with {'%host%': request.host} %}To watch TV on %host%, please disable this software.{% endtrans %}
+  </strong>.
+</p>
+<h3>
+  {% trans with {'%host%': request.host} %}
+  How to disable Adblock Plus for %host%?
+  {% endtrans %}
+</h3>
+<div class="image">
+  <img src="{{ apps_base_url }}/images/faq/faq-adblock.png" alt="Adblock">
+</div>
+<ol>
+  <li>
+    {% trans %}
+    <strong>Find the Adblock Plus icon</strong> in your web browser (Mozilla Firefox, Google Chrome etc.).
+    {% endtrans %}
+    <br>
+    <span class="clear-grey">
+    {% trans %}
+    Generally it is located at the right of the address bar, or at the bottom right of the window.
+    {% endtrans %}
+    </span>
+  </li>
+  <li>
+    <p>{% trans %}Click on the icon and then (depending on browser):{% endtrans %}</p>
+    <ul>
+      <li>
+        <strong>Mozilla Firefox</strong>
+        <br>
+        {% trans %}
+        Click on « Disable <strong>everywhere</strong> ». (Yes, <strong>everywhere</strong>).
+        {% endtrans %}
+      </li>
+      <li>
+        <strong>{% trans %}Google Chrome and others{% endtrans %}</strong>
+        <br>
+        {% trans with {'%host%': request.host} %}
+        Click on « Disable on %host% ».
+        {% endtrans %}
+      </li>
+    </ul>
+  </li>
+  <li>{% trans %}Try accessing the previous page again or <a href="/"><strong>click here</strong></a>.{% endtrans %}</li>
+</ol>
+<h3>{% trans %}Video tutorial{% endtrans %}</h3>
+<iframe width="100%" height="360" data-src="//www.youtube-nocookie.com/embed/_EbBIugKcUs?rel=0" src="about:blank" onload="lzld(this)" frameborder="0" allowfullscreen></iframe>
+<h3>{% trans %}I can't disable Adblock Plus{% endtrans %}</h3>
+<p>
+  {% trans %}
+  If you can't find the Adblock button or you can't manage to disable Adblock, you can try <strong>uninstalling completely the software</strong> in the options of your web browser.
+  {% endtrans %}
+</p>
+<ul>
+  <li>
+    <strong>Mozilla Firefox</strong>
+    <br>
+    {% trans %}
+    Open your "Add-ons Manager" by going to "Firefox" > "Add-ons" (for Mac OS X / Linux, select "Tools" from the menubar > "Add-Ons"). Here you will find an overview of your currently installed add-ons. Find Adblock Plus here, and simply click on "Remove"
+    {% endtrans %}
+  </li>
+  <li>
+    <strong>Google Chrome</strong>
+    <br>
+    {% trans %}
+    Go to "Settings" in the menu in the top right corner. Then, select "Extensions" on the left side. Find Adblock Plus here, and select the small trashcan icon on the right side.
+    {% endtrans %}
+  </li>
+  <li>
+    <strong>Apple Safari</strong>
+    <br>
+    {% trans %}
+    Go to Preferences > Extensions, select the extension from the list on the left, and click "Uninstall".
+    {% endtrans %}
+  </li>
+</ul>
+{% if is_website_fr %}
+<h3 id="adb-happen">Que se passe-t-il avec la nouvelle version d'Adblock</h3>
+<p>Depuis la dernière version, nous avons constaté qu'Adblock ne prend plus en compte vos paramétrages sur notre site. Il semblerait que la cause soit une règle spécifique à notre site (voir la règle <a href="https://listefr-adblock.googlecode.com/hg/liste_fr.txt" target="_blank">ici</a> et chercher le terme "playtv"). Le problème de cette règle est qu'elle ne prend malheureusement plus du tout en compte les choix que vous pouvez faire sur Adblock comme par exemple désactiver Adblock <em>uniquement</em> pour Play TV. Cette règle est <strong>persistante</strong> et ne peut être annulée qu'<strong>en désactivant totalement Adblock</strong>.</p>
+<p>N'oubliez pas de réactiver Adblock une fois votre navigation sur Play TV terminée.</p>
+<p>Nous sommes désolés du désagrément et nous vous invitons à <a href="https://adblockplus.org/fr/bugs#reporting" target="_blank">signaler ce léger</a> souci aux développeurs de cette application.</p>
+{% endif %}
+<h3 style="margin-top:10px;">{% trans %}Still redirected?{% endtrans %}</h3>
+<p>{% trans with {'%host%': request.host} %}You haven't installed AdBlock or you have disabled Adblock for <strong>%host%</strong> but you are still redirected to this page.{% endtrans %}</p>
+<p>{% trans %}This may be a false positive.{% endtrans %}</p>
+<p class="xmargin">{% trans with { "%href%": path('help_support') } %}Please <a href="%href%"><strong>contact our support</strong></a>.{% endtrans %}</p>
+{% endblock faq_content %}

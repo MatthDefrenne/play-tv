@@ -1,0 +1,21 @@
+{
+  "operations": {
+    "streams.collection": {
+      "httpMethod": "GET",
+      "uri": "streams/",
+      "summary": "Streams collection",
+      "additionalParameters": {
+        "location": "query"
+      }
+    },
+    "streams.tokenizer": {
+      "httpMethod": "GET",
+      "uri": "streams/tokenizer/",
+      "summary": "Stream tokenized url",
+      "additionalParameters": {
+        "location": "query"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,1080 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+
+msgid "Action"
+msgstr "Macera"
+
+msgid "Actualité"
+msgstr "Aktüalite"
+
+msgid "Actualité / JT"
+msgstr "Aktüalite"
+
+msgid "Alpinisme"
+msgstr "Dağcılık"
+
+msgid "Animalier"
+msgstr "Hayvanlar"
+
+msgid "Animation"
+msgstr "Animasyon"
+
+msgid "Anticipation"
+msgstr "Önceden tahmin etme"
+
+msgid "Aquathlon"
+msgstr "Aquathlon"
+
+msgid "Architecture"
+msgstr "Mimari"
+
+msgid "Art"
+msgstr "Sanat"
+
+msgid "Arts martiaux"
+msgstr "Dövüş sanatları"
+
+msgid "Athlétisme"
+msgstr "Atletizm"
+
+msgid "Automobile"
+msgstr "Otomobil"
+
+msgid "Autres"
+msgstr "Diğer"
+
+msgid "Autres vidéos"
+msgstr "Diğer videolar"
+
+msgid "Aventure"
+msgstr "Macera"
+
+msgid "Aviation"
+msgstr "Havacılık"
+
+msgid "Aviron"
+msgstr "Kürek"
+
+msgid "Aérobic"
+msgstr "Aktüalite"
+
+msgid "BMX"
+msgstr "BMX"
+
+msgid "Babyfoot"
+msgstr "Langırt"
+
+msgid "Badminton"
+msgstr "Badminton"
+
+msgid "Ballet"
+msgstr "Bale"
+
+msgid "Base-ball/Soft-ball"
+msgstr "Beyzbol / Softbol"
+
+msgid "Basket-ball"
+msgstr "Basketbol"
+
+msgid "Beach Soccer"
+msgstr "Plaj Futbolu"
+
+msgid "Beach Volley"
+msgstr "Plaj Voleybolu"
+
+msgid "Biathlon"
+msgstr "Biatlon"
+
+msgid "Billard"
+msgstr "Bilardo"
+
+msgid "Biographie"
+msgstr "Biyografi"
+
+msgid "Biographique"
+msgstr "Biyografik"
+
+msgid "Blues"
+msgstr "Blues"
+
+msgid "Bobsleigh"
+msgstr "Yarış kızağı"
+
+msgid "Body-building"
+msgstr "Vücut geliştirme"
+
+msgid "Bowling"
+msgstr "Bovling"
+
+msgid "Boxe"
+msgstr "Boks"
+
+msgid "Boxe française"
+msgstr "Fransız boksu"
+
+msgid "Boxe thaïlandaise"
+msgstr "Tayland boksu"
+
+msgid "Bras de fer"
+msgstr "Bilek güreşi"
+
+msgid "Burlesque"
+msgstr "Vodvil"
+
+msgid "Bûcheronnage"
+msgstr "Odunculuk"
+
+msgid "Canoé-kayak"
+msgstr "Kano"
+
+msgid "Cape et d'épée"
+msgstr "Kılıç"
+
+msgid "Cart (Indy)"
+msgstr "Carting (Indy)"
+
+msgid "Catastrophe"
+msgstr "Felaket"
+
+msgid "Catch"
+msgstr "Catch"
+
+msgid "Cerf-volant"
+msgstr "Uçurtma"
+
+msgid "Cesta Punta"
+msgstr "Cesta Punta"
+
+msgid "Cheerleading"
+msgstr "Amigo"
+
+msgid "Chiens de traîneaux"
+msgstr "Kızak köpekleri"
+
+msgid "Chronique"
+msgstr "Eleştiri"
+
+msgid "Cinéma"
+msgstr "Sinema"
+
+msgid "Cirque"
+msgstr "Sirk"
+
+msgid "Civilisation"
+msgstr "Medeniyet"
+
+msgid "Classique"
+msgstr "Klasik"
+
+msgid "Clips"
+msgstr "Klipler"
+
+msgid "Combiné nordique"
+msgstr "Kuzey Kombinasyonu"
+
+msgid "Comique"
+msgstr "Komik"
+
+msgid "Comédie"
+msgstr "Komedi"
+
+msgid "Comédie Burlesque"
+msgstr "Vodvil Komedi"
+
+msgid "Comédie d'action"
+msgstr "Aksiyon komedi"
+
+msgid "Comédie d'aventure"
+msgstr "Macera komedi"
+
+msgid "Comédie de moeurs"
+msgstr "Geleneksel komedi"
+
+msgid "Comédie dramatique"
+msgstr "Dramatik komedi"
+
+msgid "Comédie fantastique"
+msgstr "Fantastik komedi"
+
+msgid "Comédie historique"
+msgstr "Tarihi komedi"
+
+msgid "Comédie macabre"
+msgstr "Korku komedisi"
+
+msgid "Comédie musicale"
+msgstr "Müzikal komedi"
+
+msgid "Comédie noire"
+msgstr "Kara mizah"
+
+msgid "Comédie onirique"
+msgstr "Hayali komedi"
+
+msgid "Comédie policière"
+msgstr "Polisiye komedi"
+
+msgid "Comédie romantique"
+msgstr "Romantik komedi"
+
+msgid "Comédie satirique"
+msgstr "Satirik komedi"
+
+msgid "Comédie sentimentale"
+msgstr "Duygusal komedi"
+
+msgid "Comédie sociale"
+msgstr "Sosyal komedi"
+
+msgid "Concert"
+msgstr "Konser"
+
+msgid "Conte"
+msgstr "Masal"
+
+msgid "Conte fantastique"
+msgstr "Fantastik masal"
+
+msgid "Conte érotique"
+msgstr "Erotik masal"
+
+msgid "Corde à sauter"
+msgstr "İp atlama"
+
+msgid "Corrida"
+msgstr "Boğa Güreşi (Corrida)"
+
+msgid "Country"
+msgstr "Country"
+
+msgid "Course camarguaise"
+msgstr "Camargue yarışı"
+
+msgid "Course de camions"
+msgstr "Kamyon yarışı"
+
+msgid "Course de tracteur"
+msgstr "Traktör yarışı"
+
+msgid "Court métrage"
+msgstr "Kısa metraj"
+
+msgid "Court-métrage"
+msgstr "Kısa metraj"
+
+msgid "Courts métrages"
+msgstr "Kısa metrajlar"
+
+msgid "Cricket"
+msgstr "Kriket"
+
+msgid "Cross"
+msgstr "Kros"
+
+msgid "Culinaire"
+msgstr "Mutfak"
+
+msgid "Culturel"
+msgstr "Kültürel"
+
+msgid "Curling"
+msgstr "Curling"
+
+msgid "Cyclisme"
+msgstr "Bisikletçilik"
+
+msgid "Cyclisme sur piste"
+msgstr "Parça Bisiklet"
+
+msgid "Cyclo-cross"
+msgstr "Bisiklet krosu"
+
+msgid "Cérémonie"
+msgstr "Tören"
+
+msgid "Cérémonie religieuse"
+msgstr "Dini tören"
+
+msgid "Danse"
+msgstr "Dans"
+
+msgid "Delta"
+msgstr "Delta"
+
+msgid "Dessin animé"
+msgstr "Çizgi film"
+
+msgid "Divertissement"
+msgstr "Eğlence"
+
+msgid "Documentaire"
+msgstr "Belgesel"
+
+msgid "Documentaire Politique"
+msgstr "Siyasi belgesel"
+
+msgid "Documentaire fiction"
+msgstr "Kurgusal belgesel"
+
+msgid "Documentaires"
+msgstr "Belgesel"
+
+msgid "Dragster"
+msgstr "Dragster"
+
+msgid "Dramatique"
+msgstr "Dramatik"
+
+msgid "Drame"
+msgstr "Dram"
+
+msgid "Drame allégorique"
+msgstr "Allegorik dram"
+
+msgid "Drame criminel"
+msgstr "Kriminel drama"
+
+msgid "Drame fantastique"
+msgstr "Fantastik dram"
+
+msgid "Drame historique"
+msgstr "Tarihi dram"
+
+msgid "Drame lyrique"
+msgstr "Lirik drama"
+
+msgid "Drame policier"
+msgstr "Polisiye dram"
+
+msgid "Drame politique"
+msgstr "Siyasi dram"
+
+msgid "Drame psychologique"
+msgstr "Psikolojik dram"
+
+msgid "Drame romantique"
+msgstr "Romantik dram"
+
+msgid "Drame satirique"
+msgstr "Satirik dram"
+
+msgid "Drame sentimental"
+msgstr "Duygusal dram"
+
+msgid "Drame social"
+msgstr "Sosyal dram"
+
+msgid "Dramma giocosco"
+msgstr "Dramma giocosco"
+
+msgid "Duathlon"
+msgstr "Duatlon"
+
+msgid "Débat"
+msgstr "Tartışma"
+
+msgid "Déclamation baroque"
+msgstr "Barok ayta"
+
+msgid "Découverte"
+msgstr "Keşif"
+
+msgid "Economique"
+msgstr "Ekonomik"
+
+msgid "Education"
+msgstr "Eğitim"
+
+msgid "Emission religieuse"
+msgstr "Dini yayın"
+
+msgid "Environnement"
+msgstr "Çevre"
+
+msgid "Epouvante"
+msgstr "Korku"
+
+msgid "Equitation"
+msgstr "Binicilik"
+
+msgid "Erotique"
+msgstr "Erotik"
+
+msgid "Escalade"
+msgstr "Tırmanış"
+
+msgid "Escrime"
+msgstr "Eskrim"
+
+msgid "Espionnage"
+msgstr "Casusluk"
+
+msgid "Essai"
+msgstr "Deneme"
+
+msgid "Etude de moeurs"
+msgstr "Gelenek araştırması"
+
+msgid "Evocation historique"
+msgstr "Tarihi hatırlatma"
+
+msgid "F3"
+msgstr "F3"
+
+msgid "Fable"
+msgstr "Fabl"
+
+msgid "Fantastique"
+msgstr "Fantastik"
+
+msgid "Feuilleton"
+msgstr "Pembe dizi"
+
+msgid "Fictions"
+msgstr "Kurgu"
+
+msgid "Film"
+msgstr "Film"
+
+msgid "Film de montage"
+msgstr "Montaj filmi"
+
+msgid "Films"
+msgstr "Filmler"
+
+msgid "Fin des émissions"
+msgstr "Program sonu"
+
+msgid "Fitness"
+msgstr "Fitness"
+
+msgid "Fléchettes"
+msgstr "Dart"
+
+msgid "Football"
+msgstr "Futbol"
+
+msgid "Football US"
+msgstr "Amerikan futbolu"
+
+msgid "Football américain en salle"
+msgstr "Salonda Amerikan futbolu"
+
+msgid "Football australien"
+msgstr "Avustralya futbolu"
+
+msgid "Football en salle"
+msgstr "Salon futbolu"
+
+msgid "Formule 1"
+msgstr "Formula 1"
+
+msgid "Formule 3000"
+msgstr "Formula 3000"
+
+msgid "Free Running"
+msgstr "Serbest koşu"
+
+msgid "Freeride"
+msgstr "Freeride"
+
+msgid "Frisbee"
+msgstr "Frizbi"
+
+msgid "Funboard"
+msgstr "Funboard"
+
+msgid "GRS"
+msgstr "GRS"
+
+msgid "GT3"
+msgstr "GT3"
+
+msgid "Gala"
+msgstr "Gala"
+
+msgid "Golf"
+msgstr "Golf"
+
+msgid "Grand opéra"
+msgstr "Büyük opera"
+
+msgid "Guerre"
+msgstr "Savaş"
+
+msgid "Gymnastique"
+msgstr "Cimnastik"
+
+msgid "Générique"
+msgstr "Jenerik"
+
+msgid "Haltérophilie"
+msgstr "Halter"
+
+msgid "Handball"
+msgstr "Hentbol"
+
+msgid "Handysport"
+msgstr "Handysport"
+
+msgid "Hippisme"
+msgstr "Yarış"
+
+msgid "Historique"
+msgstr "Tarih"
+
+msgid "Hockey sur gazon"
+msgstr "Çim Hokeyi"
+
+msgid "Hockey sur glace"
+msgstr "Buz Hokeyi"
+
+msgid "Horreur"
+msgstr "Korku"
+
+msgid "Indycar"
+msgstr "Indycar"
+
+msgid "Information"
+msgstr "Bilgi"
+
+msgid "Informatique"
+msgstr "Bilişim"
+
+msgid "Inshore"
+msgstr "Sahilde"
+
+msgid "JO"
+msgstr "JO"
+
+msgid "Jardinage"
+msgstr "Bahçecilik"
+
+msgid "Jazz"
+msgstr "Caz"
+
+msgid "Jetski"
+msgstr "Jetski"
+
+msgid "Jeu"
+msgstr "Oyun"
+
+msgid "Jeunesse"
+msgstr "Gençlik"
+
+msgid "Jeux olympiques"
+msgstr "Olimpiyat oyunları"
+
+msgid "Journal"
+msgstr "Gazete"
+
+msgid "Judo"
+msgstr "Judo"
+
+msgid "Karaté"
+msgstr "Karate"
+
+msgid "Karting"
+msgstr "Karting"
+
+msgid "Kick Boxing"
+msgstr "Kick Boxing"
+
+msgid "Lacrosse"
+msgstr "Lacrosse"
+
+msgid "Langue"
+msgstr "Dil"
+
+msgid "Libertin"
+msgstr "Çapkın"
+
+msgid "Littéraire"
+msgstr "Edebiyat"
+
+msgid "Luge"
+msgstr "Kızak"
+
+msgid "Lutte"
+msgstr "Güreş"
+
+msgid "Magazine"
+msgstr "Mağaza"
+
+msgid "Making-of"
+msgstr "Making-of"
+
+msgid "Marathon"
+msgstr "Maraton"
+
+msgid "Melodramma"
+msgstr "Melodram"
+
+msgid "Mer"
+msgstr "Deniz"
+
+msgid "Mode"
+msgstr "Moda"
+
+msgid "Monster Truck"
+msgstr "Monster Truck"
+
+msgid "Moto"
+msgstr "Moto"
+
+msgid "Moto superbike"
+msgstr "Motosiklet Superbike"
+
+msgid "Motocross"
+msgstr "Moto kros"
+
+msgid "Motonautisme"
+msgstr "Sürat motoru"
+
+msgid "Motoneige"
+msgstr "Kar motosikleti"
+
+msgid "Moyen-métrage"
+msgstr "Orta metraj"
+
+msgid "Musical"
+msgstr "Müzikal"
+
+msgid "Musique"
+msgstr "Müzik"
+
+msgid "Musique / Clips"
+msgstr "Müzik / Klipler"
+
+msgid "Musique du monde"
+msgstr "Dünya Müziği"
+
+msgid "Musique folklorique"
+msgstr "Halk müziği"
+
+msgid "Médias"
+msgstr "Medya"
+
+msgid "Médical"
+msgstr "Tıp"
+
+msgid "Mélodrame"
+msgstr "Melodram"
+
+msgid "Météo"
+msgstr "Hava durumu"
+
+msgid "Natation"
+msgstr "Yüzme"
+
+msgid "Natation synchronisée"
+msgstr "Senkronize yüzme"
+
+msgid "Nature"
+msgstr "Doğa"
+
+msgid "One-man-show"
+msgstr "One-man-show"
+
+msgid "One-woman-show"
+msgstr "One-woman-show"
+
+msgid "Opéra"
+msgstr "Opera"
+
+msgid "Opéra anglais"
+msgstr "İngiliz operası"
+
+msgid "Opéra ballet"
+msgstr "Opera bale"
+
+msgid "Opéra bouffe"
+msgstr "Opera buffa"
+
+msgid "Opéra comique"
+msgstr "Komik opera"
+
+msgid "Opéra semiseria"
+msgstr "Opera semiseria"
+
+msgid "Opéra seria"
+msgstr "Seria operası"
+
+msgid "Opérette"
+msgstr "Operet"
+
+msgid "Oratorio"
+msgstr "Oratoryo"
+
+msgid "Parachutisme"
+msgstr "Paraşütçülük"
+
+msgid "Parapente"
+msgstr "Yamaç paraşütü"
+
+msgid "Patinage artistique"
+msgstr "Artistik patinaj"
+
+msgid "Patinage de vitesse"
+msgstr "Hız patinajı"
+
+msgid "Peinture"
+msgstr "Resim"
+
+msgid "Peinture sociale"
+msgstr "Sosyal boyama"
+
+msgid "Pelote Basque"
+msgstr "Bask Topu"
+
+msgid "Pentathlon"
+msgstr "Pentatlon"
+
+msgid "People"
+msgstr "İnsan"
+
+msgid "Philosophique"
+msgstr "Felsefi"
+
+msgid "Photographie"
+msgstr "Fotoğraf"
+
+msgid "Pirogue"
+msgstr "Kano"
+
+msgid "Planche à voile"
+msgstr "Rüzgâr sörfü"
+
+msgid "Planeur"
+msgstr "Planör"
+
+msgid "Plongeon"
+msgstr "Dalış"
+
+msgid "Plongée sous-marine"
+msgstr "Denizde dalış"
+
+msgid "Poker"
+msgstr "Poker"
+
+msgid "Policier"
+msgstr "Polisiye"
+
+msgid "Politique"
+msgstr "Siyasi"
+
+msgid "Polo"
+msgstr "Polo"
+
+msgid "Pop/Rock"
+msgstr "Pop/Rock"
+
+msgid "Pornographique"
+msgstr "Porno"
+
+msgid "Programme court"
+msgstr "Kısa program"
+
+msgid "Psychologique"
+msgstr "Psikolojik"
+
+msgid "Péplum"
+msgstr "Peplum"
+
+msgid "Pétanque/Boules"
+msgstr "Petank"
+
+msgid "Pêche"
+msgstr "Balıkçılık"
+
+msgid "R&B"
+msgstr "R&B"
+
+msgid "Rallye"
+msgstr "Ralli"
+
+msgid "Rap"
+msgstr "Rap"
+
+msgid "Reconstitution historique"
+msgstr "Tarihi canlandırma"
+
+msgid "Reggae"
+msgstr "Reggae"
+
+msgid "Religieux"
+msgstr "Dini"
+
+msgid "Religion"
+msgstr "Din"
+
+msgid "Reportage"
+msgstr "Röportaj"
+
+msgid "Rock"
+msgstr "Rock"
+
+msgid "Rodéo"
+msgstr "Rodeo"
+
+msgid "Roller Skate"
+msgstr "Tekerlekli paten"
+
+msgid "Rugby"
+msgstr "Rugby"
+
+msgid "Rugby à  XIII"
+msgstr "Rugby Ligi"
+
+msgid "Rugby à XV"
+msgstr "Rugby Birliği"
+
+msgid "Sandboard"
+msgstr "Sandboarding"
+
+msgid "Santé"
+msgstr "Sağlık"
+
+msgid "Saut de falaise"
+msgstr "Yamaç dalışı (Cliff Diving)"
+
+msgid "Saut à ski"
+msgstr "Kayakla atlama"
+
+msgid "Science et technique"
+msgstr "Bilim ve teknik"
+
+msgid "Science-fiction"
+msgstr "Bilim kurgu"
+
+msgid "Scientifique"
+msgstr "Bilimsel"
+
+msgid "Sculpture"
+msgstr "Heykel"
+
+msgid "Semi-opéra"
+msgstr "Yarı-opera"
+
+msgid "Sepak takraw"
+msgstr "Ayak voleybolu"
+
+msgid "Service"
+msgstr "Hizmet"
+
+msgid "Side-car"
+msgstr "Side-car"
+
+msgid "Sidecar"
+msgstr "Sidecar"
+
+msgid "Singspiel"
+msgstr "Singspiel"
+
+msgid "Skateboard"
+msgstr "Skateboard"
+
+msgid "Skeleton"
+msgstr "İskelet"
+
+msgid "Sketches"
+msgstr "Skeçler"
+
+msgid "Ski acrobatique"
+msgstr "Akrobatik kayak"
+
+msgid "Ski alpin"
+msgstr "Dağ kayağı"
+
+msgid "Ski artistique"
+msgstr "Artistik kayak"
+
+msgid "Ski de fond"
+msgstr "Kros kayağı"
+
+msgid "Ski de vitesse"
+msgstr "Hız kayağı"
+
+msgid "Ski nautique"
+msgstr "Su kayağı"
+
+msgid "Ski nordique"
+msgstr "Kuzey Disiplini"
+
+msgid "Snooker"
+msgstr "Snooker"
+
+msgid "Snowboard"
+msgstr "Snowboard"
+
+msgid "Société"
+msgstr "Toplum"
+
+msgid "Spectacle"
+msgstr "Gösteri"
+
+msgid "Sport"
+msgstr "Spor"
+
+msgid "Sport de force"
+msgstr "Güç sporu"
+
+msgid "Sport de vitesse"
+msgstr "Hız sporu"
+
+msgid "Sportif"
+msgstr "Sportif"
+
+msgid "Sports de combat"
+msgstr "Dövüş Sporları"
+
+msgid "Sports extrêmes"
+msgstr "Ekstrem Sporlar"
+
+msgid "Sports mécaniques"
+msgstr "Motor sporları"
+
+msgid "Squash"
+msgstr "Squash"
+
+msgid "Stock-car"
+msgstr "Stock-car"
+
+msgid "Street Workout"
+msgstr "Sokak egzersizi"
+
+msgid "Sumo"
+msgstr "Sumo"
+
+msgid "Supercars"
+msgstr "Supercars"
+
+msgid "Surf"
+msgstr "Sörf"
+
+msgid "Suspense"
+msgstr "Süspans"
+
+msgid "Série"
+msgstr "Dizi"
+
+msgid "Série TV"
+msgstr "TV dizisi"
+
+msgid "Série documentaire"
+msgstr "Belgesel dizi"
+
+msgid "Série télévisée"
+msgstr "Televizyon dizisi"
+
+msgid "Séries TV"
+msgstr "Televizyon dizisi"
+
+msgid "Talk-show"
+msgstr "Talk-show"
+
+msgid "Techno"
+msgstr "Tekno"
+
+msgid "Tennis"
+msgstr "Tenis"
+
+msgid "Tennis de table"
+msgstr "Masa tenisi"
+
+msgid "Thriller"
+msgstr "Gerilim"
+
+msgid "Théâtre"
+msgstr "Tiyatro"
+
+msgid "Timber sport"
+msgstr "Timber sport"
+
+msgid "Tir"
+msgstr "Atıcılık"
+
+msgid "Tir à l'arc"
+msgstr "Okçuluk"
+
+msgid "Tractor Pulling"
+msgstr "Tractor Pulling"
+
+msgid "Tragédie lyrique"
+msgstr "Lirik trajedi"
+
+msgid "Trail"
+msgstr "Tanıtım"
+
+msgid "Trampoline"
+msgstr "Trampolin"
+
+msgid "Trial"
+msgstr "Tanıtım filmi"
+
+msgid "Triathlon"
+msgstr "Triatlon"
+
+msgid "Télé-achat"
+msgstr "Tele-alışveriş"
+
+msgid "Téléfilm"
+msgstr "Televizyon filmi"
+
+msgid "Télénovela"
+msgstr "Telenovela"
+
+msgid "Téléréalité"
+msgstr "Tele-realite"
+
+msgid "Unihockey"
+msgstr "Florbol"
+
+msgid "VTT"
+msgstr "VTT"
+
+msgid "Variétés"
+msgstr "Türler"
+
+msgid "Vie pratique"
+msgstr "Pratik yaşam"
+
+msgid "Voile"
+msgstr "Yelkenli"
+
+msgid "Voitures de tourisme"
+msgstr "Turizm araçları"
+
+msgid "Vol à voile"
+msgstr "Planör uçuş"
+
+msgid "Volley"
+msgstr "Voley"
+
+msgid "Voltige aérienne"
+msgstr "Hava voltiji"
+
+msgid "Water polo"
+msgstr "Su polosu"
+
+msgid "Western"
+msgstr "Vahşi batı"
+
+msgid "Yoga"
+msgstr "Yoga"
+
+msgid "Émission"
+msgstr "Programı"
+
+msgid "Émission de télé"
+msgstr "Televizyon programı"

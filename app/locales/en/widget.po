@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "broadcasts_live.title"
+msgstr "LIVE TV - On Air"
+
+msgid "broadcasts_tonight.title"
+msgstr "TV GUIDE - Tonigth on TV"
+
+msgid "replays_news.title"
+msgstr "CATCH UP TV - Last news on TV"
+
+msgid "replays_last.title"
+msgstr "CATCH UP TV - Last night on TV"
+
+msgid "channels_arabic.title"
+msgstr "LIVE TV - Arabic channels"
+
+msgid "channels_news.title"
+msgstr "LIVE TV - News channels"
+
+msgid "channels_thematic.title"
+msgstr "LIVE TV - Thematic channels"
+
+msgid "channels_local.title"
+msgstr "LIVE TV - Local channels"
+
+msgid "channels_community.title"
+msgstr "LIVE TV - Community channels"
+
+msgid "channels_turk.title"
+msgstr "LIVE TV - Turk channels"
+

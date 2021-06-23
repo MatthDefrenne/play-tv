@@ -1,0 +1,23 @@
+<div class="pmd-HandleChannel-subtitle">
+  <span>{% trans with {'%start%': channel.availability.from|localizeddate('none', 'short'), '%end%': channel.availability.to|localizeddate('none', 'short')} from "player" %}
+  not_available.available_between
+  {% endtrans %}</span>
+</div>
+
+<div class="pmd-HandleChannel-container">
+  <ul class="pmd-HandleChannel-list">
+    <li class="pmd-HandleChannel-listItem">
+      {# <span class="pmd-NotAvailableChannel-text"> #}
+      <span class="pmd-HandleChannel-text">
+        {% trans with {'%time%': diff} from "player" %}not_available.program_beginning_in{% endtrans %}
+      </span>
+    </li>
+  </ul>
+</div>
+
+{% if channel.website %}
+<div class="pmd-HandleChannel-subtitle{% if display_ads_ga == true %} pmd-HandleChannel-subtitle--ads{% endif %}">
+  <span>{% trans with {'%website%': channel.website} from "player" %}not_available.meanwhile
+      {% endtrans %}</span>
+</div>
+{% endif %}

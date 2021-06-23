@@ -1,0 +1,152 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+
+msgid "adblock_index.title"
+msgstr ""
+msgid "chaine_tv.title"
+msgstr ""
+msgid "chaine_tv_a_suivre.title"
+msgstr ""
+msgid "chaine_tv_en_direct.title"
+msgstr ""
+msgid "help_support.title"
+msgstr ""
+msgid "homepage.meta.description"
+msgstr ""
+msgid "homepage.title"
+msgstr ""
+msgid "programme.title"
+msgstr ""
+msgid "programmes.meta.description"
+msgstr ""
+msgid "programmes.title"
+msgstr ""
+msgid "programmes_prime_a_ne_pas_manquer.title"
+msgstr ""
+msgid "replay_replay.meta.description"
+msgstr ""
+msgid "replay_replay.title"
+msgstr ""
+msgid "replay_tv_index.title"
+msgstr ""
+msgid "television_channel_single.meta.description"
+msgstr ""
+msgid "television_channel_single.title"
+msgstr ""
+msgid "television_index.meta.description"
+msgstr ""
+msgid "television_index.title"
+msgstr ""
+
+msgid "chaine_tv_programmes.title"
+msgstr ""
+msgid "chaine_tv_programmes.meta.description"
+msgstr ""
+
+msgid "chaine_tv_programmes_date.title"
+msgstr ""
+msgid "chaine_tv_programmes_date.meta.description"
+msgstr ""
+
+msgid "recherche.title"
+msgstr ""
+
+msgid "recherche:chaines.title"
+msgstr ""
+
+msgid "recherche:personnes.title"
+msgstr ""
+
+msgid "recherche:programmes.title"
+msgstr ""
+
+msgid "recherche:videos.title"
+msgstr ""
+
+msgid "television_mosaique_direct.title"
+msgstr ""
+
+msgid "television_mosaique_categories.title"
+msgstr ""
+
+msgid "television_mosaique_themes.title"
+msgstr ""
+
+msgid "television_mosaique_replay_tv.title"
+msgstr ""
+
+msgid "url_index:channel.title"
+msgstr ""
+
+msgid "url_index:replay_tv.title"
+msgstr ""
+
+msgid "programmes_prime_tonight.title"
+msgstr ""
+
+msgid "programmes_prime_tonight.meta.description"
+msgstr ""
+
+msgid "programmes_prime_date.title"
+msgstr ""
+
+msgid "programmes_prime_date.meta.description"
+msgstr ""
+
+msgid "programmes_en_direct.title"
+msgstr ""
+
+msgid "programmes_en_direct.meta.description"
+msgstr ""
+
+msgid "programmes_timeslot.title"
+msgstr ""
+
+msgid "programmes_timeslot.meta.description"
+msgstr ""
+
+msgid "common.append_network"
+msgstr ""
+
+msgid "replay_videos.title"
+msgstr ""
+msgid "replay_videos.meta.description"
+msgstr ""
+
+msgid "replay_videos:date.title"
+msgstr ""
+msgid "replay_videos:date.meta.description"
+msgstr ""
+
+msgid "replay_videos:channel.title"
+msgstr ""
+msgid "replay_videos:channel.meta.description"
+msgstr ""
+
+msgid "replay_videos:gender.title"
+msgstr ""
+msgid "replay_videos:gender.meta.description"
+msgstr ""
+
+msgid "replay_videos:channel_date.title"
+msgstr ""
+msgid "replay_videos:channel_date.meta.description"
+msgstr ""
+
+msgid "replay_videos:gender_date.title"
+msgstr ""
+msgid "replay_videos:gender_date.meta.description"
+msgstr ""
+
+msgid "replay_videos:channel_gender.title"
+msgstr ""
+msgid "replay_videos:channel_gender.meta.description"
+msgstr ""
+
+msgid "replay_videos:channel_gender_date.title"
+msgstr ""
+msgid "replay_videos:channel_gender_date.meta.description"
+msgstr ""

@@ -1,0 +1,17 @@
+{
+    "name": "Playmedia",
+    "apiVersion": "v1",
+    "description": "Playmedia API",
+    "includes": [
+        "./feedbacks.json",
+        "./accounts.json",
+        "./oauths.json",
+        "./carts.json",
+        "./products.json",
+        "./channels.json",
+        "./config.json",
+        "./cellpass.json",
+        "./streams.json",
+        "./mailing.json"
+    ]
+}

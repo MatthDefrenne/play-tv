@@ -1,0 +1,62 @@
+{% extends "layouts/full.twig" %}
+{% block content %}
+<div id="content" class="pmd-js-HelpSupport">
+  <div class="container">
+    <div class="row">
+      <div class="span3 sep">
+        {% include "controllers/aide/_menu.twig" %}
+      </div>
+      <div class="span13">
+        <div class="row">
+          <div class="span8">
+            <div class="page-title">
+              <h1>{% trans %}Help{% endtrans %}. <span class="red">{% trans %}Support{% endtrans %}</span></h1>
+              {% if is_website_fr %}
+              <p class="sub-title">Vous n'avez pas trouvé de réponse dans la FAQ ? Contactez le support.</p>
+              {% endif %}
+            </div>
+            <div class="">
+              <form id="support-form" action="{{ path('help_support') }}" method="" class="pmd-js-HelpSupport-form">
+                {% if request.post.report is defined %}
+                <p class="grey-box margin">{% trans %}<strong>Error report</strong>: <span class="clear-grey">an error report will be attached to your message.</span>{% endtrans %}</p>
+                <input type="hidden" name="report" value="{{ request.post.report|trim }}" />
+                {% endif %}
+                <p>
+                  <label for="support-email" class="pmd-Label"><strong>{% trans %}Email address{% endtrans %}</strong></label>
+                </p>
+                <p>
+                  <input type="text" id="support-email" name="email" value="{% if request.post.email is defined %}{{ request.post.email|trim }}{% endif %}" class="pmd-Input pmd-Input--block" placeholder="{% trans %}ex: john.doe@email.com{% endtrans %}" />
+                </p>
+                <p>
+                  <label for="support-message" class="pmd-Label"><strong>{% trans %}Message{% endtrans %}</strong></label>
+                </p>
+                <p class="margin">
+                  <textarea id="support-message" name="message" placeholder="{% trans %}Insert your message here.{% endtrans %}" class="pmd-Textarea pmd-Textarea--verticalResize pmd-Textarea--block" style="height:200px">{% if request.post.message is defined %}{{ request.post.message|trim }}{% endif %}</textarea>
+                </p>
+                <input class="pmd-js-HelpSupport-flash" type="hidden" name="flashVersion" value="" />
+                {% if request.referer is defined %}<input type="hidden" name="referer" value="{{ request.referer|trim }}" />{% endif %}
+                <div class="pmd-js-HelpSupport-alert pmd-Alert pmd-Alert--hidden"></div>
+                <p class="pmd-Text--center">
+                  <button type="submit" class="pmd-js-HelpSupport-submitButton pmd-Button pmd-Button--primary pmd-Button--lg ladda-button" data-style="zoom-out"><span class="ladda-label">{% trans %}Contact support{% endtrans %}</span></button>
+                </p>
+              </form>
+            </div>
+          </div>
+          <div class="span4 offset1 text">
+            {% if is_website_fr %}
+            <h2 class="xmargin" style="margin-top:5px;">Avez-vous consulté la rubrique d'aide ?</h2>
+            <p class="justify"><a href="/faq/"><strong>Les rubriques d'aide</strong></a> regroupent les questions les plus fréquentes de nos utilisateurs, pensez à les consulter.</p>
+            {% endif %}
+            <h2 class="xmargin">{% trans %}Any troubles with the form?{% endtrans %}</h2>
+            <p class="justify">{% trans with {'%email%': 'olivia@playmedia.fr'} %}You can't send messages from our form?<br>Contact Olivia directly via email:<br><strong><a href="mailto:%email%">%email%</a></strong>{% endtrans %}</p>
+            {% if is_website_fr %}
+            <h2 class="xmargin">Rapport d'erreur</h2>
+            <p class="justify">Un problème technique pour regarder la télévision ? Joignez un rapport d'erreur à votre message. <a href="/faq/rapport-erreur/"><strong>Comment faire ?</strong></a></p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<div class="pmd-NotFound">
+  <p class="pmd-NotFound-description">
+    {% trans %}The page you are looking for doesn't exist.{% endtrans %}
+  </p>
+  <p>
+    <a href="/" class="pmd-Button">{% trans %}Back to home{% endtrans %}</a>
+  </p>
+</div>
+{% endblock %}

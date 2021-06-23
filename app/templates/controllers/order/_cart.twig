@@ -1,0 +1,91 @@
+{% if cart.isEmpty() == false %}
+  <table class="pmd-OrderCart">
+    <thead>
+      <tr>
+        <td colspan="5" class="pmd-OrderCart-title">Votre commande</td>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for product in cart.products %}
+        <tr>
+          <td>
+            <span class="pmd-OrderCart-productName">
+              {{ product.name }}
+              {% if product.hasAdultChannel %}
+                  <svg role="img" class="pmd-Svg pmd-Svg--minus18">
+                    <use xlink:href="#pmd-Svg--minus18"></use>
+                  </svg>
+              {% endif %}
+            </span>
+          </td>
+          <td class="pmd-OrderCart-productFeature">
+            <svg role="img" class="pmd-Svg pmd-Svg--noentry">
+              <use xlink:href="#pmd-Svg--noentry"></use>
+            </svg>
+            Pas de publicité
+          </td>
+          <td class="pmd-OrderCart-productFeature">
+            <svg role="img" class="pmd-Svg pmd-Svg--hd" style="font-size: 26px;">
+              <use xlink:href="#pmd-Svg--hd"></use>
+            </svg>
+            Haute qualité d'image
+          </td>
+          <td class="pmd-OrderCart-productFeature">
+            <svg role="img" class="pmd-Svg pmd-Svg--tv">
+              <use xlink:href="#pmd-Svg--tv"></use>
+            </svg>
+            {% if product.type == 'retail' %}
+              1 chaîne en direct
+            {% elseif product.type in ['pack', 'prepaid'] %}
+              {{ product.channels|length }} chaînes en direct
+            {% endif %}
+          </td>
+          <td class="pmd-OrderCart-productFeature">
+          <svg role="img" class="pmd-Svg pmd-Svg--tick2">
+              <use xlink:href="#pmd-Svg--tick2"></use>
+            </svg>
+            Sans engagement
+          </td>
+        </tr>
+      {% endfor %}
+
+    </tbody>
+    <tfoot>
+      <tr>
+        <td class="pmd-OrderCart-disclaimer" colspan="3">
+          {% if not cart.containsPrepaidProduct and (is_connected == false or current_account.hasTrialPeriod()) %}
+            <strong class="pmd-OrderCart-trialPeriod">{{ trial_period_days }} jours d'essai gratuit</strong> puis {{ (cart.getTotalAmount/100)|number_format(2, ',') ~ '€' }} /mois après la période d'essai. *
+            <br>
+            Vous pouvez annuler votre essai à tout moment avant la date de fin, sans être facturé.
+          {% else %}
+            {% if cart.containsPrepaidProduct %}
+              {% for product in cart.products %}
+                {% if product.isEndless %}
+                  Abonnement à vie
+                {% else %}
+                  Abonnement jusqu'au {{ 'now'|date_modify('+'~product.duration)|date("d/m/Y") }}
+                {% endif %}
+              {% endfor %}
+            {% else %}
+              Abonnement mensuel sans engagement de durée.
+            {% endif %}
+          {% endif %}
+        </td>
+        <td class="pmd-OrderCart-total">TOTAL</td>
+        <td class="pmd-OrderCart-price">
+          {% if not cart.containsPrepaidProduct and (is_connected == false or current_account.hasTrialPeriod()) %}
+            {{ 0 ~ '€' }}
+          {% else %}
+            {{ (cart.getTotalAmount/100)|number_format(2, ',') ~ '€' }}
+          {% endif %}
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  {% if not cart.containsPrepaidProduct and (is_connected == false or current_account.hasTrialPeriod()) %}
+  <p class="pmd-OrderCart-starMessage">* Période d'essai disponible uniquement via paiement par Carte Bancaire.</p>
+  {% endif %}
+{% else %}
+  <p>Votre panier est vide. </p>
+{% endif %}

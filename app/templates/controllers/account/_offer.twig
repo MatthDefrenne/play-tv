@@ -1,0 +1,188 @@
+<div class="ptv-AccountProfile">
+
+  {% if current_account.isFreemium %}
+
+    <h3 class="ptv-AccountProfile-heading pmd-FormLayout-heading">
+      <span class="ptv-AccountProfile-headingMain">Mes abonnements en cours</span>
+    </h3>
+
+    <div class="ptv-AccountProfileContent">
+
+      <div class="pmd-Alert pmd-Alert--note">
+        <svg role="img" class="pmd-Svg pmd-Svg--warning pmd-Svg--orange pmd-Alert--noteWarning">
+          <use xlink:href="#pmd-Svg--warning"></use>
+        </svg>
+        <p>Vous profitez actuellement de Play TV gratuitement. Pour regarder <strong>plus de chaînes, sans publicité et en haute qualité</strong>, découvrez l’offre PREMIUM ou les packs exclusifs.</p>
+      </div>
+
+      <div class="pmd-ProductList">
+
+        {% if device == 'mobile' %}
+        <a class="pmd-Button pmd-Button--block pmd-Button--blue pmd-Form-buttonSubmit" href="/nos-offres/">
+          <span>Découvrir les offres</span>
+        </a>
+        {% else %}
+          {% for product in suggested_products %}
+
+            {% if product.type == "pack" %}
+              {% include "partials/item-product.twig" with {'type': "pack"} %}
+            {% elseif product.type == "retail" %}
+              {% include "partials/item-product.twig" with {'type': "retail"} %}
+            {% endif %}
+
+          {% endfor %}
+        {% endif %}
+      </div>
+
+    </div>
+
+  {% else %}
+
+    {% set prepaid = [] %}
+    {% set running = [] %}
+    {% set cancelled = [] %}
+
+    {% for subscription in current_account.subscriptions %}
+      {% if subscription.product.type == 'prepaid' %}
+        {% set prepaid = prepaid|merge({ (loop.index0) : subscription }) %}
+      {% elseif subscription.cancelledAt is defined %}
+        {% set cancelled = cancelled|merge({ (loop.index0) : subscription }) %}
+      {% else %}
+        {% set running = running|merge({ (loop.index0) : subscription }) %}
+      {% endif %}
+    {% endfor %}
+
+    {% if running|length > 0 %}
+
+      <h3 class="ptv-AccountProfile-heading pmd-FormLayout-heading">
+        <span class="ptv-AccountProfile-headingMain">Mes abonnements en cours</span>
+      </h3>
+
+      <div class="ptv-AccountProfileContent ptv-AccountProfileOffer">
+
+        {% if error is defined %}
+        <div class="pmd-Alert pmd-Alert--danger pmd-Alert--active">
+          <p>{{ error }}</p>
+        </div>
+        {% endif %}
+
+        <table class="pmd-AccountSubscriptionsList">
+          <thead class="pmd-AccountSubscriptionsList-heading">
+            <th>Produit</th>
+            {# <th>Expire le</th> #}
+            {# <th>Etat</th> #}
+            <th>Montant</th>
+            <th></th>
+          </thead>
+          <tbody>
+            {% for subscription in running %}
+              <tr class="pmd-AccountSubscriptionsList-row">
+                <td>{{ subscription.product.name }}</td>
+                {# <td>-</td> #}
+{#                 <td>
+                  <svg role="img" class="pmd-Svg pmd-Svg--tick pmd-Svg--green">
+                    <use xlink:href="#pmd-Svg--tick"></use>
+                  </svg>
+                </td> #}
+                <td>
+                  {{ (subscription.product.price/100)|number_format(2, ',') }}€ /mois
+                </td>
+                <td>
+                  <form action="/mon-compte/abonnements/resilier/" method="post" class="ptv-js-AccountProfile-removeSubscriptionForm">
+                    <input type="hidden" name="product_id" value="{{ subscription.product.id }}">
+                    <button type="submit" class="pmd-Button pmd-Button--link">Résilier</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+
+    {% endif %}
+
+    {% if prepaid|length > 0 %}
+    <h3 class="ptv-AccountProfile-heading pmd-FormLayout-heading">
+      <span class="ptv-AccountProfile-headingMain">Mes abonnements prépayés</span>
+    </h3>
+
+    <div class="ptv-AccountProfileContent ptv-AccountProfileOffer">
+
+      <table class="pmd-AccountSubscriptionsList">
+        <thead class="pmd-AccountSubscriptionsList-heading">
+          <th>Produit</th>
+          <th>Créé le</th>
+          <th>Expire le</th>
+        </thead>
+        <tbody>
+          {% for subscription in prepaid %}
+            <tr class="pmd-AccountSubscriptionsList-row">
+              <td>{{ subscription.product.name }}</td>
+              <td>{{ subscription.createdAt|date("d/m/Y") }}</td>
+              <td>
+                {% if subscription.product.isEndless %}
+                  Abonnement à vie
+                {% else %}
+                  {{ subscription.expiredAt|date("d/m/Y") }}
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+
+    {% endif %}
+
+    {% if cancelled|length > 0 %}
+    <h3 class="ptv-AccountProfile-heading pmd-FormLayout-heading">
+      <span class="ptv-AccountProfile-headingMain">Mes abonnements en cours de résiliation</span>
+    </h3>
+
+    <div class="ptv-AccountProfileContent ptv-AccountProfileOffer">
+
+      <table class="pmd-AccountSubscriptionsList">
+        <thead class="pmd-AccountSubscriptionsList-heading">
+          <th>Produit</th>
+          <th>Expire le</th>
+          {# <th>Etat</th> #}
+          <th>Montant</th>
+          {# <th></th> #}
+        </thead>
+        <tbody>
+          {% for subscription in cancelled %}
+            <tr class="pmd-AccountSubscriptionsList-row">
+              <td>{{ subscription.product.name }}</td>
+              <td>
+                {{ subscription.expiredAt|date("d/m/Y") }}
+              </td>
+{#               <td>
+                <svg role="img" class="pmd-Svg pmd-Svg--cross pmd-Svg--red">
+                  <use xlink:href="#pmd-Svg--cross"></use>
+                </svg>
+              </td> #}
+              <td>
+                {{ (subscription.product.price/100)|number_format(2, ',') }}€ /mois
+              </td>
+{#               <td>
+                <a class="ptv-Button ptv-Button--disabled">
+                  <svg role="img" class="pmd-Svg pmd-Svg--tick pmd-Svg--white">
+                    <use xlink:href="#pmd-Svg--tick"></use>
+                  </svg>
+                  Résilié
+                </a>
+              </td> #}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+
+    {% endif %}
+
+  {% endif %}
+
+</div>

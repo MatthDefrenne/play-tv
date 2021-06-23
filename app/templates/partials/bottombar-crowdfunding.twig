@@ -1,0 +1,26 @@
+{% spaceless %}
+{% if
+  crowdfunding_display and
+  controller_name not in [
+    'account',
+    'bouncer',
+    'adblock',
+    'oauth',
+    'order',
+    'sales',
+    'trailer',
+    'url',
+    'player',
+    'errors',
+    'newsletter'
+  ]
+%}
+<div id="bottombar" class="pmd-CrowdfundingBottomBar">
+  <div class="content">
+    <a class="pmd-Crowdfunding-link pmd-js-Crowdfunding-open" href="#">
+      <strong>Play TV a besoin de votre soutien, le service est en danger !</strong>
+    </a>
+  </div>
+</div>
+{% endif %}
+{% endspaceless %}

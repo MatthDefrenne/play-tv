@@ -1,0 +1,88 @@
+<div id="order-paymill">
+
+  <form method="post" class="ptv-js-OrderPayment-form" {% if paymill is defined %}data-initialized="true"{% endif %}>
+
+    <input type="hidden" name="gateway" value="paymill">
+
+    <div class="ptv-AccountProfile">
+
+      <div class="ptv-AccountProfileLine">
+        <div class="ptv-AccountProfileLine-inputField">
+          <label class="ptv-AccountProfileLine-label">Cartes acceptées</label>
+          <div class="ptv-AccountProfileLine-inputGroup">
+            <img class="ptv-js-Order-creditCard pmd-OrderPayment-creditCard {% if paymill is defined and paymill.cardType != 'visa' %}pmd-Order-creditCard--disabled{% endif %}"
+              src="{{ apps_base_url }}/images/icons/visa.svg" data-brand="visa">
+            <img class="ptv-js-Order-creditCard pmd-OrderPayment-creditCard {% if paymill is defined and paymill.cardType != 'carte-bleue' %}pmd-Order-creditCard--disabled{% endif %}"
+              src="{{ apps_base_url }}/images/icons/cb.svg" data-brand="carte-bleue">
+            <img class="ptv-js-Order-creditCard pmd-OrderPayment-creditCard {% if paymill is defined and paymill.cardType != 'mastercard' %}pmd-Order-creditCard--disabled{% endif %}"
+              src="{{ apps_base_url }}/images/icons/mastercard.svg" data-brand="mastercard">
+            {% if paymill is defined %}
+              <button class="ptv-js-OrderPayment-modify pmd-Button pmd-Button--dark pmd-Button--xs pmd-OrderPayment-modifyButton">Modifier</button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="ptv-AccountProfileLine">
+        <p class="ptv-AccountProfileLine-inputField">
+          <label class="ptv-AccountProfileLine-label" for="ptv-AccountPayment-cardNumber">Numéro de carte</label>
+          <input type="text" class="pmd-Input ptv-AccountProfileLine-input ptv-js-Order-cardNumber" size="30" maxlength="32" data-name="card-number" id="ptv-AccountPayment-cardNumber" autocomplete="off" {% if paymill is defined %}placeholder="XXXX-XXXX-XXXX-{{ paymill.last4 }}" disabled="disabled"{% endif %}>
+        </p>
+      </div>
+
+      <div class="ptv-AccountProfileLine">
+        <p class="ptv-AccountProfileLine-inputField">
+          <label class="ptv-AccountProfileLine-label">Date d'expiration (MM/YY)</label>
+          <input type="text" class="pmd-Input ptv-AccountProfileLine-input pmd-OrderPayment-smallInput" size="2" maxlength="2" data-name="card-expiry-month" id="ptv-AccountPayment-cardExpiryMonth" autocomplete="off" {% if paymill is defined %}placeholder="{{ paymill.expireMonth }}" disabled="disabled"{% endif %}>
+          /
+          <input type="text" class="pmd-Input ptv-AccountProfileLine-input pmd-OrderPayment-smallInput" maxlength="2" size="2" data-name="card-expiry-year" id="ptv-AccountPayment-cardExpiryYear" autocomplete="off" {% if paymill is defined %}placeholder="{{ paymill.expireYear[2:] }}" disabled="disabled"{% endif %}>
+        </p>
+      </div>
+
+      <div class="ptv-AccountProfileLine">
+        <p class="ptv-AccountProfileLine-inputField">
+          <label class="ptv-AccountProfileLine-label" for="ptv-AccountPayment-cardCVC">Numéro de vérification</label>
+          <input type="text" class="pmd-Input ptv-AccountProfileLine-input pmd-OrderPayment-smallInput" size="3" maxlength="3" data-name="card-cvc" id="ptv-AccountPayment-cardCVC" autocomplete="off" {% if paymill is defined %}placeholder="•••" disabled="disabled"{% endif %}>
+          <span class="ptv-js-OrderPayment-cvc pmd-SvgEvent" title="Les 3 derniers chiffres du numéro imprimé sur la bande de signature au dos de la carte.">
+            <svg role="img" class="pmd-Svg pmd-Svg--question">
+              <use xlink:href="#pmd-Svg--question" style="fill: #979797; "></use>
+            </svg>
+            <span class="pmd-SvgEvent-handler"></span>
+          </span>
+        </p>
+      </div>
+
+      <ul class="ptv-js-OrderPayment-alert ptv-Alert ptv-AccountProfileAlert"></ul>
+
+      <div class="ptv-AccountProfileLine">
+        <div class="ptv-AccountProfileLine-inputGroup--noLabel">
+          <button class="pmd-Button pmd-Button--pack-premium pmd-Order-submitButton ptv-js-Order-paymentAction ladda-button" data-style="zoom-out" type="submit">
+            <span class="ladda-label">Valider</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="ptv-AccountProfileLine">
+        <div class="ptv-AccountProfileLine-inputGroup--noLabel">
+          <p class="pmd-OrderPayment-cgv">
+            {# <input type="checkbox" autocomplete="off" id="cgv" class="ptv-js-OrderPayment-cgv"> #}
+            En validant votre commande, vous acceptez nos <a href="{{ hosts.current_full }}/pages/cgv/" target="_blank" style="text-decoration: underline">Conditions Générales de Vente</a>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pmd-OrderPayment-secure">
+      <h5 class="pmd-OrderPaymentSecure-heading">Service 100% sécurisé</h5>
+      <a href="https://www.gandi.net/ssl/secured/%2A.playtv.fr/28117/1dab4ce54f" target="_blank">
+        <img class="pmd-OrderPayment-secureIcon" src="{{ apps_base_url }}/images/icons/logo-gandi-ssl.png" alt="Gandi">
+      </a>
+      <a href="https://www.paymill.com/" target="_blank">
+        <img class="pmd-OrderPayment-secureIcon pmd-OrderPayment-secureIcon--paymill" src="{{ apps_base_url }}/images/icons/logo-paymill.png" alt="Paymill">
+      </a>
+    </div>
+
+  </form>
+
+</div>

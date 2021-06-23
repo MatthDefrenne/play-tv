@@ -1,0 +1,60 @@
+<div id="order-cellpass">
+
+  <form method="post">
+
+    <input type="hidden" name="gateway" value="cellpass">
+
+    <p>Vous allez être redirigé vers la page de paiement de votre opérateur.</p>
+
+    <div class="ptv-AccountProfile">
+
+      <div class="ptv-AccountProfileLine">
+        <div class="ptv-AccountProfileLine-inputGroup--noLabel">
+          <button class="pmd-Button pmd-Button--pack-premium pmd-Order-submitButton ptv-js-Order-paymentAction ladda-button" data-style="zoom-out" type="submit">
+            <span class="ladda-label">Continuer</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="ptv-AccountProfileLine">
+        <div class="ptv-AccountProfileLine-inputGroup--noLabel">
+          Abonnement : {{ (cart.getTotalAmount/100)|number_format(2, ',') ~ '€' }}/mois
+        </div>
+      </div>
+
+      <div class="ptv-AccountProfileLine">
+        <div class="ptv-AccountProfileLine-inputGroup--noLabel">
+          <p class="pmd-OrderPayment-cgv">
+            {# <input type="checkbox" autocomplete="off" id="cgv" class="ptv-js-OrderPayment-cgv"> #}
+            En validant votre commande, vous acceptez nos <a href="{{ hosts.current_full }}/pages/cgv/" target="_blank" style="text-decoration: underline">Conditions Générales de Vente</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="pmd-OrderPaymentCellpass-termsConditions">
+        <p>
+          Nous proposons un modèle d'abonnement permettant à l'utilisateur d'accéder à l’offre de télévision diffusée sur ce territoire.
+          Les services du site sont proposés par la société Play Media SAS, dont le siège social est situé 41 Boulevard de Magenta, Paris 75010, joignable par <a href="mailto:contact@playmedia.fr">mail</a> ou par téléphone au 01 42 06 86 98.
+        </p>
+        <p>
+          Désabonnement : afin de résilier votre abonnement souscrit avec Internet+ rendez-vous sur <a href="http://www.infoconso-multimedia.fr/desabonnement/" target="_blank">le suivi conso Internet+</a>. Plus d'informations : <a href="http://www.infoconso-multimedia.fr/" target="_blank">Infoconso-multimedia</a>.
+        </p>
+
+        <p>Clients Bouygues Tel et B&amp;YOU Internet plus mobile, afin de gérer votre abonnement:</p>
+        <ul>
+          <li>Abonnement 2.99€ PlayTV Premium mensuel en cours <a href="https://mpme.bouyguestelecom.fr/Variable/VariableCheckForPC?cp_idsession=idsession&ci=00009030496&act=rel&NLhttp://http://http://playtv.fr////BL=http://http://http://playtv.fr//" target="_blank">cliquez ici</a></li>
+          <li>Abonnement 2.99€ PlayTV News mensuel en cours <a href="https://mpme.bouyguestelecom.fr/Variable/VariableCheckForPC?cp_idsession=idsession&ci=00009030497&act=rel&NLhttp://http://playtv.fr///BL=http://http://playtv.fr/" target="_blank">cliquez ici</a></li>
+          <li>Abonnement 2.99€ PlayTV Turk mensuel en cours <a href="https://mpme.bouyguestelecom.fr/Variable/VariableCheckForPC?cp_idsession=idsession&ci=00009030498&act=rel&NLhttp://http://http://playtv.fr////BL=http://http://http://playtv.fr//" target="_blank">cliquez ici</a></li>
+          <li>Abonnement 2.99€ PlayTV Arabic mensuel en cours <a href="https://mpme.bouyguestelecom.fr/Variable/VariableCheckForPC?cp_idsession=idsession&ci=00009030499&act=rel&NLhttp://http://http://playtv.fr////BL=http://http://http://playtv.fr//" target="_blank">cliquez ici</a></li>
+          <li>Abonnement 3.99€ PlayTV Hot Video mensuel en cours <a href="https://mpme.bouyguestelecom.fr/Variable/VariableCheckForPC?cp_idsession=idsession&ci=00009029734&act=rel&NLhttp://http://http://playtv.fr////BL=http://http://http://playtv.fr//" target="_blank">cliquez ici</a></li>
+          <li>Abonnement 4.99€ PlayTV KZTV mensuel en cours <a href="https://mpme.bouyguestelecom.fr/Variable/VariableCheckForPC?cp_idsession=idsession&ci=00009032132&act=rel&NLhttp://http://http://playtv.fr////BL=http://http://http://playtv.fr//" target="_blank">cliquez ici</a></li>
+        </ul>
+      </div>
+
+      <img class="pmd-OrderPaymentCellpass-logo" src="{{ apps_base_url }}/images/premium/internet-plus.png" width="293" height="86">
+
+    </div>
+
+  </form>
+
+</div>

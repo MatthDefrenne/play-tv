@@ -1,0 +1,28 @@
+<h1 class="ptv-AccountProfile-heading">
+  <span class="ptv-AccountProfile-headingMain">
+    <span class="pmd-Order-bullet">3</span>
+    <span>Chaîne interdite aux mineurs</span>
+  </span>
+</h1>
+
+<form action="/commande/validation-age/" method="post">
+    <div class="ptv-AccountProfileLine">
+        <div class="pmd-OrderAccount-connected">
+            <span>
+              <svg role="img" class="pmd-Svg pmd-Svg--warning pmd-Svg--red pmd-Svg-validate-age">
+                <use xlink:href="#pmd-Svg--warning"></use>
+              </svg>
+            </span>
+            <span class='pmd-ValidateAge-text'>La chaîne HotVideo TV est interdite aux mineurs. Pour y souscrire, vous devez avoir plus de 18 ans.</span>
+        </div>
+    </div>
+    {% if user_age >= 18 %}
+        <div class="ptv-AccountProfileLine">
+          <div>
+            <button class="pmd-Button pmd-Button--dark pmd-Order-submitButton ladda-button" data-style="zoom-out" type="submit">
+              <span class="ladda-label">Je certifie avoir plus de 18 ans</span>
+            </button>
+          </div>
+        </div>
+    {% endif %}
+</form>

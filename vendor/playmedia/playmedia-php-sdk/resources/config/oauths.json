@@ -1,0 +1,56 @@
+{
+    "operations": {
+        "oauths.account.base.object": {
+            "responseClass": "Playmedia\\Api\\Entity\\Entity",
+            "data": {
+                "class": "Playmedia\\Api\\Entity\\Account",
+                "type": "object"
+            }
+        },
+        "oauths.authenticate": {
+            "extends": "oauths.account.base.object",
+            "httpMethod": "GET",
+            "uri": "accounts/oauths/authenticate/",
+            "summary": "Authenticate via OAuth",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "oauths.create": {
+            "httpMethod": "POST",
+            "uri": "accounts/oauths/",
+            "summary": "Create an OAuth",
+            "additionalParameters": {
+                "location": "json"
+            }
+        },
+        "oauths.collection": {
+            "httpMethod": "GET",
+            "uri": "accounts/oauths/",
+            "summary": "Collection of OAuth",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "oauths.destroy": {
+            "httpMethod": "DELETE",
+            "uri": "accounts/oauths/{id}/",
+            "summary": "Delete an OAuth",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                }
+            }
+        },
+        "oauths.facebook": {
+            "httpMethod": "GET",
+            "uri": "accounts/{accountId}/oauths/facebook/",
+            "summary": "Fetch Facebook Oauth relation to an Account",
+            "parameters": {
+                "accountId": {
+                    "location": "uri"
+                }
+            }
+        }
+    }
+}

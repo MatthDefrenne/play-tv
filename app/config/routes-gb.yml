@@ -1,0 +1,227 @@
+# uniads
+
+uniads_config:
+    path: /uniads/config/
+    defaults: { _controller: 'uniads_controller::config_action' }
+uniads_request:
+    path: /uniads/request/
+    defaults: { _controller: 'uniads_controller::request_action' }
+uniads_impression:
+    path: /uniads/impression/
+    defaults: { _controller: 'uniads_controller::impression_action' }
+uniads_debug:
+    path: /uniads/debug/
+    defaults: { _controller: 'uniads_controller::debug_action' }
+uniads:
+    path: /uniads/
+    defaults: { _controller: 'uniads_controller::index_action' }
+
+# television
+
+television_mosaique:
+    path: '/television/mosaique/{type}/'
+    defaults: { _controller: 'television_controller::mosaique_action' }
+television_tooltip:
+    path: '/television/tooltip/{channel_alias}/'
+    defaults: { _controller: 'television_controller::tooltip_action', _format: 'json' }
+television_block_live_program_by_channel:
+    path: '/television/block-live-program-by-channel/{channel_alias}/'
+    defaults: { _controller: 'television_controller::block_live_program_by_channel_action' }
+television_block_next_programs_by_channel:
+    path: '/television/block-next-programs-by-channel/{channel_alias}/'
+    defaults: { _controller: 'television_controller::block_next_programs_by_channel_action' }
+television_streamable_filter:
+    path: /live-tv/my-package/
+    defaults: { _controller: 'television_controller::streamable_filter_action', bundle: 'live' }
+television_country_filter:
+    path: '/live-tv/country/{country_slug}/'
+    defaults: { _controller: 'television_controller::country_action', bundle: 'live' }
+television_zapping:
+    path: '/television/zapping/{channel_alias}/'
+    defaults: { _controller: 'television_controller::zapping_action' }
+television_channel_single:
+    path: '/live-tv/{channel_id}/{channel_alias}/'
+    defaults: { _controller: 'television_controller::channel_action', bundle: 'live' }
+    options:
+        sitemap: true
+        sitemap_builder: PlayTv\Sitemap\Builder\Channel\Live
+television_index:
+    path: /live-tv/
+    defaults: { _controller: 'television_controller::index_action', bundle: 'live' }
+
+# player
+
+player_embed:
+    path: '/player/embed/{channel_alias}/'
+    defaults: { _controller: 'player_controller::embed_action' }
+player_initialize:
+    path: '/player/initialize/{channel_alias}/'
+    defaults: { _controller: 'player_controller::initialize_action', _format: 'json' }
+player_play:
+    path: '/player/play/{channel_alias}/'
+    defaults: { _controller: 'player_controller::play_action', _format: 'json' }
+player_broadcast:
+    path: '/player/broadcast/{channel_alias}/'
+    defaults: { _controller: 'player_controller::broadcast_action', _format: 'json' }
+player_share:
+    path: '/player/share/{channel_alias}/'
+    defaults: { _controller: 'player_controller::share_action', _format: 'json' }
+player_check:
+    path: /player/check/
+    defaults: { _controller: 'player_controller::check_action', _format: 'json' }
+player_debug:
+    path: /player/debug/
+    defaults: { _controller: 'player_controller::debug_action', _format: 'json' }
+
+# chaine_tv
+
+chaine_tv_programmes_date:
+    path: '/tv-channel/{channel_id}/{channel_alias}/listings/{date}/'
+    defaults: { _controller: 'chaine_tv_controller::programmes_tv_action', bundle: 'program' }
+chaine_tv_programmes:
+    path: '/tv-channel/{channel_id}/{channel_alias}/listings/'
+    defaults: { _controller: 'chaine_tv_controller::programmes_tv_action', date: null, bundle: 'program' }
+    options:
+        sitemap: true
+        sitemap_builder: PlayTv\Sitemap\Builder\Channel\Broadcast
+chaine_tv:
+    path: '/tv-channel/{channel_id}/{channel_alias}/'
+    defaults: { _controller: 'chaine_tv_controller::index_action' }
+    options:
+        sitemap: true
+        sitemap_builder: PlayTv\Sitemap\Builder\Channel
+
+# programmes
+
+programmes_timeslot:
+    path: '/tv-guide/{date}/{from_hour}:00-{to_hour}:00/'
+    defaults: { _controller: 'programmes_tv_controller::timeslot_action', network: null }
+programmes_prime_date:
+    path: '/tv-guide/tonight/{date}/'
+    defaults: { _controller: 'programmes_tv_controller::ce_soir_action', network: null }
+programmes_prime_tonight:
+    path: /tv-guide/tonight/
+    defaults: { _controller: 'programmes_tv_controller::ce_soir_action' }
+programmes_en_direct:
+    path: /tv-guide/now/
+    defaults: { _controller: 'programmes_tv_controller::en_direct_action' }
+programmes:
+    path: /tv-guide/
+    defaults: { _controller: 'programmes_tv_controller::index_action' }
+
+# programme
+
+programme:
+    path: '/tv-shows/{program_id}/{program_alias}/'
+    defaults: { _controller: 'programme_tv_controller::index_action' }
+
+# people
+
+people_index:
+    path: '/people/{cast_id}/{cast_alias}/'
+    defaults: { _controller: 'people_controller::index_action' }
+
+# replay_tv
+
+replay_replay:
+    path: '/on-demand-video/{video_id}/{title}/'
+    defaults: { _controller: 'replay_tv_controller::replay_action', bundle: 'replay' }
+replay_replay_no_title:
+    path: '/on-demand-video/{video_id}/'
+    defaults: { _controller: 'replay_tv_controller::replay_action', title: null, bundle: 'replay' }
+replay_channel_videos:
+    path: '/catchup-tv/videos/{channel_id}/{channel_alias}/'
+    defaults: { _controller: 'replay_tv_controller::videos_action', bundle: 'replay' }
+    options:
+        sitemap: true
+        sitemap_builder: PlayTv\Sitemap\Builder\Replay
+replay_videos:
+    path: '/catchup-tv/videos/'
+    defaults: { _controller: 'replay_tv_controller::videos_action', bundle: 'replay' }
+replay_tv_index:
+    path: /catchup-tv/
+    defaults: { _controller: 'replay_tv_controller::index_action', bundle: 'replay' }
+
+# url
+
+url_index:
+    path: /url/
+    defaults: { _controller: 'url_controller::index_action' }
+
+# recherche
+
+recherche:
+    path: /search/
+    defaults: { _controller: 'recherche_controller::index_action' }
+
+# trailer
+
+block_trailer:
+    path: '/trailer/block-trailer/{program_id}/'
+    defaults: { _controller: 'trailer_controller::block_trailer_action' }
+trailer_embed:
+    path: '/trailer/embed/{program_id}/'
+    defaults: { _controller: 'trailer_controller::embed_action' }
+trailer:
+    path: '/trailer/{program_id}/'
+    defaults: { _controller: 'trailer_controller::index_action'}
+
+# aide
+
+help_support:
+    path: /help/support/
+    defaults: { _controller: 'aide_controller::support_action', bundle: 'feedback' }
+
+# debug
+
+debug_index:
+    path: /debug/
+    defaults: { _controller: 'debug_controller::index_action' }
+debug_phpinfo:
+    path: /debug/phpinfo/
+    defaults: { _controller: 'debug_controller::phpinfo_action' }
+
+# adblock
+
+faq_adblock:
+    path: /faq/adblock/
+    defaults: { _controller: 'faq_controller::adblock_action' }
+adblock_index:
+    path: /adblock/
+    defaults: { _controller: 'adblock_controller::index_action' }
+
+# ad
+
+ad_television:
+    path: /ad/television/
+    defaults: { _controller: 'ad_controller::television_action' }
+ad_taboola:
+    path: /ad/taboola/
+    defaults: { _controller: 'ad_controller::taboola_action' }
+
+# ui
+
+ui_block_account_header:
+    path: /ui/block-account-header/
+    defaults: { _controller: 'ui_controller::block_account_header_action' }
+ui_block_account_facebook_connect:
+    path: /ui/block-account-facebook-connect/
+    defaults: { _controller: 'ui_controller::block_account_facebook_connect_action' }
+
+# groupes
+
+groupes:
+    path: '/{type_alias}/{group_id}/{group_alias}/'
+    defaults: { _controller: 'groupes_controller::groupe_action' }
+    requirements:
+        type_alias: (tv-series|movie|tv-show|group)
+    options:
+        type_alias: { 1: tv-series, 2: movie, 3: tv-show}
+        type_alias_default: group
+
+# index
+
+homepage:
+    path: /
+    defaults: { _controller: 'index_controller::index_action' }
+

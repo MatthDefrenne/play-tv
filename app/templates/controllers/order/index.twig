@@ -1,0 +1,41 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="content">
+
+    <div class="container ptv-js-Order pmd-Order">
+
+      <section class="ptv-js-Order-cart pmd-Order-cart">
+        <h1 class="ptv-AccountProfile-heading">
+          <span class="ptv-AccountProfile-headingMain">
+            <span class="pmd-Order-bullet">1</span>
+            <span>Récapitulatif de votre commande</span>
+          </span>
+        </h1>
+        {% include "controllers/order/_cart.twig" %}
+      </section>
+
+      {% if cart.isEmpty() == false %}
+
+        <section class="ptv-js-Order-account pmd-Order-account">
+          {% include "controllers/order/_account.twig" %}
+        </section>
+
+        {% if is_connected %}
+          {% if user_age <= 18 and has_adult_channel and validate_age == false %}
+            <section class="ptv-js-Order-adult pmd-Order-adult">
+              {% include "controllers/order/_adult.twig" %}
+            </section>
+          {% else %}
+            <section class="ptv-js-Order-payment pmd-OrderPayment">
+              {% include "controllers/order/_payment.twig" %}
+            </section>
+          {% endif %}
+        {% endif %}
+
+      {% endif %}
+
+    </div>
+
+  </div>
+{% endblock content %}

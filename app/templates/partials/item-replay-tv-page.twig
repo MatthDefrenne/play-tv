@@ -1,0 +1,68 @@
+{% set preview_link = video.use_group == true and video.group is not null ? video.group.url : path('replay_replay', {'video_id': video.id, 'title': video.alias}) %}
+{% set preview_image_src = video.images.xlarge ? video.images.xlarge : null %}
+
+{% set text_firstline = video.title %}
+{% set text_firstline_link = video.group.url is defined ? video.group.url : path('replay_replay', {'video_id': video.id, 'title': video.alias}) %}
+
+{% set text_firstline_subtitle = video.broadcast_date|localizeddate('ptv:full', 'none')|capitalize  ~ ' à '  ~ video.broadcast_date|localizeddate('none', 'short') ~ ' sur '  ~ video.channel.channel %}
+{% set text_firstline_subtitle_link = path('replay_channel_videos', {'channel_id': video.channel.id, 'channel_alias': video.channel.alias}) %}
+
+{% set data_attributes_disabled = 'false' %}
+
+{% set text_firstline_class = not video.is_embed and not video.group ? 'popup' : '' %}
+{% set text_firstline_value = '<a href=' ~ text_firstline_link ~ ' class="' ~ text_firstline_class ~ '" data-identifier="' ~ video.replay_id ~ '">' ~ text_firstline ~ '</a>' %}
+{% set text_secondline_value = '<a href=' ~ text_firstline_subtitle_link ~ ' rel="nofollow">' ~ text_firstline_subtitle ~ '</a>' %}
+{% set data_attributes_type = 'replay' %}
+{% set data_attributes_preview_animation = 'true' %}
+
+
+{% if video.active %}
+{% else %}
+  {% set data_attributes_disabled = 'true' %}
+  {% set preview_link = '' %}
+  {% set text_firstline_value = '<span>' ~ text_firstline ~ '</span>' %}
+  {% set text_secondline_value = '<span>' ~ text_firstline_subtitle ~ '</span>' %}
+  {% set data_attributes_type = '' %}
+  {% set data_attributes_preview_animation = '' %}
+{% endif %}
+
+
+{% set params = {
+  'data_attributes': {
+    'poor_preview': preview_image_src ? 'false' : 'true',
+    'channel_logo': 'true',
+    'progress': 'false',
+    'size': 'small',
+    'type': data_attributes_type,
+    'trailer_button': 'false',
+    'duration': video.duration is defined ? 'true' : 'false',
+    'preview_animation': data_attributes_preview_animation,
+    'disabled': data_attributes_disabled
+  },
+  'preview': {
+    'link': preview_link,
+    'classes': not video.is_embed and not (video.use_group == true and video.group) ? 'popup' : '',
+    'identifier': video.replay_id,
+    'image': {
+      'src': preview_image_src,
+      'title': 'Watch %replay% on demand online'|trans({'%replay%': video.title}),
+      'alt': 'Watch %replay% on demand online'|trans({'%replay%': video.title}),
+    },
+    'nofollow': false,
+    'duration': video.duration is defined ? video.duration : 0
+  },
+  'text': {
+    'firstline': text_firstline_value,
+    'secondline': text_secondline_value
+  },
+  'channel': {
+    'image': {
+      'src': video.channel.images.medium,
+      'alt': video.channel.name
+    }
+  }
+} %}
+
+<div class="pmd-ReplayContent-item">
+{% include 'partials/thumbnail.twig' with params %}
+</div>

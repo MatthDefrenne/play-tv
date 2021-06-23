@@ -1,0 +1,90 @@
+<div class="pmd-Remote ptv-js-RemoteControl">
+
+  <div class="pmd-RemoteMenu">
+
+    {% spaceless %}
+      <ul class="pmd-RemoteMenu-list">
+        <li class="pmd-RemoteMenu-listItem pmd-RemoteMenu-listItem--separator">
+          <a href="{{ path('television_index') }}" class="ptv-js-RemoteMenu-home pmd-Button pmd-Button--reset pmd-RemoteMenu-button pmd-RemoteMenu-button--active pmd-SvgEvent" title="{% trans %}All TV channels{% endtrans %}">
+            <svg role="img" class="pmd-Svg pmd-Svg--mosaic">
+              <use xlink:href="#pmd-Svg--mosaic"></use>
+            </svg>
+            <span class="pmd-SvgEvent-handler"></span>
+          </a>
+        </li>
+        <li class="pmd-RemoteMenu-listItem pmd-RemoteMenu-listItem--separator">
+          <a href="{{ path('television_streamable_filter') }}" class="ptv-js-RemoteMenu-streamable pmd-Button pmd-Button--reset pmd-RemoteMenu-button pmd-SvgEvent" title="{% trans %}TV channels available on Play TV{% endtrans %}">
+            <svg role="img" class="pmd-Svg pmd-Svg--play">
+              <use xlink:href="#pmd-Svg--play"></use>
+            </svg>
+            <span class="pmd-SvgEvent-handler"></span>
+          </a>
+        </li>
+        {% if has_feature('sales') %}
+        <li class="pmd-RemoteMenu-listItem pmd-RemoteMenu-listItem--separator">
+          <a href="{{ path('television_subscribe_filter') }}" class="ptv-js-RemoteMenu-pack pmd-Button pmd-Button--reset pmd-RemoteMenu-button pmd-SvgEvent" title="Mes Chaînes TV">
+            <svg role="img" class="pmd-Svg pmd-Svg--cart">
+              <use xlink:href="#pmd-Svg--cart"></use>
+            </svg>
+            <span class="pmd-SvgEvent-handler"></span>
+          </a>
+        </li>
+        {% endif %}
+        {% if not is_website_uk %}
+        <li class="pmd-RemoteMenu-listItem pmd-RemoteMenu-listItem--separator">
+          <button type="button" class="ptv-js-RemoteMenu-world pmd-Button pmd-Button--reset pmd-RemoteMenu-button pmd-SvgEvent" title="{% trans %}Filter by country{% endtrans %}">
+            <span class="ptv-js-RemoteMenu-flag"></span>
+            <svg role="img" class="pmd-Svg pmd-Svg--country">
+              <use xlink:href="#pmd-Svg--country"></use>
+            </svg>
+            <span class="pmd-SvgEvent-handler"></span>
+          </button>
+        </li>
+        {% endif %}
+        <li class="pmd-RemoteMenu-listItem pmd-RemoteMenu-listItem--search">
+          <input type="text" name="" class="pmd-Input pmd-Input--reset pmd-RemoteMenu-searchInput ptv-js-RemoteMenu-search" placeholder="{% trans %}Search a channel{% endtrans %}">
+        </li>
+      </ul>
+    {% endspaceless %}
+
+  </div>
+
+  <div class="pmd-RemoteContent">
+    {{ mosaic|raw }}
+  </div>
+
+</div>
+
+<script type="text/javascript">
+    ;(function(win, doc, app) {
+        app.Data = app.Data || {};
+        app.Data.Remote = app.Data.Remote || {};
+        app.Data.Remote.lang = "{{ locale }}";
+
+        {% set whitelist = ["id", "name", "alias", "has_programs", "images", "has_social_tv", "disabled", "skip_ads", "highlight", "streaming_source", "is_adult", "streaming_spec", "is_radio"] %}
+        {% if channel is defined %}
+          app.Data.Remote.channel = {{ channels_whitelist(channel, whitelist, false)|json_encode()|raw }};
+        {% else %}
+          app.Data.Remote.channel = undefined;
+        {% endif %}
+
+        {% if country_filter is defined %}
+          app.Data.Remote.filter = {
+            type: "country",
+            params: {
+              country: "{{ country_filter|default('fr') }}"
+            }
+          };
+        {% endif %}
+        {% if my_channels_filter is defined %}
+          app.Data.Remote.filter = {
+            type: "pack"
+          };
+        {% endif %}
+        {% if streamable_filter is defined %}
+          app.Data.Remote.filter = {
+            type: "streamable"
+          };
+        {% endif %}
+    })(window, window.document, window.ptv || (window.ptv = {}));
+</script>

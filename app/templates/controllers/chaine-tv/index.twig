@@ -1,0 +1,40 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+
+  {% embed "controllers/chaine-tv/skeleton.twig" with {"tab_active": "resume"} %}
+
+    {% block embed_content %}
+    <h2 class="block-title">
+      {% if infos.is_radio %}
+      {% trans with {'%channel%': infos.name} %}Description of <strong>%channel%</strong> radio{% endtrans %}
+      {% else %}
+      {% trans with {'%channel%': infos.name} %}Description of <strong>%channel%</strong>{% endtrans %}
+      {% endif %}
+    </h2>
+    <div class="text program-summary bigger padding">
+    {% if infos.description %}
+      {{ infos.description|raw }}
+    {% else %}
+      <p>{% trans with {'%channel%': infos.name} %}No description for <strong>%channel%</strong>{% endtrans %} <span class="clear-grey">—</span></p>
+    {% endif %}
+    </div>
+
+    {% if is_website_fr %}
+    <div id="taboola-description-chaine-desktop" class="pmd-js-AdsTaboola pmd-AdsTaboola"></div>
+    {% endif %}
+
+    {%if infos.previous_name %}
+    <h2 class="block-title">
+      {% trans with {'%channel%': infos.name} %}Former names of <strong>%channel%</strong>{% endtrans %}
+    </h2>
+    <div class="text">
+      {{ infos.previous_name|raw }}
+    </div>
+    {% endif %}
+
+    {% endblock %}
+
+  {% endembed %}
+
+{% endblock %}

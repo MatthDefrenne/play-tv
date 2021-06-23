@@ -1,0 +1,11 @@
+<div class="pmd-js-ExternalIframe pmd-PlayerContainer">
+  <div id="pmd-Uniads"></div>
+</div>
+<script>
+  ;(function(win, doc, App) {
+    App.Data = App.Data || {}
+    App.Data = {{ live_parameters|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}
+    App.Data.viewLayout = '{{ layout }}'
+  })( window, window.document, window.pmd || ( window.pmd = {} ) );
+</script>
+<script src="{{ assets.scripts['page-player-external-iframe.js'] }}"></script>

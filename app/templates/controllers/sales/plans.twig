@@ -1,0 +1,250 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+
+  {% set priceInteger = (premium.price/100)|round(0, 'floor') %}
+  {% set priceCurrency = '€' %}
+  {% set priceDecimal = (premium.price/100)|split('.') %}
+  <div id="content">
+
+    <div class="container pmd-Plans">
+
+      {% if is_connected == false or current_account.isPremium() == false %}
+      <div>
+
+        <h4 class="ptv-AccountProfile-heading">
+          <span class="ptv-AccountProfile-headingMain">Présentation des offres</span>
+          <span class="ptv-AccountProfile-headingRight">
+            <p>Haute qualité d'image | Sans publicité au démarrage |</p>
+            {% spaceless %}
+              <ul class="pmd-OSList">
+                <li class="pmd-OSList-item">
+                  <span class="pmd-js-Tooltip pmd-SvgEvent" title="Windows">
+                    <svg role="img" alt="Windows" class="pmd-Svg pmd-Svg--windows">
+                      <use xlink:href="#pmd-Svg--windows"></use>
+                    </svg>
+                    <span class="pmd-SvgEvent-handler"></span>
+                  </span>
+                </li>
+                <li class="pmd-OSList-item">
+                  <span class="pmd-js-Tooltip pmd-SvgEvent" title="MacOSX">
+                    <svg role="img" alt="MacOSX" class="pmd-Svg pmd-Svg--apple">
+                      <use xlink:href="#pmd-Svg--apple"></use>
+                    </svg>
+                    <span class="pmd-SvgEvent-handler"></span>
+                  </span>
+                </li>
+                <li class="pmd-OSList-item">
+                  <span class="pmd-js-Tooltip pmd-SvgEvent" title="Android">
+                    <svg role="img" alt="Android" class="pmd-Svg pmd-Svg--android">
+                      <use xlink:href="#pmd-Svg--android"></use>
+                    </svg>
+                    <span class="pmd-SvgEvent-handler"></span>
+                  </span>
+                </li>
+                <li class="pmd-OSList-item">
+                  <span class="pmd-js-Tooltip pmd-SvgEvent" title="iOS">
+                    <svg role="img" alt="iOS" class="pmd-Svg pmd-Svg--ios">
+                      <use xlink:href="#pmd-Svg--ios"></use>
+                    </svg>
+                    <span class="pmd-SvgEvent-handler"></span>
+                  </span>
+                </li>
+              </ul>
+            {% endspaceless %}
+          </span>
+        </h4>
+
+        {% if is_connected == false or current_account.hasTrialPeriod() %}
+          <div class="pmd-Plans-trialBanner">
+            <p>Profitez de <span class="pmd-PlansTrialBanner-days">{{ trial_period_days }} jours offerts</span> pour tester les offres Play TV.</p>
+            <div class="pmd-PlansTrialBanner-slice">Période d'essai</div>
+          </div>
+        {% endif %}
+
+        <table class="pmd-ShowOffers">
+
+          <thead>
+            <th class="pmd-ShowOffers-empty"></th>
+            <th class="pmd-ShowOffers-heading">Gratuit</th>
+            <th class="pmd-ShowOffers-heading">
+              <p class="pmd-ShowOffers-subtitle">Premium</p>
+              <p class="pmd-ShowOffers-subsubtitle">
+                <span class="pmd-ShowOffers-subsubtitleNumber">{{ priceInteger }}</span>
+                <span class="pmd-ShowOffers-subsubtitleInfo">{{ priceCurrency }}{% if priceDecimal.1 is defined and priceDecimal.1 != '00' %},{{ priceDecimal.1 }}{% endif %} / mois<br>sans engagement</span>
+              </p>
+            </th>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Pas de publicité</td>
+              <td>
+                <svg role="img" class="pmd-Svg pmd-Svg--cross pmd-Svg--red">
+                  <use xlink:href="#pmd-Svg--cross"></use>
+                </svg>
+              </td>
+              <td>
+                <svg role="img" class="pmd-Svg pmd-Svg--tick pmd-Svg--green">
+                  <use xlink:href="#pmd-Svg--tick"></use>
+                </svg>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Qualité HQ</td>
+              <td>
+                <svg role="img" class="pmd-Svg pmd-Svg--cross pmd-Svg--red">
+                  <use xlink:href="#pmd-Svg--cross"></use>
+                </svg>
+              </td>
+              <td>
+                <svg role="img" class="pmd-Svg pmd-Svg--tick pmd-Svg--green">
+                  <use xlink:href="#pmd-Svg--tick"></use>
+                </svg>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Chaînes gratuites</td>
+              <td colspan="2" class="pmd-ShowOffers-imageWrapper">
+                <div class="pmd-js-SalesPlanMoreChannels-wrapper pmd-ShowOffers-insideImageWrapper">
+                  {% spaceless %}
+                    {% for channel in premium.channels %}
+                      <img src="{{ channel.images.small }}" alt="{{ channel.name }}" title="{{ channel.name }}" class="pmd-js-Tooltip pmd-ShowOffers-wrapperedImage" width="60" height="60">
+                    {% endfor %}
+                  {% endspaceless %}
+                </div>
+                <a href="#" data-toggle="collapse" data-target=".pmd-js-SalesPlanMoreChannels-wrapper" data-toggle-class="pmd-ShowOffers-insideImageWrapper--full" class="pmd-ShowOffers-more">Voir toutes les chaines</a>
+              </td>
+            </tr>
+
+            {% if hd_channels|length > 0 %}
+              <tr>
+                <td>Chaînes en <svg role="img" alt="HD" class="pmd-Svg pmd-Svg--hd" style="font-size: 44px; fill: #666666; margin-top: -5px; margin-left: 5px;"><use xlink:href="#pmd-Svg--hd"></use></svg>
+                </td>
+                <td>
+                  <svg role="img" class="pmd-Svg pmd-Svg--cross pmd-Svg--red">
+                    <use xlink:href="#pmd-Svg--cross"></use>
+                  </svg>
+                </td>
+                <td class="pmd-ShowOffers-hdContent">
+                  {% spaceless %}
+                    {% for channel in hd_channels %}
+                      <span class="pmd-js-Tooltip pmd-ShowOffers-wrapperedImage pmd-ShowOffers-wrapperedImage--hd" title="{{ channel.name }}"><img src="{{ channel.images.small }}" alt="{{ channel.name }}" width="60" height="60"></span>
+                    {% endfor %}
+                  {% endspaceless %}
+                </td>
+              </tr>
+            {% endif %}
+
+            <tr>
+              <td class="pmd-ShowOffers-empty"></td>
+              <td class="pmd-ShowOffers-empty"></td>
+              <td class="pmd-ValidateOffers">
+                {# <form action="{{ hosts.current_full_secure }}/panier/" method="post"> #}
+                {# hack: "get" to support Edge browser #}
+                <form action="{{ hosts.current_full_secure }}/panier/" method="get">
+                  <input type="hidden" name="product_alias" value="{{ premium.alias }}">
+                  {% if is_connected == false or current_account.hasTrialPeriod() %}
+                    <button type="submit" class="pmd-Button pmd-Button--premium pmd-ValidateOffers-button pmd-Button--lg">
+                      <span>Essayer gratuitement</span>
+                    </button>
+                  {% else %}
+                    <button type="submit" class="pmd-Button pmd-Button--premium pmd-ValidateOffers-button pmd-Button--lg pmd-Button--icon">
+                      <svg role="img" class="pmd-Svg pmd-Svg--cart pmd-Svg--white">
+                        <use xlink:href="#pmd-Svg--cart"></use>
+                      </svg>
+                      <span>M'abonner</span>
+                    </button>
+                  {% endif %}
+                  <span class="pmd-ValidateOffers-litteLine">Sans engagement</span>
+                </form>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+      {% endif %}
+
+      {% if packs|length > 0 %}
+
+      <div>
+
+        <h4 class="ptv-AccountProfile-heading">
+          <span class="ptv-AccountProfile-headingMain">Packs de chaînes</span>
+          <span class="ptv-AccountProfile-headingRight">
+            <p>Haute qualité d'image | Sans publicité au démarrage |</p>
+            {% spaceless %}
+              <ul class="pmd-OSList">
+                <li class="pmd-OSList-item">
+                  <span class="pmd-js-Tooltip pmd-SvgEvent" title="Windows">
+                    <svg role="img" alt="Windows" class="pmd-Svg pmd-Svg--windows">
+                      <use xlink:href="#pmd-Svg--windows"></use>
+                    </svg>
+                    <span class="pmd-SvgEvent-handler"></span>
+                  </span>
+                </li>
+                <li class="pmd-OSList-item">
+                  <span class="pmd-js-Tooltip pmd-SvgEvent" title="MacOSX">
+                    <svg role="img" alt="MacOSX" class="pmd-Svg pmd-Svg--apple">
+                      <use xlink:href="#pmd-Svg--apple"></use>
+                    </svg>
+                    <span class="pmd-SvgEvent-handler"></span>
+                  </span>
+                </li>
+                <li class="pmd-OSList-item">
+                  <span class="pmd-js-Tooltip pmd-SvgEvent" title="Android">
+                    <svg role="img" alt="Android" class="pmd-Svg pmd-Svg--android">
+                      <use xlink:href="#pmd-Svg--android"></use>
+                    </svg>
+                    <span class="pmd-SvgEvent-handler"></span>
+                  </span>
+                </li>
+                <li class="pmd-OSList-item">
+                  <span class="pmd-js-Tooltip pmd-SvgEvent" title="iOS">
+                    <svg role="img" alt="iOS" class="pmd-Svg pmd-Svg--ios">
+                      <use xlink:href="#pmd-Svg--ios"></use>
+                    </svg>
+                    <span class="pmd-SvgEvent-handler"></span>
+                  </span>
+                </li>
+              </ul>
+            {% endspaceless %}
+          </span>
+        </h4>
+
+        <div class="pmd-ProductList">
+          {% for pack in packs %}
+            {% include "partials/item-product.twig" with {'product': pack, 'type': 'pack'} %}
+          {% endfor %}
+        </div>
+
+      </div>
+      {% endif %}
+
+      {% if retails|length > 0 %}
+        <div>
+
+          <h4 class="ptv-AccountProfile-heading">
+            <span class="ptv-AccountProfile-headingMain">Chaînes à la carte</span>
+          </h4>
+
+          <div class="pmd-ProductList">
+            {% for retail in retails %}
+              {% include "partials/item-product.twig" with {'product': retail, 'type': 'retail'} %}
+            {% endfor %}
+          </div>
+
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+{% endblock %}

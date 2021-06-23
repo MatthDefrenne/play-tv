@@ -1,0 +1,14 @@
+{
+  "operations": {
+    "channels.getProducts": {
+      "httpMethod": "GET",
+      "uri": "channels/{channel_id}/products/",
+      "summary": "Get the products containing this channel",
+      "parameters": {
+        "channel_id": {
+          "location": "uri"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="content" class="pmd-js-SalesProduct pmd-ProductDetail">
+
+    <section class="pmd-ProductDetailHeading pmd-ProductBackground{% if product.type == 'retail' %} pmd-ProductBackground--retail{% endif %} pmd-ProductBackground--{{ product.alias }}">
+
+      <div class="container">
+
+        <h3 class="pmd-ProductDetailHeading-heading">
+          {% if product.type == 'pack' %}Pack {% endif %}
+          {{ product.name }}
+          {% if product.hasAdultChannel %}
+            <svg role="img" class="pmd-Svg pmd-Svg--minus18 pmd-Svg--white pmd-ProductDetailHeading-adultIcon">
+              <use xlink:href="#pmd-Svg--minus18"></use>
+            </svg>
+          {% endif %}
+        </h3>
+
+        <p class="pmd-ProductDetailHeading-price">
+        {% if is_connected == false or current_account.hasTrialPeriod() %}Profitez sans attendre de <strong>{{ trial_period_days }} jours d’essai</strong> gratuit.<br><span class="pmd-ProductDetailHeading-priceItself">Puis <strong>{{ (product.price / 100)|number_format(2, ',') }}€</strong> /mois sans engagement.</span>
+          {% else %}
+          <strong>{{ (product.price / 100)|number_format(2, ',') }}€</strong> /mois sans engagement.
+          {% endif %}
+        </p>
+
+        <button type="button" class="pmd-js-SalesProduct-button pmd-Button pmd-Button--default pmd-Button--bold{% if skin != 'minimal' %} pmd-Button--lg{% endif %}" data-cart-url="{{ hosts.current_full_secure }}/panier/?product_alias={{ product.alias }}">
+          {% if is_connected == false or current_account.hasTrialPeriod() %}
+            <span>Essayer gratuitement</span>
+          {% else %}
+            <span>M'abonner</span>
+          {% endif %}
+        </button>
+
+      </div>
+
+    </section>
+
+    <section class="pmd-ProductDetailFeatures">
+      <div class="container">
+
+        <div class="pmd-ProductDetailFeature">
+          <h4 class="pmd-ProductDetailFeature-heading">
+            <span class="pmd-ProductDetailFeature-iconWrapper">
+              <span class="pmd-ProductDetailFeature-icon">
+                <svg role="img" class="pmd-Svg pmd-Svg--devices" style="font-size: 54px">
+                  <use xlink:href="#pmd-Svg--devices"></use>
+                </svg>
+              </span>
+            </span>
+            <span>Multisupport</span>
+          </h4>
+          <p class="pmd-ProductDetailFeature-sentence">Profitez de Play TV,  partout tout le temps, sur tous vos appareils.</p>
+        </div>
+
+        <div class="pmd-ProductDetailFeature">
+          <h4 class="pmd-ProductDetailFeature-heading">
+            <span class="pmd-ProductDetailFeature-iconWrapper">
+              <span class="pmd-ProductDetailFeature-icon">
+                <svg role="img" class="pmd-Svg pmd-Svg--noentry">
+                  <use xlink:href="#pmd-Svg--noentry"></use>
+                </svg>
+              </span>
+            </span>
+            <span>Fini les pubs</span>
+          </h4>
+          <p class="pmd-ProductDetailFeature-sentence">
+          {% if product.alias == 'pack-premium' %}
+            De la TV accessible en illimité et sans publicité au changement de chaîne.
+          {% elseif product.type == 'retail' %}
+            La chaîne « {{ product.name }} » accessible en illimité et sans publicité.
+          {% else %}
+            Les chaînes « {{ product.name }} » accessibles en illimité et sans publicité au changement de chaîne.
+          {% endif %}
+          </p>
+        </div>
+
+        <div class="pmd-ProductDetailFeature">
+          <h4 class="pmd-ProductDetailFeature-heading">
+            <span class="pmd-ProductDetailFeature-iconWrapper">
+              <span class="pmd-ProductDetailFeature-icon">
+                <svg role="img" class="pmd-Svg pmd-Svg--hd" style="font-size: 42px">
+                  <use xlink:href="#pmd-Svg--hd"></use>
+                </svg>
+              </span>
+            </span>
+            <span>Haute qualité</span>
+          </h4>
+          <p class="pmd-ProductDetailFeature-sentence">Regardez la TV en haute qualité. Quand vous aimez la TV, la qualité de l’image est primordiale.</p>
+        </div>
+
+        <div class="pmd-ProductDetailFeature">
+          <h4 class="pmd-ProductDetailFeature-heading">
+            <span class="pmd-ProductDetailFeature-iconWrapper">
+              <span class="pmd-ProductDetailFeature-icon">
+                {% if product.hasAdultChannel %}
+                  <svg role="img" class="pmd-Svg pmd-Svg--minus18">
+                    <use xlink:href="#pmd-Svg--minus18"></use>
+                  </svg>
+                {% else %}
+                  <svg role="img" class="pmd-Svg pmd-Svg--tv">
+                    <use xlink:href="#pmd-Svg--tv"></use>
+                  </svg>
+                {% endif %}
+              </span>
+            </span>
+            <span>{% if product.hasAdultChannel %}Chaîne pour adulte{% else %}Chaînes en direct{% endif %}</span>
+          </h4>
+          <p class="pmd-ProductDetailFeature-sentence">
+            {% if product.hasAdultChannel %}
+              Vous devez être majeur pour regarder cette chaîne.
+            {% else %}
+              {% if product.alias == 'pack-premium' %}
+                Accédez instantanément à la TV que vous aimez, il vous suffit de sélectionner une chaine dans la mosaïque.
+              {% elseif product.type == 'retail' %}
+                Accédez instantanément à la chaîne « {{ product.name }} », il vous suffit la sélectionner dans la mosaïque.
+              {% else %}
+                Accédez instantanément aux chaînes « {{ product.name }} », il vous suffit de sélectionner une chaine dans la mosaïque.
+              {% endif %}
+            {% endif %}
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    {% if skin != 'minimal' and (is_connected == false or current_account.hasTrialPeriod()) %}
+      <section class="pmd-ProductDetailTrial">
+        <p class="pmd-ProductDetailTrial-sentence">Profitez de {{ trial_period_days }} jours d’essai gratuit, pour votre premier abonnement.</p>
+        <button type="button" class="pmd-js-SalesProduct-button pmd-Button pmd-Button--{{ product.alias }} pmd-Button--bold{% if skin != 'minimal' %} pmd-Button--lg{% endif %}" data-cart-url="{{ hosts.current_full_secure }}/panier/?product_alias={{ product.alias }}">
+        <span>Essayer gratuitement</span>
+        </button>
+      </section>
+    {% endif %}
+
+
+    <section class="pmd-ProductDetailSkip{% if skin == 'minimal' %} pmd-ProductDetailSkip--active{% endif %}">
+      <p class="pmd-ProductDetailSkip-sentence">
+        <a href="#" class="pmd-js-SalesProduct-link pmd-ProductDetailSkip-link">
+          <span>Je ne suis pas intéréssé(e).</span>
+          <svg role="img" class="pmd-Svg pmd-Svg--arrow2 pmd-ProductDetailSkip-icon">
+            <use xlink:href="#pmd-Svg--arrow2"></use>
+          </svg>
+        </a>
+      </p>
+    </section>
+
+  </div>
+{% endblock content %}

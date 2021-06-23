@@ -1,0 +1,62 @@
+{% set data_attributes = data_attributes|merge({
+    'poor_preview': thumbnail.program.images.xlarge ? 'false' : 'true',
+    'trailer_button': thumbnail.program.trailer ? 'true' : 'false',
+  })
+%}
+
+{% if context == 'broadcasts-live' %}
+  {% set text_title = '<a href=' ~ thumbnail.program.program_url ~ '>' ~ thumbnail.program.fulltitle ~ '</a>' %}
+  {% set preview_link = path('television_channel_single', {
+      'channel_id': thumbnail.channel.id,
+      'channel_alias': thumbnail.channel.alias
+    })
+  %}
+{% endif %}
+
+{% if context == 'broadcasts-tonight' %}
+  {% set data_attributes = data_attributes|merge({
+      'type': '',
+    })
+  %}
+  {% set text_title = '<span style="font-weight: normal; margin-right: 5px;">' ~ thumbnail.start|localizeddate('none', 'short') ~ '</span> <a href=' ~ thumbnail.program.program_url ~ '>' ~ thumbnail.program.fulltitle ~ '</a>' %}
+  {% set preview_link = path('programme', {
+      'program_id': thumbnail.program.id,
+      'program_alias': thumbnail.program.alias
+    })
+  %}
+{% endif %}
+
+{% include 'partials/thumbnail.twig' with {
+    'type': 'slider',
+    'data_attributes': data_attributes,
+    'text': {
+      'firstline': text_title,
+      'secondline': '<a href=' ~ thumbnail.program.program_url ~ ' rel="nofollow">' ~ thumbnail.program.subtitle ~ '</a>'
+    },
+
+    'preview': {
+      'link': preview_link,
+      'image': {
+        'src': thumbnail.program.images.xlarge,
+        'title': thumbnail.program.fulltitle
+      },
+      'nofollow': true
+    },
+
+    'trailer': {
+      'classes': 'pmd-js-TrailerButton2',
+      'href': '/trailer/' ~ thumbnail.program.id ~ '/?autoplay=1&skin=minimal'
+    },
+
+    'progress': {
+      'percentage': thumbnail.progress is defined ? thumbnail.progress : 0
+    },
+
+    'channel': {
+      'image': {
+        'src': thumbnail.channel.images.medium,
+        'alt': thumbnail.channel.name
+      }
+    }
+  }
+%}

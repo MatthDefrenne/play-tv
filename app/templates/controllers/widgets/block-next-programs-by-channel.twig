@@ -1,0 +1,66 @@
+{#
+    @container: #programs-next
+    @data: $channel, $next_programs
+#}
+<div id="following-programs" style="display: none;">
+  <div class="row">
+    <div class="span-page">
+      <div id="programs-next">
+{% if next_programs is not empty %}
+
+  {% if channel is defined %}
+    <div class="text xmargin">
+      <p class="clear-grey">
+        {% if channel.is_radio %}
+        {% trans with {'%channel%': channel.name} %}
+        Next to listen live on <strong>%channel%</strong>.
+        {% endtrans %}
+        {% else %}
+        {% trans with {'%channel%': channel.name} %}
+        Next <strong>TV programs</strong> to watch live on <strong>%channel%</strong>.
+        {% endtrans %}
+        {% endif %}
+      </p>
+    </div>
+  {% endif %}
+
+  {% include "controllers/widgets/broadcasts.twig" with {broadcasts: next_programs} %}
+
+{% else %}
+
+  <div id="background-error">
+    {% if channel is defined %}
+      <div class="text margin">
+        <p class="clear-grey">
+          {% if channel.is_radio %}
+          {% trans with {'%channel%': channel.name} %}
+          Next to listen live on <strong>%channel%</strong>.
+          {% endtrans %}
+          {% else %}
+          {% trans with {'%channel%': channel.name} %}
+          Next <strong>TV programs</strong> to watch live on <strong>%channel%</strong>.
+          {% endtrans %}
+          {% endif %}
+        </p>
+      </div>
+    {% endif %}
+    <div class="text">
+      <p>
+        {% if channel.is_radio %}
+        {% trans %}
+        <strong class="red">No information</strong> about online radio.
+        {% endtrans %}
+        {% else %}
+        {% trans %}
+        <strong class="red">No information</strong> about this channel's TV programs.
+        {% endtrans %}
+        {% endif%}
+      </p>
+    </div>
+  </div>
+
+{% endif %}
+      </div>
+    </div>
+  </div>
+</div>

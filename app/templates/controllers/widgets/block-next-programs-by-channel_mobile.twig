@@ -1,0 +1,31 @@
+<div class="pmd-LiveTvNextProgrammes">
+
+  <div class="pmd-Heading pmd-Heading--light">
+    <div class="pmd-Heading-words">
+      {% if channel is defined %}
+        {% trans with {'%channel%': channel.name} %}What's next on %channel%{% endtrans %}
+      {% else %}
+        {% trans %}What's next{% endtrans %}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="pmd-js-LiveTvContent-nextProgramme">
+    <ul class="pmd-NextProgramme-list">
+      {% for broadcast in next_programs %}
+      <li class="pmd-NextProgramme-listItem">
+        <a href="{{ broadcast.program.program_url }}" class="pmd-NextProgramme-link">
+          <span class="pmd-NextProgramme-time">{{ broadcast.start|localizeddate('none', 'short') }}</span>
+          <span class="pmd-NextProgramme-genre pmd-ProgrammeGenre pmd-ProgrammeGenre--right pmd-ProgrammeGenre--{{ broadcast.program.gender_id }}">{{ broadcast.program.gender }}</span>
+          <span class="pmd-NextProgramme-heading pmd-Text--truncate">{{ broadcast.program.fulltitle }}</span>
+        </a>
+      </li>
+      {% else %}
+      <li class="pmd-NextProgramme-listItem pmd-NextProgramme-listItem--empty">
+      {% trans %}No information{% endtrans %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>

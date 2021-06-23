@@ -1,0 +1,42 @@
+{#
+  default context (ie: player w/ full features) on a wireless device (mobile|tablet) redirects to login page if authentication is required.
+  Otherwise, on any other devices, stream is played a couple of seconds, then stopped if still no logged in account triggering a login popin.
+#}
+{% if
+  mode == 'default' and
+  device == 'mobile' and
+  true == channel.require_login and
+  false == is_connected
+%}
+  <div class="pmd-PlayerContainer">
+    <a href="/connexion/" class="pmd-js-LinkParent" style="width: 100%; height: 100%; display: block; position: relative;">
+      <img
+        src="{{ apps_base_url }}/images/play-mobile.svg"
+        width="64"
+        height="64"
+        style="display: block;position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%);"
+      >
+    </a>
+  </div>
+  <script>
+  document.querySelector('.pmd-js-LinkParent').addEventListener('click', function ( e ) {
+    e.preventDefault()
+
+    window.parent.location.href = this.getAttribute('href')
+  })
+  </script>
+{% else %}
+  <div class="pmd-js-Player pmd-PlayerContainer">
+    <div id="pmd-Uniads"></div>
+  </div>
+  <script>
+    ;(function(win, doc, App) {
+
+      App.Data = App.Data || {}
+      App.Data = {{ live_parameters|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}
+      App.Data.viewLayout = '{{ layout }}'
+
+    })( window, window.document, window.pmd || ( window.pmd = {} ) );
+  </script>
+  <script src="{{ assets.scripts['page-player.js'] }}"></script>
+{% endif %}

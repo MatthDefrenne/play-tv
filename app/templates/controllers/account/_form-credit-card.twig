@@ -1,0 +1,54 @@
+<div class="ptv-js-AccountProfile ptv-AccountProfile">
+
+  <h3 class="ptv-AccountProfile-heading pmd-FormLayout-heading">
+    <span class="ptv-AccountProfile-headingMain">Mes coordonnées bancaires</span>
+  </h3>
+
+  <div class="content ptv-AccountProfileContent ptv-js-Payment">
+
+    <p class="ptv-AccountPaymentMethod-mainline">Vous avez enregistré une carte bancaire de type <strong>{{ paymill_info.cardType|capitalize }}</strong>
+      ayant pour numéro <strong>XXXX-XXXX-XXXX-{{ paymill_info.last4 }}</strong>
+      et expirant le <strong>{{ paymill_info.expireMonth }}/{{ paymill_info.expireYear }}</strong>.</p>
+
+    <p class="ptv-AccountPaymentMethod-mainline">Si ces informations sont érronées ou obsolètes, vous pouvez changer vos coordonnées bancaires à l'aide du formulaire ci-après.</p>
+
+    <section class="ptv-AccountPart">
+
+      <div class="ptv-AccountPayment">
+
+        <form method="post" action="/mon-compte/coordonnees-bancaires/" class="ptv-js-Payment-form" >
+
+          <img src="{{ apps_base_url }}/images/premium/cards.png" alt="" class="ptv-AccountPayment-cards">
+
+          <p class="ptv-AccountPayment-line pmd-InputWrapper">
+            <label class="ptv-Label ptv-AccountPayment-label pmd-Label" for="ptv-AccountPayment-cardNumber">Numéro de carte</label>
+            <input type="text" class="ptv-Input pmd-Input" size="30" maxlength="32" data-name="card-number" id="ptv-AccountPayment-cardNumber" autocomplete="off">
+          </p>
+
+          <p class="ptv-AccountPayment-line pmd-InputWrapper">
+            <label class="ptv-Label ptv-AccountPayment-label pmd-Label">Date d'expiration (MM/YY)</label>
+            <input type="text" class="ptv-Input pmd-Input" size="2" maxlength="2" data-name="card-expiry-month" id="ptv-AccountPayment-cardExpiryMonth" autocomplete="off">
+            <input type="text" class="ptv-Input pmd-Input" maxlength="2" size="2" data-name="card-expiry-year" id="ptv-AccountPayment-cardExpiryYear" autocomplete="off">
+          </p>
+
+          <p class="ptv-AccountPayment-line pmd-InputWrapper">
+            <label class="ptv-Label ptv-AccountPayment-label pmd-Label" for="ptv-AccountPayment-cardCVC">Numéro de vérification</label>
+            <input type="text" class="ptv-Input pmd-Input" size="3" maxlength="3" data-name="card-cvc" autocomplete="off" id="ptv-AccountPayment-cardCVC">
+          </p>
+
+          <div class="ptv-js-Payment-alert ptv-Alert ptv-AccountProfileAlert"></div>
+
+          <p class="ptv-AccountProfileAction pmd-Text--right">
+            <button class="ptv-js-Payment-updateAction ptv-Button ptv-Button--large ladda-button pmd-Button pmd-Button--block" data-style="zoom-out" type="submit">
+              <span class="ladda-label">Mettre à jour mes coordonnées bancaires</span>
+          </button>
+          </p>
+
+        </form>
+
+      </div>
+
+    </section>
+  </div>
+
+</div>

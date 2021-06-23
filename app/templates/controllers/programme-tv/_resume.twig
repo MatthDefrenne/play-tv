@@ -1,0 +1,148 @@
+{% if output is not defined %}
+  {% set output = "incomplete" %}
+{% endif %}
+
+<div class="margin">
+
+  <div class="program-summary text padding bigger">
+  {% if program.summary %}
+    {{ program.summary|raw }}
+  {% else %}
+    <p>
+      {% trans with {'%program%': program.fulltitle} %}No summary for <strong>%program%</strong>{% endtrans %} <span class="clear-grey">—</span>
+    </p>
+  {% endif %}
+  </div>
+
+  {% if output == "complete" %}
+  {% if program.trailer%}
+  <p class="text clear-grey">
+    {% trans %}Watch the <strong>trailer</strong>{% endtrans %}
+  </p>
+  <iframe class="ptv-js-TrailerIframe ptv-TrailerIframe" onload="lzld(this)" src="about:blank" data-src="/trailer/{{ program.id }}/?autoplay=1&skin=minimal" frameborder="0" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+  {% endif %}
+  {% endif %}
+
+  {% if output == "complete" %}
+    {% if is_website_fr %}
+    <div id="taboola-fiche-programme-desktop" class="pmd-js-AdsTaboola pmd-AdsTaboola"></div>
+    {% endif %}
+  {% else %}
+    {% if
+      (is_connected == false or (is_connected and current_account.isPremium() == false)) and
+      is_website_fr and taboola != false
+    %}
+    <iframe
+      class="pmd-AdsTaboola"
+      onload="lzld(this)"
+      src="about:blank"
+      data-src="/ad/taboola/"
+      frameborder="0"
+      scrolling="no"
+      width="100%"
+    >
+    </iframe>
+    {% endif %}
+  {% endif %}
+
+  {% if casts.casting[83] is defined %}
+    {% set section_title = "Presented by"|trans %}
+    {% set primary_casts = casts.casting[83].casts %}
+  {% elseif casts.casting[29] is defined %}
+    {% set section_title = "Created by"|trans %}
+    {% set primary_casts = casts.casting[29].casts %}
+  {% elseif casts.casting[88] is defined %}
+    {% set section_title = "Directed by"|trans %}
+    {% set primary_casts = casts.casting[88].casts %}
+  {% elseif casts.casting[90] is defined %}
+    {% set section_title = "Screenplay by"|trans %}
+    {% set primary_casts = casts.casting[90].casts %}
+  {% else %}
+    {% set section_title = "" %}
+    {% set primary_casts = null %}
+  {% endif %}
+
+  {% if primary_casts %}
+  <div class="mini-casting text">
+    <p>
+      <strong>{{ section_title }}</strong>
+      {% for cast in primary_casts %}
+      {% if loop.index < 4 %}
+        <strong>
+          <a href="{{ cast.url }}" title="{{ cast.fullname }}">{{ cast.fullname }}</a>
+        </strong>
+        {% if loop.index == 3 and loop.last == false %}
+        <span class="clear-grey">...</span>
+        {% elseif loop.index < 4 and loop.last == false %}
+        <span class="bullet">&bull;</span>
+        {% endif %}
+      {% endif %}
+      {% endfor %}
+    </p>
+  </div>
+  {% endif %}
+
+  {% if casts.casting[2] is defined %}
+    {% set secondary_casts = casts.casting[2].casts %}
+  {% elseif casts.casting[65] is defined %}
+    {% set secondary_casts = casts.casting[65].casts %}
+  {% elseif casts.casting[17] is defined %}
+    {% set secondary_casts = casts.casting[17].casts %}
+  {% elseif casts.casting[66] is defined %}
+    {% set secondary_casts = casts.casting[66].casts %}
+  {% else %}
+    {% set secondary_casts = null %}
+  {% endif %}
+
+  {% if secondary_casts %}
+  <div class="mini-casting text">
+    <p>
+      <strong>{% trans %}With{% endtrans %}</strong>
+      {% for cast in secondary_casts %}
+      {% if loop.index < 4 %}
+        <a href="{{ cast.url }}" title="{{ cast.fullname }}">{{ cast.fullname }}</a>
+        {% if loop.index == 3 and loop.last == false %}
+        <span class="clear-grey">...</span>
+        {% elseif loop.index < 4 and loop.last == false %}
+        <span class="bullet">&bull;</span>
+        {% endif %}
+      {% endif %}
+      {% endfor %}
+    </p>
+  </div>
+  {% endif %}
+
+</div>
+
+{% if output == "complete" %}
+{% if broadcasts and broadcasts|length > 0 %}
+<h2 class="block-title">
+  {% trans %}<strong>Next broadcasts</strong> on TV{% endtrans %}
+</h2>
+{% for broadcast in broadcasts|slice(0, 2) %}
+{% if loop.first %}
+<div class="program-broadcasts clearfix">
+{% endif %}
+
+  <div class="program-broadcast text">
+    <a class="channel-img channel-img-mini" href="{{ path('chaine_tv', {'channel_id': broadcast.channel.id, 'channel_alias': broadcast.channel.alias}) }}" title="{{ broadcast.channel.name }}">
+      <span>{% trans with {'%channel%': broadcast.channel.name} %}Watch %channel% live{% endtrans %}</span>
+      <img src="{{ broadcast.channel.images.mini }}" alt="{{ broadcast.channel.name }}" width="36" height="36" />
+    </a>
+    <p>
+      <small title="{{ broadcast.start|localizeddate('full', 'none', locale)|capitalize }}">{{ date_for_humans(broadcast.start)|capitalize }}</small>
+      <br>
+      {% trans with {'%channel%': broadcast.channel.name, '%hour%': broadcast.start|localizeddate('none', 'short')} %}
+      On <strong>%channel%</strong> at <strong>%hour%</strong>
+      {% endtrans %}
+    </p>
+  </div>
+
+{% if loop.last %}
+</div>
+{% endif %}
+
+{% endfor %}
+
+{% endif %}
+{% endif %}

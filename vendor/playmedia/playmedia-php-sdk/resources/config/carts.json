@@ -1,0 +1,40 @@
+{
+  "operations": {
+    "carts.validate": {
+      "httpMethod": "POST",
+      "uri": "accounts/{account_id}/cart/validate/",
+      "summary": "Validate a cart",
+      "parameters": {
+        "account_id": {
+          "location": "uri"
+        }
+      },
+      "additionalParameters": {
+        "location": "json"
+      }
+    },
+    "carts.addProducts": {
+      "httpMethod": "PUT",
+      "uri": "accounts/{account_id}/cart/products/",
+      "summary": "Add a product to a cart",
+      "parameters": {
+        "account_id": {
+          "location": "uri"
+        },
+        "products": {
+          "location": "json"
+        }
+      }
+    },
+    "carts.clear": {
+      "httpMethod": "DELETE",
+      "uri": "accounts/{account_id}/cart/products/",
+      "summary": "Clear a cart",
+      "parameters": {
+        "account_id": {
+          "location": "uri"
+        }
+      }
+    }
+  }
+}

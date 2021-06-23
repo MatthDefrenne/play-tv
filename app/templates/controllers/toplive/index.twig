@@ -1,0 +1,74 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+{% include "partials/subnav-guide-tv.twig" with {"subnav_active": "toplive"} %}
+
+<div id="content">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="span-page">
+
+        <div class="section-title">
+          <p class="right clear-grey">Les audiences TV en direct</p>
+          <h1><a href="/toplive/"><strong>Top Live!</strong> »</a></h1>
+        </div>
+
+        <div class="text margin xbigger">
+          <p>Vous ne savez pas quoi <strong>regarder à la télévision</strong> ? Découvrez <strong>Top Live!</strong> notre mesure d'audience TV en quasi temps-réel. Les données sont certifiées par l'organisme Médiamétrie. Suivez la tendance!</p>
+        </div>
+
+        <ul id="tabs" class="tabs">
+          <li class="tab-selected" title="{% if toplive is not null and toplive.0.last_update %}Mise à jour : {{ toplive.0.last_update|date("d/m/y à H:i") }}{% endif %}">
+            <a href="{{ request.uri }}" title="">Dernière heure</a>
+          </li>
+          <li>
+            <a href="{{ request.uri }}" title="">Audience cumulée</a>
+          </li>
+        </ul>
+        <div id="tab1">
+          {% include "controllers/toplive/_toplive.twig" with {"toplive": toplive, "by_trend": false} %}
+        </div>
+        <div id="tab2">
+          {% include "controllers/toplive/_toplive.twig" with {"toplive": toplive_fullday, "by_trend": false} %}
+        </div>
+
+      </div>
+
+      <div class="span-sidebar">
+
+        <div class="margin">
+          {% include "partials/ads-banner.twig" with {'unique': "af2eb201", "zone_id": 9} %}
+        </div>
+
+        <div class="grey-box margin">
+          <div class="text center">
+            <p class="clear-grey">Données certifiées par Médiamétrie eStat</p>
+            <img src="{{ apps_base_url }}/images/icons/logo-estat.png" alt="Médiamétrie eStat" width="119" height="60">
+          </div>
+        </div>
+
+        <div class="grey-box margin">
+          <div class="block-title">
+            <p class="right clear-grey">Dernière heure</p>
+            <h2><strong>Meilleures progressions</strong></h2>
+          </div>
+          {% include "controllers/toplive/_toplive.twig" with {"toplive": trends_up, "by_trend": true} %}
+        </div>
+
+        <div class="grey-box">
+          <div class="block-title">
+            <p class="right clear-grey">Dernière heure</p>
+            <h2><strong class="red">Audiences en baisse !</strong></h2>
+          </div>
+          {% include "controllers/toplive/_toplive.twig" with {"toplive": trends_down, "by_trend": true} %}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div> <!-- /#content -->
+{% endblock %}

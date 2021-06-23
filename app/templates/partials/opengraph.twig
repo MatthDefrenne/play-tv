@@ -1,0 +1,66 @@
+{% spaceless %}
+<meta property="fb:app_id" content="{{ external_apis.facebook.appId }}">
+<meta property="fb:admins" content="100000359285231">
+<meta property="og:site_name" content="Play TV">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="{{ current_url }}">
+<meta name="twitter:site" content="@PLAYTV_FR">
+<meta name="twitter:app:name:googleplay" content="Play TV">
+{% if controller_name == 'programme_tv' %}
+
+  <meta property="og:type" content="movie">
+  <meta property="og:title" content="Regarder {{ program.fulltitle }}{% if program.subtitle %} : {{ program.subtitle }}{% endif %} en direct">
+  <meta property="og:description" content="{{ program.summary|truncate(250, false)|striptags }}">
+  {% if program.images.source is not null %}
+  <meta property="og:image" content="{{ program.images.source }}">
+  <meta name="twitter:card" content="summary_large_image">
+  {% endif %}
+
+{% elseif controller_name == 'television' %}
+
+  {% if channel is defined %}
+    <meta property="og:title" content="Regarder {{ channel.name }} en direct">
+    {% if channel_broadcast_live is defined and channel_broadcast_live is not null %}
+      <meta property="og:description" content="{{ channel_broadcast_live.opengraph_description }}">
+    {% else %}
+      <meta property="og:description" content="Regarder {{ channel.name }} en direct sur Play TV">
+    {% endif %}
+
+    {% if channel_broadcast_live.program is defined
+      and channel_broadcast_live.program.images.source is not null
+    %}
+      <meta property="og:image" content="{{ channel_broadcast_live.program.images.source }}">
+      <meta name="twitter:card" content="summary_large_image">
+    {% elseif channel.images.source is not null %}
+      <meta property="og:image" content="{{ channel.images.source }}">
+      <meta name="twitter:card" content="summary">
+    {% endif %}
+    <meta property="og:type" content="video">
+    <meta property="og:video:url" content="{{ hosts.current_full }}/player/embed/{{ channel.alias }}/">
+    <meta property="og:video:type" content="text/html">
+    <meta property="og:video:width" content="610">
+    <meta property="og:video:height" content="384">
+  {% else %}
+    <meta property="og:title" content="Live TV, la télévision en direct">
+    <meta property="og:description" content="Regarder vos chaînes de télé en direct sur Play TV">
+    <meta name="twitter:card" content="summary">
+  {% endif %}
+
+{% elseif controller_name == 'replay_tv' and action_name == 'replay' and video is defined %}
+
+  <meta property="og:type" content="movie">
+  <meta property="og:title" content="Revoir {{ video.title }} en replay">
+  {% if video.images.source is not null %}
+    <meta property="og:image" content="{{ video.images.source }}">
+  {% endif %}
+  <meta name="twitter:card" content="summary">
+
+{% elseif head.meta.title is not null %}
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ head.meta.title }}">
+  <meta name="twitter:card" content="summary">
+
+{% endif %}
+<link rel="publisher" href="https://plus.google.com/113118181508368604797">
+{% endspaceless %}

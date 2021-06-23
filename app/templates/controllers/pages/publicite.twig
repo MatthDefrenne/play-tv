@@ -1,0 +1,42 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="content" class="pmd-StaticPage">
+    <div class="container pmd-StaticPage-wrapper">
+
+      <div class="row">
+
+        <div class="span3 sep">
+          {% include "controllers/pages/_menu.twig" %}
+        </div>
+        <article class="span13">
+          <div class="page-title">
+            <h1>Page. <span class="red">Publicité</span></h1>
+            <p class="sub-title">Vos campagnes publicitaires sur Play TV</p>
+          </div>
+
+          <div class="text bigger">
+            <h2>Annoncer sur Play TV</h2>
+            <p class="margin">
+              Vous êtes responsable de la communication d'une marque et vous souhaitez vous renseigner pour connaître les conditions générales et les tarifs des <strong>espaces publicitaires</strong> du site <strong>Play TV</strong> ? Contactez-nous !
+            </p>
+            <p class="margin grey-box">
+              <strong><a href="mailto:pub@playmedia.fr">pub@playmedia.fr</a></strong>
+            </p>
+
+            <h3 class="margin"><strong>Découvrez notre offre</strong></h3>
+
+            <div style="width:100%;height:620px;background:#efefef;">
+              <iframe data-src="https://docs.google.com/viewer?url={{ static_base_url }}/files/plaquette-publicite-playtv.pdf&amp;embedded=true" src="about:blank" onload="lzld(this)" width="100%" height="620" style="border:none;" scrolling="no" marginheight="40">
+              </iframe>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </div>
+
+<!-- /#content -->
+{% endblock %}

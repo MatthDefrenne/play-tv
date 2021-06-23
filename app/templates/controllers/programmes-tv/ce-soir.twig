@@ -1,0 +1,44 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+{% include "partials/subnav-guide-tv.twig" with {"subnav_active": "prime-time"} %}
+
+<div id="content">
+  <div class="container">
+
+      <div class="row">
+
+        <div class="span16">
+          <div class="section-title">
+            <p class="right clear-grey">{% trans %}TV programs guide{% endtrans %}</p>
+            <h1>
+              <strong>
+                <a href="{{ request.uri }}">
+                {% if selected_date == now_date %}
+                  {% trans %}Tonight on TV{% endtrans %}
+                {% else %}
+                  {% trans with {'%date%': selected_date|localizeddate('full', 'none', locale)|capitalize} %}
+                  TV evening of %date%
+                  {% endtrans %}
+                {% endif %}
+                </a>
+              </strong>
+              {% if selected_network is not null %} (bouquet <strong>{{ selected_network.network }}</strong>){% endif %}
+            </h1>
+          </div>
+          <div id="programs-title-bar">
+            <div class="right">
+              {% include "controllers/programmes-tv/_filters.twig" %}
+            </div>
+          </div>
+        </div>
+
+        <div class="span16">
+          {{ broadcasts_presets|raw }}
+        </div>
+
+      </div>
+
+  </div>
+</div> <!-- /#content -->
+{% endblock %}

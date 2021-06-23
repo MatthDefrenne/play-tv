@@ -1,0 +1,221 @@
+{
+    "operations": {
+        "accounts.base.object": {
+            "responseClass": "Playmedia\\Api\\Entity\\Entity",
+            "data": {
+                "class": "Playmedia\\Api\\Entity\\Account",
+                "type": "object"
+            }
+        },
+        "accounts.base.array": {
+            "responseClass": "Playmedia\\Api\\Entity\\Entity",
+            "data": {
+                "class": "Playmedia\\Api\\Entity\\Account",
+                "type": "array"
+            }
+        },
+        "accounts.show": {
+            "extends": "accounts.base.object",
+            "httpMethod": "GET",
+            "uri": "accounts/{id}/",
+            "summary": "Gets one account",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                }
+            }
+        },
+        "accounts.create": {
+            "extends": "accounts.base.object",
+            "httpMethod": "POST",
+            "uri": "accounts/",
+            "summary": "Create an account",
+            "additionalParameters": {
+                "location": "json"
+            }
+        },
+        "accounts.modify": {
+            "extends": "accounts.base.object",
+            "httpMethod": "PUT",
+            "uri": "accounts/{id}/",
+            "summary": "Modify an account",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                }
+            },
+            "additionalParameters": {
+                "location": "json"
+            }
+        },
+        "accounts.collection": {
+            "extends": "accounts.base.array",
+            "httpMethod": "GET",
+            "uri": "accounts/",
+            "summary": "Account collection",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "accounts.destroy": {
+            "httpMethod": "DELETE",
+            "uri": "accounts/{id}/",
+            "summary": "Delete an account",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                }
+            }
+        },
+        "accounts.verify": {
+            "extends": "accounts.base.object",
+            "httpMethod": "GET",
+            "uri": "accounts/verify/",
+            "summary": "Verify an account",
+            "parameters": {
+                "cipher": {
+                    "location": "query"
+                },
+                "flow": {
+                    "location": "query"
+                }
+            }
+        },
+        "accounts.sendVerifyEmail": {
+            "httpMethod": "GET",
+            "uri": "accounts/request-confirmation-email/{email}/",
+            "summary": "Sends a confirmation email",
+            "parameters": {
+                "email": {
+                    "location": "uri"
+                }
+            }
+        },
+        "accounts.authenticate": {
+            "extends": "accounts.base.object",
+            "httpMethod": "GET",
+            "uri": "accounts/authenticate/",
+            "summary": "Authenticate an account",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "accounts.forgotPassword": {
+            "httpMethod": "GET",
+            "uri": "accounts/forgot-password/{email}/",
+            "summary": "Forgot password",
+            "parameters": {
+                "email": {
+                    "location": "uri"
+                }
+            }
+        },
+        "accounts.changePassword": {
+            "httpMethod": "PUT",
+            "uri": "accounts/change-password/{id}/",
+            "summary": "Change password",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                }
+            },
+            "additionalParameters": {
+                "location": "json"
+            }
+        },
+        "accounts.paymill": {
+            "httpMethod": "GET",
+            "uri": "accounts/{id}/paymill/",
+            "summary": "Get Paymill data",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                }
+            }
+        },
+        "accounts.payments": {
+            "httpMethod": "GET",
+            "uri": "accounts/{id}/payments/",
+            "summary": "Get account's means of payments",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                }
+            }
+        },
+        "accounts.cart": {
+            "httpMethod": "GET",
+            "uri": "accounts/{id}/cart/",
+            "summary": "Get account cart",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                }
+            }
+        },
+        "accounts.subscriptions": {
+            "httpMethod": "GET",
+            "uri": "accounts/{id}/subscriptions/",
+            "summary": "Get account subscriptions",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                }
+            }
+        },
+        "accounts.payment": {
+            "httpMethod": "POST",
+            "uri": "accounts/{id}/paymill/payment/",
+            "summary": "Renew Paymill payment information",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                },
+                "token": {
+                    "location": "json"
+                }
+            }
+        },
+        "accounts.unsubscribe": {
+            "httpMethod": "POST",
+            "uri": "accounts/{account_id}/unsubscribe/{product_id}/",
+            "summary": "Unsubscribe from a product",
+            "parameters": {
+                "account_id": {
+                    "location": "uri"
+                },
+                "product_id": {
+                    "location": "uri"
+                }
+            }
+        },
+        "accounts.debts": {
+            "httpMethod": "GET",
+            "uri": "accounts/{id}/debts/",
+            "summary": "Get the debts for an account",
+            "parameters": {
+                "id": {
+                    "location": "uri"
+                }
+            }
+        },
+        "accounts.checkout": {
+            "httpMethod": "POST",
+            "uri": "checkout/",
+            "summary": "Checkout",
+            "additionalParameters": {
+                "location": "json"
+            }
+        },
+        "accounts.oauths": {
+            "httpMethod": "GET",
+            "uri": "accounts/{accountId}/oauths/",
+            "summary": "Fetch Account Oauths associated to an Account",
+            "parameters": {
+                "accountId": {
+                    "location": "uri"
+                }
+            }
+        }
+    }
+}

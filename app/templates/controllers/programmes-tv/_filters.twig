@@ -1,0 +1,160 @@
+{# dates select #}
+{% set date_format = is_website_fr ? 'd-m-Y' : 'Y-m-d' %}
+<div id="programs-date-dropdown" class="bar-dropdown separator">
+
+  <div class="default-value pmd-Text--truncate">
+    {% spaceless %}
+    {% if selected_date is not null %}
+      {{ selected_date|localizeddate('full', 'none', locale)|capitalize }}
+    {% else %}
+      {{ "now"|localizeddate('full', 'none', locale)|capitalize }}
+    {% endif %}
+    <span class="icon"><i></i></span>
+    {% endspaceless %}
+  </div>
+  <div class="list-values">
+    <ul>
+    {% for d in dates %}
+      {% set route_params = {
+        'date': d|date(date_format)
+      } %}
+      {% if selected_timeslot is not null %}
+        {% set route_name = selected_network is not null ? 'programmes_timeslot_network' : 'programmes_timeslot' %}
+        {% set route_params = route_params|merge({
+          'from_hour': selected_timeslot[0],
+          'to_hour': selected_timeslot[1]
+        }) %}
+      {% else %}
+        {% set route_name = selected_network is not null ? 'programmes_prime_date_network' : 'programmes_prime_date' %}
+      {% endif %}
+      {% if selected_network is not null %}
+        {% set route_params = route_params|merge({
+          'network': selected_network.alias
+        }) %}
+      {% endif %}
+      <li>
+        <a href="{{ path(route_name, route_params) }}"{% if selected_date == d %} class="selected"{% endif %}>
+          {% if now_date == d %}
+            {% trans %}Today{% endtrans %}
+          {% else %}
+            {{ d|localizeddate('full', 'none', locale)|capitalize }}
+          {% endif %}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+
+</div>
+
+{# timeslots select #}
+<div id="programs-timeslot-dropdown" class="bar-dropdown separator">
+
+  <div class="default-value">
+    {% spaceless %}
+    {% if selected_timeslot is null %}
+      {% if action_name == 'ce_soir' %}
+        {% trans %}Evening{% endtrans %}
+      {% else %}
+        {{ now_timeslot[0] }}h à {{ now_timeslot[1] }}h
+      {% endif %}
+    {% elseif selected_date == now_date and selected_timeslot[0] == now_timeslot[0] %}
+      {% trans %}Live{% endtrans %}
+    {% else %}
+      {% set trans_params = {
+        '%from_hour%': ('now ' ~ selected_timeslot[0] ~ ':00')|localizeddate('none', 'short'),
+        '%to_hour%': ('now ' ~ selected_timeslot[1] ~ ':00')|localizeddate('none', 'short')
+      } %}
+      {% trans with trans_params %}
+        %from_hour% to %to_hour%
+      {% endtrans %}
+    {% endif %}
+    <span class="icon"><i></i></span>
+    {% endspaceless %}
+  </div>
+  <div class="list-values">
+    <ul>
+      {% set route_name = selected_network is not null ? 'programmes_prime_date_network' : 'programmes_prime_date' %}
+      {% set route_params = {
+        'date': selected_date is not null ? selected_date|date(date_format) : now|date(date_format)
+      } %}
+      {% if selected_network is not null %}
+        {% set route_params = route_params|merge({
+          'network': selected_network.alias
+        }) %}
+      {% endif %}
+      <li class="separation">
+        <a href="{{ path(route_name, route_params) }}"{% if action_name == 'ce_soir' %} class="selected"{% endif %}><strong>Soirée</strong></a>
+      </li>
+      {% for t in timeslots %}
+
+      {% set route_name = selected_network is not null ? 'programmes_timeslot_network' : 'programmes_timeslot' %}
+      {% set route_params = {
+        'date': selected_date is not null ? selected_date|date(date_format) : now|date(date_format),
+        'from_hour': t[0],
+        'to_hour': t[1]
+      } %}
+      {% if selected_network is not null %}
+        {% set route_params = route_params|merge({
+          'network': selected_network.alias
+        }) %}
+      {% endif %}
+
+      <li>
+        <a href="{{ path(route_name, route_params) }}"{% if selected_timeslot is not null and t[0] == selected_timeslot[0] %} class="selected"{% endif %}>
+          {% set trans_params = {
+            '%from_hour%': ('now ' ~ t[0] ~ ':00')|localizeddate('none', 'short'),
+            '%to_hour%': ('now ' ~ t[1] ~ ':00')|localizeddate('none', 'short')
+          } %}
+          {% trans with trans_params %}
+            %from_hour% to %to_hour%
+          {% endtrans %}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>
+
+{# networks select #}
+{% if is_website_fr %}
+<div id="programs-timeslot-network" class="bar-dropdown separator">
+
+  <div class="default-value">
+   {% spaceless %}
+    {% if selected_network is null %}
+      Play TV + TNT
+    {% else %}
+      {{ selected_network.network }}
+    {% endif %}
+    <span class="icon"><i></i></span>
+    {% endspaceless %}
+  </div>
+  <div class="list-values">
+    <ul>
+      <li>
+        <a href="/programmes-tv/{% if action_name == 'ce_soir' %}ce-soir/{% endif %}{% if selected_date != now_date %}{% if selected_date is not null %}{{ selected_date|date("d-m-Y") }}/{% endif %}{% if selected_timeslot is not null %}{{ selected_timeslot[0] }}h-{{ selected_timeslot[1] }}h/{% endif %}{% elseif action_name == 'timeslot' %}en-direct/{% endif %}"{% if selected_network is null %} class="selected"{% endif %}>Play TV + TNT</a>
+      </li>
+      {% for network in networks %}
+      <li>
+        <a href="/programmes-tv/{% if action_name == 'ce_soir' %}ce-soir/{% endif %}{% if selected_date != now_date %}{% if selected_date is not null %}{{ selected_date|date("d-m-Y") }}/{% endif %}{% if selected_timeslot is not null %}{{ selected_timeslot[0] }}h-{{ selected_timeslot[1] }}h/{% endif %}{% elseif action_name == 'timeslot' %}en-direct/{% endif %}{{ network.alias }}/"{% if selected_network is not null and selected_network.alias == network.alias %} class="selected"{% endif %}>{{ network.network }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>
+{% endif %}
+
+{# live link #}
+<div class="separator" id="programs-timeslot-time-icon">
+  {% if selected_network is not null %}
+    {% set route_name = 'programmes_en_direct_with_params' %}
+    {% set route_params = {'network': selected_network.alias} %}
+  {% else %}
+    {% set route_name = 'programmes_en_direct' %}
+    {% set route_params = {} %}
+  {% endif %}
+  <a href="{{ path(route_name, route_params) }}" title="{% trans %}Live on TV{% endtrans %}"></a>
+</div>

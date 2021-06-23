@@ -1,0 +1,79 @@
+<div id="programs-prime">
+  {% for channel in channels_broadcasts_presets %}
+  <div class="channel clearfix">
+
+    <a class="channel-img" href="{{ path('chaine_tv', {'channel_id': channel.id, 'channel_alias': channel.alias}) }}" title="{% trans with {'%channel%': channel.name} %}Watch %channel%{% endtrans %}">
+      <span{% trans with {'%channel%': channel.name} %}Watch %channel% live{% endtrans %}</span>
+      <img src="{{ channel.images.small }}" alt="{{ channel.name }}" width="60" height="60">
+    </a>
+
+    {% for broadcast in channel.broadcasts %}
+    {% if broadcast.program is defined %}
+    <div class="program clearfix{% if channel.broadcasts|length == 1 %} fullwidth{% endif %}{% if loop.last %} last{% endif %}">
+
+      {% if broadcast.program.images.small is not null %}
+      <a href="{{ broadcast.program.program_url }}" title="{{ broadcast.program.fulltitle }}" class="program-img program-img-small {% if broadcast.program.trailer %}pmd-js-TrailerButton{% endif %}" data-program-id="{{ broadcast.program.id }}">
+        <img src="{{ broadcast.program.images.small }}" width="80" height="60" alt="{{ broadcast.program.fulltitle }}">
+        <span class="cache"></span>
+        {% if broadcast.program.trailer %}
+        <span class="pmd-TrailerIcon"></span>
+        {% endif %}
+      </a>
+      {% endif %}
+
+      <small class="infos clearfix">
+        {% spaceless %}
+        <span class="program-gender small">
+          <span class="program-gender-icon program-gender-icon{{ broadcast.program.gender_id }}"></span>
+          <span>{{ broadcast.program.gender }}</span>
+        </span>
+        <span class="clear-grey" title="{% trans with {'%duration%': broadcast.program.duration|diff_for_humans} %}Duration: %duration%{% endtrans %}">
+          {{ broadcast.start|localizeddate('none', 'short') }}
+        </span>
+        {% if broadcast.program.stars > 0 %}
+        <span class="ptv-PrimeProgramme-rating">
+          <i class="ptv-Rating-{{ broadcast.program.stars }}"></i>
+        </span>
+        {% endif %}
+        {% endspaceless %}
+      </small>
+
+      <p class="title pmd-Text--truncate">
+        <strong>
+          <a href="{{ broadcast.program.program_url }}" title="{{ broadcast.program.fulltitle }}">
+            {{ broadcast.program.fulltitle }}
+          </a>
+        </strong>
+      </p>
+
+      {% if broadcast.program.trailer %}
+      <a href="#" class="pmd-js-TrailerButton pmd-Button pmd-TrailerButton" data-program-id="{{ broadcast.program.id }}" data-program-alias="{{ broadcast.program.alias }}">
+        {% spaceless %}
+        <svg role="img" class="pmd-Svg pmd-Svg--trailer ">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pmd-Svg--trailer"></use>
+        </svg>
+        <span>{% trans %}Trailer{% endtrans %}</span>
+        {% endspaceless %}
+      </a>
+      {% elseif broadcast.program.subtitle is not null %}
+      <p class="subtitle pmd-Text--truncate clear-grey">
+        <span title="{{ broadcast.program.subtitle }}">{{ broadcast.program.subtitle }}<span>
+      </p>
+      {% elseif broadcast.program.originaltitle is not null and (broadcast.program.originaltitle != broadcast.program.fulltitle) %}
+      <p class="subtitle pmd-Text--truncate clear-grey">
+        <span title="{{ broadcast.program.originaltitle }}">{{ broadcast.program.originaltitle }}<span>
+      </p>
+      {% endif %}
+
+    </div>
+    {% endif %}
+    {% else %}
+    <div class="program fullwidth">
+      <span class="icon-unknown" title="Programme non communiqué">?</span>
+    </div>
+    {% endfor %}
+
+  </div>
+  {% endfor %}
+
+</div>

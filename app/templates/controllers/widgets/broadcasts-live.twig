@@ -1,0 +1,92 @@
+<div class="ptv-HomeLive">
+  {% for channel in channels_broadcasts_live %}
+  <div class="channel clearfix">
+
+    <a class="channel-img" href="{{ path('television_channel_single', {'channel_id': channel.id, 'channel_alias': channel.alias}) }}" title="{% trans with {'%channel%': channel.name} %}Watch %channel%{% endtrans %}">
+      <span>{% trans with {'%channel%': channel.name} %}Watch %channel% live{% endtrans %}</span>
+      <img src="{{ channel.images.small }}" alt="{{ channel.name }}" width="60" height="60">
+    </a>
+
+    <div class="program clearfix fullwidth last">
+      {% for broadcast in channel.broadcasts %}
+      {% if broadcast.program is defined %}
+        {# col1 #}
+        {% if broadcast.program.images.small is not null %}
+        <a href="{{ broadcast.program.program_url }}" title="{{ broadcast.program.fulltitle }}" class="program-img program-img-small {% if broadcast.program.trailer %}pmd-js-TrailerButton{% endif %}" data-program-id="{{ broadcast.program.id }}">
+          <img src="{{ broadcast.program.images.small }}" width="80" height="60" alt="{{ broadcast.program.fulltitle }}">
+          <span class="cache"></span>
+          {% if broadcast.program.trailer %}
+          <span class="pmd-TrailerIcon"></span>
+          {% endif %}
+        </a>
+        {% else %}
+        <div class="program-img program-img-small">
+          <div style="height: 60px; width: 80px"></div>
+        </div>
+        {% endif %}
+        {# col2 #}
+        <small class="infos clearfix">
+          {% spaceless %}
+          <span class="program-gender small">
+            <span class="program-gender-icon program-gender-icon{{ broadcast.program.gender_id }}"></span>
+            <span>{{ broadcast.program.gender }}</span>
+          </span>
+          <span class="ptv-HomeLive-moreInfo">
+            <span class="clear-grey">{{ broadcast.start|localizeddate('none', 'short') }}</span>
+            <span class="ptv-Progress">
+              <i class="ptv-Progress-cache"></i>
+              <i class="ptv-Progress-bar" style="width: {{ broadcast.progress }}%"></i>
+            </span>
+            <span class="clear-grey">{{ broadcast.end|localizeddate('none', 'short') }}</span>
+          </span>
+          {% endspaceless %}
+        </small>
+        {% if broadcast.program.stars > 0 %}
+        {% spaceless %}
+        <span class="ptv-HomeLive-rating">
+          <i class="ptv-Rating-{{ broadcast.program.stars }}"></i>
+        </span>
+        {% endspaceless %}
+        {% endif %}
+        <p class="title pmd-Text--truncate">
+          <a href="{{ broadcast.program.program_url }}" title="{{ broadcast.program.fulltitle }}">
+            <strong>{{ broadcast.program.fulltitle }}</strong>
+          </a>
+        </p>
+        {% if broadcast.program.trailer %}
+        <a href="#" class="pmd-js-TrailerButton pmd-Button pmd-TrailerButton" data-program-id="{{ broadcast.program.id }}" data-program-alias="{{ broadcast.program.alias }}">
+          {% spaceless %}
+          <svg role="img" class="pmd-Svg pmd-Svg--trailer">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pmd-Svg--trailer"></use>
+          </svg>
+          <span>{% trans %}Trailer{% endtrans %}</span>
+          {% endspaceless %}
+        </a>
+        {% elseif broadcast.program.subtitle is not null %}
+          <p class="subtitle clear-grey pmd-Text--truncate">{{ broadcast.program.subtitle }}</p>
+        {% elseif broadcast.program.originaltitle is not null and broadcast.program.originaltitle != broadcast.program.title %}
+          <p class="subtitle clear-grey pmd-Text--truncate">{{ broadcast.program.originaltitle }}</p>
+        {% endif %}
+
+      {% else %}
+
+        <div class="program-img program-img-small">
+          <div style="height: 60px; width: 80px"></div>
+        </div>
+        <small class="infos clearfix">
+          <span class="program-gender small">
+            <span class="program-gender-icon program-gender-icon"></span>
+          </span>
+        </small>
+        <p class="title pmd-Text--truncate">
+          <strong>{% trans %}No information{% endtrans %}</strong>
+        </p>
+
+      {% endif %}
+      {% endfor %}
+
+    </div>
+
+  </div>
+  {% endfor %}
+</div>

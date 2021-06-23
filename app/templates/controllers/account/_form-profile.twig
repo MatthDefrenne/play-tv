@@ -1,0 +1,96 @@
+{% if current_account.getBirthdate() %}
+  {% set pieces = current_account.getBirthdate()|split('-') %}
+  {% set birthdateYear = pieces.0 %}
+  {% set birthdateMonth = pieces.1 %}
+  {% set birthdateDay = pieces.2 %}
+{% endif %}
+
+<div class="ptv-js-AccountProfileInfo main ptv-AccountProfile">
+
+  <h3 class="ptv-AccountProfile-heading"><span class="ptv-AccountProfile-headingMain">Mon profil Play TV</span></h3>
+
+  <div class="content ptv-AccountProfileContent">
+
+    <form method="post" action="/mon-compte/profil/" class="ptv-js-AccountProfileInfo-form">
+
+      <div class="ptv-AccountProfileLine">
+        <p class="ptv-AccountProfileLine-inputField">
+          <label class="ptv-AccountProfileLine-label" for="user-nickname">Nom d'utilisateur</label>
+          <input type="text" name="username" class="pmd-Input ptv-AccountProfileLine-input {% if errors.username is defined %}pmd-Input--error{% endif %}" value="{{ current_account.getUsername() }}" id="user-nickname" placeholder="pierredupont">
+        </p>
+      </div>
+
+      <div class="ptv-AccountProfileLine">
+        <p class="ptv-AccountProfileLine-inputField">
+          <label class="ptv-AccountProfileLine-label" for="user-lastname">Nom</label>
+          <input type="text" placeholder="Dupont" name="lastName" value="{{ current_account.getLastName() }}" id="user-lastname" class="pmd-Input ptv-AccountProfileLine-input">
+        </p>
+      </div>
+
+      <div class="ptv-AccountProfileLine">
+        <p class="ptv-AccountProfileLine-inputField">
+          <label class="ptv-AccountProfileLine-label" for="user-firstname">Prénom</label>
+          <input type="text" placeholder="Pierre" name="firstName" value="{{ current_account.getFirstName() }}" id="user-firstname" class="pmd-Input ptv-AccountProfileLine-input">
+        </p>
+      </div>
+
+      <div class="ptv-AccountProfileLine">
+        <p class="ptv-AccountProfileLine-inputField">
+          <label class="ptv-AccountProfileLine-label" for="user-email">Email</label>
+          <input type="text" name="email" class="pmd-Input ptv-AccountProfileLine-input {% if errors.email is defined %}pmd-Input--error{% endif %}" placeholder="exemple@mail.com" {% if '@facebook' not in current_account.getEmail() %}value="{{ current_account.getEmail() }}"{% endif %} id="user-email">
+        </p>
+      </div>
+
+      <div class="ptv-AccountProfileLine">
+        <p class="ptv-AccountProfileLine-inputField">
+          <label class="ptv-AccountProfileLine-label">Date de naissance</label>
+          <input type="number" name="day" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" %}value="{{ birthdateDay }}"{% endif %} min="1" max="31" class="pmd-Input pmd-Input--number" style="width: 56px; margin-right: 10px;">
+          <select name="month" class="pmd-Select" style="width: 98px; margin-right: 9px;">
+            <option value="01" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 1 %}selected{% endif %}>Janvier</option>
+            <option value="02" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 2 %}selected{% endif %}>Février</option>
+            <option value="03" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 3 %}selected{% endif %}>Mars</option>
+            <option value="04" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 4 %}selected{% endif %}>Avril</option>
+            <option value="05" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 5 %}selected{% endif %}>Mai</option>
+            <option value="06" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 6 %}selected{% endif %}>Juin</option>
+            <option value="07" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 7 %}selected{% endif %}>Juillet</option>
+            <option value="08" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 8 %}selected{% endif %}>Août</option>
+            <option value="09" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 9 %}selected{% endif %}>Septembre</option>
+            <option value="10" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 10 %}selected{% endif %}>Octobre</option>
+            <option value="11" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 11 %}selected{% endif %}>Novembre</option>
+            <option value="12" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" and birthdateMonth == 12 %}selected{% endif %}>Décembre</option>
+          </select>
+          <input type="number" name="year" {% if current_account.getBirthdate() is not null and current_account.getBirthdate() != "2013-11-21" %}value="{{ birthdateYear }}"{% endif %} maxlength="4" min="1900" class="pmd-Input pmd-Input--number" style="width: 66px;">
+        </p>
+      </div>
+
+      <div class="ptv-AccountProfileLine">
+        <p class="ptv-AccountProfileLine-inputField">
+          <span class="ptv-AccountProfileLine-label">Genre</span>
+          <input type="radio" name="gender" value="male" id="user-gender-male" class="pmd-Input ptv-AccountProfileLine-input--radio" {% if current_account.getGender() == 'male' %}checked{% endif %}> <label class="ptv-Label--radio" for="user-gender-male">Homme</label>
+          <input type="radio" name="gender" value="female" id="user-gender-female" {% if current_account.getGender() == 'female' %}checked{% endif %} class="pmd-Input ptv-AccountProfileLine-input--radio"> <label class="ptv-Label--radio" for="user-gender-female">Femme</label>
+        </p>
+      </div>
+
+      {% if '@facebook.com' in current_account.getEmail() %}
+        <div class="ptv-Alert ptv-Alert--warning ptv-AccountProfileAlert">
+            <p>Il semble que votre adresse email ne soit pas valide : merci de renseigner une nouvelle adresse.</p>
+        </div>
+      {% endif %}
+
+      {% if current_account.getBirthdate() == "2013-11-21" %}
+        <div class="ptv-Alert ptv-Alert--warning ptv-AccountProfileAlert">
+            <p>Il semble que votre date de naissance ne soit pas valide : merci de renseigner une nouvelle date.</p>
+        </div>
+      {% endif %}
+
+      <div class="ptv-js-AccountProfileInfo-alert ptv-Alert ptv-AccountProfileAlert"></div>
+
+      <p class="ptv-AccountProfileAction pmd-Text--right">
+        <button class="ptv-Button ptv-Button--large">Enregistrer les modifications</button>
+      </p>
+
+    </form>
+
+  </div>
+
+</div>

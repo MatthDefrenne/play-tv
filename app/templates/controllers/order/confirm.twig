@@ -1,0 +1,33 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="content">
+
+    <div class="container">
+
+      <h4 class="ptv-AccountProfile-heading"><span class="ptv-AccountProfile-headingMain">Etat de votre commande</span></h4>
+
+      <div class="pmd-js-OrderConfirm pmd-OrderConfirm">
+        {% if success %}
+          <img src="{{ apps_base_url }}/images/icons/order-success.png" alt="">
+          <p class="pmd-OrderConfirm-message">Votre paiement a été accepté.</p>
+        {% else %}
+          <img src="{{ apps_base_url }}/images/icons/order-error.png" alt="">
+          <p class="pmd-OrderConfirm-message">
+          {% if message is defined %}
+            {{ message }}
+          {% else %}
+            Votre paiement n'a pas été accepté.
+          {% endif %}
+          </p>
+          <p class="pmd-OrderConfirm-retry"><a href="{{ hosts.current_full_secure }}/commande/">Réessayer</a></p>
+        {% endif %}
+        <a href="{% if success %}{{ return_url }}{% else %}#{% endif %}" class="pmd-js-OrderConfirm-link">
+          <span class="pmd-Button pmd-Button--lg pmd-Button--premium {% if success == false %}pmd-Button--disabled{% endif %}">Accéder au Live TV</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+{% endblock content %}

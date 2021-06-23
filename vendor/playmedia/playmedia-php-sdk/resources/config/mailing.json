@@ -1,0 +1,183 @@
+{
+  "operations": {
+    "mailing.segmentShow": {
+      "httpMethod": "GET",
+      "uri": "mailing/segments/{id}/",
+      "summary": "Retrieve a mailing segment",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      }
+    },
+    "mailing.segmentCreate": {
+      "httpMethod": "POST",
+      "uri": "mailing/segments/",
+      "summary": "Create a mailing segment",
+      "additionalParameters": {
+         "location": "json"
+      }
+    },
+    "mailing.segmentModify": {
+      "httpMethod": "PUT",
+      "uri": "mailing/segments/{id}/",
+      "summary": "Modify a mailing segment",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      },
+      "additionalParameters": {
+        "location": "json"
+      }
+    },
+    "mailing.segmentCollection": {
+      "httpMethod": "GET",
+      "uri": "mailing/segments/",
+      "summary": "Show all mailing segment",
+      "additionalParameters": {
+        "location": "query"
+      }
+    },
+    "mailing.segmentUnsubscribe": {
+      "httpMethod": "DELETE",
+      "uri": "mailing/segments/{segmentId}/subscribers/{subscriberId}/",
+      "summary": "Unsubscribe a email from a segment",
+      "parameters": {
+        "segmentId": {
+          "location": "uri"
+        },
+        "subscriberId": {
+          "location": "uri"
+        }
+      }
+    },
+    "mailing.subscriberShow": {
+      "httpMethod": "GET",
+      "uri": "mailing/subscribers/{id}/",
+      "summary": "Retrieve a subscriber",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      }
+    },
+    "mailing.subscriberCollection": {
+      "httpMethod": "GET",
+      "uri": "mailing/subscribers/",
+      "summary": "Retrieve all subscribers",
+      "additionalParameters": {
+        "location": "query"
+      }
+    },
+    "mailing.subscriberCreate": {
+      "httpMethod": "POST",
+      "uri": "mailing/subscribers/",
+      "summary": "Create a subscriber for a segment",
+      "additionalParameters": {
+         "location": "json"
+      }
+    },
+    "mailing.subscriberDelete": {
+      "httpMethod": "DELETE",
+      "uri": "mailing/subscribers/{id}/",
+      "summary": "Destroy a subscriber for a segment",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      }
+    },
+    "mailing.subscriberVerify": {
+      "httpMethod": "GET",
+      "uri": "mailing/subscribers/verify/",
+      "summary": "Verify a subscriber",
+      "additionalParameters": {
+        "location": "query"
+      }
+    },
+    "mailing.messageShow": {
+      "httpMethod": "GET",
+      "uri": "mailing/messages/{id}/",
+      "summary": "Show a mailing message",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      }
+    },
+    "mailing.messageCreate": {
+      "httpMethod": "POST",
+      "uri": "mailing/segments/{segmentId}/messages/",
+      "summary": "Create a mailing message for a segment",
+      "parameters": {
+        "segmentId": {
+          "location": "uri"
+        }
+      },
+      "additionalParameters": {
+        "location": "json"
+      }
+    },
+    "mailing.weeklyFeaturedBroadcastMessageCreate": {
+      "httpMethod": "POST",
+      "uri": "mailing/segments/{segmentId}/weekly-featured-broadcasts/",
+      "summary": "Create a weekly featured broadcasts mailing message for a segment",
+      "parameters": {
+        "segmentId": {
+          "location": "uri"
+        }
+      },
+      "additionalParameters": {
+        "location": "json"
+      }
+    },
+    "mailing.messageCollection": {
+      "httpMethod": "GET",
+      "uri": "mailing/messages/",
+      "summary": "Show all mailing message for a segment",
+      "additionalParameters": {
+        "location": "query"
+      }
+    },
+    "mailing.messageModify": {
+      "httpMethod": "PUT",
+      "uri": "mailing/messages/{id}/",
+      "summary": "Modify a mailing message",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      },
+      "additionalParameters": {
+         "location": "json"
+      }
+    },
+    "mailing.messageDelete": {
+      "httpMethod": "DELETE",
+      "uri": "mailing/messages/{id}/",
+      "summary": "Delete a mailing message",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      }
+    },
+    "mailing.messageSent": {
+      "httpMethod": "GET",
+      "uri": "mailing/messages/sent/",
+      "summary": "Retrieve only sent message",
+      "additionalParameters": {
+        "location": "query"
+      }
+    },
+    "mailing.messageDraft": {
+      "httpMethod": "GET",
+      "uri": "mailing/messages/draft/",
+      "summary": "Retrieve only draft message",
+      "additionalParameters": {
+        "location": "query"
+      }
+    }
+  }
+}

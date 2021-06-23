@@ -1,0 +1,70 @@
+{% if broadcasts %}
+<div id="programs-next-list">
+  {% for broadcast in broadcasts %}
+
+  {% if broadcast.prime == 1 or broadcast.prime == 2 %}
+    {% set apply_rich_snippets = true %}
+  {% else %}
+    {% set apply_rich_snippets = false %}
+  {% endif %}
+
+  <div {% if apply_rich_snippets %}itemscope itemtype="http://schema.org/BroadcastEvent"{% endif %} class="program{% if broadcast.is_live %} first{% endif %}{% if loop.index is even %} alt{% endif %}{% if broadcast.program.duration < 10 %} short{% endif %} clearfix">
+
+  {% if apply_rich_snippets %}
+    <meta itemprop="name" content="{{ broadcast.program.fulltitle }}{% if broadcast.program.subtitle %} : {{ broadcast.program.subtitle }}{% endif %}">
+    <meta itemprop="description" content="{{ broadcast.program.summary_short }}">
+    <meta itemprop="url" content="{{ hosts.current_full }}{{ broadcast.program.program_url }}">
+    <meta itemprop="startDate" content="{{ broadcast.start|date("c") }}">
+    <meta itemprop="endDate" content="{{ broadcast.end|date("c") }}">
+    {% if broadcast.program.images.small is not null %}
+    <meta itemprop="image" content="{{ broadcast.program.images.small }}">
+    {% endif %}
+  {% endif %}
+
+    <div class="program-start" title="{% trans with {'%duration%': broadcast.program.duration|diff_for_humans} %}Duration: %duration%{% endtrans %}">
+      {% spaceless %}
+      <span{% if broadcast.is_live %} style="font-weight: bold;"{% endif %}>
+        {{ broadcast.start|localizeddate('none', 'short') }}
+      </span>
+      {% endspaceless %}
+    </div>
+
+    <div class="program-datas clearfix">
+      <p class="program-gender small">
+        {% spaceless %}
+        <span class="program-gender-icon program-gender-icon{{ broadcast.program.gender_id }}"></span>
+        <span>{{ broadcast.program.gender }}</span>
+        {% endspaceless %}
+      </p>
+
+      {% if broadcast.program.images.small is not null and broadcast.program.duration >= 10 %}
+      <a href="{{ broadcast.program.program_url }}" title="{{ broadcast.program.fulltitle }}" class="program-img program-img-small {% if broadcast.program.trailer %}pmd-js-TrailerButton{% endif %}" data-program-id="{{ broadcast.program.id }}">
+        <img src="{{ broadcast.program.images.small }}" alt="{{ broadcast.program.fulltitle }}" width="80" height="60">
+        <span class="cache"></span>
+        {% if broadcast.program.trailer %}
+        <span class="pmd-TrailerIcon"></span>
+        {% endif %}
+      </a>
+      {% endif %}
+
+      <div class="program-infos{% if broadcast.program.subtitle is not null and broadcast.program.duration >= 10 %} has-subtitle{% endif %}">
+        <p class="program-title">
+          <a href="{{ broadcast.program.program_url }}" title="{{ broadcast.program.fulltitle }}">
+            <strong>{{ broadcast.program.fulltitle|truncate(55) }}</strong>
+          </a>
+          {% if broadcast.program.subtitle %}
+          <span class="clear-grey">&mdash;</span> {{ broadcast.program.subtitle }}
+          {% endif %}
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+{% endfor %}
+</div>
+{% else %}
+<div class="text xbigger center clear-grey margin">
+  <p>{% trans %}No listings for this timeframe.{% endtrans %}</p>
+</div>
+{% endif %}

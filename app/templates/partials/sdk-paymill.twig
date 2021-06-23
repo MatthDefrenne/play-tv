@@ -1,0 +1,8 @@
+{% if has_feature('sales') %}
+{% if controller_name in ['order', 'account'] %}
+<script>
+  var PAYMILL_PUBLIC_KEY = '{{ external_apis.paymill.public_key }}';
+</script>
+<script async defer src="https://bridge.paymill.com/"></script>
+{% endif %}
+{% endif %}

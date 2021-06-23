@@ -1,0 +1,74 @@
+<div class="pmd-AccountProfile">
+
+  <div class="pmd-AccountProfileHeader">
+
+    <div class="container">
+
+      <div class="pmd-AccountProfileHeader-avatar">
+        <img src="{{ current_account.getAvatar(106, 106)|default(apps_base_url ~ "/images/avatars/user-picture.png") }}" alt="">
+      </div>
+
+      <div class="pmd-AccountProfileHeader-main">
+
+        <p class="pmd-AccountProfileHeader-nickname">
+          {{ current_account.getUsername() }}
+        </p>
+
+        <p class="pmd-AccountProfileHeader-name">
+          {{ current_account.getFirstName() }} {{ current_account.getLastName() }}
+        </p>
+
+      </div>
+
+      <div class="pmd-AccountProfileHeader-thirdParty">
+
+        <div class="ptv-js-AccountThirdPartiesFacebook">
+          {% include "controllers/ui/block-account-facebook-connect.twig" %}
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <div class="sub-menu pmd-AccountProfileContent">
+
+    <div class="container">
+      <ul>
+        <li{% if tab_selected == "subscriptions" %} class="tab-selected"{% endif %}>
+          <a href="/mon-compte/abonnements/">
+            <span class="sub-menu_text">Mes abonnements</span>
+          </a>
+        </li>
+        <li{% if tab_selected == "profile" %} class="tab-selected"{% endif %}>
+          <a href="/mon-compte/profil/">
+            <span class="sub-menu_text">Mes informations</span>
+          </a>
+        </li>
+        <li{% if tab_selected == "notifications" %} class="tab-selected"{% endif %}>
+          <a href="/mon-compte/notifications/">
+            <span class="sub-menu_text">Mes notifications</span>
+          </a>
+        </li>
+        {% if current_account.hasPaymill %}
+        <li{% if tab_selected == "credit-card" %} class="tab-selected"{% endif %}>
+          <a href="/mon-compte/coordonnees-bancaires/">
+            <span class="sub-menu_text">Mes coordonnées bancaires</span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+<div id="content">
+  <div class="container ptv-js-AccountProfile">
+    {% block embed_content %}{% endblock %}
+  </div>
+</div>
+<!-- /#content -->

@@ -1,0 +1,69 @@
+<div class="video{% if video.active == 0 %} video-disabled{% endif %}">
+
+  <div class="video-img"{% if video.images.medium is null %} style="background-image:url('{{ video.channel.images.small }}');"{% endif %}>
+    {% if video.images.medium is not null %}
+    <img src="{{ video.images.medium }}" alt="{{ video.title }}" width="100" height="75">
+    {% endif %}
+    {% if video.duration is not null %}
+    <div class="length">{{ video.duration }}</div>
+    {% endif %}
+    <div class="cache"></div>
+    {% if video.active == 1 and video.channel is not null and video.channel.id not in france_television|keys %}
+    <a
+      href="{{ video.replay_page_url }}"
+      class="play{% if video.is_embed == 0 %} popup{% endif %}"
+      title="{% trans with {'%replay%': video.title} %}Watch %replay% on demand online{% endtrans %}"
+      data-identifier="{{ video.replay_id }}"
+    >
+      <span class="pmd-ReplayIcon"></span>
+    </a>
+    {% endif %}
+  </div>
+
+  <div class="text">
+
+    <div class="title">
+      <p>
+        {% if video.active == 1 and (video.channel is null or video.channel.id not in france_television|keys) %}
+        <a
+          href="{{ video.replay_page_url }}"
+          class="{% if video.is_embed == 0 %} popup{% endif %}"
+          title="{% trans with {'%replay%': video.title} %}Watch %replay% on demand online{% endtrans %}"
+          data-identifier="{{ video.replay_id }}"
+        >
+        {% endif %}
+          {% trans with {'%title%': video.title} %}<strong>%title%</strong> in catch up{% endtrans %}
+        {% if video.active == 1 %}
+        </a>
+        {% endif %}
+      </p>
+    </div>
+
+    {% if has_feature('catchup_tv') and video.channel is not null %}
+    <div class="clearfix infos clear-grey">
+      <p>
+        {% trans with {
+          '%href%': path('replay_channel_videos', {'channel_id': video.channel.id, 'channel_alias': video.channel.alias}),
+          '%title%': 'View %channel% videos in catch up'|trans({'%channel%': video.channel.name}),
+          '%channel%': video.channel.name
+        } %}
+        On <a href="%href%" title="%title%">%channel%</a> on demand
+        {% endtrans %}
+      </p>
+      {% if video.broadcast_date is not null %}
+      <p title="Vidéos en replay du {{ video.broadcast_date|localizeddate('full', 'none', locale)|capitalize }}">
+        {% trans with {
+          '%href%': path('replay_videos', {'date': video.broadcast_date|date('Y-m-d')}),
+          '%date%': video.broadcast_date|localizeddate('full', 'none', locale),
+          '%hour%': video.broadcast_date|localizeddate('none', 'short', locale)
+        } %}
+        <a href="%href%">%date%</a> at %hour%
+        {% endtrans %}
+      </p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </div>
+
+</div>

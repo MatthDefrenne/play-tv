@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+
+msgid "adblock_index.title"
+msgstr "Sie verwenden Adblock Plus"
+
+msgid "chaine_tv.title"
+msgstr "Über %channel%"
+
+msgid "chaine_tv_a_suivre.title"
+msgstr "Live zu sehen auf %channel%"
+
+msgid "chaine_tv_en_direct.title"
+msgstr "Live auf %channel%"
+
+msgid "homepage.meta.description"
+msgstr "Livefernsehen und die Fernsehsendungen zum Nachschauen im Internet"
+
+msgid "homepage.title"
+msgstr "Play TV, Ihr Internet-Fernsehdienst"
+
+msgid "programme.title"
+msgstr "%program% live sehen"
+
+msgid "programmes.meta.description"
+msgstr "Ihr TV-Programm und die komplette Programmübersicht der größten Sendeanstalten, der DVB-T-, Kabel- und Satellitenprogramme."
+
+msgid "programmes.title"
+msgstr "TV-Programm"
+
+msgid "programmes_prime_a_ne_pas_manquer.title"
+msgstr "Top-Fernsehsendungen"
+
+msgid "replay_replay.meta.description"
+msgstr "Schauen Sie mit playtv.fr, Ihrem Internet-Fernsehportal, kostenlos das TV-Programm %program% des Senders %channel% als Wiederholung an."
+
+msgid "replay_replay.title"
+msgstr "%program% als Wiederholung im Internet anschauen"
+
+msgid "replay_tv_index.title"
+msgstr "TV-Programm als Wiederholung, Ihre Sendungen erneut anschauen"
+
+msgid "television_channel_single.meta.description"
+msgstr "Schauen Sie mit playtv.fr, Ihrem Internet-Fernsehportal, das TV-Programm des Senders %channel% im kostenlosen Livestream an."
+
+msgid "television_channel_single.title"
+msgstr "%channel% live im Internet anschauen"
+
+msgid "television_index.meta.description"
+msgstr "Finden Sie mit playtv.fr, Ihrem Internet-Fernsehportal, das TV-Programm von mehr als %count% Sendern im kostenlosen Livestream."
+
+msgid "television_index.title"
+msgstr "Live im Internet fernsehen"
+
+msgid "chaine_tv_programmes.title"
+msgstr "TV-Programm von %channel% heute Abend"
+
+msgid "chaine_tv_programmes.meta.description"
+msgstr "Das gesamte TV-Programm des Senders %channel% heute Abend"
+
+msgid "chaine_tv_programmes_date.title"
+msgstr "TV-Programm von %channel% vom %date%"
+
+msgid "recherche.title"
+msgstr "Ein Programm, ein Video etc. suchen"
+
+msgid "recherche:chaines.title"
+msgstr "Einen Fernsehsender suchen"
+
+msgid "recherche:personnes.title"
+msgstr "Eine Person suchen"
+
+msgid "recherche:programmes.title"
+msgstr "Ein Programm suchen"
+
+msgid "recherche:videos.title"
+msgstr "Ein Video suchen"
+
+msgid "television_mosaique_direct.title"
+msgstr "Ihre Senderauswahl live"
+
+msgid "television_mosaique_categories.title"
+msgstr "Alle Sender nach Kategorie"
+
+msgid "television_mosaique_themes.title"
+msgstr "Alle Sender nach Thema"
+
+msgid "television_mosaique_replay_tv.title"
+msgstr "Alle Sender in der Mediathek (Wiederholung)"
+
+msgid "programmes_prime_tonight.title"
+msgstr "TV-Programm Ihres Fernsehabends"
+
+msgid "programmes_prime_tonight.meta.description"
+msgstr "Die komplette Programmübersicht Ihres Fernsehabends mit dem TV-Programm nach Sendern"
+
+msgid "programmes_prime_date.title"
+msgstr "TV-Programm Abend des %date%"
+
+msgid "programmes_prime_date.meta.description"
+msgstr "Die komplette Programmübersicht Ihres Fernsehabends am %date% mit dem TV-Programm nach Sendern"
+
+msgid "programmes_en_direct.title"
+msgstr "TV-Programme live im Fernsehen"
+
+msgid "programmes_en_direct.meta.description"
+msgstr "Finden Sie alle TV-Programme live im Fernsehen"
+
+msgid "programmes_timeslot.title"
+msgstr "TV-Programme vom %date% von %from%h bis %to%h"
+
+msgid "programmes_timeslot.meta.description"
+msgstr "Finden Sie alle TV-Programme vom %date% von %from%h bis %to%h"
+
+msgid "replay_videos.title"
+msgstr "Alle Fernsehsendungen zum Nachschauen"
+
+msgid "replay_videos.meta.description"
+msgstr "Die Fernsehsendungen als Video erneut anschauen"
+
+msgid "replay_videos:date.title"
+msgstr "Alle Fernsehsendungen vom %date% zum Nachschauen"
+
+msgid "replay_videos:date.meta.description"
+msgstr "Die Fernsehsendungen vom %date% als Video erneut anschauen"
+
+msgid "replay_videos:channel.title"
+msgstr "Alle Fernsehsendungen von %channel% zum Nachschauen"
+
+msgid "replay_videos:channel.meta.description"
+msgstr "Die Fernsehsendungen von %channel_with_genres% als Video erneut anschauen"
+
+msgid "replay_videos:gender.title"
+msgstr "Alle Fernsehsendungen %genre% zum Nachschauen"
+
+msgid "replay_videos:gender.meta.description"
+msgstr "Die Fernsehsendungen %genre% als Video erneut anschauen"
+
+msgid "replay_videos:channel_date.title"
+msgstr "Alle Fernsehsendungen von %channel% vom %date% zum Nachschauen"
+
+msgid "replay_videos:channel_date.meta.description"
+msgstr "Die Fernsehsendungen von %channel_with_genres% vom %date% als Video erneut anschauen"
+
+msgid "replay_videos:gender_date.title"
+msgstr "Alle Fernsehsendungen %genre% vom %date% zum Nachschauen"
+
+msgid "replay_videos:gender_date.meta.description"
+msgstr "Die Fernsehsendungen %genre% vom %date% als Video erneut anschauen"
+
+msgid "replay_videos:channel_gender.title"
+msgstr "Alle Fernsehsendungen %genre% von %channel% zum Nachschauen"
+
+msgid "replay_videos:channel_gender.meta.description"
+msgstr "Die Fernsehsendungen %genre% von %channel_with_genres% als Video erneut anschauen"
+
+msgid "replay_videos:channel_gender_date.title"
+msgstr "Alle Fernsehsendungen %genre% von %channel% vom %date% zum Nachschauen"
+
+msgid "replay_videos:channel_gender_date.meta.description"
+msgstr "Die Fernsehsendungen %genre% von %channel_with_genres% vom %date% als Video erneut anschauen"
+
+msgid "common.append_network"
+msgstr "%page_title% Senderauswahl %network%"

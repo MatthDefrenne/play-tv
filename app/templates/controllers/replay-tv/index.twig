@@ -1,0 +1,84 @@
+{% extends "layouts/full.twig" %}
+
+{% block fluidheader %}
+  {{ block_mosaic|raw }}
+{% endblock %}
+
+{% block content %}
+
+<div id="content" class="pmd-ReplayContent">
+
+  {% include "partials/subnav-replay-tv.twig" with {"subnav_active": "index", "days": days, "date": date, "title": "The latest videos on demand available"|trans} %}
+
+  <div class="container">
+    <div class="pmd-js-ReplayBroadcastList">
+
+      <div class="pmd-ReplayContent-wrapper">
+        {% if (display_ads == true) and (is_connected == false or (is_connected and current_account.isPremium() == false)) %}
+        <div class="pmd-ReplayContent-ads">
+          {% include "partials/ads-banner.twig" with {'unique': "aea23cf0", "zone_id": 36} %}
+        </div>
+        {% endif %}
+
+        {% spaceless %}
+        {% if last_videos_featured is not null and last_videos_featured|length > 0 %}
+        {% for video in last_videos_featured %}
+        {% include "partials/item-replay-tv-page.twig" with {"filter":"index", "video": video} %}
+        {% endfor %}
+        {% endif %}
+        {% endspaceless %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% if is_website_fr %}
+{# {% include "partials/ads-beopinion.twig" %} #}
+{% include "partials/ads-ga.twig" %}
+{% endif %}
+
+<div class="pmd-ReplayVideoHighlight" id="pmd-ReplayVideoHighlight">
+
+  <div id="content" class="pmd-ReplayContent">
+
+    <div class="container">
+
+      <h4 class="pmd-ReplayVideoHighlight-heading">
+        <span class="pmd-ReplayVideoHighlight-headingMain">{% trans %}The last videos on demand available online{% endtrans %}</span>
+      </h4>
+
+      <div class="pmd-ReplayContent-wrapper">
+
+        {% spaceless %}
+        {% if last_videos is not null and last_videos|length > 0 %}
+        {% for video in last_videos %}
+        {% include "partials/item-replay-tv-page.twig" with {"filter": "index", "video": video} %}
+        {% endfor %}
+        {% else %}
+        <div class="text xbigger center clear-grey margin">
+          <p>{% trans %}No video on demand added recently.{% endtrans %}</p>
+        </div>
+        {% endif %}
+        <div class="pmd-ReplayButton">
+          <a href="{{ path('replay_videos') }}">
+            <span class="pmd-Button pmd-Button--dark">
+            {% trans %}All the latest videos{% endtrans %}
+            </span>
+          </a>
+        </div>
+        {% endspaceless %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+{% include "controllers/replay-tv/_javascript.twig" with {"gender_alias": gender_alias, "date": date} %}
+
+<!-- /#content -->
+{% endblock %}

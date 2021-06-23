@@ -1,0 +1,44 @@
+<ul class="pmd-SocialTv-list">
+{% if posts %}
+  {% for tweet in posts %}
+  {% if loop.index == 5 %}
+    {% if is_website_fr %}
+    <div id="taboola-mobile-live-tweets"></div>
+    {% endif %}
+  {% endif %}
+  <li id="tweet-{{ tweet.tweet_id }}" class="pmd-SocialTvItem">
+
+    <div class="pmd-SocialTvItem-picture">
+      <img src="{{ tweet.image_url }}" width="36" height="36" alt="{{ tweet.author }}" />
+    </div>
+
+    <div class="pmd-SocialTvItem-main">
+      <div class="pmd-SocialTvItem-heading">
+        <p class="pmd-SocialTvItem-since">
+          <a href="https://twitter.com/{{ tweet.author }}/status/{{ tweet.tweet_id }}/" rel="nofollow" target="_blank">
+            {% set duration = (tweet.since / 60)|round %}
+            il y a <span class="tweet-since-time" data-timestamp="{{ tweet.date }}" data-duration="true">{% if duration > 1 %}  {{ duration|diff_for_humans }} {% else %} {{ tweet.since }} sec{% endif %}</span>
+          </a>
+        </p>
+        <p class="pmd-SocialTvItem-author pmd-Text--truncate">
+          <a href="https://twitter.com/{{ tweet.author }}" rel="nofollow" target="_blank" title="Voir le profil de {{ tweet.author }}">{{ tweet.author }}</a>
+        </p>
+      </div>
+      <div class="pmd-SocialTvItem-content">
+        <p class="pmd-SocialTvItem-message">
+          {% if tweet.retweets > 0 %}
+          <a href="https://twitter.com/intent/retweet?tweet_id={{ tweet.tweet_id }}" rel="nofollow" target="_blank" class="pmd-SocialTvItem-retweet pmd-Icons-retweet" title="Re-tweet !">
+            <span>{{ tweet.retweets }}</span>
+          </a>
+          {% endif %}
+          <span class="pmd-SocialTvItem-text">{{ tweet.text|raw }}</span>
+        </p>
+      </div>
+    </div>
+
+  </li>
+  {% endfor %}
+{% else %}
+  <li class="text ptv-js-SocialTv-noPost">{% trans %}no_tweets_available{% endtrans %}</li>
+{% endif %}
+</ul>

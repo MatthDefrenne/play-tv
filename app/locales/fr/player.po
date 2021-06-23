@@ -1,0 +1,68 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "watch_var_channel"
+msgstr "Regardez %channel%"
+
+msgid "discover_var_channel"
+msgstr "Découvrez %channel%"
+
+msgid "access_to_channel"
+msgstr "Accéder à la chaine"
+
+msgid "no_ads"
+msgstr "Pas de publicité"
+
+msgid "hi_quality"
+msgstr "Haute qualité d'image"
+
+msgid "free_of_engagement"
+msgstr "Sans engagement"
+
+msgid "try_for_free"
+msgstr "Essayer gratuitement"
+
+msgid "discover_channel"
+msgstr "Découvrir la chaîne"
+
+msgid "channel_available_at_home"
+msgstr "La chaîne est disponible sur Play TV"
+
+msgid "channel_unavailable"
+msgstr "Cette chaîne n'est pas disponible sur Play TV"
+
+msgid "channel_unavailable_in_country"
+msgstr "Cette chaîne n'est pas disponible dans votre pays sur Play TV"
+
+msgid "not_subcribed.tagline"
+msgstr "Pour seulement %price%%currency%/mois"
+
+msgid "not_subcribed.tagline_trial_period"
+msgstr "Essai gratuit pendant %days% jours"
+
+msgid "not_available.available_between"
+msgstr "Cette chaîne n'est disponible de %start% à %end%."
+
+msgid "not_available.program_beginning_in"
+msgstr "Votre programme commencera dans : %time%"
+
+msgid "not_available.meanwhile"
+msgstr "En attendant, rendez-vous sur <a href=\"%website%\" target=\"_blank\">%website%</a>."
+
+msgid "external_live.meanwhile"
+msgstr "sur le site de la chaîne"
+
+msgid "external_live.go_channel_website"
+msgstr "Regarder %channel% en direct"
+
+msgid "external_live_radio.meanwhile"
+msgstr "sur le site partenaire de radio"
+
+msgid "external_live_radio.go_channel_website"
+msgstr "Écouter le direct radio"
+
+msgid "stop_ad_banner_button"
+msgstr "Relancer %channel% en direct"

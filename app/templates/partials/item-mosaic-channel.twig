@@ -1,0 +1,40 @@
+{% set klasses = ['pmd-MosaicChannels-listItem'] %}
+{% set klasses = klasses|merge(classes|default([])) %}
+{% set klasses = klasses|join(' ') %}
+
+
+{% if image_size is not defined %}
+  {% set image_size = "mini" %}
+{% endif %}
+
+{% if link_route_name is not defined %}
+  {% set link_route_name = "television_channel_single" %}
+{% endif %}
+
+{% if image_size == 'mini' %}
+  {% set image_width = 36 %}
+  {% set image_height = 36 %}
+{% elseif image_size == 'small' %}
+  {% set image_width = 40 %}
+  {% set image_height = 40 %}
+{% endif %}
+<li class="{{ klasses }}">
+  <a
+    href="{{ path(link_route_name, {'channel_id': channel.id, 'channel_alias': channel.alias}) }}"
+    class="pmd-MosaicChannels-link ptv-js-MosaicChannels-link
+      {% if channel.disabled is defined and channel.disabled %} pmd-MosaicChannels-link--disabled{% endif %}
+      {% if channel.is_adult is defined and channel.is_adult %} pmd-MosaicChannels-link--highlight--adult{% endif %}
+      {% if channel.highlight is defined and channel.highlight and channel.is_adult is defined and channel.is_adult == false %} pmd-MosaicChannels-link--highlight{% endif %}
+    "
+    title="{{ channel.name }} en direct"
+    data-channel="{{ channel.name }}"
+    data-id="{{ channel.id }}"
+    data-alias="{{ channel.alias }}"
+    data-programs="{% if channel.has_programs %}1{% else %}0{% endif %}"
+    data-socialtv="{% if channel.has_social_tv %}true{% else %}false{% endif %}"
+    data-skip-ads="{% if channel.skip_ads is defined %}{{ channel.skip_ads }}{% endif %}"
+  >
+      {#<span class="pmd-MosaicChannels-text">{{ channel.name }}</span>#}
+      <img src="{{ channel.images[image_size] }}" alt="{{ channel.name }}" width="{{ image_width }}" height="{{ image_height }}" class="pmd-MosaicChannels-image">
+  </a>
+</li>

@@ -1,0 +1,16 @@
+<script>
+  window.impactifyTag = window.impactifyTag || [];
+  impactifyTag.push({
+    appId: 'playtv.fr',
+    format: 'screen'
+  });
+  (function(d, s, id) {
+    var js, ijs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.async = true;
+    js.src = 'https://ad.impactify.io/static/ad/tag.js';
+    ijs.parentNode.insertBefore(js, ijs);
+  }(document, 'script', 'impactify-sdk'));
+</script>

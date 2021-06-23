@@ -1,0 +1,45 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use Symfony\Component\Console;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\Console\Event\ConsoleCommandEvent;
+use Symfony\Component\Console\Event\ConsoleTerminateEvent;
+use Symfony\Component\Console\ConsoleEvents;
+use PlayTv\Console\Command\I18nExtractCommand;
+use PlayTv\Console\Command\SitemapCreateCommand;
+
+// Kernel
+$ptvApp = new PlayTv\Application('play-tv', __DIR__.'/../', false, 0);
+$ptvApp->boot();
+
+// CLI
+$consoleApp = new Console\Application('play-tv-cli');
+
+$dispatcher = new EventDispatcher();
+$consoleApp->setDispatcher($dispatcher);
+
+$consoleApp->add(new I18nExtractCommand($ptvApp));
+$consoleApp->add(new SitemapCreateCommand($ptvApp));
+
+// Events
+$dispatcher->addListener(ConsoleEvents::COMMAND, function (ConsoleCommandEvent $event) {
+    $transactionName = $event->getCommand()->getName();
+    if (in_array($transactionName, ['help', 'list'])) {
+        return;
+    }
+
+    $event->getOutput()->writeln(sprintf('Before running command <info>%s</info>', $transactionName));
+});
+$dispatcher->addListener(ConsoleEvents::TERMINATE, function (ConsoleTerminateEvent $event) {
+    $transactionName = $event->getCommand()->getName();
+    if (in_array($transactionName, ['help', 'list'])) {
+        return;
+    }
+
+    $event->getOutput()->writeln(sprintf('After running command <info>%s</info>', $transactionName));
+});
+
+$consoleApp->run();

@@ -1,0 +1,28 @@
+<div class="text margin">
+  <p class="clear-grey">
+    {% trans with {'%group%': group.title} %}
+    All episodes of the TV series <strong>%group%</strong>
+    {% endtrans %}
+  </p>
+</div>
+
+{% for program in group.programs %}
+
+  {% if last_season is not defined or last_season != program.season %}
+    {% if last_season is defined %}</p></div>{% endif %}
+    <h3 class="block-title">
+      {% trans with {'%season%': program.season} %}
+      Episodes of <strong>season %season%</strong>
+      {% endtrans %}
+    </h3>
+    <div class="text margin"><p class="paginate">
+    {% set count=0 %}
+    {% set last_season = program.season %}
+  {% endif %}
+  {% set count = count+1 %}
+
+  <a href="{{ program.program_url }}" class="nb" title="{{ program.fulltitle }}">{{ program.episode }}</a>
+
+  {% if loop.last %}</p></div>{% endif %}
+
+{% endfor %}

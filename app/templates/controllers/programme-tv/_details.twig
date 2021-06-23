@@ -1,0 +1,113 @@
+{% if output is not defined %}
+  {% set output = "incomplete" %}
+{% endif %}
+
+{% if program.images.medium is not null %}
+<div class="program-img margin">
+  <img src="{{ program.images.medium }}" alt="{{ program.fulltitle }}" width="160" height="120">
+  <div class="cache"></div>
+</div>
+{% endif %}
+
+<h3>{% trans %}Genre{% endtrans %}</h3>
+<div class="content">
+  <p class="program-gender">
+    {% if program.gender %}
+      <span class="program-gender-icon program-gender-icon{{ program.gender_id }}"></span>
+      <span>{{ program.gender }}</span>
+    {% else %}
+      <span>{% trans %}Unknown genre{% endtrans %}</span>
+    {% endif %}
+  </p>
+</div>
+
+{% if program.subgender %}
+<h3>{% trans %}Sub-genre{% endtrans %}</h3>
+<div class="content">
+  <p>{{ program.subgender }}</p>
+</div>
+{% endif %}
+
+<h3>{% trans %}More infos{% endtrans %}</h3>
+<div id="program-more-infos" class="content">
+  {% if program.year %}
+    <p>
+      <span class="label small">{% trans %}Year{% endtrans %}</span> {{ program.year }}
+    </p>
+  {% endif %}
+  {% if program.duration %}
+    <p>
+      <span class="label small">{% trans %}Duration{% endtrans %}</span> <span>{{ program.duration|diff_for_humans }}</span>
+    </p>
+  {% endif %}
+
+  {% if output == "complete" %}
+    <p>
+      <span class="label small"><strong>{% trans %}Subtitles{% endtrans %}</strong></span> <span class="clear-grey">&mdash;</span>
+    </p>
+    {% if program.episode %}
+    <p>
+      <span class="label small">{% trans %}Episode{% endtrans %}</span>
+      <span>
+        {% if program.episodes %}
+          {% trans with {'%episode%': program.episode, '%episodes%': program.episodes} %}%episode% of %episodes%{% endtrans %}
+        {% else %}
+          {{ program.episode }}
+        {% endif %}
+      </span>
+    </p>
+    {% endif %}
+    {% if program.season %}
+    <p>
+      <span class="label small">{% trans %}Season{% endtrans %}</span> <span>{{ program.season }}</span>
+    </p>
+    {% endif %}
+    {% if program.part %}
+    <p>
+      <span class="label small">{% trans %}Part{% endtrans %}</span>
+      <span>
+        {% if program.parts %}
+          {% trans with {'%part%': program.part, '%parts%': program.parts} %}%part% of %parts%{% endtrans %}
+        {% else %}
+          {{ program.part }}
+        {% endif %}
+      </span>
+    </p>
+    {% endif %}
+  {% endif %}
+
+</div>
+
+{% if program.csa_id and program.csa_id != 1 %}
+  {% if program.csa_id == 2 %}
+    {% set csa_id = 10 %}
+  {% elseif program.csa_id == 3 %}
+    {% set csa_id = 12 %}
+  {% elseif program.csa_id == 4 %}
+    {% set csa_id = 16 %}
+  {% elseif program.csa_id == 5 %}
+    {% set csa_id = 18 %}
+  {% endif %}
+<h3>Classification</h3>
+<div class="content">
+  <p class="pmd-ProgramCsa">
+    {% spaceless %}
+    <svg role="img" class="pmd-Svg pmd-Svg--minus{{ csa_id }} pmd-ProgramCsa-icon">
+      <use xlink:href="#pmd-Svg--minus{{ csa_id }}"></use>
+    </svg>
+    <span>{{ program.csa }}</span>
+  {% endspaceless %}
+  </p>
+</div>
+{% endif %}
+
+{% if program.hashtag %}
+<div class="official-twitter-hashtag">
+  <h3 title="{% trans %}Twitter Official hashtag{% endtrans %}">{% trans %}Official hashtag{% endtrans %}</h3>
+  <div class="content">
+    <a href="https://twitter.com/search?q={{ program.hashtag }}&amp;src=hash&amp;mode=realtime" target="_blank" title="#{{ program.hashtag }}" rel="nofollow">
+      {{ program.hashtag }}
+    </a>
+  </div>
+</div>
+{% endif %}

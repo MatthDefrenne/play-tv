@@ -1,0 +1,149 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+
+  {% include "partials/subnav-guide-tv.twig" %}
+
+  <div id="content">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="span-page">
+          <div id="program-group-head" class="row">
+            {% if null != group.images.medium %}
+              <div class="span-menubar">
+                <div class="program-img">
+                  <div class="cache"></div>
+                  <img src="{{ group.images.medium }}" alt="{{ group.title }}" width="160" height="120">
+                </div>
+              </div>
+
+              <div class="span-content">
+            {% else %}
+              <div class="span-page">
+            {% endif %}
+
+                <div class="page-title">
+                  <div class="right">
+                    {% if group.seasons is defined and group.seasons > 0 %}
+                      <p class="clear-grey">
+                        {% transchoice group.seasons %}
+                          {1} 1 season|]1,Inf] %count% seasons
+                        {% endtranschoice %}
+                      </p>
+                    {% endif %}
+                    <p class="clear-grey">
+                      {% if type_alias == 'serie-tv' %}
+                        {% transchoice group.programs|length %}
+                          {0} No episodes|{1} 1 episode|]1,Inf] %count% episodes
+                        {% endtranschoice %}
+                      {% else %}
+                        {% transchoice group.programs|length %}
+                          {0} No show|{1} 1 show|]1,Inf] %count% shows
+                        {% endtranschoice %}
+                      {% endif %}
+                    </p>
+                  </div>
+                  <h1 class="red">{{ group.title }}</h1>
+                  <p class="sub-title">{{ group.type_title }}</p>
+                </div>
+
+                <ul id="tabs" class="tabs">
+                  <li class="tab-selected">
+                    <a href="{{ group.url }}#resume" title="{% trans with {'%group%': group.title} %}Summary of %group%{% endtrans %}" data-hash="resume">
+                      {% if type_alias == 'serie-tv' %}
+                        {% trans %}Summary of the TV series{% endtrans %}
+                      {% else %}
+                        {% trans %}Summary of the TV show{% endtrans %}
+                      {% endif %}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ group.url }}#episodes" title="{% trans with {'%group%': group.title} %}Episodes of %group%{% endtrans %}" data-hash="episodes">
+                      {% if type_alias == 'serie-tv' %}
+                        {% trans %}Episodes of the TV series{% endtrans %}
+                      {% else %}
+                        {% trans %}Episodes of the TV show{% endtrans %}
+                      {% endif %}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="span-page">
+
+              <div id="tab1">
+                <div class="text margin">
+                  <p class="clear-grey">
+                    {% if type_alias == 'serie-tv' %}
+                      {% trans with {'%group%': group.title} %}More infos about <strong>%group%</strong> TV series{% endtrans %}
+                    {% else %}
+                      {% trans with {'%group%': group.title} %}More infos about <strong>%group%</strong> TV show{% endtrans %}
+                    {% endif %}
+                  </p>
+                </div>
+                <div class="program-summary text padding bigger">
+                  {% if group.summary is not null %}
+                    {{ group.summary|raw }}
+                  {% else %}
+                    <p>
+                      {% trans with {'%group%': group.title} %}No summary for <strong>%group%</strong>{% endtrans %}
+                      <span class="clear-grey">—</span>
+                    </p>
+                  {% endif %}
+                </div>
+              </div> <!-- /#tab1 -->
+
+              <div id="tab2">
+                {% if group.programs is not null %}
+                  {% if type_alias == 'serie-tv' %}
+                    {% include "controllers/groupes/_serie.twig" %}
+                  {% else %}
+                    {% include "controllers/groupes/_programme.twig" %}
+                  {% endif %}
+                {% else %}
+                  <div class="text margin">
+                    <p class="clear-grey">
+                      {% if type_alias == 'serie-tv' %}
+                        {% trans with {'%group%': group.title} %}No schedules for the TV series <strong>%group%</strong>{% endtrans %}
+                      {% else %}
+                        {% trans with {'%group%': group.title} %}No schedules for the TV show <strong>%group%</strong>{% endtrans %}
+                      {% endif %}
+                    </p>
+                  </div>
+                {% endif %}
+              </div> <!-- /#tab2 -->
+
+              {% if has_feature('catchup_tv') and videos is not null %}
+                <div id="tab3">
+                  <div class="text margin">
+                    <p class="clear-grey">
+                      {% trans with {'%group%': group.title} %}
+                      View <strong>%group%</strong> in catch up.</p>
+                      {% endtrans %}
+                  </div>
+                  <div class="videos clearfix">
+                    {% for video in videos %}
+                      {% include "partials/item-replay-tv.twig" with {"video": video} %}
+                    {% endfor %}
+                  </div>
+                </div> <!-- /#tab3 -->
+              {% endif %}
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="span-sidebar">
+          {% include "partials/ads-banner.twig" with {'unique': "aea23cf0", "zone_id": 36} %}
+        </div>
+
+      </div>
+
+    </div>
+  </div> <!-- /#content -->
+{% endblock content %}

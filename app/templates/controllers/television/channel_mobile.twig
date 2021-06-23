@@ -1,0 +1,72 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<div class="pmd-LiveTvScreen">
+  <div class="pmd-LiveTvVideo pmd-js-LiveTv-videoContainer">
+    <iframe
+      src=""
+      data-src="{{ hosts.current_full }}/player/embed/{{ channel.alias }}/?webapp=1"
+      data-native="{{ native }}"
+      class="pmd-js-LiveTv-iframe"
+      width="100%"
+      height="100%"
+      frameborder="0"
+      scrolling="no"
+      allowfullscreen="true"
+      webkitallowfullscreen="true"
+      mozallowfullscreen="true"
+    ></iframe>
+  </div>
+  <script src="{{ assets.scripts['inline-television-channel-mobile.js'] }}"></script>
+</div>
+
+<div class="pmd-LiveTvHeading">
+  <a class="pmd-LiveTvHeading-channelLogo" href="{{ path('chaine_tv_programmes', {'channel_id': channel.id, 'channel_alias': channel.alias}) }}">
+    <img src="{{ channel.images.small }}" height="28" width="28">
+  </a>
+  {% if channel_broadcast_live.program is defined %}
+  <a class="pmd-LiveTvHeading-programmeTitle pmd-Text--truncate" href="{{ channel_broadcast_live.program.program_url }}">
+    {{ channel_broadcast_live.program.fulltitle }}
+  </a>
+  {% else %}
+    {% trans %}
+    No information
+    {% endtrans %}
+  {% endif %}
+</div>
+
+<div class="pmd-LiveTvContent">
+
+  <div class="pmd-Heading pmd-Heading--2x pmd-Heading--light">
+    {% spaceless %}
+    <a href="#summary" class="pmd-js-LiveTv-summary pmd-Heading-words pmd-Heading-words--active">
+      <span>Résumé</span>
+    </a>
+    <a href="#twitter-tweets" class="pmd-js-LiveTv-social pmd-Heading-words">
+      <span>Live Tweets</span>
+    </a>
+    {% endspaceless %}
+  </div>
+
+  <div class="pmd-js-LiveTvContent pmd-LiveTvContent">
+    <div id="summary">
+      {{ block_live_program_by_channel|raw }}
+      {{ block_next_programs_by_channel|raw }}
+    </div>
+    <div id="twitter-tweets">
+      {{ block_social_tv_posts|raw }}
+    </div>
+  </div>
+
+  {% if is_website_fr %}
+  <div id="taboola-television-live-mobile"></div>
+  {% endif %}
+  {% if (display_ads == true) and (is_connected == false or (is_connected and current_account.isPremium() == false)) %}
+  <div id="ead_native">
+    <script type="text/javascript" id="ean-native-embed-tag" src="//cdn.elasticad.net/native/serve/js/nativeEmbed.gz.js" async="true"></script>
+  </div>
+  {% endif %}
+</div>
+{% include "controllers/television/_tracking-netstat-fr24.twig" %}
+
+{% endblock %}

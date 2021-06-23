@@ -1,0 +1,34 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<div class="pmd-ReplayTv">
+
+  <div class="pmd-ReplayTvHeading pmd-Heading">
+    <h2 class="pmd-Heading-words">{% trans %}Catch Up TV{% endtrans %}</h2>
+  </div>
+
+  <div class="pmd-ReplayTvContent">
+
+    <div class="pmd-js-ReplayTvCarrousel-parent pmd-ReplayTvContentMosaic" data-current-channel-alias="{{ channel.alias|default('') }}">
+      {{ block_mosaic|raw }}
+    </div>
+
+    {% include "partials/subnav-replay-tv.twig"
+      with {
+        "subnav_active": "index",
+        "days": days,
+        "date": date,
+        "title": "The latest videos on demand available"|trans
+      }
+    %}
+
+    <div class="pmd-js-ReplayTvResult pmd-ReplayTvContentResult" data-veil="">
+      {% include "controllers/replay-tv/_replays-videos.twig" %}
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
+

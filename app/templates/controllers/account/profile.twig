@@ -1,0 +1,17 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+
+  {% embed "controllers/account/skeleton.twig" with {"tab_selected": "profile"} %}
+
+    {% block embed_content %}
+      {% include "controllers/account/_form-profile.twig" %}
+      {% include "controllers/account/_form-password.twig" %}
+       <p class="ptv-AccountProfileDisable">
+        <a href="/mon-compte/suppression/" class="ptv-js-AccountProfile-disableLink ptv-Button ptv-Button--danger ptv-Button--large ptv-AccountProfileDisable-link" style="color: white;" {% if delete_subscriptions %}data-delete-subscriptions{% endif %}>Supprimer mon compte</a>
+      </p>
+    {% endblock %}
+
+  {% endembed %}
+
+{% endblock %}

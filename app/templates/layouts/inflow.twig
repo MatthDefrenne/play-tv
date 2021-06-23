@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html
+  class="controller-{{ controller_name }} action-{{ action_name }} responsive naked-theme"
+  lang="{{ locale|replace({'_': '-'})|lower }}"
+>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+    <title>{{ head.meta.title|default('Play TV') }}</title>
+    <meta name="description" content="{{ head.meta.description|truncate(200, false)|default("La télévision gratuite en direct et les programmes TV en replay sur internet.") }}">
+    {% if head.meta.keywords and head.meta.keywords|length > 0 %}
+    <meta name="keywords" content="{{ head.meta.keywords|join(',')|lower|truncate(800, false) }}">
+    {% endif %}
+    {% if head.robots is defined %}
+    <meta name="robots" content="{{ head.robots }}">
+    {% endif %}
+    {# STYLES #}
+    <link rel="stylesheet" type="text/css" href="{{ assets.styles['inflow.css'] }}">
+    {# SCRIPTS #}
+    <script src="{{ assets.scripts['app-first.js'] }}"></script>
+    {# TRACKING #}
+    {% include "partials/tracking-google-analytics.twig" %}
+    {# FAVICONS #}
+    {% include "partials/favicons.twig" %}
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" data-features="">
+    {% include "partials/svg-symbols.twig" %}
+    {% block content %}{% endblock %}
+
+    {% if not adb %}
+    <script>
+    ;(function(win, doc, App) {
+      App.Data = App.Data || {}
+      App.Data = {{ inflow|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}
+    })( window, window.document, window.pmd || ( window.pmd = {} ) );
+    </script>
+    <script src="{{ assets.scripts['page-inflow.js'] }}"></script>
+    {% endif %}
+  </body>
+</html>

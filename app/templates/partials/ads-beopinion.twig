@@ -1,0 +1,15 @@
+{% if
+  (display_ads == true) and
+  (is_connected == false or (is_connected and current_account.isPremium() == false))
+%}
+<div class="BeOpinionWidget"></div>
+<script>
+  window.beOpinionAsyncInit = function() {
+    BeOpinionSDK.init({
+      account: "5dd3d1f646e0fb000174346d"
+    });
+    BeOpinionSDK.watch();
+  };
+</script>
+<script async src="https://widget.beopinion.com/sdk.js"></script>
+{% endif %}

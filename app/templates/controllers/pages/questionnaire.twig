@@ -1,0 +1,25 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="content" class="pmd-StaticPage">
+    <div class="container pmd-StaticPage-wrapper">
+
+      <div class="row">
+        <article class="span13">
+          <div class="page-title">
+            <h1>Page. <span class="red">Questionnaire Play TV</span></h1>
+            <p class="sub-title">Nous vous proposons aujourd'hui ce questionnaire afin de mieux comprendre vos attentes concernant le service web {{ request.host }}</p>
+
+            <img style="float: right; position: relative;margin-top:-50px; margin-right:-120px;" src="https://static.playmedia-cdn.net/img/img_public/FAQ.png">
+
+            <iframe data-src="https://www.surveymonkey.com/s/859FB3Z" src="about:blank" onload="lzld(this)" width="988px" height="3900px" scrolling="no"></iframe>
+
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+
+<!-- /#content -->
+{% endblock %}

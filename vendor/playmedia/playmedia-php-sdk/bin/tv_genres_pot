@@ -1,0 +1,58 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use Playmedia\Sdk;
+use Symfony\Component\Translation\MessageCatalogue;
+use Symfony\Component\Translation\Writer\TranslationWriter;
+use Playmedia\Translation\Dumper\PotFileDumper;
+
+$sdk = new Sdk([
+    'env' => getenv('APP_ENV'),
+    'debug' => true,
+]);
+
+$db = $sdk['database'];
+
+$genres = [];
+
+$stmt = $db->prepare('SELECT gender FROM tv_genders');
+$stmt->execute();
+while ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
+    $genres[] = $row[0];
+}
+
+$stmt = $db->prepare('SELECT name, short_name FROM tv_genders_types');
+$stmt->execute();
+while ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
+    $genres[] = $row[0];
+    $genres[] = $row[1];
+}
+
+$stmt = $db->prepare('SELECT subgender FROM tv_subgenders');
+$stmt->execute();
+while ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
+    $genres[] = $row[0];
+}
+
+$stmt = $db->prepare('SELECT type, title FROM tv_groups_types');
+$stmt->execute();
+while ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
+    $genres[] = $row[0];
+    $genres[] = $row[1];
+}
+
+$genres = array_values(array_filter(array_unique($genres)));
+sort($genres);
+
+$catalogue = new MessageCatalogue('fr');
+
+foreach ($genres as $genre) {
+    $catalogue->set($genre, $genre, 'tv_genres');
+}
+
+$writer = new TranslationWriter();
+$writer->addDumper('pot', new PotFileDumper());
+$writer->disableBackup();
+$writer->writeTranslations($catalogue, 'pot', ['path' => __DIR__ . '/../resources/locales']);

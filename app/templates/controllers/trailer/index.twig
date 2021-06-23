@@ -1,0 +1,45 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div class="ptv-Trailer ptv-js-Trailer" data-title="{{ program.fulltitle }}" data-subtitle="{{ program.subtitle }}" data-program-id="{{ program.id }}" data-program-alias="{{ program.alias }}">
+    <a href="#" class="ptv-Trailer-action ptv-js-Trailer-action ptv-Trailer-action--hidden"><i>Play</i></a>
+    <div id="ptv-Trailer-uniAds" class="ptv-js-Trailer-uniAds ptv-Trailer-uniAds ptv-Trailer-uniAds--hidden"></div>
+    <div class="ptv-js-TrailerAd-container ptv-TrailerAd-container ptv-TrailerAd-container--hiden">
+      <div class="ptv-TrailerAd-content">
+        <video class="ptv-js-TrailerAd-video ptv-TrailerAd-content-element"></video>
+      </div>
+      <div class="ptv-js-TrailerAd-adcontainer ptv-TrailerAd-adcontainer"></div>
+    </div>
+    <iframe class="ptv-Trailer-iframe ptv-Trailer-iframe--hidden ptv-js-Trailer-iframe" src="" data-src="/trailer/embed/{{ program.id }}/?autoplay={{ autoplay ? '1' : '0' }}&skin=minimal" frameborder="0" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+  </div>
+
+  <script>
+  ;(function(win, doc, app) {
+    app.Data = app.Data || {};
+    app.Data.Trailer = app.Data.Trailer || {};
+    app.Data.Trailer.autoplay = {{ autoplay ? 'true' : 'false' }};
+    app.Data.uniroll = {{ uniroll|json_encode(constant('JSON_PRETTY_PRINT'))|raw }};
+    {# Ugly hack to resize player in mobile version #}
+    {% if isMobile is defined and isMobile == true %}
+    var w = window.innerWidth;
+    var h = w / (16/9);
+    [
+      '.ptv-js-Trailer',
+      '.ptv-js-Trailer-action',
+      '.ptv-js-Trailer-iframe',
+    ].forEach(function(s) {
+      var e = document.querySelector(s);
+      if (e) {
+        e.style.width = w+'px';
+        e.style.height = h+'px';
+      }
+    });
+    var e = document.querySelector('.ptv-js-Trailer-iframe');
+    if (e) {
+      var u = e.getAttribute('data-src');
+      e.setAttribute('data-src', u += '&w=' + w + '&h=' + h);
+    }
+    {% endif %}
+  })(window, window.document, window.ptv || (window.ptv = {}));
+  </script>
+{% endblock content %}

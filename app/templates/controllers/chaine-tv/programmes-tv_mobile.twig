@@ -1,0 +1,37 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<div class="pmd-Heading">
+  <a class="pmd-Heading-words" href="{{ path('chaine_tv', {'channel_id': infos.id, 'channel_alias': infos.alias}) }}">
+    <span>{{ infos.name }}</span>
+  </a>
+</div>
+
+<div class="pmd-Heading pmd-Heading pmd-Heading--black pmd-ChannelProgrammesDate">
+  {% set date_format = is_website_fr ? 'd-m-Y' : 'Y-m-d' %}
+  {% set previous_date_url = path('chaine_tv_programmes_date', {
+    'channel_id': infos.id,
+    'channel_alias': infos.alias,
+    'date': selected_date|date_modify("-1 day")|date(date_format)
+  }) %}
+  {% set next_date_url = path('chaine_tv_programmes_date', {
+    'channel_id': infos.id,
+    'channel_alias': infos.alias,
+    'date': selected_date|date_modify("+1 day")|date(date_format)
+  }) %}
+
+  <a href="{{ previous_date_url }}" class="pmd-ChannelProgrammesDate-previous">
+    <span class="pmd-Icons-arrow"></span>
+  </a>
+  <a href="#" class="pmd-Heading-words pmd-Heading-words--active pmd-ChannelProgrammes-current">
+    <span>{{ selected_date|localizeddate('full', 'none', locale)|capitalize }}</span>
+  </a>
+  <a href="{{ next_date_url }}" class="pmd-ChannelProgrammesDate-next">
+    <span class="pmd-Icons-arrow"></span>
+  </a>
+</div>
+
+<div class="pmd-js-ChannelProgrammesContent">
+  {{ block_broadcasts|raw }}
+</div>
+{% endblock %}

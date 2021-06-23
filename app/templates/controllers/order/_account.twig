@@ -1,0 +1,136 @@
+<h1 class="ptv-AccountProfile-heading">
+  <span class="ptv-AccountProfile-headingMain">
+    <span class="pmd-Order-bullet">2</span>
+    <span>Identification</span>
+  </span>
+</h1>
+
+{% if is_connected == false %}
+
+  <div class="ptv-AccountProfileOuter">
+
+    <section class="ptv-AccountProfile ptv-AccountProfile--left">
+      <div class="content ptv-AccountProfileContent">
+
+        <form action="/commande/inscription/" class="ptv-js-Order-registerForm">
+
+          <legend class="pmd-OrderLoginRegister-legend">
+            <span>Vous n'avez pas de compte ?</span>
+            <br>
+            <strong>Inscrivez-vous !</strong>
+          </legend>
+
+          <div class="ptv-AccountProfileLine">
+            <p class="ptv-AccountProfileLine-inputField">
+              <label class="ptv-AccountProfileLine-label" for="">Nom d'utilisateur</label>
+              <input type="text" name="username" class="pmd-Input ptv-AccountProfileLine-input" autocomplete="off">
+            </p>
+          </div>
+
+          <div class="ptv-AccountProfileLine">
+            <p class="ptv-AccountProfileLine-inputField">
+              <label class="ptv-AccountProfileLine-label" for="">Email</label>
+              <input type="text" name="email" class="pmd-Input ptv-AccountProfileLine-input" autocomplete="off">
+            </p>
+          </div>
+
+          <div class="ptv-AccountProfileLine">
+            <p class="ptv-AccountProfileLine-inputField">
+              <label class="ptv-AccountProfileLine-label" for="">Confirmation email</label>
+              <input type="text" name="emailConfirm" class="pmd-Input ptv-AccountProfileLine-input" autocomplete="off">
+            </p>
+          </div>
+
+          <div class="ptv-AccountProfileLine">
+            <p class="ptv-AccountProfileLine-inputField">
+              <label class="ptv-AccountProfileLine-label" for="">Mot de passe</label>
+              <input type="password" name="password" class="pmd-Input ptv-AccountProfileLine-input" autocomplete="off">
+            </p>
+          </div>
+
+          <div class="ptv-AccountProfileLine">
+            <div class="ptv-AccountProfileLine-inputGroup--noLabel">
+              <button class="pmd-Button pmd-Button--dark pmd-Order-submitButton ptv-js-Order-registerAction ladda-button" data-style="zoom-out" type="submit">
+                <span class="ladda-label">M'inscrire</span>
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+
+    <section class="ptv-AccountProfile ptv-AccountProfile--right">
+      <div class="content ptv-AccountProfileContent">
+        <form action="/connexion/" class="ptv-js-Order-loginForm">
+
+          <legend class="pmd-OrderLoginRegister-legend">
+            <span>Vous avez déjà un compte ?</span>
+            <br>
+            <strong>Connectez-vous !</strong>
+          </legend>
+
+          <div class="ptv-AccountProfileLine">
+            <p class="ptv-AccountProfileLine-inputField">
+              <label class="ptv-AccountProfileLine-label" for="">Nom d'utilisateur</label>
+              <input type="text" name="email" class="pmd-Input ptv-AccountProfileLine-input" autocomplete="off">
+            </p>
+          </div>
+
+          <div class="ptv-AccountProfileLine">
+            <p class="ptv-AccountProfileLine-inputField">
+              <label class="ptv-AccountProfileLine-label" for="">Mot de passe</label>
+              <input type="password" name="password" class="pmd-Input ptv-AccountProfileLine-input" autocomplete="off">
+            </p>
+          </div>
+
+          <div class="ptv-AccountProfileLine">
+            <div class="ptv-AccountProfileLine-inputGroup--noLabel">
+              <button class="pmd-Button pmd-Button--dark pmd-Order-submitButton ptv-js-Order-loginAction ladda-button" data-style="zoom-out" type="submit">
+                <span class="ladda-label">Me connecter</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="ptv-AccountProfileLine">
+            <div class="ptv-AccountProfileLine-inputGroup--noLabel">
+              <p class="pmd-Text--center">OU</p>
+            </div>
+          </div>
+
+          <div class="ptv-AccountProfileLine">
+            <div class="ptv-AccountProfileLine-inputGroup--noLabel">
+              <a href="#" rel="nofollow" class="ptv-ButtonFacebook pmd-OrderLogin-facebookButton ptv-js-DialogFacebook">Connexion via Facebook</a>
+            </div>
+          </div>
+
+          <div class="ptv-AccountProfileLine">
+            <div class="ptv-AccountProfileLine-inputGroup--noLabel pmd-Text--center">
+              <a class="ptv-js-OrderAccount-forgotPassword" href="/mot-de-passe-oublie/" target="_blank" rel="nofollow">Mot de passe oublié ?</a>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+
+  </div>
+
+  <ul class="ptv-js-OrderAccount-alert ptv-Alert"></ul>
+
+{% else %}
+
+  <div class="pmd-OrderAccount-connected">
+    <span>Vous êtes connecté(e) en tant que : </span>
+    <span class="pmd-OrderAccount-user">{{ current_account.username }} ({{ current_account.email }})</span>
+    <span>
+      <svg role="img" class="pmd-Svg pmd-Svg--tick2 pmd-Svg--green">
+        <use xlink:href="#pmd-Svg--tick2"></use>
+      </svg>
+    </span>
+  </div>
+
+{% endif %}
+

@@ -1,0 +1,157 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+
+  {% include "partials/subnav-guide-tv.twig" %}
+
+  <div id="content">
+    <div class="container">
+
+      <div class="row">
+        <div class="span-page">
+
+          <div class="page-title">
+            <h1>
+              <span class="red">{{ infos.fullname }}</span>
+            </h1>
+            {% if infos.statuses is not null %}
+              <p class="xxmargin">
+                <strong>
+                  {% for status in infos.statuses %}
+                    {{ status.name }}{% if status != infos.statuses|last %}, {% endif %}
+                  {% endfor %}
+                </strong>
+              </p>
+            {% endif %}
+            <p class="sub-title">{% trans with {'%cast%': infos.fullname} %}TV programs with %cast%{% endtrans %}</p>
+          </div>
+
+          <div class="fullcontent">
+            <div class="block-title margin">
+              <h3>{% trans with {'%cast%': infos.fullname} %}Find <strong>%cast%</strong> soon in...{% endtrans %}</h3>
+            </div>
+
+            <div id="people-next-programs" class="clearfix margin">
+              {% for next_broadcast in next_broadcasts %}
+                <div class="grey-box">
+                  <p class="mini-program">
+                    <span>
+                      {% trans with {'%date%': next_broadcast.start|localizeddate('full', 'none', locale)|capitalize, '%hour%': next_broadcast.start|localizeddate('none', 'short'), '%channel%': next_broadcast.channel} %}
+                      %date% at <strong>%hour%</strong> on <strong>%channel%</strong>
+                      {% endtrans %}
+                    </span>
+                    <p class="title"><a href="{{ next_broadcast.program.program_url }}"><strong>{{ next_broadcast.program.fulltitle }}</strong></a></p>
+                  </p>
+                </div>
+              {% else %}
+                <p class="clear-grey"><strong class="red">Pas de programmes</strong> avec <strong>{{ infos.fullname }}</strong> prochainement.</p>
+              {% endfor %}
+            </div>
+          </div> <!-- fullcontent -->
+
+          <div class="fullcontent">
+            <div class="block-title margin">
+              <h3>{% trans with {'%cast%': infos.fullname} %}Last TV programs with <strong>%cast%</strong>{% endtrans %}</h3>
+            </div>
+
+            {% for previous_broadcast in previous_broadcasts %}
+              <div class="{% if previous_broadcast.broadcasts is defined %}mini-group{% else %}mini-program{% endif %} {% if (previous_broadcast.program.images.small is defined and previous_broadcast.program.images.small is not null) or (previous_broadcast.images.small is defined and previous_broadcast.images.small is not null)  %}has-image clearfix{% endif %}">
+
+                <!-- Groups -->
+                {% if previous_broadcast.broadcasts is defined %}
+                  {% spaceless %}
+                    <span class="program-gender small">
+                      <span class="program-gender-icon program-gender-icon{{ previous_broadcast.broadcasts.0.program.gender_id }}"></span>
+                      <span>{{ previous_broadcast.broadcasts.0.program.gender }}</span>
+                    </span>
+                  {% endspaceless %}
+                  <p class="title">
+                    <strong><a href="{{ previous_broadcast.url }}">{{ previous_broadcast.title }}</a></strong>
+                    {% if previous_broadcast.statuses is not null %}
+                      <br/>
+                      {% for status in previous_broadcast.statuses %}
+                        {{ status.status }}
+                        {% if status.role is not null %}
+                          <span class="clear-grey">({{ status.role }})</span>
+                        {% endif %}
+                        {% if status != previous_broadcast.statuses|last %}, {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  </p>
+                  {% if previous_broadcast.images.small is not null %}
+                    <div class="program-img program-img-small">
+                      <img src="{{ previous_broadcast.images.small }}" alt="{{ previous_broadcast.program.title }}" width="80" height="60">
+                      <div class="cache"></div>
+                    </div>
+                  {% endif %}
+                {% endif %}
+
+                {% if previous_broadcast.broadcasts is defined %}
+                  <div class="mini-programs">
+                    {% for b in previous_broadcast.broadcasts %}
+                      <p>
+                        <small>
+                          {% trans with {'%date%': b.start|localizeddate('full', 'none', locale)|capitalize, '%channel%': b.channel} %}
+                          %date% on <strong>%channel%</strong>
+                          {% endtrans %}
+                        </small>
+                        <br>
+                        <span class="clear-grey">{{ b.start|localizeddate('none', 'short') }}</span> <a href="{{ b.program.program_url }}"><strong>{{ b.program.title }}</strong></a>
+                        {% if b.program.subtitle is not null %} : {{ b.program.subtitle }}{% endif %}
+                      </p>
+                    {% endfor %}
+                  </div>
+                {% else %}
+                  <p>
+                    {% spaceless %}
+                      <span class="program-gender small">
+                        <span class="program-gender-icon program-gender-icon{{ previous_broadcast.program.gender_id }}"></span>
+                        <span>{{ previous_broadcast.program.gender }}</span>
+                      </span>
+                    {% endspaceless %}
+
+                    <small>
+                      {% trans with {'%date%': previous_broadcast.start|localizeddate('full', 'none', locale)|capitalize, '%channel%': previous_broadcast.channel} %}
+                      %date% on <strong>%channel%</strong>
+                      {% endtrans %}
+                    </small>
+
+                    <br>
+                    <p class="title">
+                      <span class="clear-grey">{{ previous_broadcast.start|localizeddate('none', 'short') }}</span> <a href="{{ previous_broadcast.program.program_url }}"><strong>{{ previous_broadcast.program.title }}</strong></a>
+                      {% if previous_broadcast.program.subtitle != null %} : {{ previous_broadcast.program.subtitle }}{% endif %}
+                    </p>
+                    {% if previous_broadcast.statuses != null %}
+                      {% for status in previous_broadcast.statuses %}
+                        {{ status.status }}
+                        {% if status.role != null %}
+                          <span class="clear-grey">({{ status.role }})</span>
+                        {% endif %}
+                        {% if status != previous_broadcast.statuses|last %}, {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  </p>
+                {% endif %}
+
+              </div>
+            {% else %}
+              <p class="clear-grey">
+                {% trans with {'%cast%': infos.fullname} %}
+                No programs with <strong>%cast%</strong> recently.
+                {% endtrans %}
+              </p>
+            {% endfor %}
+
+          </div> <!-- /fullcontent -->
+
+        </div> <!-- /span.page -->
+
+        <div class="span-sidebar">
+          {% include "partials/ads-banner.twig" with {'unique': "af2eb201", "zone_id": 9} %}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+{% endblock content %}

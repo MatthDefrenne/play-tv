@@ -1,0 +1,150 @@
+{# base #}
+{% set slider_classes = ['pmd-HomepageThumbnailsSlider'] %}
+{% set data_attributes = {
+    'size': 'small',
+    'type': 'play',
+    'trailer_button': 'false',
+    'progress': 'false',
+    'channel_logo': 'true',
+    'preview_animation': 'true'
+  }
+%}
+
+{# contexts #}
+{% if context == 'broadcasts-live' %}
+
+  {% set slider_classes = slider_classes|merge(['pmd-js-HomepageThumbnailsBroadcastsLiveSlider']) %}
+
+  {% set data_attributes = data_attributes|merge({
+      'progress': 'true'
+    })
+  %}
+
+{% endif %}
+
+{% if context == 'broadcasts-tonight' %}
+
+  {% set slider_classes = slider_classes|merge(['pmd-js-HomepageThumbnailsBroadcastsTonightSlider']) %}
+
+  {% set data_attributes = data_attributes|merge({
+      'trailer_button': 'true'
+    })
+  %}
+
+{% endif %}
+
+{% if context == 'replays-news' %}
+
+  {% set slider_classes = slider_classes|merge(['pmd-js-HomepageThumbnailsReplaysNewsSlider']) %}
+
+  {% set data_attributes = data_attributes|merge({
+      'type': 'replay',
+      'duration': 'true'
+    })
+  %}
+
+{% endif %}
+
+{% if context == 'replays-last' %}
+
+  {% set slider_classes = slider_classes|merge(['pmd-js-HomepageThumbnailsReplaysLastSlider']) %}
+
+  {% set data_attributes = data_attributes|merge({
+      'type': 'replay',
+      'duration': 'true'
+    })
+  %}
+
+{% endif %}
+
+{% if context == 'channels-arabic' %}
+
+  {% set slider_classes = slider_classes|merge(['pmd-js-HomepageThumbnailsChannelsArabicSlider']) %}
+
+  {% set data_attributes = data_attributes|merge({
+      'duration': 'false'
+    })
+  %}
+
+{% endif %}
+
+{% if context == 'channels-news' %}
+
+  {% set slider_classes = slider_classes|merge(['pmd-js-HomepageThumbnailsChannelsNewsSlider']) %}
+
+  {% set data_attributes = data_attributes|merge({
+      'duration': 'false'
+    })
+  %}
+
+{% endif %}
+
+{% if context == 'channels-thematic' %}
+
+  {% set slider_classes = slider_classes|merge(['pmd-js-HomepageThumbnailsChannelsThematicSlider']) %}
+
+  {% set data_attributes = data_attributes|merge({
+      'duration': 'false'
+    })
+  %}
+
+{% endif %}
+
+{% if context == 'channels-local' %}
+
+  {% set slider_classes = slider_classes|merge(['pmd-js-HomepageThumbnailsChannelsLocalSlider']) %}
+
+  {% set data_attributes = data_attributes|merge({
+      'duration': 'false'
+    })
+  %}
+
+{% endif %}
+
+{% if context == 'channels-community' %}
+
+  {% set slider_classes = slider_classes|merge(['pmd-js-HomepageThumbnailsChannelsCommunitySlider']) %}
+
+  {% set data_attributes = data_attributes|merge({
+      'duration': 'false'
+    })
+  %}
+
+{% endif %}
+
+{% set slider_classes = slider_classes|join(' ') %}
+
+{# template #}
+{% if thumbnails %}
+<div class="pmd-HomepageThumbnails" data-mode="{{ context }}">
+
+  <h2 class="pmd-HomepageThumbnailsTitle">
+    {% if title.url is defined %}
+      <a class="pmd-HomepageThumbnailsTitle-link" href="{{ title.url }}">{{ title.label }}</a>
+    {% else %}
+      <span class="pmd-HomepageThumbnailsTitle-link">{{ title.label }}</span>
+    {% endif %}
+  </h2>
+
+  <div class="pmd-HomepageThumbnailsSlider {{ slider_classes }}" data-mode="{{ context }}" data-ads-enabled="{{ ads_enabled ? 'true' : 'false' }}" >
+
+    <div class="pmd-HomepageThumbnailsSlider-viewport">
+      <div class="pmd-HomepageThumbnailsSlider-itself pmd-js-HomepageThumbnailsSlider-itself">
+        {% spaceless %}
+        {% for thumbnail in thumbnails %}
+        <div class="pmd-HomepageThumbnailsSlider-item pmd-js-HomepageThumbnailsSlider-item">
+        {% include 'controllers/widgets/thumbnails-' ~ type ~ '.twig' with {
+            'loop_index': loop.index,
+            'data_attributes': data_attributes
+          }
+        %}
+        </div>
+        {% endfor %}
+        {% endspaceless %}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+{% endif %}

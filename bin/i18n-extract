@@ -1,0 +1,7 @@
+#! /usr/bin/env sh
+
+./bin/console i18n:extract &&
+msgmerge --silent --backup=off --no-fuzzy-matching --update app/locales/fr/messages.po app/locales/messages.pot &&
+msgmerge --silent --backup=off --no-fuzzy-matching --update app/locales/fr/metas.po app/locales/metas.pot &&
+rm -rf ./cache/translator
+

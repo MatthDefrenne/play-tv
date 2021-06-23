@@ -1,0 +1,17 @@
+<div class="js-ptv-ProgrammePreview">
+  {% if live_program_by_channel %}
+    {{ live_program_by_channel|raw }}
+  {% endif %}
+</div>
+
+<div class="margin">
+  {% include "controllers/live-tweets/_most-shared-urls.twig" %}
+  </div>
+
+<div class="margin">
+  {% include "controllers/live-tweets/_last-prime-chart.twig" %}
+</div>
+
+<div class="margin">
+  {% include "partials/ads-banner.twig" with {'unique': "aea23cf0", "zone_id": 36} %}
+</div>

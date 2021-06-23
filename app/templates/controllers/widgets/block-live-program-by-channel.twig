@@ -1,0 +1,132 @@
+{#
+    @container: #programs-now
+    @data: $channel, $live_program, $context
+#}
+
+{#
+    @context: page live tweets
+#}
+
+{% if context == 'social_tv' %}
+
+  {% if live_program %}
+
+    {% if is_website_fr %}
+      {% set route_params = {
+        'channel_alias': channel.alias
+      } %}
+    {% else %}
+      {% set route_params = {
+        'channel_id': channel.id,
+        'channel_alias': channel.alias
+      } %}
+    {% endif %}
+
+    <div class="margin">
+      <div id="current-programme" class="grey-box">
+        <div class="block-title xmargin">
+          <a {% if channel.streamable %}href="{{ path('television_channel_single', route_params) }}"{% endif %} title="À propos de " class="channel-button channel-button-mini right">
+            <span>{% trans with {'%channel%': channel.name} %}Watch %channel% live{% endtrans %}</span>
+            <img src="{{ channel.images.mini }}" alt="" width="36" height="36">
+            <div class="cache"></div>
+          </a>
+          <h2>
+            {% trans with {'%channel%': channel.name} %}
+            <strong>Social TV ></strong> %channel%
+            {% endtrans %}
+          </h2>
+        </div>
+        {% if live_program.program.images.medium %}
+        <div class="preview">
+          <img src="{{ live_program.program.images.medium }}">
+        </div>
+        {% endif %}
+        <p class="indication">{% trans %}Current program{% endtrans %}</p>
+        <h4>{{ live_program.program.title }}</h4>
+        <div class="time">
+          <div class="start-time js-ptv-ProgrammePreview-programStart" data-value="{{ live_program.start }}">{{ live_program.start|date('H:i') }}</div>
+          <div class="progress-bar" title="">
+            <div class="cache"></div>
+            <div class="blue js-ptv-ProgrammePreview-bar" style="width: {{ live_program.progress }}%"></div>
+          </div>
+          <div class="end-time js-ptv-ProgrammePreview-programEnd" data-value="{{ live_program.end }}">{{ live_program.end|date('H:i') }}</div>
+        </div>
+
+        <p>{{ live_program.program.summary_long }}</p>
+        {% if channel.streamable %}
+          <p class="access-to-live">
+            <a href="{{ path('television_channel_single', route_params) }}" class="pmd-Button pmd-Button--xs pmd-Button--success">Accéder au live</a>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+
+  {% endif %}
+
+{#
+    @context: page television
+#}
+
+{% else %}
+  <div id="direct-program">
+    <div id="programs-now" class="row pmd-LiveProgram">
+      {% if live_program.program is defined %}
+
+        <div class="left-menu pmd-LiveProgram-left">
+          {% include "controllers/programme-tv/_details.twig" with {program: live_program.program} %}
+        </div>
+        <div class="pmd-LiveProgram-center">
+          {% if channel %}
+            <div class="text xmargin">
+              <p class="clear-grey">
+                {% trans with {'%channel%': channel.name} %}
+                <strong>Watch %channel%</strong> live online
+                {% endtrans %}
+              </p>
+            </div>
+          {% endif %}
+          {% include "controllers/programme-tv/_title.twig" with {program: live_program.program} %}
+          {% include "controllers/programme-tv/_resume.twig" with {
+            program: live_program.program,
+            casts: live_program.casts,
+            taboola: false
+          } %}
+        </div>
+
+      {% else %}
+
+        <div id="background-error" class="span-page">
+          {% if channel %}
+            <div class="text margin">
+              <p class="clear-grey">
+                {% if channel.is_radio %}
+                {% trans with {'%channel%': channel.name} %}
+                <strong>Listen %channel%</strong> live online
+                {% endtrans %}
+                {% else %}
+                {% trans with {'%channel%': channel.name} %}
+                <strong>Watch %channel%</strong> live online
+                {% endtrans %}
+                {% endif%}
+              </p>
+            </div>
+          {% endif %}
+          <div class="text">
+            <p>
+              {% if channel.is_radio %}
+              {% trans %}
+              <strong class="red">No information</strong> about online radio.
+              {% endtrans %}
+              {% else %}
+              {% trans %}
+              <strong class="red">No information</strong> about the current TV program.
+              {% endtrans %}
+              {% endif%}
+            </p>
+          </div>
+        </div>
+
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

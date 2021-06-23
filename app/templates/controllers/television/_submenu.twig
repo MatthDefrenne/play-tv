@@ -1,0 +1,53 @@
+<div class="sub-menu pmd-TelevisionMenu pmd-js-TelevisionMenu" id="television-menu" data-enable="{% if channel is defined %}true{% else %}false{% endif %}">
+  <div class="container pmd-js-TelevisionMenu-container">
+    <ul>
+      {% spaceless %}
+        <li id="live-tab">
+          <a href="#direct-program" title="{% if channel is defined %}{% trans with {'%channel%': channel.name} %}On air on %channel%{% endtrans %}{% else %}{% trans %}On air{% endtrans %}{% endif %}">
+            <span class="sub-menu_text">{% trans %}On now{% endtrans %}</span>
+          </a>
+        </li>
+        <li id="following-tab">
+          <a href="#following-programs" title="{% if channel is defined %}{% trans with {'%channel%': channel.name} %}Next program on %channel%{% endtrans %}{% else %}{% trans %}Next program{% endtrans %}{% endif %}">
+            <span class="sub-menu_text">{% trans %}Next{% endtrans %}</span>
+          </a>
+        </li>
+        {% if has_feature('social_tv') %}
+        <li id="livetweet-tab">
+          <a href="#twitter-tweets" title="{% if channel is defined %}{% trans with {'%channel%': channel.name} %}Live tweets for %channel%{% endtrans %}{% else %}{% trans %}Live tweets{% endtrans %}{% endif %}">
+            <span class="sub-menu_text">
+            {% spaceless %}
+              <svg role="img" class="pmd-Svg pmd-Svg--twitter pmd-TelevisionMenuTab-twitterIcon">
+                <use xlink:href="#pmd-Svg--twitter"></use>
+              </svg>{% trans %}Live tweets{% endtrans %}
+            {% endspaceless %}
+            </span>
+          </a>
+        </li>
+        {% endif %}
+        <li id="facebook-tab">
+          <a href="#facebook-comments" title="{% if channel is defined %}{% trans with {'%channel%': channel.name} %}Live comments on %channel%{% endtrans %}{% else %}{% trans %}Live comments{% endtrans %}{% endif %}">
+            <span class="sub-menu_text">
+            {% spaceless %}
+              <svg role="img" class="pmd-Svg pmd-Svg--facebook pmd-TelevisionMenuTab-facebookIcon">
+                <use xlink:href="#pmd-Svg--facebook"></use>
+              </svg>{% trans %}Live comments{% endtrans %}
+            {% endspaceless %}
+            </span>
+          </a>
+        </li>
+      {% endspaceless %}
+    </ul>
+    {% include "partials/share.twig" %}
+
+    <div id="update-loading" class="pmd-js-TelevisionMenu-loader right">
+      <img src="{{ apps_base_url }}/images/animate/icon-loading.gif" alt="Chargement..." width="16" height="16">
+    </div>
+
+    <h1 id="tv-channel-title" class="pmd-js-TelevisionMenu-channelTitle right">
+      {% if channel is defined %}
+        {{ channel.name }}
+      {% endif %}
+    </h1>
+  </div>
+</div>

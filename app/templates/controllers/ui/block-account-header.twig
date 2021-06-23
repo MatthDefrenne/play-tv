@@ -1,0 +1,25 @@
+{% if current_account %}
+  <a class="pmd-js-HeaderAccount-link pmd-HeaderAccount-avatar">
+    <img
+      data-src="{{ current_account.getAvatar(40, 40)|default(apps_base_url ~ "/images/avatars/user-picture.png") }}"
+      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+      width="40"
+      height="40"
+      onload="lzld(this)">
+  </a>
+  <ul class="pmd-js-HeaderAccount-menu pmd-HeaderAccountMenu">
+    <li class="pmd-HeaderAccountMenu-item">
+      <a href="/mon-compte/" class="pmd-HeaderAccountMenu-link">{{ current_account.getUsername }}</a>
+    </li>
+    {% if current_account.isPremium == false %}
+    <li class="pmd-HeaderAccountMenu-item">
+      <a href="/nos-offres/" class="pmd-HeaderAccountMenu-link">Découvrir nos offres</a>
+    </li>
+    {% endif %}
+    <li class="pmd-HeaderAccountMenu-item">
+      <a href="/deconnexion/" rel="nofollow" class="{% if controller_name not in ['account', 'bouncer'] %}pmd-js-HeaderAccount-logout {% endif %}pmd-HeaderAccountMenu-link pmd-HeaderAccountMenu-link--highlight">Déconnexion</a>
+    </li>
+  </ul>
+{% else %}
+  <a href="/connexion/" rel="nofollow" class="pmd-js-loginHandler pmd-HeaderAccount-login">Connexion</a>
+{% endif %}

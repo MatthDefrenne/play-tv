@@ -1,0 +1,90 @@
+{
+  "operations": {
+    "cellpass.services": {
+      "httpMethod": "GET",
+      "uri": "cellpass/services/",
+      "summary": "Retrieve Cellpass services",
+      "additionalParameters": {
+        "location": "query"
+      }
+    },
+    "cellpass.createService": {
+      "httpMethod": "POST",
+      "uri": "cellpass/services/",
+      "summary": "Create a Cellpass service",
+      "additionalParameters": {
+        "location": "json"
+      }
+    },
+    "cellpass.showService": {
+      "httpMethod": "GET",
+      "uri": "cellpass/services/{id}/",
+      "summary": "Show a Cellpass service",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      }
+    },
+    "cellpass.createTransaction": {
+      "httpMethod": "POST",
+      "uri": "cellpass/transactions/",
+      "summary": "Create a Cellpass transaction",
+      "additionalParameters": {
+        "location": "json"
+      }
+    },
+    "cellpass.modifyTransaction": {
+      "httpMethod": "PUT",
+      "uri": "cellpass/transactions/{id}/",
+      "summary": "Modify a Cellpass transaction",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      },
+      "additionalParameters": {
+        "location": "json"
+      }
+    },
+    "cellpass.showTransaction": {
+      "httpMethod": "GET",
+      "uri": "cellpass/transactions/{id}/",
+      "summary": "Show a Cellpass transaction",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      }
+    },
+    "cellpass.subscriptions": {
+      "httpMethod": "GET",
+      "uri": "cellpass/subscriptions/",
+      "summary": "Retrieve Cellpass subscriptions",
+      "additionalParameters": {
+        "location": "query"
+      }
+    },
+    "cellpass.modifySubscription": {
+      "httpMethod": "PUT",
+      "uri": "cellpass/subscriptions/{id}/",
+      "summary": "Modify a Cellpass subscription",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      },
+      "additionalParameters": {
+        "location": "json"
+      }
+    },
+    "cellpass.transactions": {
+      "httpMethod": "GET",
+      "uri": "cellpass/transactions/",
+      "summary": "Retrieve Cellpass transactions",
+      "additionalParameters": {
+        "location": "query"
+      }
+    }
+  }
+}

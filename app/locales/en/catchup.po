@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "no_result.content"
+msgstr "No on demand video for this timeframe with the requested parameters."
+
+msgid "no_result.other_channels"
+msgstr "The last catch up available on the other channels."
+
+msgid "yesterday_tab"
+msgstr "Yesterday on TV"
+
+msgid "last_tab"
+msgstr "Last catch up"

@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Next programs on <strong>%channel%</strong>"
+msgstr "Next programmes on <strong>%channel%</strong>"
+
+msgid "TV programs with %cast%"
+msgstr "TV programmes with %cast%"
+
+msgid "Last TV programs with <strong>%cast%</strong>"
+msgstr "Last TV programmes with <strong>%cast%</strong>"
+
+msgid "No programs with <strong>%cast%</strong> recently."
+msgstr "No programmes with <strong>%cast%</strong> recently."
+
+msgid "This program is on air. Watch it now."
+msgstr "This programme is on air. Watch it now."
+
+msgid "This program is on air."
+msgstr "This programme is on air."
+
+msgid "TV programs guide"
+msgstr "TV programmes guide"
+
+msgid "Unknown program"
+msgstr "Unknown programme"
+
+msgid "Short programs"
+msgstr "Short programmes"
+
+msgid "TV programs"
+msgstr "TV programmes"
+
+msgid "Search for <strong>TV programs</strong>"
+msgstr "Search for <strong>TV programmes</strong>"
+
+msgid "Next program on %channel%"
+msgstr "Next programme on %channel%"
+
+msgid "Next program"
+msgstr "Next programme"
+
+msgid "<strong class=\"red\">No information</strong> about the current TV program."
+msgstr "<strong class=\"red\">No information</strong> about the current TV programme."
+
+msgid "Next <strong>TV programs</strong> to watch live on <strong>%channel%</strong>."
+msgstr "Next <strong>TV programmes</strong> to watch live on <strong>%channel%</strong>."
+
+msgid "Your program in a few seconds…"
+msgstr "Your programme in a few seconds…"
+
+msgid "Yesterday TV Catch Up"
+msgstr "Yesterday TV Catch Up"
+
+msgid "no_tweets_available"
+msgstr "No tweets available."

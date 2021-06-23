@@ -1,0 +1,23 @@
+<script type="text/javascript">
+  (function(win, doc, app) {
+    app.Data = app.Data || {};
+    app.Data.ReplayTv = app.Data.ReplayTv || {
+      channel: undefined,
+      gender: undefined,
+      date: undefined
+    };
+    {% set whitelist = ["id", "name", "alias", "has_programs", "images", "has_social_tv", "disabled", "skip_ads", "highlight", "streaming_source", "is_adult", "streaming_spec"] %}
+    {% if channel is defined and channel %}
+      app.Data.ReplayTv.channel = {{ channels_whitelist(channel, whitelist, false)|json_encode()|raw }};
+    {% endif %}
+
+    {% if gender_alias %}
+      app.Data.ReplayTv.gender = {{ gender_alias|json_encode()|raw }};
+    {% endif %}
+
+    {% if date %}
+      app.Data.ReplayTv.date = {{ date|json_encode()|raw }};
+    {% endif %}
+
+  })(window, window.document, window.ptv || (window.ptv = {}));
+</script>

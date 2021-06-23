@@ -1,0 +1,97 @@
+{% extends "layouts/inflow.twig" %}
+
+{% set mode = adb ? 'adb' : '' %}
+
+{% if resource == 'channel' %}
+{% set text_text = 'Watch <strong>%channel%</strong> live on the channel website'|trans({'%channel%': channel.name}) %}
+{% set link_text = 'Direct access to live »'|trans %}
+{% endif %}
+
+{% if resource == 'replay_tv' %}
+{% set text_text = 'Watch <strong>%replay%</strong> on demand'|trans({'%replay%': replay_tv.title}) %}
+{% set link_text = 'Direct access to video »'|trans %}
+{% endif %}
+
+{% block content %}
+<div class="pmd-js-InflowBox pmd-InflowBox" data-mode="{{ mode }}">
+
+  <div class="pmd-InflowBowAdsArea">
+
+    {% if adb %}
+
+    {{ adb|raw }}
+
+    {% else %}
+
+    {# video ads #}
+    <div class="pmd-js-InflowBox-videoAds pmd-InflowBoxVideoAds">
+      <div id="pmd-Uniads"></div>
+    </div>
+
+    {# banner ads #}
+    <div class="pmd-js-InflowBox-insAds pmd-InflowBoxInsAds">
+      {% set zone_id = 52 %}
+      {% set unique = "a6842cf1" %}
+      <iframe
+        src="{{ hosts.ad_full_secure }}/delivery/afr.php?cb={{ now }}&amp;n={{ unique }}&amp;zoneid={{ zone_id }}"
+        id="{{ unique }}"
+        width="100%"
+        height="250px"
+        style="margin: 0; border: 0;"
+      >
+        <a href="{{ hosts.ad_full_secure }}/delivery/ck.php?cb={{ now }}&amp;n={{ unique }}" target="_blank">
+          <img src="{{ hosts.ad_full_secure }}/delivery/avw.php?cb={{ now }}&amp;n={{ unique }}&amp;zoneid={{ zone_id }}" border="0" alt="">
+        </a>
+      </iframe>
+    </div>
+
+  </div>
+
+  {% endif %}
+
+  {% if not adb %}
+  <div class="pmd-InflowBoxContent">
+
+    <div class="pmd-InflowBoxContentChannel">
+      {# @legacy #}
+      {% if channel is not null %}
+      <div id="content">
+        <div class="channel-button">
+          <img src="{{ channel.images.medium }}" alt="{{ channel.name }}" width="60px" height="60px">
+          <div class="cache"></div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="pmd-InflowBoxContentInfo">
+
+      <p class="pmd-InflowBoxContentInfo-text">
+        <img
+          src="{{ apps_base_url }}/images/animate/icon-loading.gif"
+          alt="Chargement..."
+          class="pmd-js-InflowBox-loader pmd-InflowBoxContentInfo-textLoader" />
+        {{ text_text|raw }}
+      </p>
+
+      <p class="pmd-InflowBoxContentInfo-link">
+        <a href="{{ inflow.noRefererUrl }}" rel="nofollow">
+          {{ link_text|raw }}
+        </a>
+      </p>
+
+      <p class="pmd-InflowBoxContentInfo-url">{{ inflow.rawUrl }}</p>
+
+    </div>
+
+    {% if not inflow.site %}
+    <div class="pmd-InflowBoxContentBrandLogo">
+      <img src="{{ static_base_url }}/badge-play-tv.png" alt="Play TV" class="pmd-InflowBoxContentBrandLogo-img">
+    </div>
+    {% endif %}
+
+  </div>
+  {% endif %}
+
+</div>
+{% endblock content %}

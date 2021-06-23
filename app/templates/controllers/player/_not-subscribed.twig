@@ -1,0 +1,88 @@
+<div class="pmd-HandleChannel-subtitle">
+  <span>
+  {% if is_connected == false or current_account.hasTrialPeriod() %}
+    {% trans with {'%days%': trial_period_days} from "player" %}not_subcribed.tagline_trial_period{% endtrans %}
+  {% else %}
+    {% trans with {'%price%': (product.price/100)|number_format(2, ','), '%currency%': '€'} from "player" %}not_subcribed.tagline{% endtrans %}
+  {% endif %}
+  </span>
+</div>
+
+<div class="pmd-HandleChannel-container">
+  <ul class="pmd-HandleChannel-list">
+    <li class="pmd-HandleChannel-listItem">
+      <span class="pmd-HandleChannel-text">
+        <svg role="img" class="pmd-Svg pmd-Svg--noentry pmd-Svg--white pmd-HandleChannel-svg">
+          <use xlink:href="#pmd-Svg--noentry"></use>
+        </svg> {% trans from "player" %}no_ads{% endtrans %}
+      </span>
+    </li>
+
+    <li class="pmd-HandleChannel-listItem">
+      <span class="pmd-HandleChannel-text">
+        <svg role="img" class="pmd-Svg pmd-Svg--hd pmd-Svg--white pmd-HandleChannel-svg">
+          <use xlink:href="#pmd-Svg--hd"></use>
+        </svg> {% trans from "player" %}hi_quality{% endtrans %}
+      </span>
+    </li>
+
+    <li class="pmd-HandleChannel-listItem">
+      <span class="pmd-HandleChannel-text">
+        <svg role="img" class="pmd-Svg pmd-Svg--tick2 pmd-Svg--white pmd-HandleChannel-svg">
+          <use xlink:href="#pmd-Svg--tick2"></use>
+        </svg> {% trans from "player" %}free_of_engagement{% endtrans %}
+      </span>
+    </li>
+  </ul>
+</div>
+
+{% if mode == 'embeddable' %}
+<div>
+  <button type="button" class="pmd-js-ExternalPaymentLink r-ResetButton pmd-Button pmd-Button--premium pmd-Button--lg pmd-PromoteRetailChannel-button pmd-Button--boldAlt">
+  {% if is_connected == false or current_account.hasTrialPeriod() %}
+    {% trans from "player" %}try_for_free{% endtrans %}
+  {% else %}
+    {% trans from "player" %}discover_channel{% endtrans %}
+  {% endif %}
+  </button>
+</div>
+<script>
+  (function() {
+    document.querySelector('.pmd-js-ExternalPaymentLink').addEventListener('click', function( e ) {
+      e.preventDefault()
+
+      var popup = window.open('{{ hosts.current_full_secure }}/panier/?product_alias={{ product.alias }}', 'Play TV - Paiement', "width=1024,height=768,resizable=1,scrollbars=yes")
+
+      // check if popup is closed or not
+      var timer = setInterval(function() {
+        if( popup.closed ) {
+          clearInterval( timer )
+          window.location.href = window.location.href
+        }
+      }, 3000)
+    })
+  })()
+</script>
+{% else %}
+<div>
+  <button
+    type="button"
+    class="pmd-js-LinkParent r-ResetButton pmd-Button pmd-Button--premium pmd-Button--lg pmd-PromoteRetailChannel-button pmd-Button--boldAlt"
+    data-href="{{ hosts.current_full_secure }}/panier/?product_alias={{ product.alias }}"
+  >
+  {% if is_connected == false or current_account.hasTrialPeriod() %}
+    {% trans from "player" %}try_for_free{% endtrans %}
+  {% else %}
+    {% trans from "player" %}discover_channel{% endtrans %}
+  {% endif %}
+  </button>
+</div>
+
+<script>
+document.querySelector('.pmd-js-LinkParent').addEventListener('click', function ( e ) {
+  e.preventDefault()
+
+  window.parent.location.href = this.getAttribute('data-href')
+})
+</script>
+{% endif %}

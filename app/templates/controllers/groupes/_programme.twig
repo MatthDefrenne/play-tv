@@ -1,0 +1,14 @@
+<div class="text margin">
+  <p class="clear-grey">
+    {% trans with {'%group%': group.title} %}All broadcasts for TV show <strong>%group%</strong>{% endtrans %}
+  </p>
+</div>
+<div class="row text fluid clearfix">
+  {% for program in group.programs %}
+    <div class="span-half margin">
+      <p class="grey-box">
+        <a href="{{ program.program_url }}" class="nb" title="{{ program.fulltitle }}">{{ program.fulltitle }}{% if program.start is defined %} du {{ program.start|localizeddate('full', 'none', locale)|capitalize }}{% endif %}</a>
+      </p>
+    </div>
+  {% endfor %}
+</div>

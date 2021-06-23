@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
+
+msgid "adblock_index.title"
+msgstr "Adblock Plus kullanıyorsunuz"
+
+msgid "chaine_tv.title"
+msgstr " %channel% hakkında"
+
+msgid "chaine_tv_a_suivre.title"
+msgstr "%channel% kanalından canlı takip edin"
+
+msgid "chaine_tv_en_direct.title"
+msgstr " %channel% kanalında canlı"
+
+msgid "homepage.meta.description"
+msgstr "Ücretsiz canlı televizyon ve İnternet üzerinden yeniden yayınlanan TV programları"
+
+msgid "homepage.title"
+msgstr "İnternet üzerinden gerçek televizyon hizmeti Play TV"
+
+msgid "programme.title"
+msgstr " %program% programını canlı izleyin"
+
+msgid "programmes.meta.description"
+msgstr "TV programınız ve TNT, kablo ve uydu, büyük kanalların tam tablosu"
+
+msgid "programmes.title"
+msgstr "TV programları rehberi"
+
+msgid "programmes_prime_a_ne_pas_manquer.title"
+msgstr "Kaçırılmaması gereken TV programları"
+
+msgid "replay_replay.meta.description"
+msgstr "TV platformunuz playtv.fr ile Web sitesi üzerinden, ücretsiz olarak, %channel% kanalının %program% programının televizyon yayınını bulun."
+
+msgid "replay_replay.title"
+msgstr "İnternet üzerinden yeniden oynatılan %program%  izle"
+
+msgid "replay_tv_index.title"
+msgstr "Yeniden yayınlanan TV programları rehberi, programlara bkz."
+
+msgid "television_channel_single.meta.description"
+msgstr "Canlı TV platformunuz, playtv.fr ile Web üzerinden ücretsiz olarak, %channel% kanalını izleyin"
+
+msgid "television_channel_single.title"
+msgstr " %channel% kanalını İnternet üzerinden canlı izleyin"
+
+msgid "television_index.meta.description"
+msgstr "Canlı TV platformunuz, playtv.fr ile, Web üzerinden, ücretsiz olarak %count%'ın üzerinde canlı TV yayını izleyin"
+
+msgid "television_index.title"
+msgstr "İnternet üzerinden canlı televizyon izleyin"
+
+msgid "chaine_tv_programmes.title"
+msgstr "Bu akşam %channel%  TV programı"
+
+msgid "chaine_tv_programmes.meta.description"
+msgstr "Bu akşam %channel% kanalı televizyon programının tamamı"
+
+msgid "chaine_tv_programmes_date.title"
+msgstr "%date% tarihli %channel% TV programı"
+
+msgid "recherche.title"
+msgstr "Bir program, bir video vb. ara"
+
+msgid "recherche:chaines.title"
+msgstr "Bir TV kanalı ara"
+
+msgid "recherche:personnes.title"
+msgstr "Bir tanınmış kişi ara"
+
+msgid "recherche:programmes.title"
+msgstr "Bir program ara"
+
+msgid "recherche:videos.title"
+msgstr "Bir video ara"
+
+msgid "television_mosaique_direct.title"
+msgstr "Canlı kanal grubunuz"
+
+msgid "television_mosaique_categories.title"
+msgstr "Kategoriye göre tüm kanallar"
+
+msgid "television_mosaique_themes.title"
+msgstr "Konuya göre tüm kanallar"
+
+msgid "television_mosaique_replay_tv.title"
+msgstr "Yeniden oynatılan tüm kanallar"
+
+msgid "programmes_prime_tonight.title"
+msgstr "Akşam üstü televizyon programı"
+
+msgid "programmes_prime_tonight.meta.description"
+msgstr "Kanala göre TV programı ile, komple akşam üzeri televizyon program akışı"
+
+msgid "programmes_prime_date.title"
+msgstr "%date% tarihli akşam üstü TV programı"
+
+msgid "programmes_prime_date.meta.description"
+msgstr "Kanallara göre TV programı ile,  %date% tarihli akşam üstü televizyon programı tam tablosu"
+
+msgid "programmes_en_direct.title"
+msgstr "Televizyondaki canlı TV programları"
+
+msgid "programmes_en_direct.meta.description"
+msgstr "Televizyondaki bütün canlı TV programlarını bulun"
+
+msgid "programmes_timeslot.title"
+msgstr "%date%  tarihli %from%h ila %to%h arası TV programları"
+
+msgid "programmes_timeslot.meta.description"
+msgstr "%date%  tarihli %from%h ila %to%h arası tüm TV programlarını bulun"
+
+msgid "replay_videos.title"
+msgstr "Yeniden yayınlanan tüm TV programları"
+
+msgid "replay_videos.meta.description"
+msgstr "TV programlarını yeniden oynatılan video olarak izle"
+
+msgid "replay_videos:date.title"
+msgstr "%date% tarihli yeniden yayınlanan programlarının tamamı"
+
+msgid "replay_videos:date.meta.description"
+msgstr " %date% tarihli TV programlarını yeniden yayınlanan video olarak izleyin"
+
+msgid "replay_videos:channel.title"
+msgstr "Yeniden yayınlanan tüm %channel% kanalı TV programları"
+
+msgid "replay_videos:channel.meta.description"
+msgstr "%channel_with_genres% TV programlarını yeniden oynatılan video olarak izleyin"
+
+msgid "replay_videos:gender.title"
+msgstr "Yeniden yayınlanan  %genre% TV programlarının tamamı"
+
+msgid "replay_videos:gender.meta.description"
+msgstr "%genre% türü TV programlarını yeniden oynatılan video olarak izleyin"
+
+msgid "replay_videos:channel_date.title"
+msgstr "%date% tarihli yeniden yayınlanan  %channel% programlarının tamamı"
+
+msgid "replay_videos:channel_date.meta.description"
+msgstr "%date% tarihli %channel_with_genres% TV programlarını yeniden oynatılan video olarak izle"
+
+msgid "replay_videos:gender_date.title"
+msgstr "Yeniden yayınlanan %date% tarihli %genre% TV programlarının tamamı"
+
+msgid "replay_videos:gender_date.meta.description"
+msgstr "%date% tarihli %genre%  TV programlarını yeniden yayınlanan video olarak izleyin"
+
+msgid "replay_videos:channel_gender.title"
+msgstr "Yeniden yayınlanan %channel% kanalı %genre%  TV programlarının tamamı"
+
+msgid "replay_videos:channel_gender.meta.description"
+msgstr "%genre% de %channel_with_genres%  TV programlarını yeniden oynatılan video olarak izleyin"
+
+msgid "replay_videos:channel_gender_date.title"
+msgstr "%date% tarihli %channel% kanalı %genre% türünden, yeniden yayınlanan tüm TV programları"
+
+msgid "replay_videos:channel_gender_date.meta.description"
+msgstr "%date% tarihli  %genre% de %channel_with_genres% TV programlarını yeniden yayınlanan video olarak izle"
+
+msgid "common.append_network"
+msgstr "%page_title% grup %network%"

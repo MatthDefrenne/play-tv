@@ -1,0 +1,63 @@
+<div id="television" class="pmd-js-TelevisionContainer pmd-TelevisionContainer" data-responsive="{{ player_responsive is not defined or player_responsive ? 'true' : 'false' }}">
+
+  <div class="container">
+
+    <div class="pmd-TelevisionWrapper">
+
+      <div class="pmd-TelevisionPlayer">
+        <div class="notice-adb-container">
+          {% if adb is defined %}
+            {{ adb|raw }}
+          {% else %}
+          <div class="notice-adb">
+            <div class="big-text">
+              <p>
+                <strong>Il semblerait que vous utilisiez un logiciel anti-pub.
+                <a href="{{ path('faq_adblock') }}">En savoir plus...</a></strong>
+              </p>
+            </div>
+          </div>
+
+          <button type="button" class="pmd-js-TelevisionAdsNotification pmd-TelevisionAdsNotification r-ResetButton">Supprimer la publicité</button>
+          <div class="player-background">
+            <div id="player">
+            {% if player_embed is defined %}
+              {{ player_embed.html.player|raw }}
+              <script>
+                (function(win, doc, App) {
+                  App.Data = App.Data || {}
+                  {% if 'streamable' == player_embed.state or 'external-iframe' == player_embed.state %}
+                  App.Data = {{ player_embed.javascript.Data|json_encode()|raw }}
+                  App.Data.playerState = {{ player_embed.state|json_encode()|raw }}
+                  {% endif %}
+                  App.Data.viewLayout = '{{ layout }}'
+
+                })(window, window.document, window.ptv || (window.ptv = {}));
+              </script>
+            {% else %}
+              {% include "controllers/television/_index.twig" %}
+              <script>
+                (function(win, doc, App) {
+                  App.Data = App.Data || {}
+
+                  App.Data.viewLayout = '{{ layout }}'
+
+                })(window, window.document, window.ptv || (window.ptv = {}));
+              </script>
+            {% endif %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="pmd-TelevisionRemote">
+         {% include "controllers/television/_remote.twig" %}
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>

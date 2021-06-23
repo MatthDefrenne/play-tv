@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+
+msgid "no_result.content"
+msgstr "Aucune vidéo en replay sur cette période avec les paramètres demandés."
+
+msgid "no_result.other_channels"
+msgstr "Les derniers replay TV disponibles sur les autres chaines."
+
+msgid "yesterday_tab"
+msgstr "Hier soir à la TV"
+
+msgid "last_tab"
+msgstr "Derniers replays"

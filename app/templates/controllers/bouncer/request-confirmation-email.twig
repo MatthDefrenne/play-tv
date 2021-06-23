@@ -1,0 +1,22 @@
+<div class="ptv-js-AccountPopin">
+  <div class="ptv-AccountPopin-branding">Vérification de compte</div>
+
+  <div class="ptv-AccountPopinContent">
+
+    <section class="ptv-js-AccountPopin-requestConfirmationEmailSection ptv-AccountPopin-section">
+      <form method="post" action="/email-de-confirmation/demande/" class="ptv-js-AccountPopin-requestConfirmationEmailForm">
+        <h3 class="ptv-AccountPopinContent-heading">Vérifiez votre compte !</h3>
+        {% if src == 'login' %}
+          <p>Vous souhaitez vous identifier mais vous n'avez pas encore confirmé votre adresse email. Vous n'êtes plus très loin.</p>
+        {% endif %}
+        <p>Entrez votre adresse email et nous vous enverrons un mail avec toutes les informations nécessaires pour confirmer votre compte. Pas de souci, tout va bien.</p>
+        <p><input type="text" name="email" placeholder="Adresse email" value="{{ email }}" class="ptv-Input ptv-Input--block"></p>
+        {% include "partials/popin_error.twig" %}
+        <p><button type="submit" class="ptv-Button ptv-Button--block">C'est parti !</button></p>
+        <p class="pmd-Text--center"><a href="#" rel="nofollow" class="pmd-js-loginHandler">« Retour</a></p>
+        <p>Si vous avez besoin d'aide, n'hésitez pas à contacter le <a href="/aide/support/">support Play TV</a>.</p>
+      </form>
+    </section>
+
+  </div>
+</div>

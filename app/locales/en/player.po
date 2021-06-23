@@ -1,0 +1,68 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "watch_var_channel"
+msgstr "Watch %channel%"
+
+msgid "discover_var_channel"
+msgstr "Discover %channel%"
+
+msgid "access_to_channel"
+msgstr "Access to channel"
+
+msgid "no_ads"
+msgstr "No ads"
+
+msgid "hi_quality"
+msgstr "High image quality"
+
+msgid "free_of_engagement"
+msgstr "Free of engagement"
+
+msgid "try_for_free"
+msgstr "Try for free"
+
+msgid "discover_channel"
+msgstr "Discover the channel"
+
+msgid "channel_available_at_home"
+msgstr "The channel is available on Play TV"
+
+msgid "channel_unavailable"
+msgstr "That channel is not available on Play TV"
+
+msgid "channel_unavailable_in_country"
+msgstr "That channel is not available in your country on Play TV"
+
+msgid "not_subcribed.tagline"
+msgstr "Only %price%%currency%/month"
+
+msgid "not_subcribed.tagline_trial_period"
+msgstr "Free trial for %days% days"
+
+msgid "not_available.available_between"
+msgstr "That channel is available between %start% and %end%."
+
+msgid "not_available.program_beginning_in"
+msgstr "Your TV show will begin in: %time%"
+
+msgid "not_available.meanwhile"
+msgstr "Meanwhile, go to <a href=\"%website%\" target=\"_blank\">%website%</a>."
+
+msgid "external_live.meanwhile"
+msgstr "on the channel website"
+
+msgid "external_live.go_channel_website"
+msgstr "Go to %channel% website"
+
+msgid "external_live_radio.meanwhile"
+msgstr "on the partner radio website"
+
+msgid "external_live_radio.go_channel_website"
+msgstr "Listen live radio"
+
+msgid "stop_ad_banner_button"
+msgstr "Relaunch %channel% live"

@@ -1,0 +1,9 @@
+{% if notifier_website %}
+<div class="pmd-js-NotifierWebsite pmd-Notifier pmd-Notifier--active pmd-Notifier--warning pmd-Notifier--underline">
+  <div class="pmd-Text--center">
+    <span class="pmd-Notifier-icon"><span class="flag flag-{{ notifier_website.country|lower }}"></span></span>
+    <strong>{% trans with {'%url%': notifier_website.url} into notifier_website.locale %}disable_site_banner{% endtrans %}</strong>
+    <button class="pmd-js-NotifierWebsite-close pmd-Notifier-close">×</button>
+  </div>
+</div>
+{% endif %}

@@ -1,0 +1,85 @@
+{% if superfeatured_broadcasts %}
+<div class="pmd-HomepageCarrousel pmd-js-HomepageCarrousel">
+  {% spaceless %}
+    {% for featured_broadcast in superfeatured_broadcasts %}
+      <div class="pmd-HomepageCarrouselSlide pmd-js-HomepageCarrousel-item">
+
+        <div class="pmd-HomepageCarrouselSlide-imageContainer">
+          <div class="pmd-HomepageCarrouselSlide-imageBeautifier">
+            {% if loop.index <= 1 %}
+            <img
+              src="{{ featured_broadcast.program.images.sf_image_large }}"
+              {# @debug #}
+              {# src="{{ featured_broadcast.program.images.sf_image_large|default('https://cldup.com/tg9wTTenEc.jpg') }}" #}
+              class="pmd-HomepageCarrouselSlide-image"
+              alt="">
+            {% else %}
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-flickity-lazyload="{{ featured_broadcast.program.images.sf_image_large }}"
+              {# @debug #}
+              {# data-flickity-lazyload="{{ featured_broadcast.program.images.sf_image_large|default('https://cldup.com/tg9wTTenEc.jpg')}}" #}
+              class="pmd-HomepageCarrouselSlide-image"
+              alt="">
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="pmd-HomepageCarrouselSlide-textContainer" title="{{ featured_broadcast.program.fulltitle }}">
+          <div class="pmd-HomepageCarrouselSlide-title">
+            <a href="{{ featured_broadcast.program.program_url }}" class="pmd-Text--inherit">{{ featured_broadcast.program.fulltitle }}</a>
+          </div>
+          <div class="pmd-HomepageCarrouselSlide-info">
+
+            {% if featured_broadcast.program.stars is defined and featured_broadcast.program.stars > 0 %}
+            <div class="pmd-HomepageCarrouselSlideTrailerRating">
+              {% include 'partials/rating.twig' with {
+                  rate: featured_broadcast.program.stars
+                }
+              %}
+            </div>
+            {% endif %}
+
+            {# {% if featured_broadcast.program.trailer is defined %}
+            {% set trailerLink = '/trailer/' ~ featured_broadcast.program.id ~ '/?autoplay=1&skin=minimal' %}
+
+            <div class="pmd-HomepageCarrouselSlideTrailer">
+              <a href="{{ trailerLink }}" class="pmd-HomepageCarrouselSlideTrailer-link pmd-js-TrailerButton2" rel="nofollow">
+                <span class="pmd-HomepageCarrouselSlideTrailer-iconContainer">
+                  <svg role="img" class="pmd-Svg pmd-Svg--play-standard pmd-HomepageCarrouselSlideTrailer-icon">
+                    <use xlink:href="#pmd-Svg--play-standard"></use>
+                  </svg>
+                </span>
+                <span class="pmd-HomepageCarrouselSlideTrailer-text">Voir la bande-annonce</span>
+              </a>
+            </div>
+            {% endif %} #}
+
+          </div>
+          <div class="pmd-HomepageCarrouselSlide-date">
+            {% if featured_broadcast.is_live %}
+              En ce moment sur {{ featured_broadcast.channel.name }}
+            {% else %}
+              {{ date_for_humans(featured_broadcast.start, 'shorten')|capitalize }} à {{ featured_broadcast.start|localizeddate('none', 'short') }} sur {{ featured_broadcast.channel.name }}
+            {% endif %}
+          </div>
+
+          {% if featured_broadcast.program.trailer is not null %}
+          {% set trailerLink = '/trailer/' ~ featured_broadcast.program.id ~ '/?autoplay=1&skin=minimal' %}
+          <a href="{{ trailerLink }}" rel="nofollow" class="pmd-js-TrailerButton2 pmd-Button pmd-TrailerButton pmd-TrailerButton--carrousel">
+            <svg role="img" class="pmd-Svg pmd-Svg--trailer">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pmd-Svg--trailer"></use>
+            </svg>
+            {% trans %}Trailer{% endtrans %}
+          </a>
+          {% endif %}
+
+          {# <a class="pmd-HomepageCarrouselSlide-more" href="{{ featured_broadcast.program.program_url }}" rel="nofollow">
+            + d'informations
+          </a> #}
+        </div>
+      </div>
+    {% endfor %}
+{% endspaceless %}
+</div>
+{% endif %}

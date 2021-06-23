@@ -1,0 +1,41 @@
+{% if tweets_per_minute %}
+  {% spaceless %}
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+      google.load("visualization", "1", {packages:["corechart"]});
+
+      google.setOnLoadCallback(function()
+      {
+        var data = google.visualization.arrayToDataTable([
+          ["Heure", "Tweets"],
+          {% for date, tweets in tweets_per_minute %}
+            ["{{ date|date('H:i') }}", {{ tweets }}],
+          {% endfor %}
+        ]);
+
+        var chart = new google.visualization.LineChart(document.getElementById("tweets_per_minute_chart"));
+
+        chart.draw(data, {
+          width: "100%",
+          height: 150,
+          lineWidth: 2,
+          legend: { position: "none" },
+          tooltip: { },
+          chartArea: { left: 0, top: 0, width: "100%", height: 136 },
+          curveType: "function",
+          enableInteractivity: true,
+          hAxis: { textPosition: "out", textStyle: { color: "#aaa", fontName: "arial", fontSize: 9 }, slantedText: false },
+          vAxis: { textPosition: "in", format: "#", textStyle: { color: "#aaa", fontName: "arial", fontSize: 9 }, gridlines: { color: "#ddd", count: 4 }, logScale: true, minValue: 0, maxValue: {{ max(tweets_per_minute) }}, baseline: 0, baselineColor: "#ccc" }
+        });
+      });
+    </script>
+  {% endspaceless %}
+
+  <div class="block-title margin">
+    <p class="right clear-grey">Tweets</p>
+    <h2><strong>Soirée de la veille</strong></h2>
+  </div>
+
+  <div id="tweets_per_minute_chart"></div>
+{% endif %}
+

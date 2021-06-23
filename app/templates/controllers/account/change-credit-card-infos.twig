@@ -1,0 +1,14 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+
+  {% embed "controllers/account/skeleton.twig" with {"tab_selected": "credit-card"} %}
+
+    {% block embed_content %}
+      {% include "controllers/account/_form-credit-card.twig" %}
+    {% endblock %}
+
+  {% endembed %}
+
+{% endblock %}
+

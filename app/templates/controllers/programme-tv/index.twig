@@ -1,0 +1,353 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+{% include "partials/subnav-guide-tv.twig" %}
+
+{% if is_live is not null %}
+<div id="program-is-live">
+  <a href="
+    {% if is_live.broadcast.channel.streamable %}
+      {{ path('television_channel_single', {'channel_id': is_live.broadcast.channel.id, 'channel_alias': is_live.broadcast.channel.alias}) }}
+    {% else %}
+      {{ path('chaine_tv', {'channel_id': is_live.broadcast.channel.id, 'channel_alias': is_live.broadcast.channel.alias}) }}
+    {% endif %}
+  ">
+    {% trans with {
+        '%program%': program.fulltitle,
+        '%channel%': is_live.broadcast.channel.name,
+        '%minutes%': is_live.broadcast.elapsed.minutes|diff_for_humans,
+        '%percent%': is_live.broadcast.elapsed.percent
+      } from "program"
+      %}
+      onair_channel_minutes_percent
+    {% endtrans %}
+  </a>
+</div>
+{% elseif broadcasts is not empty and broadcasts[0] is defined and broadcasts[0].start_in <= 45 %}
+{% set next_broadcast = broadcasts[0] %}
+<div id="program-is-soon">
+  <a href="{{ path('chaine_tv', {'channel_id': next_broadcast.channel.id, 'channel_alias': next_broadcast.channel.alias}) }}">
+  {% transchoice next_broadcast.start_in with {'%program%': program.fulltitle, '%channel%': next_broadcast.channel.name} %}
+    {0} « <strong>%program%</strong> » will be broadcast on <strong>%channel%</strong> in a few moments|[1,Inf] « <strong>%program%</strong> » will be broadcast on <strong>%channel%</strong> in %count% minutes
+  {% endtranschoice %}
+  </a>
+</div>
+{% endif %}
+
+<div id="content">
+  <div class="container">
+
+    <div class="row pmd-LiveProgram">
+
+      <div class="left-menu pmd-LiveProgram-left">
+        {% include "controllers/programme-tv/_details.twig" with {"output": "complete"} %}
+      </div>
+
+      <div class="pmd-LiveProgram-center">
+
+        {% if related_programs is not null %}
+          {% if related_programs.previous_part is defined or related_programs.next_part is defined %}
+            <div id="program-parts" class="clearfix">
+              {% if related_programs.previous_part is defined %}
+              <span class="previous">&laquo;
+                <a href="{{ related_programs.previous_part.program_url }}">
+                {% trans with {'%part%': related_programs.previous_part.bcast_abbr} %}Part %part%{% endtrans %}
+                </a>
+              </span>
+              {% endif %}
+              {% if related_programs.next_part is defined %}
+              <span class="next">
+                <a href="{{ related_programs.next_part.program_url }}">
+                  {% trans with {'%part%': related_programs.next_part.bcast_abbr} %}Part %part%{% endtrans %}
+                </a> »
+              </span>
+              {% endif %}
+            </div>
+          {% elseif related_programs.previous_episode is defined or related_programs.next_episode is defined %}
+            <div id="program-episodes" class="clearfix">
+              {% if related_programs.previous_episode is defined %}
+              <span class="previous">&laquo; <a href="{{ related_programs.previous_episode.program_url }}">{{ related_programs.previous_episode.bcast_abbr }}</a></span>
+              {% endif %}
+              {% if related_programs.next_episode is defined %}
+              <span class="next"><a href="{{ related_programs.next_episode.program_url }}">{{ related_programs.next_episode.bcast_abbr }}</a> »</span>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endif %}
+
+        {% include "controllers/programme-tv/_title.twig" with {program: program} %}
+
+        <ul id="tabs" class="tabs">
+          <li class="tab-selected">
+            <a href="#resume" title="{{ program.fulltitle }}" data-hash="resume" data-event-tracker="PROGRAMMES-FICHE-resume">{% trans %}Summary{% endtrans %}</a>
+          </li>
+          <li>
+            <a href="#casting" title="Casting {{ program.fulltitle }}" data-hash="casting" data-event-tracker="PROGRAMMES-FICHE-casting">{% trans %}Full cast{% endtrans %}</a>
+          </li>
+          <li>
+            <a href="#diffusions" title="Diffusions {{ program.fulltitle }}" data-hash="diffusions" data-event-tracker="PROGRAMMES-FICHE-diffusions"><strong>{% trans %}Broadcasts{% endtrans %}</strong></a>
+          </li>
+          {% if has_feature('catchup_tv') %}
+          <li>
+            <a href="#replay" title="Revoir {{ program.fulltitle }}" id="tab-replay" data-hash="replay" data-event-tracker="PROGRAMMES-FICHE-replay"><strong>{% trans %}View in catch up{% endtrans %}</strong></a>
+          </li>
+          {% endif %}
+        </ul><!-- tabs -->
+
+        <div id="tab1">
+
+          <p class="text clear-grey">
+            {% trans with {'%program%': program.fulltitle} %}Watch <strong>%program%</strong> live on the web{% endtrans %}
+          </p>
+
+          {% include "controllers/programme-tv/_resume.twig" with {"output": "complete"} %}
+
+        </div><!-- tab 1 résumé -->
+
+        <div id="tab2">
+
+          <p class="text clear-grey">
+            {% trans with {'%program%': program.fulltitle} %}Cast team for <strong>%program%</strong>.{% endtrans %}
+          </p>
+
+          {% if casts.according_to is defined %}
+          <ul class="program-casting">
+            {% for status in casts.according_to %}
+            <li class="clearfix">
+
+                <p class="program-casting-status">{{ status.status }}</p>
+
+                <ul class="program-casting-casts">
+                  {% for cast in status.casts %}
+                  <li>
+                    <a href="{{ cast.url }}" title="{{ cast.fullname }}">{{ cast.fullname }}</a>
+                    {% if cast.role %}<span class="program-casting-role">({{ cast.role }})</span>{% endif %}
+                    {% if loop.last == false %}<span class="bullet">&bull;</span>{% endif %}
+                  </li>
+                  {% endfor %}
+                </ul>
+
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+
+          {% if casts.casting is defined %}
+          <ul class="program-casting">
+            {% for status in casts.casting %}
+            <li class="clearfix">
+
+                <p class="program-casting-status">{{ status.status }}</p>
+
+                <ul class="program-casting-casts">
+                  {% for cast in status.casts %}
+                  <li>
+                    <a href="{{ cast.url }}" title="{{ cast.fullname }}">{{ cast.fullname }}</a>
+                    {% if cast.role %}<span class="program-casting-role">({{ cast.role }})</span>{% endif %}
+                    {% if loop.last == false %}<span class="bullet">&bull;</span>{% endif %}
+                  </li>
+                  {% endfor %}
+                </ul>
+
+            </li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p class="text">{% trans with {'%program%': program.fulltitle} %}No cast for <strong>%program%</strong>.{% endtrans %}</p>
+          {% endif %}
+
+        </div><!-- tab 2 casting -->
+
+        <div id="tab3">
+
+          <p class="text clear-grey">
+            {% trans with {'%program%': program.fulltitle} %}Broadcasts and Catch Up TV for <strong>%program%</strong>.{% endtrans %}
+          </p>
+
+              {% if broadcasts is not empty %}
+              <div class="margin">
+              {% for broadcast in broadcasts %}
+              {% if loop.index < 10 %}
+
+                {% if loop.first %}
+                <div class="program-broadcasts clearfix">
+                {% endif %}
+
+                  <div class="program-broadcast text">
+                    <a href="{{ path('chaine_tv', {'channel_id': broadcast.channel.id, 'channel_alias': broadcast.channel.alias}) }}" class="channel-img channel-img-mini" title="{{ broadcast.channel.name }}">
+                      <span>{% trans with {'%channel%': broadcast.channel.name} %}Watch <strong>%channel%</strong> live{% endtrans %}</span>
+                      <img src="{{ broadcast.channel.images.mini }}" alt="{{ broadcast.channel.name }}" width="36" height="36">
+                    </a>
+                    <p>
+                      <small title="{{ broadcast.start|localizeddate('full', 'none', locale)|capitalize }}">{{ date_for_humans(broadcast.start)|capitalize }}</small>
+                      <br>
+                      {% trans with {'%channel%': broadcast.channel.name, '%hour%': broadcast.start|localizeddate('none', 'short')} %}
+                      On <strong>%channel%</strong> at <strong>%hour%</strong>
+                      {% endtrans %}
+                    </p>
+                  </div>
+
+                {% if loop.last %}
+                </div>
+                {% elseif loop.index == 9 %}
+                  <div class="program-broadcast text">
+                    <p class="xxbigger clear-grey more">...</p>
+                  </div>
+                </div>
+                {% elseif loop.index is divisible by (2) %}
+                </div><div class="program-broadcasts clearfix">
+                {% endif %}
+
+              {% endif %}
+              {% endfor %}
+              </div>
+
+              {% else %}
+              <div class="margin text">
+                <p>
+                  {% trans with {'%program%': program.fulltitle} %}
+                  <strong class="red">No replays</strong> for <strong>%program%</strong> in the next 7 days.
+                  {% endtrans %}
+                </p>
+              </div>
+              {% endif %}
+
+              <h2 class="block-title">
+                {% trans %}<strong>Previous broadcasts</strong> on TV{% endtrans %}
+              </h2>
+              {% if previous_broadcasts is not empty %}
+              {% for year, broadcasts in previous_broadcasts %}
+              <p class="text bigger clear-grey program-broadcasts-year-group">
+                {% trans with {'%year%': year} %}Broadcasts in <strong>%year%</strong>{% endtrans %}
+              </p>
+
+                {% for broadcast in broadcasts %}
+                {% if loop.index < 9 %}
+
+                  {% if loop.first %}
+                  <div class="program-broadcasts no-margin clearfix">
+                  {% endif %}
+
+                    {% if broadcast.channel is not empty %}
+                    <div class="program-broadcast grey-box xmargin text">
+                      <p>
+                        {% trans with {'%channel%': broadcast.channel.name} %}
+                        On <strong>%channel%</strong>
+                        {% endtrans %}
+                        <br>
+                        <small>
+                          {% trans with {'%date%': broadcast.start|localizeddate('short', 'none'), '%hour%': broadcast.start|localizeddate('none', 'short')} %}
+                          %date% at <strong>%hour%</strong>
+                          {% endtrans %}
+                        </small>
+                      </p>
+                    </div>
+                    {% endif %}
+
+                  {% if loop.last %}
+                  </div>
+                  {% elseif loop.index == 8 %}
+                    <div class="program-broadcast grey-box xmargin text">
+                      <p title="{{ broadcasts|length-9 }} autres diffusions en {$broadcasts@key} pour {{ program.fulltitle }}" class="xxbigger center clear-grey more">...</p>
+                    </div>
+                  </div>
+                  {% elseif loop.index is divisible by (3) %}
+                  </div>
+                  <div class="program-broadcasts no-margin clearfix">
+                  {% endif %}
+
+                {% endif %}
+                {% endfor %}
+              {% endfor %}
+
+              {% else %}
+              <p class="text">
+                {% trans with {'%program%': program.fulltitle} %}
+                No broadcasts for <strong>%program%</strong> on TV in the last 30 days.
+                {% endtrans %}
+              </p>
+              {% endif %}
+
+        </div><!-- tab 3 diffusions -->
+
+        {% if has_feature('catchup_tv') and (videos or group_videos) %}
+        <div id="tab4">
+
+          <div class="text clear-grey margin">
+            <p>
+              {% trans with {'%program%': program.fulltitle} %}
+                Watch <strong>%program%</strong> in Catch Up TV for free.
+              {% endtrans %}
+            </p>
+          </div>
+
+          {% if videos %}
+          <div class="videos clearfix margin">
+            {% for video in videos %}
+            {% include "partials/item-replay-tv.twig" with {"video": video} %}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% if group_videos %}
+          <h2 class="block-title">
+            {% trans with {'%group%': group.title} %}
+              <strong>Other videos</strong> from %group%
+            {% endtrans %}
+          </h2>
+
+          <div class="videos clearfix">
+            {% for video in group_videos %}
+            {% include "partials/item-replay-tv.twig" with {"video": video} %}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+        </div><!-- tab4 replay-tv -->
+        {% endif %}
+
+      </div>
+
+    <div class="pmd-LiveProgram-right">
+
+      {% if group %}
+      <div id="program-group" class="clearfix margin grey-box">
+        {% if group.images.small is not null %}
+        <a href="{{ group.url }}" title="{{ group.title }}" class="program-img program-img-small">
+          <img src="{{ group.images.small }}" alt="{{ group.title }}" width="80" height="60" />
+          <span class="cache"></span>
+        </a>
+        {% endif %}
+        <h2>
+          <a href="{{ group.url }}">{{ group.title }}</a>
+        </h2>
+        <p class="clear-grey">
+          <strong>{{ group.type_title }}</strong>
+        </p>
+        <p class="clear-grey">
+          {% if group.seasons is defined %}
+            {% trans with {'%count_seasons%': group.seasons, '%count_episodes%': group.programs|length} %}
+              %count_seasons% saisons, %count_episodes% episodes
+            {% endtrans %}
+          {% else %}
+            {% trans with {'%count%': group.programs|length} %}
+              %count% programmes
+            {% endtrans %}
+          {% endif %}
+        </p>
+      </div>
+      {% endif %}
+
+      <div class="margin">
+        {% include "partials/ads-banner.twig" with {'unique': "aea23cf0", "zone_id": 36} %}
+      </div>
+
+    </div>
+
+</div>
+
+</div>
+
+  </div>
+</div>
+{% endblock %}

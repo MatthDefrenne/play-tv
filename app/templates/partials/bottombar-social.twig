@@ -1,0 +1,46 @@
+{% spaceless %}
+{% if controller_name == 'television' and action_name == 'index' %}
+<div id="bottombar">
+  <div class="content">
+    <p class="left">
+        <strong>{% trans %}Get in touch with Play TV on social media{% endtrans %}</strong>
+    </p>
+
+    <div class="right">
+        <div class="facebook">
+            <div class="fb-like" data-href="https://www.facebook.com/www.playtv.fr" data-width="100" data-colorscheme="dark" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+        </div>
+        <div class="twitter">
+            <a href="https://twitter.com/playtv_fr" class="twitter-follow-button" data-show-count="false" data-lang="{{ locale }}" data-dnt="true"></a>
+            <script>window.twttr = (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+              if (d.getElementById(id)) return t;
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+
+              t._e = [];
+              t.ready = function(f) {
+                t._e.push(f);
+              };
+
+              return t;
+            }(document, "script", "twitter-wjs"));</script>
+        </div>
+
+        <div class="google">
+            <a
+              class="googleplus-button"
+              href="https://plus.google.com/113118181508368604797?prsrc=3"
+              rel="publisher"
+              target="_blank"
+            >{% trans with { "%account_name%": "Play TV" } %}Follow %account_name%{% endtrans %}</a>
+        </div>
+    </div>
+
+  </div>
+</div>
+{% endif %}
+{% endspaceless %}

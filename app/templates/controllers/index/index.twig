@@ -1,0 +1,40 @@
+{% extends "layouts/full.twig" %}
+
+{% block fluidheader %}
+  {{ block_mosaic|raw }}
+{% endblock %}
+
+{% block content %}
+<div id="content" class="pmd-Homepage">
+
+  {% include "controllers/index/_carrousel.twig" %}
+
+  <div class="container pmd-Homepage-container">
+
+    {% set classes = ['pmd-HomepageHead'] %}
+
+    {% if (display_ads == true) and (is_connected == false or (is_connected and current_account.isPremium() == false)) %}
+    {% set classes = classes|merge(['pmd-HomepageHead--ads']) %}
+    {% endif %}
+
+    {% set classes = classes|join(' ') %}
+
+    <div class="{{ classes }}">
+
+      {% for widget in widgets|slice(0, 3) %}
+        {{ widget|raw }}
+      {% endfor %}
+
+      <div class="pmd-HomepageHeadAds">
+        {% include "partials/ads-banner.twig" with {'unique': "aea23cf0", "zone_id": 36} %}
+      </div>
+
+    </div>
+
+    {% for widget in widgets|slice(3, widgets|length) %}
+      {{ widget|raw }}
+    {% endfor %}
+
+  </div>
+</div>
+{% endblock %}

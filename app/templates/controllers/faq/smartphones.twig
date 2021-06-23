@@ -1,0 +1,22 @@
+{% extends "controllers/faq/_header.twig" %}
+
+{% block faq_content %}
+  <h2 class="margin">3.2. Je souhaite regarder la télévision sur un smartphone</h2>
+
+  <p>
+    Il n'existe pas encore d'application mobile Play TV iPhone, cependant vous pouvez télécharger <a href="https://play.google.com/store/apps/details?id=fr.playmedia.playtv" target="_blank" rel="nofollow">l'application Android</a>.
+  </p>
+  <p>
+    <strong>Cependant</strong> vous pouvez accéder à une version mobile simplifiée en allant sur {{ request.host }} à partir de votre navigateur web mobile.
+  </p>
+
+  <h3>Play TV sur mon smartphone ça donne ça:</h3>
+
+  <div class="image no-margin">
+    <img src="{{ apps_base_url }}/images/faq/faq-smartphones.png" alt="Smartphones">
+  </div>
+
+  <h3>Et sur ma tablette tactile ?</h3>
+
+  <p>Veuillez consulter la section &laquo; <a href="/faq/tablettes/"><em>3.3. Je souhaite regarder la télévision sur une tablette tactile</em></a> » de l'aide.</p>
+{% endblock faq_content %}

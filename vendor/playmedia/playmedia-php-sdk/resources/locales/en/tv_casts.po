@@ -1,0 +1,327 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Accessoiriste"
+msgstr "Property man"
+
+msgid "Acteur"
+msgstr "Actor"
+
+msgid "Adaptation"
+msgstr "Adaptation"
+
+msgid "Animalier"
+msgstr "Wildlife"
+
+msgid "Animation"
+msgstr "Animation"
+
+msgid "Armurier"
+msgstr "Gunsmith"
+
+msgid "Arrangement musical"
+msgstr "Musical arrangement"
+
+msgid "Assistant Réalisateur"
+msgstr "Assistant Director"
+
+msgid "Auteur"
+msgstr "Author"
+
+msgid "Bruitage"
+msgstr "Sound Effects"
+
+msgid "Cascades"
+msgstr "Waterfalls"
+
+msgid "Casting"
+msgstr "Casting"
+
+msgid "Chansons"
+msgstr "Song"
+
+msgid "Chanteur lyrique"
+msgstr "Opera Singer"
+
+msgid "Chef d'orchestre"
+msgstr "Conductor"
+
+msgid "Chorégraphie"
+msgstr "Choreography"
+
+msgid "Chroniqueur"
+msgstr "Chronicler"
+
+msgid "Co-producteur"
+msgstr "Co-producer"
+
+msgid "Coiffure"
+msgstr "Hairdressing"
+
+msgid "Combats"
+msgstr "Fights"
+
+msgid "Commentaires"
+msgstr "Comment"
+
+msgid "Compositeur"
+msgstr "Composer"
+
+msgid "Conseiller"
+msgstr "Advisor"
+
+msgid "Conseiller animalier"
+msgstr "Animal advisor"
+
+msgid "Conseiller historique"
+msgstr "Historic Consultant"
+
+msgid "Conseiller scientifique"
+msgstr "Scientific Adviser"
+
+msgid "Consultant"
+msgstr "Adviser"
+
+msgid "Costumes"
+msgstr "Costume"
+
+msgid "Créateur"
+msgstr "Creator"
+
+msgid "Création personnages"
+msgstr "Creating Character"
+
+msgid "Créatures"
+msgstr "Creatures"
+
+msgid "D'après"
+msgstr "Based"
+
+msgid "D'après l'oeuvre de"
+msgstr "Based on the work of"
+
+msgid "D'après la bande dessinée de"
+msgstr "Based on the comic strip of"
+
+msgid "D'après la pièce de"
+msgstr "Based on the play of"
+
+msgid "D'après la série de"
+msgstr "Based on the series of"
+
+msgid "D'après le film de"
+msgstr "According to the film"
+
+msgid "D'après le livre de"
+msgstr "According to the book"
+
+msgid "D'après le roman de"
+msgstr "According to the novel"
+
+msgid "D'après les personnages de"
+msgstr "According to the characters"
+
+msgid "D'après un sujet original"
+msgstr "Based on an original topic"
+
+msgid "D'après une histoire de"
+msgstr "According to a story"
+
+msgid "D'après une idée de"
+msgstr "Based on an idea"
+
+msgid "D'après une nouvelle de"
+msgstr "According to a new"
+
+msgid "Danseur"
+msgstr "Dancer"
+
+msgid "Décors"
+msgstr "Decors"
+
+msgid "Dessins"
+msgstr "Drawings"
+
+msgid "Dialogues"
+msgstr "Dialogues"
+
+msgid "Direction artistique"
+msgstr "Art Direction"
+
+msgid "Direction orchestrale"
+msgstr "Orchestral Direction"
+
+msgid "Documentation"
+msgstr "Documentation"
+
+msgid "Doublure"
+msgstr "Lining"
+
+msgid "Dressage"
+msgstr "Training"
+
+msgid "Eclairages"
+msgstr "Lighting"
+
+msgid "Effets sonores"
+msgstr "Sound effects"
+
+msgid "Effets spéciaux"
+msgstr "Special effects"
+
+msgid "Effets spéciaux numériques"
+msgstr "Digital special effects"
+
+msgid "Effets visuels"
+msgstr "Visual effects"
+
+msgid "Equitation"
+msgstr "Horse Riding"
+
+msgid "Générique"
+msgstr "Generic"
+
+msgid "Graphisme"
+msgstr "Graphics"
+
+msgid "Gravure"
+msgstr "Engraving"
+
+msgid "Images"
+msgstr "Imagery"
+
+msgid "Interview"
+msgstr "Interview"
+
+msgid "Invité"
+msgstr "Guest"
+
+msgid "Juré"
+msgstr "Sworn"
+
+msgid "Machiniste"
+msgstr "Machinist"
+
+msgid "Magie"
+msgstr "Magic"
+
+msgid "Maître d'armes"
+msgstr "Weapon Master"
+
+msgid "Maquette"
+msgstr "Mock up"
+
+msgid "Maquillage"
+msgstr "Make up"
+
+msgid "Marionnettes"
+msgstr "Puppets"
+
+msgid "Metteur en scène"
+msgstr "Director"
+
+msgid "Mise en scène"
+msgstr "Staging"
+
+msgid "Mixage"
+msgstr "Mixing"
+
+msgid "Montage"
+msgstr "Mounting"
+
+msgid "Musicien"
+msgstr "Musician"
+
+msgid "Musique"
+msgstr "Music"
+
+msgid "Narration"
+msgstr "Narration"
+
+msgid "Orchestration"
+msgstr "Orchestration"
+
+msgid "Paroles"
+msgstr "Lyrics"
+
+msgid "Photographie"
+msgstr "Photography"
+
+msgid "Présentateur"
+msgstr "Presenter"
+
+msgid "Presse"
+msgstr "Press"
+
+msgid "Producteur"
+msgstr "Producer"
+
+msgid "Producteur délégué"
+msgstr "Executive Producer"
+
+msgid "Producteur exécutif"
+msgstr "Executive Producer"
+
+msgid "Réalisateur"
+msgstr "Director"
+
+msgid "Restauration"
+msgstr "Restoration"
+
+msgid "Scénario"
+msgstr "Scenario"
+
+msgid "Scripte"
+msgstr "Script"
+
+msgid "Sculptures"
+msgstr "Sculptures"
+
+msgid "Société de Production"
+msgstr "Production company"
+
+msgid "Son"
+msgstr "Sound"
+
+msgid "Story board"
+msgstr "Storyboard"
+
+msgid "Traduction"
+msgstr "Translation"
+
+msgid "Voix française"
+msgstr "French voice"
+
+msgid "Voix originale"
+msgstr "Original voice"
+
+msgid "Régisseur"
+msgstr "Steward"
+
+msgid "Mixage son"
+msgstr "Sound mixing"
+
+msgid "Orchestre"
+msgstr "Orchestra"
+
+msgid "Chanteur"
+msgstr "Singer"
+
+msgid "Ballet"
+msgstr "Ballet"
+
+msgid "Voix"
+msgstr "Voice"
+
+msgid "Choeur"
+msgstr "Choir"

@@ -1,0 +1,139 @@
+{% if subnav_active is not defined %}{% set subnav_active = "" %}{% endif %}
+
+{% set route_name = 'replay_videos' %}
+{% if page_params.channel_id is defined or page_params.channel_alias is defined %}
+  {% set route_name = 'replay_channel_videos' %}
+{% endif %}
+
+<div class="replay-sub-menu pmd-js-ReplayTvMenuFilter" id="replay-sub-menu">
+    <div id="replay-title-bar">
+
+      {% if device != 'mobile' %}
+      <div class="pmd-ReplayTvMenuTitle">
+        <h1 class="pmd-ReplayTvMenuTitle-text pmd-Text--truncate">
+          <span class="pmd-js-ReplayTvFilter-mainTitle">
+          {% if title is not null %}
+            {% trans %}Yesterday TV Catch Up{% endtrans %}
+          {% else %}
+            {{ heading }}
+          {% endif %}
+          </span>
+        </h1>
+      </div>
+      {% endif %}
+
+      <div class="right pmd-ReplayTvMenuFilter">
+        {% spaceless %}
+
+          <div class="pmd-js-ReplayTvMenuFilterDate bar-dropdown separator pmd-ReplayDateFilter">
+            <div class="pmd-js-ReplayTvMenuFilterDate-default default-value">
+              {% spaceless %}
+                {% if date is null %}
+                  {% trans %}By day{% endtrans %}
+                {% else %}
+                  {% if date_for_humans(date|date('Y-m-d')) is not null %}{{ date_for_humans(date|date('Y-m-d')) }}{% else %}{{ date|localizeddate('full', 'none', locale)|capitalize }}{% endif %}
+                {% endif %}
+                {% if device == 'mobile' %}
+                <svg role="img" class="pmd-Svg pmd-Svg--arrowdown">
+                  <use xlink:href="#pmd-Svg--arrowdown"></use>
+                </svg>
+                {% else %}
+                <span class="icon"><i></i></span>
+                {% endif %}
+              {% endspaceless %}
+            </div>
+
+            {% set date_filter_params = url_params %}
+            {% if gender_alias is not null %}
+              {% set date_filter_params = date_filter_params|merge({'gender': gender_alias}) %}
+            {% endif %}
+
+            <div class="pmd-js-ReplayTvMenuFilterDate-list list-values pmd-ReplayDateFilterValues" style="width: 217px;">
+              <ul class="js-ptv-ReplayDateDropdown">
+                <li class="pmd-js-ReplayTvDateFilter">
+                  <a
+                    href="{{ path(route_name, date_filter_params|merge({'page': 1})) }}"
+                    class="js-ptv-ReplayTvDateFilter-item {% if date is null %} selected{% endif %}"
+                    {% if channel is not null %}data-channel="{{ channel.alias }}"{% endif %}
+                    {% if gender_alias is not null %}data-gender="{{ gender_alias }}"{% endif %}
+                  >
+                    {% trans %}By day{% endtrans %}
+                  </a>
+                </li>
+                {% for day in days %}
+                  <li class="pmd-js-ReplayTvDateFilter">
+                    <a
+                      href="{{ path(route_name, date_filter_params|merge({'date': day|date('Y-m-d'), 'page': 1})) }}"
+                      class="js-ptv-ReplayTvDateFilter-item {% if date is not null and date == day|date('Y-m-d') %} selected{% endif %}"
+                      {% if channel is not null %}data-channel="{{ channel.alias }}"{% endif %}
+                      {% if gender_alias is not null %}data-gender="{{ gender_alias }}"{% endif %}
+                      data-date="{{ day|date('Y-m-d') }}"
+                    >
+                      {% if date_for_humans(day|date('Y-m-d')) is not null %}{{ date_for_humans(day|date('Y-m-d'))|capitalize }}{% else %}{{ day|localizeddate('full', 'none', locale)|capitalize }}{% endif %}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div class="pmd-js-ReplayTvMenuFilterGenre bar-dropdown separator pmd-ReplayGendersFilter">
+            <div class="pmd-js-ReplayTvMenuFilterGenre-default default-value">
+              {% spaceless %}
+                {% if gender_alias is null %}
+                  {% trans %}By genre{% endtrans %}
+                {% else %}
+                  {{ gender_name }}
+                {% endif %}
+                {% if device == 'mobile' %}
+                <svg role="img" class="pmd-Svg pmd-Svg--arrowdown">
+                  <use xlink:href="#pmd-Svg--arrowdown"></use>
+                </svg>
+                {% else %}
+                <span class="icon"><i></i></span>
+                {% endif %}
+              {% endspaceless %}
+            </div>
+
+            {% set genre_filter_params = url_params %}
+            {% if date is not null %}
+              {% set genre_filter_params = genre_filter_params|merge({'date': date|date('Y-m-d')}) %}
+            {% endif %}
+
+            <div class="pmd-js-ReplayTvMenuFilterGenre-list list-values pmd-ReplayGendersFilterValues" style="width: 151px;">
+              <ul>
+                <li class="pmd-js-ReplayTvGenderFilter">
+                  <a
+                    href="{{ path(route_name, genre_filter_params|merge({'page': 1})) }}"
+                    {% if gender_alias is null %}class="selected"{% endif %}
+                    {% if channel is not null %}data-channel="{{ channel.alias }}"{% endif %}
+                    {% if date is not null %}data-date="{{ date|date('Y-m-d') }}"{% endif %}
+                  >
+                    {% trans %}By genre{% endtrans %}
+                  </a>
+                </li>
+                {% for gender in genders %}
+                  <li class="pmd-js-ReplayTvGenderFilter">
+                    <a
+                      href="{{ path(route_name, genre_filter_params|merge({'gender': gender.alias, 'page': 1})) }}"
+                      {% if gender_alias is not null and gender_alias == gender.alias %}class="selected"{% endif %}
+                      {% if channel is not null %}data-channel="{{ channel.alias }}"{% endif %}
+                      {% if date is not null %}data-date="{{ date|date('Y-m-d') }}"{% endif %}
+                      data-gender="{{ gender.alias }}"
+                    >
+                      {{ gender.name }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+        {% endspaceless %}
+      </div>
+      <div class="pmd-ReplayTvMenuShare">
+        {% include "partials/share.twig" %}
+      </div>
+    </div>
+
+</div> <!-- /.sub-menu -->

@@ -1,0 +1,19 @@
+{% set data_attributes = data_attributes|merge({
+    'poor_preview': thumbnail.images.large ? 'false' : 'true'
+  })
+%}
+
+{% include 'partials/thumbnail.twig' with {
+    'type': 'slider',
+    'data_attributes': data_attributes,
+    'preview': {
+      'image': {
+        'src': thumbnail.images.large,
+        'title': "Watch %channel% live"|trans({'%channel%': thumbnail.name})
+      },
+      'link': path('television_channel_single', {'channel_id': thumbnail.id, 'channel_alias': thumbnail.alias}),
+      'classes': '',
+      'identifier': thumbnail.id
+    }
+  }
+%}

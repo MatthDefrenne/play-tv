@@ -1,0 +1,216 @@
+{#
+    @container: #mini-mosaic
+    @data: $channels
+#}
+{% if context =='homepage' %}
+
+    {% set vars = {
+      data_attributes: {
+        tooltip: "true"
+      },
+      channels: channels,
+      channel: {
+        title: 'television_channel_single.title',
+        domain: 'seo'
+      },
+      link_route_name: 'television_channel_single'
+    } %}
+
+    <div class="pmd-PatchworkWrapper">
+      {% include 'partials/patchwork.twig' with vars %}
+    </div>
+
+{#
+    @container: .livetweet-container
+    @data: $channels
+#}
+
+{% elseif context == 'social_tv' %}
+
+{% set vars = {
+    data_attributes: {
+      tooltip: "true"
+    },
+
+    channels: channels,
+    channel: {
+      title: 'Social TV suivez le Live Tweet %channel%'
+    },
+    link_route_name: 'live_tweets_channel'
+  }
+%}
+
+<div class="pmd-js-LivetweetFilter pmd-PatchworkWrapper">
+  {% include 'partials/patchwork.twig' with vars %}
+</div>
+
+{#
+    @container: #mosaic 'votre bouquet'
+    @data: $channels
+#}
+
+{% elseif context == 'live' %}
+
+{% spaceless %}
+{% for channel_item in channels %}
+<a class="channel-button channel-button-mini" href="{{ path('chaine_tv', {'channel_id': channel_item.id, 'channel_alias': channel_item.alias}) }}" title="{{ channel_item.name }}">
+  <span>{% trans with {'%channel%': channel_item.name} %}Watch %channel% live{% endtrans %}</span>
+  <img src="{{ channel_item.images.mini }}" alt="{{ channel_item.name }}" width="36px" height="36px">
+  <div class="cache"></div>
+</a>
+{% endfor %}
+{% endspaceless %}
+
+{#
+    @container: #mosaic categories
+    @data: $channels
+#}
+
+{% elseif context == 'categories' %}
+
+<div class="row fluid">
+  {% for key, category_channels in channels %}
+  <div class="span" style="width:389px;">
+    <div class="grey-box margin text">
+      <h2 class="margin">{{ key }}</h2>
+      {% spaceless %}
+      {% for channel_item in category_channels %}
+      <a class="channel-button channel-button-mini" href="{{ path('chaine_tv', {'channel_id': channel_item.id, 'channel_alias': channel_item.alias}) }}" title="{{ channel_item.name }}">
+        <span>Regarder {{ channel_item.name }} en direct</span>
+        <img src="{{ channel_item.images.mini }}" alt="{{ channel_item.name }}" width="36px" height="36px">
+        <div class="cache"></div>
+      </a>
+      {% endfor %}
+      {% endspaceless %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{#
+    @container: #mosaic themes
+    @data: $channels
+#}
+
+{% elseif context == 'themes' %}
+
+<div class="row fluid">
+  {% for key, theme_channels in channels %}
+  <div class="span" style="width:389px;">
+    <div class="grey-box margin text">
+      <h2 class="margin">{{ key }}</h2>
+        {% spaceless %}
+        {% for channel in theme_channels %}
+        <a href="{{ path('chaine_tv', {'channel_id': channel.id, 'channel_alias': channel.alias}) }}" title="{{ channel.name }}" class="channel-button channel-button-mini">
+          <span>Regarder {{ channel.name }} en direct</span>
+          <img src="{{ channel.images.mini }}" alt="{{ channel.name }}" width="36px" height="36px">
+          <div class="cache"></div>
+        </a>
+        {% endfor %}
+        {% endspaceless %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{#
+    @container: #mosaic replay-tv
+    @data: $channels
+#}
+
+{% elseif context == 'replay_tv' %}
+
+  {% spaceless %}
+    {% for channel in channels %}
+      <a class="channel-button channel-button-mini" href="/replay-tv/videos/{{ channel.alias }}/" title="Revoir {{ channel.name }} en replay ({{ channel.replay_count }} vidéos)">
+        <span>{% trans with {'%channel%': channel.name} %}Catch Up videos from %channel%{% endtrans %}</span>
+        <img src="{{ channel.images.mini }}" alt="{{ channel.name }}" width="36px" height="36px">
+        <div class="cache"></div>
+      </a>
+    {% endfor %}
+  {% endspaceless %}
+
+{#
+    @container: #mosaic replay-tv-page
+    @data: $channels
+#}
+
+{% elseif context == 'replay_tv_page' %}
+
+{% set vars = {
+    channels: channels,
+    channel: {
+      title: 'replay_videos:channel.title',
+      domain: 'seo'
+    },
+    link_route_name: 'replay_channel_videos'
+  }
+%}
+
+<div class="pmd-js-ReplayTvFilter pmd-PatchworkWrapper" data-main-url="{{ path('replay_videos') }}">
+  {% include 'partials/patchwork.twig' with vars %}
+</div>
+
+{#
+    @container: #mosaic
+    @data: $channels, $pages
+#}
+
+{% else %}
+  {% spaceless %}
+    <div class="ptv-js-MosaicContent pmd-MosaicContent">
+      <div class="container pmd-MosaicChannels-container" id="mosaic-channels">
+        {% spaceless %}
+        {% set counter = 1 %}
+        {% for channel_item in channels %}
+          {% if counter == 1 %}
+            <ul class="pmd-MosaicChannels-list">
+          {% endif %}
+            {% include "partials/item-mosaic-channel.twig" with {"channel": channel_item} %}
+          {% if counter == 36 %}
+            </ul>
+            {% set counter = 0 %}
+          {% endif %}
+          {% set counter = counter + 1 %}
+        {% endfor %}
+        {% endspaceless %}
+      </div>
+      <div class="container pmd-MosaicCountries-container">
+        <p class="pmd-MosaicCountries-legend">{% trans %}Select a country in the list below{% endtrans %}</p>
+        <ul class="ptv-js-MosaicCountries pmd-MosaicCountries-list">
+            {% for code in countries %}
+              <li class="pmd-MosaicCountries-listItem">
+                <a href="{{ path('television_country_filter', {'country_slug': country_slugs[code]}) }}" class="pmd-MosaicCountries-link" data-country="{{ code }}">
+                  <span class="pmd-MosaicCountries-flag flag flag-{{ code|lower }}"></span>
+                  <span class="pmd-MosaicCountries-code">{{ code }}</span>
+                </a>
+              </li>
+            {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div id="mosaic-slider" class="pmd-MosaicSlider">
+      {% include "partials/paginate-mosaic.twig" with {"pages": pages} %}
+    </div>
+  {% endspaceless %}
+
+  {% spaceless %}
+    <script type="text/javascript">
+    ;(function(win, doc, app) {
+        app.Data = app.Data || {};
+        app.Data.Remote = app.Data.Remote || {};
+        app.Data.Remote.baseUri = "{{ path('television_index') }}";
+
+        {% set whitelist = ["id", "name", "alias", "has_programs", "images", "has_social_tv", "disabled", "highlight", "skip_ads", "is_adult", "streaming_source", "streaming_spec", "is_radio"] %}
+        app.Data.Remote.channels = {{ channels_whitelist(channels, whitelist)|json_encode()|raw }};
+
+        app.Data.Remote.countryChannels = {};
+        {% for country_code, channels_country in channels_by_country %}
+          app.Data.Remote.countryChannels.{{ country_code }} = {{ channels_whitelist(channels_country, whitelist)|json_encode()|raw }};
+        {% endfor %}
+    })(window, window.document, window.ptv || (window.ptv = {}));
+    </script>
+  {% endspaceless %}
+
+{% endif %}

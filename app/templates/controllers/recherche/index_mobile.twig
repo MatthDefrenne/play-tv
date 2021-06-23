@@ -1,0 +1,62 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<nav class="pmd-js-SearchModule pmd-SearchModule">
+<form action="#" method="get" class="pmd-js-SearchModule-form">
+  <input type="text" name="q" class="pmd-js-SearchModule-input pmd-SearchModule-input pmd-Input" placeholder="{% trans %}Search...{% endtrans %}" autocomplete="off" value="{{ query }}">
+</form>
+</nav>
+
+{% if results %}
+{% for type, type_results in results %}
+{% for result in type_results %}
+<div class="pmd-SearchResultList">
+
+  {% if result.type == 'channels' %}
+  <div class="pmd-SearchResultList-item pmd-SearchResultListItem">
+
+    <a class="pmd-SearchResultList-itemColumn pmd-SearchResultList-itemColumn--channel" href="{{ path('television_channel_single', {'channel_id': result.id, 'channel_alias': result.alias}) }}">
+      <img src="{{ result.images.small }}" width="60">
+    </a>
+
+    <a class="pmd-SearchResultList-itemColumn pmd-SearchResultList-itemColumn--middle" href="{{ path('television_channel_single', {'channel_id': result.id, 'channel_alias': result.alias}) }}">
+
+      <div class="pmd-SearchResultContent pmd-Cf">
+         <h4 class="pmd-SearchResultContent-heading">{{ result.name }}</h4>
+      </div>
+
+    </a>
+
+  </div>
+  {% endif %}
+
+  {% if result.type == 'programs' %}
+  <div class="pmd-SearchResultList-item pmd-SearchResultListItem">
+
+    <a class="pmd-SearchResultList-itemColumn pmd-SearchResultList-itemColumn--channel" href="{{ result.program_url }}">
+      <img src="{{ result.images.small|default(apps_base_url ~ "/images/tv-default-mobile.svg") }}" alt="{{ result.title }}" width="60">
+    </a>
+
+    <a class="pmd-SearchResultList-itemColumn" href="{{ result.program_url }}">
+
+      <div class="pmd-SearchResultContent pmd-Cf">
+         <h4 class="pmd-SearchResultContent-heading">{{ result.title }}</h4>
+          <div class="pmd-ProgrammeGenre pmd-ProgrammeGenre--{{ result.gender_id }} pmd-SearchResultContent-genre pmd-ProgrammeGenre--small">{{ result.gender }}</div>
+      </div>
+
+      <div class="pmd-SearchResultSecondary pmd-Cf">
+        <p class="pmd-SearchResultSecondary-description">{{ result.summary }}</p>
+      </div>
+
+    </a>
+
+  </div>
+  {% endif %}
+
+</div>
+{% endfor %}
+{% endfor %}
+{% else %}
+<p>{% trans %}Enter your search keywords above.{% endtrans %}</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,59 @@
+<div class="pmd-TvPageMainContent">
+
+  <h2 class="pmd-TvPageMainContent-title">
+  {% trans %}Now{% endtrans %}
+  </h2>
+
+  <div class="pmd-TvPageMainContentThumbnails">
+    {% for broadcast in broadcasts %}
+    <div class="pmd-TvPageMainContentThumbnailsItem">
+    {% set preview_link = path('television_channel_single', {
+        'channel_id': broadcast.channel.id,
+        'channel_alias': broadcast.channel.alias
+      })
+    %}
+    {% include 'partials/thumbnail.twig' with {
+      'data_attributes': {
+        'poor_preview': broadcast.program.images.xlarge is defined and broadcast.program.images.xlarge is not empty ? 'false' : 'true',
+        'channel_logo': 'true',
+        'progress': 'true',
+        'size': 'small',
+        'type': 'play',
+        'trailer_button': broadcast.program.trailer ? 'true' : 'false',
+        'preview_animation': 'true'
+      },
+      'preview': {
+        'link': preview_link,
+        'classes': 'pmd-js-TelevisionContent-fakeRemote',
+        'identifier': broadcast.channel.alias,
+        'image': {
+          'src': broadcast.program.images.xlarge,
+          'title': broadcast.program.fulltitle
+        },
+        'nofollow': true
+      },
+      'trailer': {
+        'classes': 'pmd-js-TrailerButton2',
+        'href': '/trailer/' ~ broadcast.program.id ~ '/?autoplay=1&skin=minimal'
+      },
+
+      'progress': {
+        'percentage': broadcast.progress is defined ? broadcast.progress : 0
+      },
+      'text': {
+        'firstline': '<a href=' ~ broadcast.program.program_url ~ '>' ~ broadcast.program.fulltitle ~ '</a>',
+        'secondline': '<a href=' ~ broadcast.program.program_url ~ ' rel="nofollow">' ~ broadcast.program.subtitle ~ '</a>'
+      },
+      'channel': {
+        'image': {
+          'src': broadcast.channel.images.medium,
+          'alt': broadcast.channel.name
+        }
+      }
+    }
+    %}
+    </div>
+    {% endfor %}
+  </div>
+
+</div>

@@ -1,0 +1,18 @@
+<div id="most-shared-urls" class="grey-box">
+
+  <div class="block-title xmargin">
+    <p class="right clear-grey">Dernière heure</p>
+    <h2><strong>Liens les plus partagés</strong></h2>
+  </div>
+
+  {% if most_shared_urls %}
+  <ol class="text">
+    {% for key, url in most_shared_urls %}
+    <li class="clear-grey">{{ key+1 }}. <a href="{{ url.url }}" title="{{ url.url }}" target="_blank" rel="nofollow">{{ url.url|truncate(100) }}</a></li>
+    {% endfor %}
+  </ol>
+  {% else %}
+    <div class="text xbigger center clear-grey"><p>...</p></div>
+  {% endif %}
+
+</div>

@@ -1,0 +1,33 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <aside class="span3 sep">
+          {% include "controllers/aide/_menu.twig" %}
+        </aside>
+
+        <div class="span13" id="background-help">
+
+          {% if has_feature('faq') %}
+          <div class="page-title">
+            {% if action_name != 'index' %}
+              <small class="right grey-box"><a href="/faq/">&laquo; <strong>Retour au sommaire</strong></a></small>
+            {% endif %}
+            <h1>Aide. <span class="red">Questions fréquentes</span></h1>
+            <p class="sub-title">Trouvez les réponses à toutes vos questions dans les menus de l'aide.</p>
+          </div>
+          {% endif %}
+
+          {% if action_name != 'index' %}<article class="text bigger justify">{% endif %}
+
+          {% block faq_content %}{% endblock faq_content %}
+
+          {% if action_name != 'index' %}</article>{% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "layouts/full.twig" %}
+
+{% block fluidheader %}
+  {{ block_mosaic|raw }}
+{% endblock %}
+
+{% block content %}
+
+<div id="content" class="pmd-ReplayContent">
+
+  {% include "partials/subnav-replay-tv.twig" with {"subnav_active": "index", "days": days, "date": date, "title": null} %}
+
+  <div class="container">
+    <div class="pmd-js-ReplayBroadcastList">
+
+      {% include "controllers/replay-tv/_replays-videos.twig" %}
+
+    </div>
+  </div>
+
+</div>
+
+{% include "controllers/replay-tv/_javascript.twig" with {"channel": channel, "gender_alias": gender_alias, "date": date} %}
+<!-- /#content -->
+{% endblock %}

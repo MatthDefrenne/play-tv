@@ -1,0 +1,46 @@
+<div class="page-title ptv-ProgrammeTitle">
+  {% if controller_name == "programme_tv" %}
+    {% if is_live is not null and is_live.broadcast.is_live == true and is_live.broadcast.channel.streamable == true %}
+    <small class="right grey-box ptv-ProgrammeTitle-live">
+      <a href="{{ path('television_channel_single', {'channel_id': is_live.broadcast.channel.id, 'channel_alias': is_live.broadcast.channel.alias}) }}" title="{% trans with {'%program%': program.fulltitle} %}%program% live{% endtrans %}" class="play-icon">
+        <strong>{% trans %}ON AIR{% endtrans %}</strong>
+      </a>
+    </small>
+    {% elseif videos or group_videos %}
+      {% if has_feature('catchup_tv') %}
+      <small class="right grey-box">
+        <a href="#replay" title="{% trans with {'%program%': program.fulltitle} %}%program% on demand{% endtrans %}" onclick="$('#tab-replay').trigger('click'); return false;" class="play-icon">
+          <strong>{% trans %}TV REPLAY{% endtrans %}</strong>
+        </a>
+      </small>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+
+  {% if controller_name == "programme_tv" %}
+    {% set heading = "h1" %}
+  {% else %}
+    {% set heading = "h2" %}
+  {% endif %}
+  <{{ heading }} class="ptv-ProgrammeTitle-heading">
+    {% if live_program.start is defined %}<span class="clear-grey">{{ live_program.start|localizeddate('none', 'short') }}</span> {% endif %}
+    <a href="{{ program.program_url }}" title="{{ program.fulltitle }}">
+      <span class="red">{{ program.title }}</span>{% if program.bcast_abbr %} {{ program.bcast_abbr }}{% endif %}
+    </a>
+  </{{ heading }}>
+
+  {% if program.stars > 0 %}
+  <div class="ptv-ProgrammeTitle-rating">
+    <i class="ptv-Rating-{{ program.stars }}"></i>
+  </div>
+  {% endif %}
+
+  {% if program.subtitle %}
+  <p class="sub-title">{{ program.subtitle }}</p>
+  {% endif %}
+  {% if program.originaltitle and (program.originaltitle != program.title) %}
+  <p class="sub-title">
+    <a href="{{ program.program_url }}" title="{{ program.fulltitle }}">{{ program.originaltitle }}{% if program.bcast_abbr %} {{ program.bcast_abbr }}{% endif %}</a>{% if program.gender_id is null or program.gender_id != 28 %} (titre original){% endif %}
+  </p>
+  {% endif %}
+</div>

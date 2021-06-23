@@ -1,0 +1,25 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="content">
+    <div class="container">
+
+      <div class="pmd-NewsletterUnsubscribeContent">
+        <h1 class="pmd-NewsletterUnsubscribeContent-title pmd-Text--center">Désabonnement</h1>
+        <span class="pmd-NewsletterUnsubscribeContent-description">Si vous ne voulez plus recevoir nos emails, cliquez sur le bouton ci-dessous</span>
+        {% if success is defined %}
+          <p class="pmd-NewsletterUnsubscribeContent-success">{{ success }}</p>
+        {% elseif errors is defined %}
+          <p class="pmd-NewsletterUnsubscribeContent-error">{{ errors }}</p>
+        {% else %}
+          <form method="post" action="/newsletter/desabonnement/">
+            <input type="hidden" name="cipher" value="{{ cipher }}">
+            <p class="pmd-Text--center">
+              <button class="ptv-Button ptv-Button--danger ptv-Button--large">Se désabonner</button>
+            </p>
+          </form>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}

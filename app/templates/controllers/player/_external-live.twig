@@ -1,0 +1,30 @@
+{% if site is not defined %}
+  {% set site = null %}
+{% endif %}
+
+{% if display_ads_ga != true %}
+<div class="pmd-HandleChannel-subtitle">
+  {% if channel.is_radio %}
+  <span>{% trans from "player" %}external_live_radio.meanwhile{% endtrans %}</span>
+  {% else %}
+  <span>{% trans from "player" %}external_live.meanwhile{% endtrans %}</span>
+  {% endif %}
+</div>
+{% endif %}
+
+<button
+  type="button"
+  data-alias="{{ channel.alias }}"
+  {% if site %}data-site="{{ site }}"{% endif %}
+  class="pmd-js-ExternalLive r-ResetButton pmd-Button pmd-Button--premium pmd-Button--lg pmd-PromoteRetailChannel-button pmd-Button--boldAlt {% if display_ads_ga != true %}pmd-HandleChannel-button{% endif %}"
+>
+  {% if channel.is_radio %}
+  {% trans with {'%channel%': channel.name} from "player" %}external_live_radio.go_channel_website{% endtrans %}
+  {% else %}
+  {% trans with {'%channel%': channel.name} from "player" %}external_live.go_channel_website{% endtrans %}
+  {% endif %}
+</button>
+
+{% if flag != 'zapping' %}
+<script src="{{ assets.scripts['page-player-external-live.js'] }}"></script>
+{% endif %}

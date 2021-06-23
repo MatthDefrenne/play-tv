@@ -1,0 +1,83 @@
+{% set search_params = {} %}
+{% if request.get.q is defined %}
+  {% set search_params = search_params|merge({'q': request.get.q}) %}
+{% endif %}
+
+<div class="block-title margin">
+  <p class="right">
+    <a href="{{ path('recherche', search_params) }}">
+      &larr; <strong>{% trans %}All categories{% endtrans %}</strong>
+    </a>
+  </p>
+  <h3>
+    {% if type == 'channels' %}
+      {% trans %}Search for <strong>TV channels</strong>{% endtrans %}
+    {% elseif type == 'programs' %}
+      {% trans %}Search for <strong>TV programs</strong>{% endtrans %}
+    {% elseif type == 'videos' %}
+      {% trans %}Search for <strong>videos</strong>{% endtrans %}
+    {% elseif type == 'casts' %}
+      {% trans %}Search for <strong>people</strong>{% endtrans %}
+    {% else %}
+      {% trans %}Search for <strong>?</strong>{% endtrans %}
+    {% endif %}
+  </h3>
+</div>
+
+{% for result in results %}
+
+  {% if result == results|first %}
+    <div id="search-{{ type }}" class="{% if type == 'videos' %}videos{% else %}text{% endif %} clearfix">
+  {% endif %}
+
+  {% if result.type == 'videos' %}
+    {% include "partials/item-replay-tv.twig" with {"video": result} %}
+  {% elseif result.type == 'channels' %}
+    <a href="{{ path('chaine_tv', {'channel_id': result.id, 'channel_alias': result.alias}) }}" title="{% trans with {'%channel%': result.name} %}About %channel%{% endtrans %}" class="channel-button">
+      <img src="{{ result.images.medium }}" alt="{{ result.name }}" width="60" height="60">
+      <div class="cache"></div>
+    </a>
+  {% elseif result.type == 'groups' %}
+    <div class="program clearfix margin">
+      <p class="bigger">
+        <a href="{{ result.url }}">
+          <strong>{{ result.title }}</strong>
+        </a>
+      </p>
+      {% if result.images.medium and result.programs is not null %}
+        <a href="{{ result.url }}" title="{{ result.title }}" class="program-img program-img-small">
+          <span class="cache"></span>
+          <img src="{{ result.images.medium }}" width="80" height="60" alt="{{ result.title }}">
+        </a>
+      {% endif %}
+      {% if result.programs is not null %}
+        <p>
+      {% endif %}
+      {% for program in result.programs %}
+        {% if loop.index0 < 3 %}
+          <span class="clear-grey">&bull;</span> <a href="{{ program.program_url }}">{{ program.fulltitle }}</a><br>
+        {% endif %}
+      {% endfor %}
+      {% if result.programs is not null %}
+        </p>
+      {% endif %}
+    </div>
+  {% elseif result.type == 'programs' %}
+    <p class="margin">
+      <a href="{{ result.program_url }}">
+        {{ result.title }}
+      </a>
+    </p>
+  {% else %}
+    <p class="margin">
+      <a href="{{ result.url }}">
+        {{ result.label }}
+      </a>
+    </p>
+  {% endif %}
+
+  {% if result == results|last %}</div>{% endif %}
+
+{% else %}
+  <p class="text xxbigger center clear-grey">{% trans %}No results.{% endtrans %}</p>
+{% endfor %}

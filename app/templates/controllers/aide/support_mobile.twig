@@ -1,0 +1,39 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<div class="pmd-FormLayout">
+
+  <form action="/aide/support/" method="post" class="pmd-js-Support-form pmd-SupportForm">
+
+    <h3 class="pmd-FormLayout-heading">Contactez le support</h3>
+
+    <label class="pmd-Label pmd-Label--alone">Votre adresse email</label>
+    <div class="pmd-InputWrapper">
+      <input class="pmd-Input pmd-Input--block" type="text" placeholder="exemple@mail.fr" name="email">
+    </div>
+
+    <label class="pmd-Label pmd-Label--alone">Votre message</label>
+    <div class="pmd-InputWrapper">
+      <textarea class="pmd-Textarea pmd-Textarea--block" name="message" placeholder="Message..." rows="6"></textarea>
+    </div>
+
+    <input class="pmd-js-HelpSupport-flash" type="hidden" name="flashVersion" value="">
+
+    <div class="pmd-js-Support-alert pmd-Alert pmd-Alert--hidden"></div>
+
+    <button type="submit" class="pmd-js-Support-buttonSubmit pmd-Button pmd-Button--block pmd-Form-buttonSubmit ladda-button" data-style="zoom-out">
+      <span class="ladda-label">Envoyer</span>
+    </button>
+
+  </form>
+
+  <p>
+    Vous ne pouvez pas envoyer de message avec le formulaire ci-dessus ?
+  </p>
+  <p>
+    Contactez Olivia directement par e-mail :<br>
+    <a href="mailto:olivia@playmedia.fr">olivia@playmedia.fr</a>
+  </p>
+
+</div>
+{% endblock %}

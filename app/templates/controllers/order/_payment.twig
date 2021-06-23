@@ -1,0 +1,50 @@
+<h4 class="ptv-AccountProfile-heading">
+  <span class="ptv-AccountProfile-headingMain">
+    <span class="pmd-Order-bullet">3</span>
+    <span>Paiement de votre offre</span>
+  </span>
+</h4>
+
+{% if payment_gateways is not empty %}
+<div class="ptv-AccountProfileLine pmd-OrderPaymentAlert">
+
+  {% if 'paymill' in payment_gateways|keys and not cart.containsPrepaidProduct %}
+  <div class="ptv-Alert ptv-Alert--success ptv-Alert--active" data-gateway="paymill">
+  {% if current_account.hasTrialPeriod() %}
+  <strong>Votre compte ne sera pas débité avant la fin de la période d'essai.</strong>
+  {% endif %}
+  Vous pouvez à tout moment mettre fin à cet abonnement en vous rendant dans la rubrique "Mon offre".
+  </div>
+  {% endif %}
+
+  {% if 'cellpass' in payment_gateways|keys %}
+  <div class="ptv-Alert ptv-Alert--warning" data-gateway="cellpass">
+  <strong>La période d'essai est disponible uniquement pour le paiement par carte bancaire.</strong>
+  Sélectionnez le paiement par carte bancaire pour bénéficier de l'essai gratuit.
+  </div>
+  {% endif %}
+
+</div>
+
+<div class="pmd-OrderPaymentTabs">
+
+  <ul class="pmd-OrderPayment-tabs">
+  {% for gateway,label in payment_gateways %}
+    <li class="pmd-OrderPayment-tab">
+      {% include "controllers/order/_payment_tab_" ~ gateway ~ ".twig" %}
+    </li>
+  {% endfor %}
+  </ul>
+
+  <div class="pmd-OrderPayment-panelContainer">
+    {% for gateway,label in payment_gateways %}
+      {% include "controllers/order/_payment_" ~ gateway ~ ".twig" %}
+    {% endfor %}
+  </div>
+
+</div>
+{% else %}
+   <div class="ptv-Alert ptv-Alert--error ptv-Alert--active">
+    Aucun moyen de paiement disponible pour cette offre.
+  </div>
+{% endif %}

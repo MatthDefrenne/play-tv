@@ -1,0 +1,15 @@
+<div class="pmd-MenuFooting">
+
+  <ul class="pmd-MenuSecondChoice">
+    {% if is_website_fr %}
+    <li><a href="/aide/support/" class="pmd-js-Menu-choice pmd-js-Action--touchify pmd-MenuSecondChoice-item">Contacter le support</a></li>
+    <li><a href="/pages/mentions-legales/" class="pmd-js-Menu-choice pmd-js-Action--touchify pmd-MenuSecondChoice-item">Mentions Légales</a></li>
+    <li><a href="/pages/cgu/" class="pmd-js-Menu-choice pmd-js-Action--touchify pmd-MenuSecondChoice-item">Conditions Générales d'Utilisation</a></li>
+    <li><a href="/pages/donnees-personnelles/" class="pmd-js-Menu-choice pmd-js-Action--touchify pmd-MenuSecondChoice-item">Données personnelles</a></li>
+    {% endif %}
+    <li><a href="#" data-href="{{ hosts.current }}{{ request.uri }}" class="pmd-js-Menu-out pmd-js-Action--touchify pmd-MenuSecondChoice-item">{% trans %}Go to standard website{% endtrans %}</a></li>
+  </ul>
+
+  <div class="pmd-MenuFooting-copyrights">© Copyrights 2008-{{ now|date("Y") }} Play Media SAS. {% trans %}All rights reserved.{% endtrans %}</div>
+
+</div>

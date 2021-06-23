@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "broadcasts_live.title"
+msgstr "LIVE TV - En direct à la télévision"
+
+msgid "broadcasts_tonight.title"
+msgstr "PROGRAMME TV - Ce soir à la télévision"
+
+msgid "replays_news.title"
+msgstr "REPLAY TV - Derniers JT"
+
+msgid "replays_last.title"
+msgstr "REPLAY TV - À la télé hier soir"
+
+msgid "channels_arabic.title"
+msgstr "LIVE TV - Chaînes arabes"
+
+msgid "channels_news.title"
+msgstr "LIVE TV - Chaînes d'information"
+
+msgid "channels_thematic.title"
+msgstr "LIVE TV - Chaînes thématiques"
+
+msgid "channels_local.title"
+msgstr "LIVE TV - Chaînes locales"
+
+msgid "channels_community.title"
+msgstr "LIVE TV - Chaînes communautaires"
+
+msgid "channels_turk.title"
+msgstr "LIVE TV - Chaînes turques"

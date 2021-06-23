@@ -1,0 +1,5 @@
+{% for page in 1..pages %}
+  <a href="#" title="Page {{ page }}" class="pmd-MosaicSlider-link{% if page == 1 %} selected{% endif %}">
+    <span class="pmd-MosaicSlider-element">{{ page }}</span>
+  </a>
+{% endfor %}

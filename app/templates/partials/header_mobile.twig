@@ -1,0 +1,23 @@
+{% spaceless %}
+<nav class="pmd-Header-nav pmd-HeaderNav">
+
+  <button class="pmd-js-Header-menuAction pmd-js-Action--touchify pmd-Button pmd-Button--link pmd-HeaderNav-link pmd-HeaderNav-aside pmd-Icons-menu"></button>
+
+  <a href="/" class="pmd-Button pmd-Button--link pmd-HeaderNav-link pmd-HeaderNav-logo" rel="home">
+    <img src="{{ apps_base_url }}/images/logo-mobile.svg" alt="Play TV" width="104" height="60">
+  </a>
+
+  <a href="{{ path('television_index') }}" class="pmd-Button pmd-Button--link pmd-HeaderNav-icon pmd-HeaderNav-remote pmd-HeaderNav-link">
+    <svg role="img" class="pmd-Svg pmd-Svg--tv pmd-Svg--white">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pmd-Svg--tv"></use>
+    </svg>
+  </a>
+
+  <a href="{{ path('recherche') }}" rel="nofollow" class="pmd-Button pmd-Button--link pmd-HeaderNav-icon pmd-HeaderNav-search pmd-HeaderNav-link">
+    <svg role="img" class="pmd-Svg pmd-Svg--search pmd-Svg--white">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pmd-Svg--search"></use>
+    </svg>
+  </a>
+
+</nav>
+{% endspaceless %}

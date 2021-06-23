@@ -1,0 +1,43 @@
+<div class="pmd-js-Patchwork pmd-Patchwork" data-tooltips="{{ data_attributes.tooltip|default('') }}">
+
+  <button class="pmd-js-Patchwork-toggle pmd-Patchwork-toggle pmd-SvgEvent r-ResetButton">
+    <svg role="img" class="pmd-Svg pmd-Svg--mosaic">
+      <use xlink:href="#pmd-Svg--mosaic"></use>
+    </svg>
+    <span class="pmd-SvgEvent-handler"></span>
+  </button>
+
+  <div class="pmd-js-PatchworkSlider pmd-PatchworkSlider">
+
+    {% spaceless %}
+    {% for channel_item in channels %}
+    <div class="pmd-js-PatchworkSlider-cell pmd-PatchworkSlider-cell">
+      <a class="pmd-js-PatchworkSlider-link pmd-PatchworkSlider-link"
+        href="{{ path(link_route_name, {'channel_alias': channel_item.alias, 'channel_id': channel_item.id}) }}"
+        title="{{ channel_item.name }}"
+        {% if channel_item.nofollow is defined %}rel="nofollow"{% endif %}
+        data-channel-id="{{ channel_item.id }}"
+        data-channel-name="{{ channel_item.name }}"
+        data-channel-alias="{{ channel_item.alias }}"
+        data-title="{{ channel.title|trans({'%channel%': channel_item.name}, channel.domain|default('')) }}"
+        data-tooltip-url="{{ path('television_tooltip', {'channel_alias': channel_item.alias}) }}"
+      >
+        <span class="pmd-Text--visually-hidden">{{ channel.title|trans({'%channel%': channel_item.name}, channel.domain|default('')) }}</span>
+        {% if loop.index <= 30 %}
+         <img class="pmd-PatchworkSlider-image"
+          src="{{ channel_item.images.small }}"
+          alt="{{ channel_item.name }}">
+        {% else %}
+        <img class="pmd-PatchworkSlider-image"
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-flickity-lazyload="{{ channel_item.images.small }}"
+          alt="{{ channel_item.name }}">
+        {% endif %}
+      </a>
+    </div>
+    {% endfor %}
+    {% endspaceless %}
+
+  </div>
+
+</div>

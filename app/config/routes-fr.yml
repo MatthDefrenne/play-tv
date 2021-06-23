@@ -1,0 +1,639 @@
+old_partners_adsltv:
+    path: '/adsltv/{action}/'
+    defaults: { _controller: 'partners_controller::redirect_adsltv_action', action: '' }
+old_partners_cotep:
+    path: /cotep/
+    defaults: { _controller: 'partners_controller::redirect_cotep_action' }
+old_partners_novancia:
+    path: /novancia/
+    defaults: { _controller: 'partners_controller::redirect_novancia_action' }
+
+# pages
+
+csa_inscription:
+    path: /pages/csa-inscription/
+    defaults: { _controller: 'pages_controller::csa_inscription_action' }
+pages_a_propos:
+    path: /pages/a-propos/
+    defaults: { _controller: 'pages_controller::a_propos_action' }
+pages_cgu:
+    path: /pages/cgu/
+    defaults: { _controller: 'pages_controller::cgu_action' }
+pages_cgv:
+    path: /pages/cgv/
+    defaults: { _controller: 'pages_controller::cgv_action' }
+pages_donnees_personnelles:
+    path: /pages/donnees-personnelles/
+    defaults: { _controller: 'pages_controller::donnees_personnelles_action' }
+pages_jobs:
+    path: /pages/jobs/
+    defaults: { _controller: 'pages_controller::jobs_action' }
+pages_mentions_legales:
+    path: /pages/mentions-legales/
+    defaults: { _controller: 'pages_controller::mentions_legales_action' }
+pages_presse:
+    path: /pages/presse/
+    defaults: { _controller: 'pages_controller::presse_action' }
+pages_publicite:
+    path: /pages/publicite/
+    defaults: { _controller: 'pages_controller::publicite_action' }
+pages_questionnaire:
+    path: /pages/questionnaire/
+    defaults: { _controller: 'pages_controller::questionnaire_action' }
+pages_browser_choice:
+    path: /pages/browser-choice/
+    defaults: { _controller: 'pages_controller::browser_choice_action' }
+
+# uniads
+
+uniads_config:
+    path: /uniads/config/
+    defaults: { _controller: 'uniads_controller::config_action' }
+uniads_request:
+    path: /uniads/request/
+    defaults: { _controller: 'uniads_controller::request_action' }
+uniads_impression:
+    path: /uniads/impression/
+    defaults: { _controller: 'uniads_controller::impression_action' }
+uniads_debug:
+    path: /uniads/debug/
+    defaults: { _controller: 'uniads_controller::debug_action' }
+uniads:
+    path: /uniads/
+    defaults: { _controller: 'uniads_controller::index_action' }
+
+# television
+
+television_mosaique:
+    path: '/television/mosaique/{type}/'
+    defaults: { _controller: 'television_controller::mosaique_action' }
+television_tooltip:
+    path: '/television/tooltip/{channel_alias}/'
+    defaults: { _controller: 'television_controller::tooltip_action', _format: 'json' }
+television_block_live_program_by_channel:
+    path: '/television/block-live-program-by-channel/{channel_alias}/'
+    defaults: { _controller: 'television_controller::block_live_program_by_channel_action' }
+television_block_next_programs_by_channel:
+    path: '/television/block-next-programs-by-channel/{channel_alias}/'
+    defaults: { _controller: 'television_controller::block_next_programs_by_channel_action' }
+television_subscribe_filter:
+    path: /television/mes-chaines/
+    defaults: { _controller: 'television_controller::my_channels_action', bundle: 'live' }
+television_streamable_filter:
+    path: /television/mon-bouquet/
+    defaults: { _controller: 'television_controller::streamable_filter_action', bundle: 'live' }
+television_country_filter:
+    path: '/television/pays/{country_slug}/'
+    defaults: { _controller: 'television_controller::country_action', bundle: 'live' }
+television_zapping:
+    path: '/television/zapping/{channel_alias}/'
+    defaults: { _controller: 'television_controller::zapping_action' }
+television_channel_single:
+    path: '/television/{channel_alias}/'
+    defaults: { _controller: 'television_controller::channel_action', channel_id: null, bundle: 'live' }
+    options:
+        sitemap: true
+        sitemap_builder: PlayTv\Sitemap\Builder\Channel\Live
+television_index:
+    path: /television/
+    defaults: { _controller: 'television_controller::index_action', bundle: 'live' }
+
+# player
+
+player_embed:
+    path: '/player/embed/{channel_alias}/'
+    defaults: { _controller: 'player_controller::embed_action' }
+player_initialize:
+    path: '/player/initialize/{channel_alias}/'
+    defaults: { _controller: 'player_controller::initialize_action', _format: 'json' }
+player_play:
+    path: '/player/play/{channel_alias}/'
+    defaults: { _controller: 'player_controller::play_action', _format: 'json' }
+player_broadcast:
+    path: '/player/broadcast/{channel_alias}/'
+    defaults: { _controller: 'player_controller::broadcast_action', _format: 'json' }
+player_share:
+    path: '/player/share/{channel_alias}/'
+    defaults: { _controller: 'player_controller::share_action', _format: 'json' }
+player_check:
+    path: /player/check/
+    defaults: { _controller: 'player_controller::check_action', _format: 'json' }
+player_debug:
+    path: /player/debug/
+    defaults: { _controller: 'player_controller::debug_action', _format: 'json' }
+
+# chaine_tv
+
+chaine_tv:
+    path: '/chaine-tv/{channel_alias}/'
+    defaults: { _controller: 'chaine_tv_controller::index_action', bundle: 'program' }
+    options:
+        sitemap: true
+        sitemap_builder: PlayTv\Sitemap\Builder\Channel
+chaine_tv_en_direct:
+    path: '/chaine-tv/en-direct/{channel_alias}/'
+    defaults: { _controller: 'chaine_tv_controller::en_direct_action' }
+chaine_tv_a_suivre:
+    path: '/chaine-tv/a-suivre/{channel_alias}/'
+    defaults: { _controller: 'chaine_tv_controller::a_suivre_action' }
+
+# programmes
+
+programmes_prime_date_network:
+    path: '/programmes-tv/ce-soir/{date}/{network}/'
+    defaults: { _controller: 'programmes_tv_controller::ce_soir_action' }
+    requirements: { date: '[0-9]{2}-[0-9]{2}-[0-9]{4}' }
+programmes_prime_date:
+    path: '/programmes-tv/ce-soir/{date}/'
+    defaults: { _controller: 'programmes_tv_controller::ce_soir_action', network: null }
+    requirements: { date: '[0-9]{2}-[0-9]{2}-[0-9]{4}' }
+programmes_prime_network:
+    path: '/programmes-tv/ce-soir/{network}/'
+    defaults: { _controller: 'programmes_tv_controller::ce_soir_network_action' }
+programmes_prime_tonight:
+    path: /programmes-tv/ce-soir/
+    defaults: { _controller: 'programmes_tv_controller::ce_soir_action' }
+programmes_en_direct_with_params:
+    path: '/programmes-tv/en-direct/{network}/'
+    defaults: { _controller: 'programmes_tv_controller::en_direct_action' }
+programmes_en_direct:
+    path: /programmes-tv/en-direct/
+    defaults: { _controller: 'programmes_tv_controller::en_direct_action', network: null }
+programmes_timeslot_network:
+    path: '/programmes-tv/{date}/{from_hour}h-{to_hour}h/{network}/'
+    defaults: { _controller: 'programmes_tv_controller::timeslot_action' }
+    requirements: { date: '[0-9]{2}-[0-9]{2}-[0-9]{4}', from_hour: '[0-9]{1,}', to_hour: '[0-9]{1,}' }
+programmes_timeslot:
+    path: '/programmes-tv/{date}/{from_hour}h-{to_hour}h/'
+    defaults: { _controller: 'programmes_tv_controller::timeslot_action', network: null }
+    requirements: { date: '[0-9]{2}-[0-9]{2}-[0-9]{4}', from_hour: '[0-9]{1,}', to_hour: '[0-9]{1,}' }
+programmes_prime_a_ne_pas_manquer:
+    path: /programmes-tv/a-ne-pas-manquer/
+    defaults: { _controller: 'programmes_tv_controller::a_ne_pas_manquer_action' }
+chaine_tv_programmes_date:
+    path: '/programmes-tv/{channel_alias}/{date}/'
+    defaults: { _controller: 'chaine_tv_controller::programmes_tv_action', channel_id: null, bundle: 'program' }
+chaine_tv_programmes:
+    path: '/programmes-tv/{channel_alias}/'
+    defaults: { _controller: 'chaine_tv_controller::programmes_tv_action', channel_id: null, date: null, bundle: 'program' }
+    options:
+        sitemap: true
+        sitemap_builder: PlayTv\Sitemap\Builder\Channel\Broadcast
+programmes:
+    path: /programmes-tv/
+    defaults: { _controller: 'programmes_tv_controller::index_action' }
+
+# programme
+
+programme:
+    path: '/programme-tv/{program_id}/{program_alias}/'
+    defaults: { _controller: 'programme_tv_controller::index_action'}
+    options:
+        sitemap: true
+        sitemap_builder: PlayTv\Sitemap\Builder\Program
+
+# people
+
+people_index:
+    path: '/people/{cast_id}/{cast_alias}/'
+    defaults: { _controller: 'people_controller::index_action' }
+    options:
+        sitemap: true
+        sitemap_builder: PlayTv\Sitemap\Builder\Cast
+
+# replay_tv
+
+## date based gendertypeid
+replay_legacy_uri_date_gendertypeid_channelalias_page:
+    path: '/replay-tv/{date}/{gendertypeid}/{channelalias}/{page}/'
+    defaults:
+        _controller: 'replay_tv_controller::legacy_uri_gendertypeid_action'
+    requirements:
+        date: '[0-9]{2}-[0-9]{2}-[0-9]{4}'
+        gendertypeid: \d+
+        page: \d+
+
+replay_legacy_uri_date_gendertypeid_channelalias:
+    path: '/replay-tv/{date}/{gendertypeid}/{channelalias}/'
+    defaults:
+        _controller: 'replay_tv_controller::legacy_uri_gendertypeid_action'
+    requirements:
+        date: '[0-9]{2}-[0-9]{2}-[0-9]{4}'
+        gendertypeid: \d+
+
+replay_legacy_uri_date_gendertypeid:
+    path: '/replay-tv/{date}/{gendertypeid}/'
+    defaults:
+        _controller: 'replay_tv_controller::legacy_uri_gendertypeid_action'
+    requirements:
+        date: '[0-9]{2}-[0-9]{2}-[0-9]{4}'
+        gendertypeid: \d+
+
+## gendertypeid based
+replay_legacy_uri_gendertypeid_channelalias_page:
+    path: '/replay-tv/{gendertypeid}/{channelalias}/{page}/'
+    defaults:
+        _controller: 'replay_tv_controller::legacy_uri_gendertypeid_action'
+    requirements:
+        gendertypeid: \d+
+        page: \d+
+
+replay_legacy_uri_gendertypeid_channelalias:
+    path: '/replay-tv/{gendertypeid}/{channelalias}/'
+    defaults:
+        _controller: 'replay_tv_controller::legacy_uri_gendertypeid_action'
+    requirements:
+        gendertypeid: \d+
+
+replay_legacy_uri_gendertypeid:
+    path: '/replay-tv/{gendertypeid}/'
+    defaults:
+        _controller: 'replay_tv_controller::legacy_uri_gendertypeid_action'
+    requirements:
+        gendertypeid: \d+
+
+## date based
+replay_legacy_uri_date_gender_TOUS_page:
+    path: '/replay-tv/{date}/{gender_alias}/tous/{page}/'
+    defaults: { _controller: 'replay_tv_controller::legacy_uri_action'}
+    requirements:
+        date: '[0-9]{2}-[0-9]{2}-[0-9]{4}'
+        gender_alias: 'tous|series-tv|actualite|sport|jeunesse|magazine|divertissement|documentaires|fictions|musique|autres'
+replay_legacy_uri_date_gender_TOUS:
+    path: '/replay-tv/{date}/{gender_alias}/tous/'
+    defaults: { _controller: 'replay_tv_controller::legacy_uri_action', page: null }
+    requirements:
+        date: '[0-9]{2}-[0-9]{2}-[0-9]{4}'
+        gender_alias: 'tous|series-tv|actualite|sport|jeunesse|magazine|divertissement|documentaires|fictions|musique|autres'
+replay_legacy_uri_1:
+    path: '/replay-tv/{date}/{gender_alias}/{channel_alias}/{page}/'
+    defaults: { _controller: 'replay_tv_controller::legacy_uri_action' }
+    requirements:
+        date: '[0-9]{2}-[0-9]{2}-[0-9]{4}'
+        gender_alias: 'tous|series-tv|actualite|sport|jeunesse|magazine|divertissement|documentaires|fictions|musique|autres'
+replay_legacy_uri_2:
+    path: '/replay-tv/{date}/{gender_alias}/{channel_alias}/'
+    defaults: { _controller: 'replay_tv_controller::legacy_uri_action', page: null }
+    requirements:
+        date: '[0-9]{2}-[0-9]{2}-[0-9]{4}'
+        gender_alias: 'tous|series-tv|actualite|sport|jeunesse|magazine|divertissement|documentaires|fictions|musique|autres'
+replay_legacy_uri_3:
+    path: '/replay-tv/{date}/{gender_alias}/'
+    defaults: { _controller: 'replay_tv_controller::legacy_uri_action', channel_alias: null, page: null }
+    requirements:
+        date: '[0-9]{2}-[0-9]{2}-[0-9]{4}'
+        gender_alias: 'tous|series-tv|actualite|sport|jeunesse|magazine|divertissement|documentaires|fictions|musique|autres'
+replay_legacy_uri_4:
+    path: '/replay-tv/{date}/'
+    defaults: { _controller: 'replay_tv_controller::legacy_uri_action', gender_alias: null, channel_alias: null, page: null }
+    requirements:
+        date: '[0-9]{2}-[0-9]{2}-[0-9]{4}'
+
+## gender based
+replay_legacy_uri_gender_channel_page:
+    path: '/replay-tv/{gender_alias}/{channel_alias}/{page}/'
+    defaults: { _controller: 'replay_tv_controller::legacy_uri_action', date: null }
+    requirements:
+        gender_alias: 'tous|series-tv|actualite|sport|jeunesse|magazine|divertissement|documentaires|fictions|musique|autres'
+replay_legacy_uri_gender_channel:
+    path: '/replay-tv/{gender_alias}/{channel_alias}/'
+    defaults: { _controller: 'replay_tv_controller::legacy_uri_action', date: null, page: null }
+    requirements:
+        gender_alias: 'tous|series-tv|actualite|sport|jeunesse|magazine|divertissement|documentaires|fictions|musique|autres'
+replay_legacy_uri_gender:
+    path: '/replay-tv/{gender_alias}/'
+    defaults: { _controller: 'replay_tv_controller::legacy_uri_action', date: null, channel_alias: null, page: null }
+    requirements:
+        gender_alias: 'tous|series-tv|actualite|sport|jeunesse|magazine|divertissement|documentaires|fictions|musique|autres'
+
+replay_show:
+    path: '/replay/show/{video_id}/'
+    defaults: { _controller: 'replay_tv_controller::no_referrer_action', bundle: 'replay' }
+replay_legacy_uri_replay_date:
+    path: '/replay/{video_id}/{title}/{date}/'
+    defaults: { _controller: 'replay_tv_controller::replay_action', bundle: 'replay' }
+    requirements:
+        date: '[0-9]{2}-[0-9]{2}-[0-9]{4}'
+replay_replay:
+    path: '/replay/{video_id}/{title}/'
+    defaults: { _controller: 'replay_tv_controller::replay_action', date: null, bundle: 'replay' }
+replay_replay_no_title:
+    path: '/replay/{video_id}/'
+    defaults: { _controller: 'replay_tv_controller::replay_action', title: null, date: null, bundle: 'replay' }
+replay_channel_videos:
+    path: '/replay-tv/videos/{channel_alias}/'
+    defaults: { _controller: 'replay_tv_controller::videos_action', channel_id: null, bundle: 'replay' }
+    options:
+        sitemap: true
+        sitemap_builder: PlayTv\Sitemap\Builder\Replay
+replay_videos:
+    path: '/replay-tv/videos/'
+    defaults: { _controller: 'replay_tv_controller::videos_action', bundle: 'replay' }
+replay_tv_index:
+    path: /replay-tv/
+    defaults: { _controller: 'replay_tv_controller::index_action', bundle: 'replay' }
+
+# url
+
+url_index:
+    path: /url/
+    defaults: { _controller: 'url_controller::index_action' }
+
+# live_tweets
+
+live_tweets_block_social_tv_posts_channel:
+    path: '/live-tweets/block-social-tv-posts/{channel_alias}/'
+    defaults: { _controller: 'live_tweets_controller::block_social_tv_posts_channel_action' }
+live_tweets_block_social_tv_posts_index:
+    path: '/live-tweets/block-social-tv-posts/'
+    defaults: { _controller: 'live_tweets_controller::block_social_tv_posts_action' }
+live_tweets_channel:
+    path: '/live-tweets/{channel_alias}/'
+    defaults: { _controller: 'live_tweets_controller::index_action', bundle: 'social' }
+live_tweets_index:
+    path: '/live-tweets/'
+    defaults: { _controller: 'live_tweets_controller::index_action', channel_alias: null, bundle: 'social' }
+
+# recherche
+
+recherche:
+    path: /recherche/
+    defaults: { _controller: 'recherche_controller::index_action' }
+
+
+# oauth
+
+oauth_facebook:
+    path: /oauth/facebook/
+    defaults: { _controller: 'oauth_controller::facebook_action' }
+oauth_facebook_deauthorize:
+    path: /oauth/facebook/deauthorize/
+    defaults: { _controller: 'oauth_controller::facebook_deauthorize_action' }
+oauth_facebook_connect:
+    path: /oauth/facebook/connect/
+    defaults: { _controller: 'oauth_controller::facebook_connect_action' }
+
+# bouncer
+
+bouncer_register:
+    path: /inscription/
+    defaults: { _controller: 'bouncer_controller::register_action', bundle:'bouncer' }
+bouncer_register_verify:
+    path: /inscription/verification/
+    defaults: { _controller: 'bouncer_controller::register_verify_action' }
+bouncer_request_confirmation_email:
+    path: /email-de-confirmation/demande/
+    defaults: { _controller: 'bouncer_controller::request_confirmation_email_action' }
+bouncer_login:
+    path: /connexion/
+    defaults: { _controller: 'bouncer_controller::login_action', bundle:'bouncer' }
+bouncer_logout:
+    path: /deconnexion/
+    defaults: { _controller: 'bouncer_controller::logout_action' }
+bouncer_forgot_password:
+    path: /mot-de-passe-oublie/
+    defaults: { _controller: 'bouncer_controller::forgot_password_action', bundle:'bouncer' }
+bouncer_password_verify:
+    path: /mot-de-passe-oublie/verification/
+    defaults: { _controller: 'bouncer_controller::forgot_password_verify_action' }
+bouncer_reinitialize_password:
+    path: /reinitialisation-mot-de-passe/
+    defaults: { _controller: 'bouncer_controller::reinitialize_password_action', bundle:'bouncer' }
+
+# account
+
+account_profile:
+    path: /mon-compte/profil/
+    defaults: { _controller: 'account_controller::profile_action', bundle:'account' }
+account_subscriptions:
+    path: /mon-compte/abonnements/
+    defaults: { _controller: 'account_controller::subscriptions_action', bundle:'account' }
+account_notifications:
+    path: /mon-compte/notifications/
+    defaults: { _controller: 'account_controller::notifications_action', bundle:'account' }
+account_cancel_subscription:
+    path: /mon-compte/abonnements/resilier/
+    defaults: { _controller: 'account_controller::cancel_subscription_action', bundle:'account' }
+account_change_password:
+    path: /mon-compte/changement-mot-de-passe/
+    defaults: { _controller: 'account_controller::change_password_action', bundle:'account' }
+account_change_credit_card_infos:
+    path: /mon-compte/coordonnees-bancaires/
+    defaults: { _controller: 'account_controller::change_credit_card_infos_action', bundle:'account' }
+account_deactivate:
+    path: /mon-compte/suppression/
+    defaults: { _controller: 'account_controller::delete_action' }
+
+# sales
+
+# sales_product_detail:
+#     path: '/nos-offres/{alias}/'
+#     defaults: { _controller: 'sales_controller::product_action', bundle: 'sales' }
+# sales_plans:
+#     path: /nos-offres/
+#     defaults: { _controller: 'sales_controller::plans_action', bundle: 'sales' }
+# sales_webhook:
+#     path: /paymill/webhook/
+#     defaults: { _controller: 'sales_controller::webhook_action' }
+sales_noop:
+    path: /noop-190240101/
+    defaults: { _controller: 'sales_controller::noop_action', bundle: 'sales' }
+
+# cart
+
+# cart_index:
+#     path: /panier/
+#     defaults: { _controller: 'cart_controller::index_action' }
+# cart_crowdfunding:
+#     path: /panier/nous-soutenir/
+#     defaults: { _controller: 'cart_controller::crowdfunding_action' }
+
+# order
+
+# order_index:
+#     path: /commande/
+#     defaults: { _controller: 'order_controller::index_action', bundle: 'sales' }
+# order_confirm:
+#     path: /commande/confirmation/
+#     defaults: { _controller: 'order_controller::confirm_action', bundle: 'sales' }
+# order_error:
+#     path: /commande/erreur/
+#     defaults: { _controller: 'order_controller::error_action', bundle: 'sales' }
+# order_status:
+#     path: /commande/status/
+#     defaults: { _controller: 'order_controller::status_action' }
+# order_validate_age:
+#     path: /commande/validation-age/
+#     defaults: { _controller: 'order_controller::validate_age_action' }
+# order_register:
+#     path: /commande/inscription/
+#     defaults: { _controller: 'order_controller::register_action' }
+# order_payment:
+#     path: /commande/coordonnees-bancaires/
+#     defaults: { _controller: 'order_controller::payment_action' }
+# order_account:
+#     path: /commande/informations-client/
+#     defaults: { _controller: 'order_controller::account_action' }
+# order_cellpass:
+#     path: /commande/cellpass/
+#     defaults: { _controller: 'order_controller::cellpass_action' }
+# cellpass_callback_init:
+#     path: /cellpass/callback/init/
+#     defaults: { _controller: 'order_controller::cellpass_callback_init_action' }
+# cellpass_callback_init_resil:
+#     path: /cellpass/callback/init-resil/
+#     defaults: { _controller: 'account_controller::cellpass_callback_init_resil_action' }
+# paypal_return_url:
+#     path: /paypal/confirmation/
+#     defaults: { _controller: 'order_controller::paypal_return_action' }
+# paypal_cancel_url:
+#     path: /paypal/annulation/
+#     defaults: { _controller: 'order_controller::paypal_cancel_action' }
+
+# trailer
+
+block_trailer:
+    path: '/trailer/block-trailer/{program_id}/'
+    defaults: { _controller: 'trailer_controller::block_trailer_action' }
+trailer_embed:
+    path: '/trailer/embed/{program_id}/'
+    defaults: { _controller: 'trailer_controller::embed_action' }
+trailer:
+    path: '/trailer/{program_id}/'
+    defaults: { _controller: 'trailer_controller::index_action'}
+
+# newsletter
+
+newsletter_unsubscribe:
+    path: /newsletter/desabonnement/
+    defaults: { _controller: 'newsletter_controller::unsubscribe_action', bundle: 'account' }
+
+# faq
+
+faq_adblock:
+    path: /faq/adblock/
+    defaults: { _controller: 'faq_controller::adblock_action' }
+faq_index:
+    path: /faq/
+    defaults: { _controller: 'faq_controller::index_action' }
+faq_flash_player:
+    path: /faq/flash-player/
+    defaults: { _controller: 'faq_controller::flash_player_action' }
+faq_chaine_indisponible:
+    path: /faq/chaine-indisponible/
+    defaults: { _controller: 'faq_controller::chaine_indisponible_action' }
+faq_hors_bouquet:
+    path: /faq/hors-bouquet/
+    defaults: { _controller: 'faq_controller::hors_bouquet_action' }
+faq_saccades_video:
+    path: /faq/saccades-video/
+    defaults: { _controller: 'faq_controller::saccades_video_action' }
+faq_probleme_son:
+    path: /faq/probleme-son/
+    defaults: { _controller: 'faq_controller::probleme_son_action' }
+faq_qualite_video:
+    path: /faq/qualite-video/
+    defaults: { _controller: 'faq_controller::qualite_video_action' }
+faq_rapport_erreur:
+    path: /faq/rapport-erreur/
+    defaults: { _controller: 'faq_controller::rapport_erreur_action' }
+faq_revoir_enregistrer:
+    path: /faq/revoir-enregistrer/
+    defaults: { _controller: 'faq_controller::revoir_enregistrer_action' }
+faq_smartphones:
+    path: /faq/smartphones/
+    defaults: { _controller: 'faq_controller::smartphones_action' }
+faq_tablettes:
+    path: /faq/tablettes/
+    defaults: { _controller: 'faq_controller::tablettes_action' }
+faq_vo_sous_titres:
+    path: /faq/vo-sous-titres/
+    defaults: { _controller: 'faq_controller::vo_sous_titres_action' }
+faq_france_3_region:
+    path: /faq/france-3-region/
+    defaults: { _controller: 'faq_controller::france_3_region_action' }
+faq_erreur_programme:
+    path: /faq/erreur-programme/
+    defaults: { _controller: 'faq_controller::erreur_programme_action' }
+faq_remarques_programmation:
+    path: /faq/remarques-programmation/
+    defaults: { _controller: 'faq_controller::remarques_programmation_action' }
+faq_compte_utilisateur:
+    path: /faq/compte-utilisateur/
+    defaults: { _controller: 'faq_controller::compte_utilisateur_action' }
+faq_supprimer_compte_utilisateur:
+    path: /faq/supprimer-compte-utilisateur/
+    defaults: { _controller: 'faq_controller::supprimer_compte_utilisateur_action' }
+faq_resilier_abonnement:
+    path: /faq/resilier-abonnement/
+    defaults: { _controller: 'faq_controller::resilier_abonnement_action' }
+
+# aide
+
+help_support:
+    path: /aide/support/
+    defaults: { _controller: 'aide_controller::support_action', bundle: 'feedback' }
+aide_config:
+    path: /aide/config/
+    defaults: { _controller: 'aide_controller::config_action', bundle: 'feedback' }
+aide_index:
+    path: /aide/
+    defaults: { _controller: 'aide_controller::index_action' }
+
+# debug
+
+debug_index:
+    path: /debug/
+    defaults: { _controller: 'debug_controller::index_action' }
+debug_phpinfo:
+    path: /debug/phpinfo/
+    defaults: { _controller: 'debug_controller::phpinfo_action' }
+
+# adblock
+
+adblock_index:
+    path: /adblock/
+    defaults: { _controller: 'adblock_controller::index_action' }
+
+# ad
+
+ad_television:
+    path: /ad/television/
+    defaults: { _controller: 'ad_controller::television_action' }
+ad_taboola:
+    path: /ad/taboola/
+    defaults: { _controller: 'ad_controller::taboola_action' }
+
+# ui
+
+ui_block_account_header:
+    path: /ui/block-account-header/
+    defaults: { _controller: 'ui_controller::block_account_header_action' }
+ui_block_account_facebook_connect:
+    path: /ui/block-account-facebook-connect/
+    defaults: { _controller: 'ui_controller::block_account_facebook_connect_action' }
+
+# toplive
+
+toplive_index:
+    path: /toplive/
+    defaults: { _controller: 'toplive_controller::index_action' }
+
+# groupes
+
+groupes:
+    path: '/{type_alias}/{group_id}/{group_alias}/'
+    defaults: { _controller: 'groupes_controller::groupe_action' }
+    requirements:
+        type_alias: (serie-tv|films|emission|groupe)
+    options:
+        type_alias: { 1: serie-tv, 2: films, 3: emission}
+        type_alias_default: groupe
+        sitemap: true
+        sitemap_builder: PlayTv\Sitemap\Builder\Group
+
+# index
+
+homepage:
+    path: /
+    defaults: { _controller: 'index_controller::index_action' }

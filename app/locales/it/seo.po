@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+
+msgid "adblock_index.title"
+msgstr "Utilizzi Adblock Plus"
+
+msgid "chaine_tv.title"
+msgstr "A proposito di %channel%"
+
+msgid "chaine_tv_a_suivre.title"
+msgstr "Da seguire in diretta su %channel%"
+
+msgid "chaine_tv_en_direct.title"
+msgstr "In diretta su %channel%"
+
+msgid "homepage.meta.description"
+msgstr "La televisione gratuita in diretta e i programmi TV in replica sul web."
+
+msgid "homepage.title"
+msgstr "Play TV, un servizio vero per guardare la TV sul web"
+
+msgid "programme.title"
+msgstr "Guardare %program% in diretta"
+
+msgid "programmes.meta.description"
+msgstr "Il tuo programma TV preferito e l'elenco completo dei principali canali, TNT, cavo e satellite."
+
+msgid "programmes.title"
+msgstr "Guida dei programmi TV"
+
+msgid "programmes_prime_a_ne_pas_manquer.title"
+msgstr "Programmi TV da non perdere"
+
+msgid "replay_replay.meta.description"
+msgstr "Rivedere gratuitamente la replica del programma TV %program% del canale %channel% sul web con playtv.fr, la piattaforma che trasmette programmi TV."
+
+msgid "replay_replay.title"
+msgstr "Guardare la replica di %program% sul web"
+
+msgid "replay_tv_index.title"
+msgstr "Guida dei programmi TV in replica per rivedere i tuoi programmi preferiti"
+
+msgid "television_channel_single.meta.description"
+msgstr "Guardare gratuitamente la diretta del canale %channel% sul web con playtv.fr, la piattaforma che trasmette le dirette TV."
+
+msgid "television_channel_single.title"
+msgstr "Guardare il canale %channel% in diretta sul web"
+
+msgid "television_index.meta.description"
+msgstr "Rivedere gratuitamente la diretta di oltre %count% canali sul web con playtv.fr, la piattaforma che trasmette le dirette TV."
+
+msgid "television_index.title"
+msgstr "Guardare la TV in diretta sul web"
+
+msgid "chaine_tv_programmes.title"
+msgstr "Programma TV del canale %channel% di questa sera"
+
+msgid "chaine_tv_programmes.meta.description"
+msgstr "Tutti i programmi TV del canale %channel% di questa sera"
+
+msgid "chaine_tv_programmes_date.title"
+msgstr "Programmi TV del canale %channel% del %date%"
+
+msgid "recherche.title"
+msgstr "Ricerca per programma, video, ecc."
+
+msgid "recherche:chaines.title"
+msgstr "Ricerca per canale TV"
+
+msgid "recherche:personnes.title"
+msgstr "Ricerca per soggetto"
+
+msgid "recherche:programmes.title"
+msgstr "Ricerca per programma"
+
+msgid "recherche:videos.title"
+msgstr "Ricerca per video"
+
+msgid "television_mosaique_direct.title"
+msgstr "Il tuo bouquet di canali in diretta"
+
+msgid "television_mosaique_categories.title"
+msgstr "Tutti i canali divisi per categoria"
+
+msgid "television_mosaique_themes.title"
+msgstr "Tutti i canali divisi per tematica"
+
+msgid "television_mosaique_replay_tv.title"
+msgstr "Modalità replay per tutti i canali"
+
+msgid "programmes_prime_tonight.title"
+msgstr "Programmi TV serali"
+
+msgid "programmes_prime_tonight.meta.description"
+msgstr "L'elenco completo dei programmi televisivi serali con la programmazione canale per canale"
+
+msgid "programmes_prime_date.title"
+msgstr "Programmi TV serali del %date%"
+
+msgid "programmes_prime_date.meta.description"
+msgstr "L'elenco completo dei programmi televisivi serali del %date% con la programmazione canale per canale"
+
+msgid "programmes_en_direct.title"
+msgstr "Programmi TV in diretta in televisione"
+
+msgid "programmes_en_direct.meta.description"
+msgstr "Rivedi tutti i programmi televisivi in diretta TV"
+
+msgid "programmes_timeslot.title"
+msgstr "Programmi TV del %date% dalle %from%h alle %to%h"
+
+msgid "programmes_timeslot.meta.description"
+msgstr "Rivedi tutti i programmi TV del %date% dalle %from%h alle %to%h"
+
+msgid "replay_videos.title"
+msgstr "Tutte le repliche dei programmi TV"
+
+msgid "replay_videos.meta.description"
+msgstr "Rivedere le repliche dei programmi TV"
+
+msgid "replay_videos:date.title"
+msgstr "Tutte le repliche dei programmi del %date%"
+
+msgid "replay_videos:date.meta.description"
+msgstr "Rivedere le repliche dei programmi TV % dal %date%"
+
+msgid "replay_videos:channel.title"
+msgstr "Tutte le repliche dei programmi TV del canale %channel%"
+
+msgid "replay_videos:channel.meta.description"
+msgstr "Rivedere le repliche dei programmi TV % del canale %channel_with_genres%"
+
+msgid "replay_videos:gender.title"
+msgstr "Tutte le repliche dei programmi TV %genre%"
+
+msgid "replay_videos:gender.meta.description"
+msgstr "Rivedere le repliche dei programmi TV %genre%"
+
+msgid "replay_videos:channel_date.title"
+msgstr "Tutte le repliche dei programmi del canale %channel% del %date%"
+
+msgid "replay_videos:channel_date.meta.description"
+msgstr "Rivedere le repliche dei programmi TV % del canale %channel_with_genres% del %date%"
+
+msgid "replay_videos:gender_date.title"
+msgstr "Tutte le repliche dei programmi TV %genre% dal %date%"
+
+msgid "replay_videos:gender_date.meta.description"
+msgstr "Rivedere le repliche dei programmi TV %genre% dal %date%"
+
+msgid "replay_videos:channel_gender.title"
+msgstr "Tutte le repliche dei programmi TV %genre% del canale %channel%"
+
+msgid "replay_videos:channel_gender.meta.description"
+msgstr "Rivedere le repliche dei programmi TV %genre% del canale %channel_with_genres"
+
+msgid "replay_videos:channel_gender_date.title"
+msgstr "Tutte le repliche dei programmi TV %genre% del canale %channel% del %date%"
+
+msgid "replay_videos:channel_gender_date.meta.description"
+msgstr "Rivedere le repliche dei programmi TV %genre% del canale %channel_with_genres% dal %date%"
+
+msgid "common.append_network"
+msgstr "%page_title% bouquet %network%"

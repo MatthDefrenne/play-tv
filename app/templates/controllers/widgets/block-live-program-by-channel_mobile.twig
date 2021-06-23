@@ -1,0 +1,54 @@
+<div class="pmd-LiveTvSummary">
+
+  {% if live_program %}
+  <h3 class="pmd-LiveTvSummary-heading">
+    {{ live_program.program.fulltitle }}{% if live_program.program.year %} ({{ live_program.program.year }}){% endif %}
+  </h3>
+  <p class="pmd-LiveTvSummary-sentence">
+    {% spaceless %}
+    {{ live_program.program.summary|striptags }}
+    {% endspaceless %}
+  </p>
+  {% else %}
+  <p class="pmd-LiveTvSummary-sentence">
+    {% trans %}
+    No summary for this program.
+    {% endtrans %}
+  </p>
+  {% endif %}
+
+</div>
+
+{% if live_program %}
+<div class="pmd-ProgrammeDetailsCasting">
+
+  <ul class="pmd-ProgrammeDetailsCasting-headingList">
+    {% if live_program.casts.according_to is defined %}
+    {% for status in live_program.casts.according_to %}
+    <li class="pmd-ProgrammeDetailsCasting-headingListItem">
+      <p class="pmd-ProgrammeDetailsCasting-headingWord">{{ status.status }} :</p>
+      <ul class="pmd-ProgrammeDetailsCasting-contentList">
+        {% for cast in status.casts %}
+        <li class="pmd-ProgrammeDetailsCasting-contentListItem">{{ cast.fullname }}{% if cast.role %} ({{ cast.role }}){% endif %}</li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+    {% endif %}
+
+    {% if live_program.casts.casting is defined %}
+    {% for status in live_program.casts.casting %}
+    <li class="pmd-ProgrammeDetailsCasting-headingListItem">
+      <p class="pmd-ProgrammeDetailsCasting-headingWord">{{ status.status }} :</p>
+      <ul class="pmd-ProgrammeDetailsCasting-contentList">
+        {% for cast in status.casts %}
+        <li class="pmd-ProgrammeDetailsCasting-contentListItem">{{ cast.fullname }}{% if cast.role %} ({{ cast.role }}){% endif %}</li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+    {% endif %}
+  </ul>
+
+</div>
+{% endif %}

@@ -1,0 +1,13 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<div class="pmd-TvProgramme">
+
+  {% include "partials/subnav-guide-tv_mobile.twig" with {"subnav_active": presets} %}
+
+  <div class="pmd-js-TvProgrammeContent">
+    {{ broadcasts_presets|raw }}
+  </div>
+
+</div>
+{% endblock %}

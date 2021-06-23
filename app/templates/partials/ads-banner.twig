@@ -1,0 +1,34 @@
+{% if
+  (display_ads == true) and
+  (is_connected == false or (is_connected and current_account.isPremium() == false))
+%}
+{% if zone_id == 8 or zone_id == 27 %}
+  {% set advar="criteo" %}
+{% else %}
+  {% set advar="videology" %}
+{% endif %}
+<div class="sqrpub{% if zone_id == 36 %} mega-sqrpub{% endif %}">
+  <div class="{{ unique }}">
+    <iframe
+      {% if zone_id == 36 %}width="300" height="600"{% else %}width="300" height="250"{% endif %}
+      scrolling="no"
+      frameborder="0"
+      class="pmd-js-Lazyload"
+      src="{{ hosts.ad_full_secure }}/delivery/afr.php?cb={{ now }}&amp;n={{ unique }}&amp;zoneid={{ zone_id }}&amp;{{ advar }}=true&amp;country={{ country }}"
+      name="{{ unique }}"
+      id="{{ unique }}"
+      allowtransparency="true">
+        <a href="{{ hosts.ad }}/delivery/ck.php?cb={{ now }}&amp;n={{ unique }}" target="_blank">
+          <img
+            src="{{ hosts.ad }}/delivery/avw.php?cb={{ now }}&amp;n={{ unique }}&amp;zoneid={{ zone_id }}&amp;{{ advar }}=true&amp;country={{ country }}"
+            border="0"
+            alt="" />
+        </a>
+    </iframe>
+  </div>
+  <script>
+      var ads_unique_id = '{{ unique }}';
+      var tmp_banner_url = '{{ hosts.ad_full_secure }}/delivery/afr.php?cb={{ now }}&amp;n={{ unique }}&amp;zoneid={{ zone_id }}&amp;{{ advar }}=true&amp;country={{ country }}';
+  </script>
+</div>
+{% endif %}

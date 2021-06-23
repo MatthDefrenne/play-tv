@@ -1,0 +1,40 @@
+{% extends "controllers/faq/_header.twig" %}
+
+{% block faq_content %}
+  <h2 class="margin">3.1. Je cherche à revoir ou à enregistrer un programme TV en particulier</h2>
+  <p>
+    Vous avez manqué un programme qui passait à la télévision ? Vous souhaitez revoir un événement sportif qui a été diffusé en direct ou le dernier journal télévisé ? Vous aimeriez enregistrer un film qui passera prochainement ? Nous répondons à vos questions.
+  </p>
+
+  <h3>
+    <strong>Comment revoir une émission ou un film diffusé à la télévision ?</strong>
+  </h3>
+
+  <p>
+    La plupart des chaînes de télévision développent des solutions de "replay" ou "catchup tv" depuis quelques années. Nous pensons que cette offre n'est pas toujours facile à parcourir ou rechercher, et que l'internaute s'y perd.
+  </p>
+
+  <p>
+    <strong>C'est pourquoi nous avons décidé</strong> de proposer un répertoire ou annuaire de <strong>l'offre de &laquo; <a href="/replay-tv/">Replay TV</a> » </strong> en France.
+  </p>
+
+  <p>Avec {{ request.host }} vous pouvez :</p>
+
+  <ul>
+    <li>Retrouver les <strong>dernières vidéos publiées</strong> par les chaînes, en filtrant les résultats par chaîne ou par date.</li>
+    <li>Vous ne cherchez rien de particulier ? Nous vous suggérons des <strong>séries TV</strong>, <strong>films</strong> ou <strong>documentaires</strong> à revoir.</li>
+    <li>Un programme spécifique ? Retrouvez la vidéo à partir de son titre dans notre <strong>moteur de recherche</strong>.</li>
+  </ul>
+
+  <div class="image">
+    <img src="{{ apps_base_url }}/images/faq/faq-replay.png" alt="Replay TV">
+  </div>
+
+  <h3>
+    <strong>Comment enregistrer un programme ?</strong>
+  </h3>
+
+  <p>
+    <strong>Nous n'offrons pas de service d'enregistrement à distance</strong>. Cette fonctionnalité ne fait pas partie de nos priorité à court terme.
+  </p>
+{% endblock faq_content %}

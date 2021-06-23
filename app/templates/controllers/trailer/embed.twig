@@ -1,0 +1,44 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      html,
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+
+    {% if program.trailer.streams.paristream is not empty %}
+      {#
+        player: 488x301
+        +26px in height for control bar
+
+        FIXME: autostart=true in script url does not properly autostart video (new browser policy)
+        WORKAROUND: temporary set to 0
+      #}
+
+      {% if isMobile is defined and isMobile == true %}
+      <script type="text/javascript" src="https://c.paristream.com/Zx89YmTe-{{ program.trailer.streams.paristream.id }}.js?autostart=0&w={{ pWidth }}&h={{ pHeight }}&t={{ program.trailer.streams.paristream.token }}"></script>
+      {% else %}
+      <script type="text/javascript" src="https://c.paristream.com/Zx89YmTe-{{ program.trailer.streams.paristream.id }}.js?autostart=0&w=488&h=301&t={{ program.trailer.streams.paristream.token }}"></script>
+      {% endif %}
+    {% elseif format == 'html5' %}
+      <script type="text/javascript" src="https://c.paristream.com/Zx89YmTe-{{ program.trailer.streams.paristream.id }}.js?autostart=0&w=488&h=301&t={{ program.trailer.streams.paristream.token }}"></script>
+      {#
+      <video width="488" height="301" controls {% if autoplay %}autoplay{% endif %}>
+        <source src="{{ program.trailer.streams.html5 }}" type="video/mp4">
+      </video>
+      #}
+    {% elseif format == 'flash' %}
+      {#
+        player: 488x301
+        +26px in height for control bar
+      #}
+      <script src="{{ program.trailer.streams.flash }}"></script>
+    {% endif %}
+
+  </body>
+</html>

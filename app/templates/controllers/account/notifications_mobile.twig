@@ -1,0 +1,24 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<div class="pmd-FormLayout">
+
+  <form action="/mon-compte/notifications/" method="post" class="pmd-js-Profile-notificationsForm pmd-Form">
+    <h3 class="pmd-FormLayout-heading">Mes notifications :</h3>
+
+    {% for segment in segments %}
+        <div class="pmd-InputWrapper pmd-Cf pmd-ProfileFormInput">
+          <input type="checkbox" name="mailing[]" value="{{ segment.id }}" autocomplete="off" {% for subscription in subscriptions %}{% if subscription.id == segment.id %}checked{% endif %}{% endfor %}> <label class="pmd-Label pmd-ProfileForm-label" for="mailing">{{ segment.name }}</label>
+        </div>
+    {% endfor %}
+
+    <div class="pmd-js-Profile-notificationsAlert pmd-Alert pmd-Alert--hidden"></div>
+
+    <button class="pmd-js-Profile-notificationsButtonSubmit pmd-Button pmd-Button--block pmd-Form-buttonSubmit ladda-button" data-style="zoom-out">
+      <span class="ladda-label">Modifier mes notifications</span>
+    </button>
+
+  </form>
+
+</div>
+{% endblock %}

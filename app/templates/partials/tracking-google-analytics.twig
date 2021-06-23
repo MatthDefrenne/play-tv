@@ -1,0 +1,19 @@
+{% if analytics.tracking_on_load == true %}
+<script>
+  var _gaq = [['_setAccount', '{{ analytics.ga }}'], ['_trackPageview']];
+  _gaq.push(['_setCustomVar', 2, 'User Type', {% if is_connected %}'Member'{% else %}'Visitor'{% endif %}, 2]);
+  _gaq.push(['_setCustomVar', 3, 'AccountID', {% if is_connected %}'{{ current_account.getId() }}'{% else %}'0'{% endif %}, 2]);
+  {% if not is_website_fr %}
+  _gaq.push(['_setCustomVar', 4, 'Layout', '{{ layout }}']);
+  {% endif %}
+  {% if request.get['tracking_event'] is defined and request.get['tracking_event'] == 'register' %}
+  _gaq.push(['_trackEvent', 'ACCOUNT', 'EMAIL', 'register']);
+  {% endif %}
+  (function(d) {
+    var g = d.createElement('script'),
+        s = d.scripts[0];
+    g.src = '//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+  }(document));
+</script>
+{% endif %}

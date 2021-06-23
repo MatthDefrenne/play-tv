@@ -1,0 +1,113 @@
+{% spaceless %}
+<header class="pmd-Header">
+    {% if controller_name == 'index' %}
+    <h1 class="pmd-Header-logo">
+    {% else %}
+    <p class="pmd-Header-logo">
+    {% endif %}
+      <a href="/">
+        <img src="{{ apps_base_url }}/images/icons/logo-play-tv.png" alt="Play TV" title="Play TV" width="219" height="60">
+        <span>Play TV</span>
+      </a>
+    {% if controller_name == 'index' %}
+    </h1>
+    {% else %}
+    </p>
+    {% endif %}
+
+    {% if skin != 'light' %}
+    <nav class="pmd-HeaderMenu">
+
+      <ul class="pmd-HeaderMenu-list">
+
+        <li class="pmd-HeaderMenu-listItem">
+          <a href="{{ path('television_index') }}" class="pmd-HeaderMenu-link{% if controller_name in ['television', 'chaine_tv', 'player'] %} pmd-HeaderMenu-link--active{% endif %}">
+
+            <svg role="img" class="pmd-Svg pmd-Svg--tv pmd-HeaderMenu-icon">
+              <use xlink:href="#pmd-Svg--tv"></use>
+            </svg>
+            <span>{% trans %}Live TV{% endtrans %}</span>
+
+          </a>
+        </li>
+
+        <li class="pmd-HeaderMenu-listItem">
+          <a href="{% if is_website_fr %}{{ path('programmes') }}{% else %}{{ path('programmes_en_direct') }}{% endif %}" class="pmd-HeaderMenu-link{% if controller_name in ['programmes_tv', 'programme_tv', 'people', 'toplive'] %} pmd-HeaderMenu-link--active{% endif %}">
+
+            <svg role="img" class="pmd-Svg pmd-Svg--guide pmd-HeaderMenu-icon">
+              <use xlink:href="#pmd-Svg--guide"></use>
+            </svg>
+            <span>{% trans %}TV Guide{% endtrans %}</span>
+
+          </a>
+        </li>
+
+        {% if has_feature('catchup_tv') %}
+        <li class="pmd-HeaderMenu-listItem">
+          <a href="{{ path('replay_tv_index') }}" class="pmd-HeaderMenu-link{% if controller_name in ['replay_tv', 'video'] %} pmd-HeaderMenu-link--active{% endif %}">
+
+            <svg role="img" class="pmd-Svg pmd-Svg--replay pmd-HeaderMenu-icon">
+              <use xlink:href="#pmd-Svg--replay"></use>
+            </svg>
+            <span>{% trans %}Catch Up TV{% endtrans %}</span>
+
+          </a>
+        </li>
+        {% endif %}
+
+      </ul>
+
+    </nav>
+    {% endif %}
+
+
+    <div class="pmd-HeaderSide">
+
+      {#
+      {% if skin != 'light'}
+      <button class="pmd-HeaderSide-icon pmd-HeaderSide-facebook pmd-Icon pmd-Icon--facebook pmd-Button pmd-Button--reset"></button>
+      <button class="pmd-HeaderSide-icon pmd-HeaderSide-twitter pmd-Icon pmd-Icon--twitter pmd-Button pmd-Button--reset"></button>
+      <button class="pmd-HeaderSide-icon pmd-HeaderSide-googleplus pmd-Icon pmd-Icon--googleplus pmd-Button pmd-Button--reset"></button>
+      <button class="pmd-HeaderSide-icon pmd-HeaderSide-share pmd-Icon pmd-Icon--share pmd-Button pmd-Button--reset"></button>
+      {% endif %}
+      #}
+
+      {% if skin != 'light' %}
+      <div class="pmd-HeaderSearch pmd-js-HeaderSearch">
+        <form action="{{ path('recherche') }}" class="pmd-js-HeaderSearch-form">
+          <button type="submit" class="pmd-js-HeaderSearch-button pmd-Button pmd-Button--reset pmd-HeaderSearch-button" title="{% trans %}Search{% endtrans %}">
+            <svg role="img" class="pmd-Svg pmd-Svg--search pmd-HeaderSearch-buttonIcon">
+              <use xlink:href="#pmd-Svg--search"></use>
+            </svg>
+          </button>
+           <input type="text" placeholder="{% trans %}Search on Play TV...{% endtrans %}" name="q" class="pmd-js-HeaderSearch-input pmd-HeaderSearch-input pmd-Input" value="{%if request.get.q is defined %}{{ request.get.q|escape|default('') }}{% endif %}">
+        </form>
+      </div>
+      {% endif %}
+
+      {% if has_feature('account') and skin != 'light' %}
+      <div class="pmd-HeaderSide-split"></div>
+
+      {#
+      <a href="{{ path('sales_plans') }}" class="pmd-HeaderHighlight">
+        <span class="pmd-HeaderHighlight-button pmd-Button pmd-Button--premium">Premium</Pas>
+      </a>
+      #}
+
+      <div class="pmd-js-HeaderAccount pmd-HeaderAccount">
+        {% include "controllers/ui/block-account-header.twig" %}
+      </div>
+      {% endif %}
+
+      {% if skin != 'light' %}
+        {% include "partials/header-country.twig" %}
+      {% endif %}
+
+      {% if skin == 'light' %}
+      <a href="/" class="pmd-js-HeaderReturn pmd-HeaderReturn">< Retour</a>
+      {% endif %}
+
+    </div>
+
+</header>
+{% endspaceless %}

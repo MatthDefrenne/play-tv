@@ -1,0 +1,21 @@
+{% if
+  (display_ads == true) and
+  (is_connected == false or (is_connected and current_account.isPremium() == false)) and
+  (controller_name not in ['account', 'bouncer', 'adblock', 'oauth', 'order', 'pages', 'sales', 'trailer', 'url', 'errors'])
+%}
+{% set zone_id = 32 %}
+{% set unique = "a6842cf1" %}
+<div id="pmd-AdsPlayMedia" style="position: fixed; bottom: 0; width: 100%; height: 50px;">
+  <iframe
+    src="{{ hosts.ad_full_secure }}/delivery/afr.php?cb={{ now }}&amp;n={{ unique }}&amp;zoneid={{ zone_id }}"
+    id="{{ unique }}"
+    width="100%"
+    height="50px"
+    style="margin: 0; border: 0;"
+  >
+    <a href="{{ hosts.ad_full_secure }}/delivery/ck.php?cb={{ now }}&amp;n={{ unique }}" target="_blank">
+      <img src="{{ hosts.ad_full_secure }}/delivery/avw.php?cb={{ now }}&amp;n={{ unique }}&amp;zoneid={{ zone_id }}" border="0" alt="">
+    </a>
+  </iframe>
+</div>
+{% endif %}

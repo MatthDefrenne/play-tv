@@ -1,0 +1,48 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<div class="pmd-LiveTvScreen">
+  <div class="pmd-LiveTvVideo pmd-LiveTvVideo--replay pmd-js-LiveTv-videoContainer">
+  {{ embed_player|raw }}
+  </div>
+  <script src="{{ assets.scripts['inline-television-channel-mobile.js'] }}"></script>
+</div>
+
+<div class="pmd-LiveTvHeading">
+  <a class="pmd-LiveTvHeading-channelLogo" href="{{ infos.channel.channel_broadcast_url }}">
+    <img src="{{ infos.channel.images.small }}" height="28" width="28">
+  </a>
+  <a class="pmd-LiveTvHeading-programmeTitle pmd-Text--truncate">
+    {{ infos.title }}
+  </a>
+</div>
+
+<div class="pmd-LiveTvContent">
+
+  <div class="pmd-Heading pmd-Heading--2x pmd-Heading--light">
+    {% spaceless %}
+    <a href="#summary" class="pmd-js-LiveTv-summary pmd-Heading-words pmd-Heading-words--active">
+      <span>{% trans %}Summary{% endtrans %}</span>
+    </a>
+    {% endspaceless %}
+  </div>
+
+  <div class="pmd-js-LiveTvContent pmd-LiveTvContent">
+
+    <div id="summary">
+      <div class="pmd-LiveTvSummary">
+        <h1 class="pmd-LiveTvSummary-heading">{{ infos.title }}</h1>
+        {% if infos.program %}
+        <p class="pmd-LiveTvSummary-sentence">{{ infos.program.summary }}</p>
+        {% endif %}
+        <a class="pmd-ReplayEmbedLink" href="{{ infos.video_url }}" target="_blank">
+          {% trans %}Direct access to video »{% endtrans %}
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

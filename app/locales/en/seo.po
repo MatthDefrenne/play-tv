@@ -1,0 +1,200 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "adblock_index.title"
+msgstr "You are using Adblock Plus"
+
+msgid "chaine_tv.title"
+msgstr "About %channel%"
+
+msgid "chaine_tv_a_suivre.title"
+msgstr "Watch live on %channel%"
+
+msgid "chaine_tv_en_direct.title"
+msgstr "Live on %channel%"
+
+msgid "homepage.meta.description"
+msgstr "Watch Free 500 Live TV & On demand with TV guide online from worlwide broadcaster: Film, Sports ; News , Football , Magazine, Children Al Jazeera , Euronews , SkyNEws, Bloomberg, Russia Today, DW, 2M Maroc"
+
+msgid "homepage.title"
+msgstr "Play.TV: Watch Free Online TV stations – Watch Live & On Demand TV - TV Guide"
+
+msgid "homepage.meta.keywords"
+msgstr "live tv, Tv online, free online TV stations, tv listing, tv guide, on demand, free, what's on"
+
+msgid "programme.title"
+msgstr "Watch %program% live"
+
+msgid "programmes.meta.description"
+msgstr "TV Listings for all TV channels from Play.TV"
+
+msgid "programmes.title"
+msgstr "TV Guide – TV listing Schedule"
+
+msgid "programmes.meta.keywords"
+msgstr "TV guide, TV listings, TV planner, tonight TV, TV, television, TV shows, TV channels, TV programs, films, gossip, Sports, News, Football, Magazine, Children, Al Jazeera, Euronews, SkyNEws, Bloomberg, Russia Today, DW, 2M Maroc"
+
+msgid "programmes_prime_a_ne_pas_manquer.title"
+msgstr "Must watch TV programs"
+
+msgid "replay_replay.meta.description"
+msgstr "Watch on demand videos of %program% on %channel% for free online with Play TV, your TV platform."
+
+msgid "replay_replay.title"
+msgstr "Watch %program% on demand online"
+
+msgid "replay_tv_index.title"
+msgstr "On demand TV guide, watch your favourite TV shows anytime"
+
+msgid "television_channel_single.meta.description"
+msgstr "Watch Live TV of %channel% free stream online with Play.TV, your Live TV platform."
+
+msgid "television_channel_single.title"
+msgstr "Watch %channel% free Live TV online"
+
+msgid "television_channel_single.meta.keywords"
+msgstr "%channel%, Watch %channel%, TV channel %channel%, %channel% Live, %channel% streaming, Watch %channel% live, free live %channel%, %channel% online, filmon, filmon tv"
+
+msgid "television_radio_single.meta.description"
+msgstr "Listen live radio of %channel% free stream online with your live radio station app."
+
+msgid "television_radio_single.title"
+msgstr "Listen to %channel% live radio online"
+
+msgid "television_radio_single.meta.keywords"
+msgstr "%channel%, Listen %channel%, webradio live, radio FM, Radio station %channel%, %channel% Live, %channel% streaming, Listen %channel% live, free live %channel%, %channel% online"
+
+msgid "television_index.meta.description"
+msgstr "Watch free %count% Live Television channels online with Play.TV"
+
+msgid "television_index.title"
+msgstr "Watch Live TV online for free"
+
+msgid "television_index.meta.keywords"
+msgstr "Free live tv, Online Tv, Live tv for free, free web tv, free streaming tv, live television"
+
+msgid "chaine_tv_programmes.title"
+msgstr "TV Guide of %channel% tonight"
+
+msgid "chaine_tv_programmes.meta.description"
+msgstr "Full TV Guide of %channel% tonight"
+
+msgid "chaine_tv_programmes_date.title"
+msgstr "TV Guide of %channel% on %date%"
+
+msgid "recherche.title"
+msgstr "Search Programs, Videos..."
+
+msgid "recherche:chaines.title"
+msgstr "Search TV Channel"
+
+msgid "recherche:personnes.title"
+msgstr "Search actors"
+
+msgid "recherche:programmes.title"
+msgstr "Search TV Shows"
+
+msgid "recherche:videos.title"
+msgstr "Search Video"
+
+msgid "television_mosaique_direct.title"
+msgstr "Your live TV listing"
+
+msgid "television_mosaique_categories.title"
+msgstr "All TV channels by category"
+
+msgid "television_mosaique_themes.title"
+msgstr "All TV channels by theme"
+
+msgid "television_mosaique_replay_tv.title"
+msgstr "All TV channels On Demand"
+
+msgid "url_index:channel.title"
+msgstr "Watch %channel% live on the channel website"
+
+msgid "url_index:replay_tv.title"
+msgstr "Watch %replay% on demand"
+
+msgid "programmes_prime_tonight.title"
+msgstr "Guide TV listings – What’s on TV tonight"
+
+msgid "programmes_prime_tonight.meta.description"
+msgstr "All best channels, TV guide listing, Online TV schedule from Play.TV"
+
+msgid "programmes_prime_tonight.meta.keywords"
+msgstr "TV guide, TV listings, Tonight’s TV, television, TV program tonight, program, tonight, what’s on"
+
+msgid "programmes_prime_date.title"
+msgstr "TV Guide tonight on %date%"
+
+msgid "programmes_prime_date.meta.description"
+msgstr "Full day TV listings on %date% with TV Guide for each channel"
+
+msgid "programmes_en_direct.title"
+msgstr "Guide TV Listings Shedule - What’s on TV now?"
+
+msgid "programmes_en_direct.meta.description"
+msgstr "TV Listings for all TV channels from Play.TV ; Film, Sports ; News , Football , Magazine, Children Al Jazeera , Euronews , SkyNEws, Bloomberg, Russia Today, DW, 2M Maroc"
+
+msgid "programmes_en_direct.meta.keywords"
+msgstr "TV guide, TV listings, what's on TV, television, planner, TV schedule"
+
+msgid "programmes_timeslot.title"
+msgstr "TV Guide on %date% from %from% to %to%h"
+
+msgid "programmes_timeslot.meta.description"
+msgstr "Find all Live TV Programs on %date% from %from%h to %to%h"
+
+msgid "replay_videos.title"
+msgstr "All the TV shows on demand"
+
+msgid "replay_videos.meta.description"
+msgstr "Watch TV shows on demand"
+
+msgid "replay_videos:date.title"
+msgstr "All the TV shows from %date% on demand"
+
+msgid "replay_videos:date.meta.description"
+msgstr "Watch on demand videos of %date%"
+
+msgid "replay_videos:channel.title"
+msgstr "All the TV shows on %channel% on demand"
+
+msgid "replay_videos:channel.meta.description"
+msgstr "Watch %channel_with_genres% TV shows on demand"
+
+msgid "replay_videos:gender.title"
+msgstr "All the %genre% TV shows on demand"
+
+msgid "replay_videos:gender.meta.description"
+msgstr "Watch %genre% TV shows on demand"
+
+msgid "replay_videos:channel_date.title"
+msgstr "All the TV shows on %channel% from %date% on demand"
+
+msgid "replay_videos:channel_date.meta.description"
+msgstr "Watch TV shows on %channel_with_genres% from %date%"
+
+msgid "replay_videos:gender_date.title"
+msgstr "All the %genre% TV shows from %date% on demand"
+
+msgid "replay_videos:gender_date.meta.description"
+msgstr "Watch %genre% TV shows from %date% on demand"
+
+msgid "replay_videos:channel_gender.title"
+msgstr "All the %genre% TV shows from %channel% on demand"
+
+msgid "replay_videos:channel_gender.meta.description"
+msgstr ""
+
+msgid "replay_videos:channel_gender_date.title"
+msgstr "All the %genre% TV shows on %channel% from %date% on demand"
+
+msgid "replay_videos:channel_gender_date.meta.description"
+msgstr "Watch %genre% on demand videos on %channel_with_genres% from %date%"
+
+msgid "common.append_network"
+msgstr "%page_title% Network %network%"

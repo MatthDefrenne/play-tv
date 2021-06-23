@@ -1,0 +1,166 @@
+{% if is_website_fr %}
+  {% set route_params = {
+    'channel_alias': infos.alias
+  } %}
+{% else %}
+  {% set route_params = {
+    'channel_id': infos.id,
+    'channel_alias': infos.alias
+  } %}
+{% endif %}
+
+<div id="content">
+
+  {% if infos.streamable and infos.id not in france_television|keys %}
+  <div id="program-is-live">
+    {% if infos.is_radio %}
+    <a href="{{ path('television_channel_single', route_params) }}" title="{% trans with {'%channel%': infos.name} %}Listen %channel% live{% endtrans %}">
+      {% trans with {'%channel%': infos.name} %}Listen <strong>%channel%</strong> live online{% endtrans %}
+    </a>
+    {% else %}
+    <a href="{{ path('television_channel_single', route_params) }}" title="{% trans with {'%channel%': infos.name} %}Watch %channel% live{% endtrans %}">
+      {% if infos.is_freemium %}
+        {% trans with {'%channel%': infos.name} %}Watch <strong>%channel%</strong> live online for free{% endtrans %}
+      {% else %}
+        {% trans with {'%channel%': infos.name} %}Watch <strong>%channel%</strong> live online{% endtrans %}
+      {% endif %}
+    </a>
+    {% endif%}
+  </div>
+  {% endif %}
+
+  <div class="container">
+    <div class="row">
+
+      <div class="span-menubar left-menu sep">
+
+      <div class="text">
+        {#<a href="{{ path('chaine_tv', route_params) }}">#}
+          <img src="{{ infos.images.medium }}" alt="{{ infos.name }}" width="120" height="120">
+        {#</a>#}
+      </div>
+      {% if infos.is_radio %}
+      <h2>{% trans %}Type{% endtrans %}</h2>
+      {% else %}
+      <h2>{% trans %}Type of TV channel{% endtrans %}</h2>
+      {% endif %}
+      <p>
+        <strong>{{ infos.category }}</strong>
+      </p>
+
+      <h2>{% trans %}Category{% endtrans %}</h2>
+      <p>
+        <strong>{{ infos.theme }}</strong>
+      </p>
+
+      <h2>{% trans %}Official website{% endtrans %}</h2>
+      <p>
+        <a href="{{ infos.website }}" target="_blank" rel="nofollow" title="{{ infos.name }}">{{ infos.website|replace({"http://": "", "https://": ""})|truncate(22) }}</a>
+      </p>
+
+      <h2>{% trans %}Creation date{% endtrans %}</h2>
+      <p>
+        {% if infos.created is not null %}<strong>{{ infos.created }}</strong>{% else %}<span class="clear-grey">{% trans %}Unknown date{% endtrans %}</span>{% endif %}
+      </p>
+
+      {% if has_feature('sales') and infos.products %}
+      <h2>Chaîne incluse dans</h2>
+      <div style="margin-right: 4px;">
+        {% for product in infos.products.retail %}
+        <button class="pmd-js-PopinProduct pmd-Button pmd-Button--block pmd-Button--bold pmd-Button--block pmd-Button--sm pmd-Text--truncate pmd-Button--dark" type="button" data-product-alias="{{ product.alias }}">
+          {{ product.name }} - {{ (product.price / 100)|number_format(2, ',') }}€ /mois
+        </button>
+        {% endfor %}
+        {% for product in infos.products.pack %}
+        <button class="pmd-js-PopinProduct pmd-Button pmd-Button--block pmd-Button--bold pmd-Button--block pmd-Button--sm pmd-Text--truncate pmd-Button--{{ product.alias }}" type="button" data-product-alias="{{ product.alias }}">
+          {{ product.name }} - {{ (product.price / 100)|number_format(2, ',') }}€ /mois
+        </button>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    </div>
+
+    <div class="span-content">
+
+      <div class="page-title">
+
+        <a href="{{ path('chaine_tv', route_params) }}" title="{% trans with {'%channel%': infos.name} %}About %channel%{% endtrans %}">
+          <h1>
+            <span class="red">{{ infos.name }}</span>
+          </h1>
+        </a>
+
+        {% if infos.tagline %}
+        <p class="sub-title">&laquo; {{ infos.tagline|striptags }} »</p>
+        {% endif %}
+
+      </div>
+
+      <ul class="tabs pmd-LegacyTabs">
+        <li{% if tab_active == "resume" %} class="tab-selected"{% endif %}>
+          <a href="{{ path('chaine_tv', route_params) }}" class="pmd-LegacyTabs-text pmd-Text--truncate">
+            {% trans %}Summary{% endtrans %}
+          </a>
+        </li>
+
+        {% if is_website_fr %}
+        <li{% if tab_active == "live" %} class="tab-selected"{% endif %}>
+          <a rel="nofollow" href="{{ path('chaine_tv_en_direct', route_params) }}" class="pmd-LegacyTabs-text pmd-Text--truncate">
+            En direct
+          </a>
+        </li>
+        <li{% if tab_active == "next" %} class="tab-selected"{% endif %}>
+          <a rel="nofollow" href="{{ path('chaine_tv_a_suivre', route_params) }}" class="pmd-LegacyTabs-text pmd-Text--truncate">
+            À suivre
+          </a>
+        </li>
+        {% endif %}
+
+        {% if infos.has_programs %}
+        <li{% if tab_active == "broadcasts" %} class="tab-selected"{% endif %}>
+          <a href="{{ path('chaine_tv_programmes', route_params) }}" class="pmd-LegacyTabs-text pmd-Text--truncate pmd-LegacyTabs-text--large">
+            <strong>{% trans %}TV guide{% endtrans %} {{ infos.name }}</strong>
+          </a>
+        </li>
+        {% endif %}
+        {% if has_feature('catchup_tv') and infos.has_replay_tv %}
+        <li>
+          <a href="{{ path('replay_channel_videos', route_params) }}" class="pmd-LegacyTabs-text pmd-Text--truncate pmd-LegacyTabs-text--large">
+            <strong>{{ infos.name }} {% trans %}Catch Up{% endtrans %}</strong>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+
+      {% block embed_content %}{% endblock %}
+
+    </div><!-- /.span-content -->
+
+      <div class="span-sidebar">
+
+        {% if toplive and toplive.share > 0 %}
+          <div class="block-title" style="margin-top:0;">
+            <p class="right clear-grey">Dernière heure</p>
+            <h2><strong>Audience en temps réel</strong></h2>
+          </div>
+
+          <div id="channel-top-live" class="clearfix margin">
+            <div class="progress-bar big" title="{{ toplive.share|number_format(1, ",") }}% de part d'audience">
+              <div class="filled" style="width:{% if toplive.share < 0 %}0{% else %}{{ toplive.share|round }}{% endif %}%;"></div>
+              <div class="cache"></div>
+            </div>
+            <span class="clear-grey" style="margin-left:10px;" title="{{ toplive.share|number_format(1, ",") }}% de part d'audience">{{ toplive.share|number_format(1, ",") }}%</span>
+            <div class="trend-icon {% if toplive.trend|round > 0 %}up{% elseif toplive.trend|round < 0 %}down{% else %}steady{% endif %}" title="Audience {% if toplive.trend|round > 0 %}en progression{% elseif toplive.trend|round < 0 %}en baisse{% else %}stable{% endif %}"></div>
+          </div>
+        {% endif %}
+
+        {% include "partials/ads-banner.twig" with {'unique': "aea23cf0", "zone_id": 36} %}
+
+      </div><!-- /.span-sidebar -->
+
+    </div><!-- /.row -->
+  </div>
+
+</div>
+

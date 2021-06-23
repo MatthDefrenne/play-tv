@@ -1,0 +1,113 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="replay-viewer">
+    <div class="container">
+        <div id="viewer">
+          {{ embed_player|raw }}
+        </div>
+        {% include "partials/ads-banner.twig" with {'unique': "af2eb201", "zone_id": 27} %}
+    </div>
+  </div>
+
+  {% include "controllers/replay-tv/_embed-submenu.twig" with {'channel': infos.channel} %}
+
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <div class="span16">
+
+          <div class="ptv-js-ReplayVideo-information">
+            <div id="replay-information">
+              <div class="text xmargin">
+                <p class="pmd-ReplayEmbedSubtitle">
+                  {% trans with {'%channel%': infos.channel.name} %}
+                  <strong>On demand video</strong> <span class="clear-grey">from</span> <strong>%channel%</strong>
+                  {% endtrans %}
+                </p>
+              </div>
+
+              <div class="pmd-ReplayEmbedTitleContent">
+                <strong class="pmd-ReplayEmbedTitle">{{ infos.title }}</strong>
+                <a class="pmd-ReplayEmbedLink" href="{{ infos.video_url }}" target="_blank">
+                  {% trans %}Direct access to video »{% endtrans %}
+                </a>
+              </div>
+              {% if videos %}
+
+                <div class="pmd-ReplayEmbedSeparator"></div>
+
+                <div class="pmd-ReplayEmbedVideos">
+                  <p class="pmd-ReplayEmbedSubtitle">
+                    {% if infos.group is not null %}
+                      {% set title = infos.group.title %}
+                    {% elseif infos.program is not null %}
+                      {% set title = infos.program.title %}
+                    {% else %}
+                      {% set title = infos.title %}
+                    {% endif %}
+                    {% trans with {'%program%': title} %}
+                    On demand videos of <strong>%program%</strong>
+                    {% endtrans %}
+                  </p>
+                </div>
+
+                <div id="replay-slider">
+                  <a href="#" id="prev"{% if current > 0 %} class="active"{% endif %} title="{% trans %}Previous{% endtrans %}">
+                    {% trans %}Previous{% endtrans %}
+                  </a>
+                  <a href="#" id="next"{% if (current+1) < videos|length and videos|length > 4 %} class="active"{% endif %} title="{% trans %}Next{% endtrans %}">
+                    {% trans %}Next{% endtrans %}
+                  </a>
+                  <ul class="slider videos" data-start="{{ current }}">
+                    {% for video in videos %}
+                      <li>
+                        <div class="video{% if infos.replay_id == video.replay_id %} current{% endif %}">
+                          <div class="video-img" style="background-image:url('{{ video.channel.images.small }}');">
+                              {% if video.images.medium is not null %}
+                                <img width="160" height="120" alt="{{ video.title }}" src="{{ video.images.medium }}">
+                              {% endif %}
+                              <div class="cache"></div>
+                              {% if video.duration %}
+                                <div class="length">{{ video.duration }}</div>
+                              {% endif %}
+                              {% if infos.replay_id != video.replay_id %}
+                                <a class="play" title="{% trans with {'%replay%': video.title} %}Watch %replay% on demand online{% endtrans %}" href="{{ path('replay_replay', {'video_id': video.id, 'title': video.alias}) }}"></a>
+                              {% endif %}
+                          </div>
+                          <div class="video-title">
+                            {{ video.title }}
+                          </div>
+                        </div>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+
+              {% endif %}
+            </div>
+          </div>
+
+          {% if has_feature('social_tv') %}
+          <div class="ptv-js-LiveTweets">
+            <div id="twitter-tweets" style="display: none;">
+              <a href="#" class="ptv-Tweet-moreLink ptv-Tweet-moreLink--hidden ptv-js-Tweet-moreLink"><span class="ptv-js-Tweet-numberTweet">0</span> nouveaux tweets</a>
+              <ul id="tweets" data-auto-update="true" data-channel-alias="{{ infos.channel.alias }}" class="ptv-js-Tweet-list" data-disabled="false">
+                {{ block_social_tv_posts|raw }}
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+
+          <div class="ptv-js-FacebookComments">
+            <div id="facebook-comments" style="display: none;">
+              <div class="fb-comments" data-href="{{ current_url }}" data-width="100%" data-numposts="10" data-order-by="reverse_time" data-colorscheme="light"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- /#content -->
+{% endblock %}

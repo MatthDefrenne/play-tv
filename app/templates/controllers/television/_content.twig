@@ -1,0 +1,76 @@
+{% set ads = 'false' %}
+{% if (display_ads == true) and (is_connected == false or (is_connected and current_account.isPremium() == false)) %}
+{% set ads = 'true' %}
+{% endif %}
+
+<div id="content" class="pmd-TelevisionContent pmd-js-TelevisionContent" data-ads="{{ ads }}" data-mode="{{ mode }}">
+  <div class="container">
+    <div class="row">
+      <div class="pmd-js-TelevisionContent-page span-page">
+
+        {% if channel is defined %}
+
+          <div class="pmd-js-TelevisionContent-live pmd-TelevisionContent-block">
+            {{ block_live_program_by_channel|raw }}
+          </div>
+          <div class="pmd-js-TelevisionContent-next pmd-TelevisionContent-block">
+            {{ block_next_programs_by_channel|raw }}
+            {% include "controllers/television/_tracking-netstat-fr24.twig" %}
+          </div>
+          {% if has_feature('social_tv') %}
+          <div class="pmd-js-TelevisionContent-liveTweets pmd-TelevisionContent-block">
+            <div id="twitter-tweets" style="display: none;">
+              <a href="#" class="ptv-Tweet-moreLink ptv-Tweet-moreLink--hidden ptv-js-Tweet-moreLink"><span class="ptv-js-Tweet-numberTweet">0</span> nouveaux tweets</a>
+              <ul id="tweets" data-auto-update="true" data-channel-alias="{{ channel.alias }}" class="ptv-js-Tweet-list" data-disabled="false">
+              {{ block_social_tv_posts|raw }}
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          <div class="pmd-js-TelevisionContent-facebookComments pmd-TelevisionContent-block">
+            <div id="facebook-comments" style="display: none;">
+              <div class="fb-comments" data-href="{{ current_url }}" data-width="100%" data-numposts="10" data-order-by="reverse_time" data-colorscheme="light"></div>
+            </div>
+          </div>
+
+        {% else %}
+
+          <div class="pmd-js-TelevisionContent-live"></div>
+          <div class="pmd-js-TelevisionContent-next"></div>
+          {% if has_feature('social_tv') %}
+          <div class="ptv-js-LiveTweets">
+            <div id="twitter-tweets" style="display: none;">
+              <a href="#" class="ptv-Tweet-moreLink ptv-Tweet-moreLink--hidden ptv-js-Tweet-moreLink">
+                <span class="ptv-js-Tweet-numberTweet">0</span> nouveaux tweets
+              </a>
+              <ul id="tweets" data-auto-update="true" class="ptv-js-Tweet-list" data-disabled="true">
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          <div class="ptv-js-FacebookComments">
+            <div id="facebook-comments" style="display: none;"></div>
+          </div>
+
+        {% endif %}
+
+      </div>
+
+      <div class="pmd-js-TelevisionContent-thumbnails pmd-TelevisionContent-thumbnails">
+        {{ television_content|raw }}
+      </div>
+
+      <div class="pmd-js-TelevisionContent-sidebar span-sidebar">
+        {# {% include "partials/ads-banner.twig" with {'unique': "af0da7c8", "zone_id": 8} %} #}
+        {% include "partials/ads-banner.twig" with {'unique': "aea23cf0", "zone_id": 36} %}
+      </div>
+
+      {% if (display_ads == true) and (is_connected == false or (is_connected and current_account.isPremium() == false)) %}
+      <div id="ead_native">
+        <script type="text/javascript" id="ean-native-embed-tag" src="//cdn.elasticad.net/native/serve/js/nativeEmbed.gz.js" async="true"></script>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>

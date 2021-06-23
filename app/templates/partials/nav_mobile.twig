@@ -1,0 +1,63 @@
+{% if has_feature('account') %}
+<div class="pmd-MenuHeading">
+  {% if current_account is not null %}
+  <a href="#" class="pmd-js-Menu-account pmd-MenuHeading-link pmd-js-Action--touchify">
+    <img src="{{ current_account.getAvatar(32, 32)|default(apps_base_url ~ "/images/avatars/user-picture-mobile.svg") }}" class="pmd-MenuHeading-avatar" class="pmd-MenuHeading-avatar" width="32" height="32">
+    <span>{{ current_account.getUsername }}</span>
+  </a>
+  {% else %}
+  <a href="/connexion/" class="pmd-js-Menu-login pmd-js-Action--touchify pmd-MenuHeading-link">
+    <img src="{{ apps_base_url }}/images/avatars/user-picture-mobile.svg" class="pmd-MenuHeading-avatar" width="32" height="32">
+    <span>Me connecter</span>
+  </a>
+  {% endif %}
+</div>
+{% endif %}
+
+{% spaceless %}
+<ul class="pmd-MenuChoice">
+  <li>
+    <a href="{{ path('television_index') }}" class="pmd-js-Menu-choice pmd-js-Action--touchify pmd-MenuChoice-item{% if controller_name in ['television', 'chaine_tv'] %} pmd-MenuChoice-item--active{% endif %}">
+
+      <svg role="img" class="pmd-Svg pmd-Svg--tv pmd-MenuChoice-icon">
+        <use xlink:href="#pmd-Svg--tv"></use>
+      </svg>
+      <span>{% trans %}Live TV{% endtrans %}
+
+    </a>
+  </li>
+  <li>
+    <a href="{{ path('programmes_en_direct') }}" class="pmd-js-Menu-choice pmd-js-Action--touchify pmd-MenuChoice-item{% if controller_name in ['programmes_tv', 'programme_tv', 'people', 'toplive'] and action_name != 'a_ne_pas_manquer' %} pmd-MenuChoice-item--active{% endif %}">
+
+      <svg role="img" class="pmd-Svg pmd-Svg--guide pmd-MenuChoice-icon">
+        <use xlink:href="#pmd-Svg--guide"></use>
+      </svg>
+      <span>{% trans %}TV Guide{% endtrans %}</span>
+
+  </li>
+  {% if has_feature('catchup_tv') %}
+  <li>
+    <a href="{{ path('replay_tv_index') }}" class="pmd-js-Menu-choice pmd-js-Action--touchify pmd-MenuChoice-item{% if controller_name in ['replay_tv', 'video'] %} pmd-MenuChoice-item--active{% endif %}">
+
+      <svg role="img" class="pmd-Svg pmd-Svg--replay pmd-MenuChoice-icon">
+        <use xlink:href="#pmd-Svg--replay"></use>
+      </svg>
+      <span>{% trans %}Catch Up TV{% endtrans %}</span>
+
+    </a>
+  </li>
+  {% endif %}
+  {% if has_feature('broadcast_highlights') %}
+  <li>
+    <a href="{{ path('programmes_prime_a_ne_pas_manquer') }}" class="pmd-js-Menu-choice pmd-js-Action--touchify pmd-MenuChoice-item{% if controller_name == 'programmes_tv' and action_name == 'a_ne_pas_manquer' %} pmd-MenuChoice-item--active{% endif %}">
+
+      <svg role="img" class="pmd-Svg pmd-Svg--star pmd-MenuChoice-icon">
+        <use xlink:href="#pmd-Svg--star"></use>
+      </svg>
+      <span>Notre sélection</span>
+
+    </a>
+  </li>
+  {% endif %}
+</ul>
+{% endspaceless %}

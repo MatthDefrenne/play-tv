@@ -1,0 +1,65 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<div class="pmd-ReplayTv">
+
+  <div class="pmd-ReplayTvHeading pmd-Heading">
+    <h2 class="pmd-Heading-words">{% trans %}Catch Up TV{% endtrans %}</h2>
+  </div>
+
+  <div class="pmd-ReplayTvContent">
+
+    <div class="pmd-ReplayTvContentMosaic">
+      {{ block_mosaic|raw }}
+    </div>
+
+    {# {% include "partials/subnav-replay-tv.twig" with {"subnav_active": "index", "days": days, "date": date, "title": "The latest videos on demand available"|trans} %} #}
+
+    {% spaceless %}
+    <div class="pmd-Heading pmd-Heading--2x pmd-Heading--light">
+      <a href="#" class="pmd-js-ReplayTv-yesterdayTab pmd-Heading-words">
+        <span>{% trans from "catchup" %}yesterday_tab{% endtrans %}</span>
+      </a>
+      <a href="#" class="pmd-js-ReplayTv-lastTab pmd-Heading-words">
+        <span>{% trans from "catchup" %}last_tab{% endtrans %}</span>
+      </a>
+    </div>
+    {% endspaceless %}
+
+    <div class="pmd-js-ReplayTv-yesterdayContent pmd-ReplayTvContent-yesterdayContent">
+      {% spaceless %}
+      {% if last_videos_featured is not null and last_videos_featured|length > 0 %}
+      {% for video in last_videos_featured %}
+      {% include "partials/item-replay-tv-page.twig" with {"filter":"index", "video": video} %}
+      {% endfor %}
+      {% endif %}
+      {% endspaceless %}
+    </div>
+
+    <div class="pmd-js-ReplayTv-lastContent pmd-ReplayTvContent-lastContent">
+      {% spaceless %}
+      {% if last_videos is not null and last_videos|length > 0 %}
+      {% for video in last_videos %}
+      {% include "partials/item-replay-tv-page.twig" with {"filter": "index", "video": video} %}
+      {% endfor %}
+      {% else %}
+      <div>
+        <p>{% trans %}No video on demand added recently.{% endtrans %}</p>
+      </div>
+      {% endif %}
+      {% endspaceless %}
+    </div>
+
+    <div class="pmd-ReplayTvContentMainButton">
+      <a href="{{ path('replay_videos') }}">
+        <span class="pmd-Button pmd-Button--dark">
+        {% trans %}All the latest videos{% endtrans %}
+        </span>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

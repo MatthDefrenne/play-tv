@@ -1,0 +1,21 @@
+<nav>
+  {% spaceless %}
+  {% if has_feature('support') %}
+  <p class="grey-box xmargin">
+    <a href="/faq/" class="{% if controller_name == 'faq' %}clear-grey{% endif %}" title="Questions fréquentes">
+    <strong>Questions fréquentes</strong>
+    </a>
+  </p>
+  <p class="grey-box xmargin">
+    <a href="/aide/config/" class="{% if controller_name == 'aide' and action_name == 'config' %}clear-grey{% endif %}" title="Configuration">
+    <strong>Configuration</strong>
+    </a>
+  </p>
+  {% endif %}
+  <p class="grey-box">
+    <a href="{{ path('help_support') }}" class="{% if controller_name == 'aide' and action_name == 'support' %}clear-grey{% endif %}" title="Contacter le support">
+    <strong>{% trans %}Contact support{% endtrans %}</strong>
+    </a>
+  </p>
+  {% endspaceless %}
+</nav>

@@ -1,0 +1,16 @@
+{% spaceless %}
+{% if is_website_fr and controller_name == 'index' and action_name == 'index' %}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "url": "{{ hosts.current_full }}/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ hosts.current_full }}/recherche/?q={literal}{search_query}{/literal}",
+    "query-input": "required name=search_query"
+  }
+}
+</script>
+{% endif %}
+{% endspaceless %}

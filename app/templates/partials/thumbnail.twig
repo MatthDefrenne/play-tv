@@ -1,0 +1,128 @@
+{#
+
+{% include 'partials/thumbnail.twig' with {
+    'type': '',
+    'data_attributes': {
+      'size': '',
+      'preview_animation': '',
+    },
+    'preview': {
+      'image': {
+        'src': '',
+        'title': ''
+      },
+      'link': '',
+      'classes': '',
+      'identifier':
+    }
+  }
+%}
+
+#}
+
+{% set klasses = ['pmd-Thumbnail'] %}
+
+{% set klasses = klasses|merge(classes|default([])) %}
+
+{% set klasses = klasses|join(' ') %}
+
+<div
+  class="{{ klasses }}"
+  data-size="{{ data_attributes.size|default('') }}"
+  data-preview-animation="{{ data_attributes.preview_animation|default('') }}"
+  data-channel-logo="{{ data_attributes.channel_logo|default('') }}"
+  data-progress="{{ data_attributes.progress|default('') }}"
+  data-type="{{ data_attributes.type|default('') }}"
+  data-poor-preview="{{ data_attributes.poor_preview|default('') }}"
+  data-disabled="{{ data_attributes.disabled|default('') }}"
+  {% if preview.duration is defined %}
+  data-duration="{{ data_attributes.duration|default('') }}"
+  {% endif %}
+  data-trailer-button="{{ data_attributes.trailer_button|default('') }}">
+
+  <div class="pmd-ThumbnailPreview">
+    {% if preview.link %}
+    <a
+      href="{{ preview.link }}"
+      class="{% if preview.classes is defined %}{{ preview.classes }}{% endif %}"
+      data-identifier="{% if preview.identifier is defined %}{{ preview.identifier }}{% endif %}"
+      {% if preview.nofollow is defined and preview.nofollow %}
+      rel="nofollow"
+      {% endif %}
+    >
+    {% endif %}
+      <div class="pmd-ThumbnailPreview-imageContainer" title="{{ preview.image.title|default('')|striptags }}">
+        {% if type is defined and type == "slider" and loop_index > 7 %}
+        <img
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-flickity-lazyload="{{ preview.image.src|default(apps_base_url ~ '/images/logo.svg') }}"
+          class="pmd-ThumbnailPreview-image"
+          alt="{{ preview.image.alt|default('') }}">
+        {% else %}
+        <img class="pmd-ThumbnailPreview-image" src="{{ preview.image.src|default(apps_base_url ~ '/images/logo.svg') }}" alt="{{ preview.image.alt|default('') }}">
+        {% endif %}
+      </div>
+      {# title attribute is needed here as this block is on top of the previous block #}
+      <div class="pmd-ThumbnailPreview-action" title="{{ preview.image.title|default('')|striptags }}">
+        <svg role="img" class="pmd-Svg pmd-Svg--replay">
+          <use xlink:href="#pmd-Svg--replay"></use>
+        </svg>
+
+        <svg role="img" class="pmd-Svg pmd-Svg--trailer-inverse">
+          <use xlink:href="#pmd-Svg--trailer-inverse"></use>
+        </svg>
+
+        <svg role="img" class="pmd-Svg pmd-Svg--play-standard">
+          <use xlink:href="#pmd-Svg--play-standard"></use>
+        </svg>
+      </div>
+      {% if channel is defined %}
+
+      {% if type is defined and type == "slider" and loop_index > 7 %}
+      <img
+        class="pmd-Thumbnail-channelLogo"
+        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        data-flickity-lazyload="{{ channel.image.src }}"
+        alt="{{ channel.image.alt|default('') }}"
+        title="{{ channel.image.alt|default('')|striptags }}">
+      {% else %}
+      <img
+        class="pmd-Thumbnail-channelLogo"
+        src="{{ channel.image.src }}"
+        alt="{{ channel.image.alt|default('') }}" title="{{ channel.image.alt|default('')|striptags }}">
+      {% endif %}
+
+      {% endif %}
+      <div class="pmd-Thumbnail-duration">{{ preview.duration|default('') }}</div>
+    {% if preview.link %}</a>{% endif %}
+
+    {% if data_attributes.trailer_button is defined and data_attributes.trailer_button != "false"  %}
+    <a class="{{ trailer.classes|default('') }} pmd-ThumbnailTrailerButton" href="{{ trailer.href | default('#') }}" rel="nofollow">
+      <svg role="img" class="pmd-Svg pmd-Svg--trailer pmd-ThumbnailTrailerButton-svg">
+        <use xlink:href="#pmd-Svg--trailer"></use>
+      </svg><span class="pmd-ThumbnailTrailerButton-text">{% trans %}Trailer{% endtrans %}</span>
+    </a>
+    {% endif %}
+  </div>
+
+  <div class="pmd-ThumbnailProgress" title="{{ progress.percentage | default('0') }}%">
+    <span class="pmd-ThumbnailProgress-bar" style="width: {{ progress.percentage | default('0') }}%;"></span>
+  </div>
+
+  {% if text is defined %}
+  <div class="pmd-ThumbnailDetails">
+      {% if text.firstline is defined %}
+      <div class="pmd-ThumbnailDetails-title pmd-Text--truncate" title="{{ text.firstline|striptags }}">
+        {{ text.firstline|raw }}
+      </div>
+      {% endif %}
+      {% if text.secondline is defined %}
+      <div class="pmd-ThumbnailDetails-subtitle pmd-Text--truncate" title="{{ text.secondline|striptags }}">
+        {{ text.secondline|raw }}
+      </div>
+      {% endif %}
+  </div>
+  {% endif %}
+
+</div>
+

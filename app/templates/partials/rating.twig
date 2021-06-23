@@ -1,0 +1,21 @@
+{% set klasses = ['pmd-Rating'] %}
+{% set klasses = klasses|merge(classes|default([]))|join(' ') %}
+{% set rate    = rate|default('0') %}
+
+<div class="{{ klasses }}" data-rate="{{ rate }}">
+
+  {% spaceless %}
+  <svg role="img" class="pmd-Rating-one pmd-Svg pmd-Svg--star">
+    <use xlink:href="#pmd-Svg--star"></use>
+  </svg>
+
+  <svg role="img" class="pmd-Rating-two pmd-Svg pmd-Svg--star">
+    <use xlink:href="#pmd-Svg--star"></use>
+  </svg>
+
+  <svg role="img" class="pmd-Rating-three pmd-Svg pmd-Svg--star">
+    <use xlink:href="#pmd-Svg--star"></use>
+  </svg>
+{% endspaceless %}
+
+</div>

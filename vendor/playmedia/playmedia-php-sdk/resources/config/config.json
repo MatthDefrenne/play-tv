@@ -1,0 +1,14 @@
+{
+  "operations": {
+    "config.get": {
+      "httpMethod": "GET",
+      "uri": "config/{key}/",
+      "summary": "Get the value of a config key",
+      "parameters": {
+        "key": {
+          "location": "uri"
+        }
+      }
+    }
+  }
+}

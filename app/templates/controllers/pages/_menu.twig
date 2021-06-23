@@ -1,0 +1,51 @@
+<nav>
+  {% spaceless %}
+    <p class="grey-box xmargin">
+      <a href="/{{ controller_name }}/a-propos/" class="{% if action_name == 'a_propos' %}clear-grey{% endif %}" title="À propos">
+        <strong>À propos</strong>
+      </a>
+    </p>
+
+    <p class="grey-box xmargin">
+      <a href="/{{ controller_name }}/mentions-legales/" class="{% if action_name == 'mentions_legales' %}clear-grey{% endif %}" title="Mentions légales">
+        <strong>Mentions légales</strong>
+      </a>
+    </p>
+
+    <p class="grey-box xmargin">
+      <a href="/{{ controller_name }}/cgu/" class="{% if action_name == 'cgu'%}clear-grey{% endif %}" title="Conditions générales d'utilisation">
+        <strong>Conditions générales d'utilisation</strong>
+      </a>
+    </p>
+
+    <p class="grey-box xmargin">
+      <a href="/{{ controller_name }}/cgv/" class="{% if action_name == 'cgv' %}clear-grey{% endif %}}" title="Conditions générales de vente">
+        <strong>Conditions générales de vente</strong>
+      </a>
+    </p>
+
+    <p class="grey-box margin">
+      <a href="/{{ controller_name }}/donnees-personnelles/" class="{% if action_name == 'donnees_personnelles' %}clear-grey{% endif %}" title="Données personnelles">
+        <strong>Données personnelles</strong>
+      </a>
+    </p>
+
+    <p class="grey-box xmargin">
+      <a href="/{{ controller_name }}/publicite/" class="{% if action_name == 'publicite' %}clear-grey{% endif %}" title="Publicité">
+        <strong>Publicité</strong>
+      </a>
+    </p>
+
+    <p class="grey-box xmargin">
+      <a href="/{{ controller_name }}/presse/" class="{% if action_name == 'presse' %}clear-grey{% endif %}" title="Presse">
+        <strong>Presse</strong>
+      </a>
+    </p>
+
+    <p class="grey-box xmargin">
+      <a href="/{{ controller_name }}/jobs/" class="{% if action_name == 'jobs' %}clear-grey{% endif %}" title="Jobs">
+        <strong>Jobs</strong>
+      </a>
+    </p>
+  {% endspaceless %}
+</nav>

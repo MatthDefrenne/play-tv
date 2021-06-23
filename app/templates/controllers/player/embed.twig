@@ -1,0 +1,45 @@
+{% extends "layouts/player.twig" %}
+
+{% block content %}
+
+  {% set display_ads_ga = (device != 'mobile') and
+    (state in ['external-live', 'not-streamable']) and
+    (display_ads == true) and
+    (is_connected == false or (is_connected and current_account.isPremium() == false))
+  %}
+
+  {% if state in ['streamable', 'external-iframe', 'not-found'] %}
+    {% include "controllers/player/_"~state~".twig" %}
+  {% else %}
+  <div class="pmd-HandleChannel">
+
+    {% if display_ads_ga == true %}
+    <div class="pmd-HandleChannel-ads-ga">
+      {% include "partials/ads-ga-player.twig" %}
+    </div>
+    {% else %}
+    <img src="{{ channel.images.medium }}" alt="{{ channel.name }}" width="80px" height="80px" class="pmd-HandleChannel-image">
+
+    <div class="pmd-HandleChannel-title">
+      <span>
+        {% if state == 'not-subscribed' %}
+          {% trans with {'%channel%': channel.name} from "player" %}watch_var_channel{% endtrans %}
+        {% elseif state == 'external-live' %}
+          {% trans with {'%channel%': channel.name} from "player" %}discover_var_channel{% endtrans %}
+        {% else %}
+          {{ channel.name }}
+        {% endif %}
+        {% if channel.is_adult %}
+        <svg role="img" class="pmd-Svg pmd-Svg--minus18 pmd-Svg--white pmd-HandleChannel-adult">
+          <use xlink:href="#pmd-Svg--minus18"></use>
+        </svg>
+        {% endif %}
+      </span>
+    </div>
+    {% endif %}
+
+      {% include "controllers/player/_"~state~".twig" %}
+  </div>
+  {% endif %}
+
+{% endblock %}

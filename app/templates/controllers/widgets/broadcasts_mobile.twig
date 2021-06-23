@@ -1,0 +1,22 @@
+<ul class="pmd-ChannelProgrammes-list">
+  {% for broadcast in broadcasts %}
+  <li class="pmd-ChannelProgrammesItem{% if broadcast.is_live %} pmd-ChannelProgrammesItem--current{% endif %}">
+    <a href="{{ broadcast.program.program_url }}" class="pmd-ChannelProgrammesItem-link">
+      <span class="pmd-ChannelProgrammesItem-time">{{ broadcast.start|date("H:i")|default("--:--") }}</span>
+      <span class="pmd-ChannelProgrammesItem-title pmd-Text--truncate">{{ broadcast.program.fulltitle }}<span>
+      {% if broadcast.program.gender %}
+        <span class="pmd-ChannelProgrammesItem-genre pmd-ProgrammeGenre pmd-ProgrammeGenre--{{ broadcast.program.gender_id }} pmd-ProgrammeGenre--small">{{ broadcast.program.gender }}<span>
+      {% else %}
+        <span class="pmd-ChannelProgrammesItem-genre"> </span>
+      {% endif %}
+      <span class="pmd-ChannelProgrammesItem-arrow pmd-Icons-arrow"></span>
+    </a>
+  </li>
+  {% else %}
+  <li class="pmd-ChannelProgrammesItem pmd-ChannelProgrammesItem--empty">
+  {% trans %}
+  No informations.
+  {% endtrans %}
+  </li>
+  {% endfor %}
+</ul>

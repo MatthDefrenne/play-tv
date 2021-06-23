@@ -1,0 +1,9 @@
+{% if current_account.hasFacebook() %}
+<p class="ptv-AccountThirdParties-facebook">
+  <a href="https://www.facebook.com/settings?tab=applications" target="_blank" class="ptv-ButtonFacebook ptv-Button--block">Compte connecté</a>
+</p>
+{% else %}
+<p class="ptv-AccountThirdParties-facebook">
+  <a href="#" class="ptv-js-DialogFacebook ptv-ButtonFacebook ptv-Button--block">Connecter mon compte</a>
+</p>
+{% endif %}

@@ -1,0 +1,48 @@
+{
+  "operations": {
+    "products.create": {
+      "httpMethod": "POST",
+      "uri": "products/",
+      "summary": "Create product",
+      "additionalParameters": {
+        "location": "json"
+      }
+    },
+    "products.modify": {
+      "httpMethod": "PUT",
+      "uri": "products/{id}/",
+      "summary": "Modify product",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      },
+      "additionalParameters": {
+        "location": "json"
+      }
+    },
+    "products.collection": {
+      "httpMethod": "GET",
+      "uri": "products/",
+      "summary": "Products collection",
+      "additionalParameters": {
+        "location": "query"
+      }
+    },
+    "products.show": {
+      "httpMethod": "GET",
+      "uri": "products/{id}/",
+      "summary": "Gets one product",
+      "parameters": {
+        "id": {
+          "location": "uri"
+        }
+      }
+    },
+    "products.matrix": {
+      "httpMethod": "GET",
+      "uri": "products/matrix/",
+      "summary": "Retrieve the product matrix"
+    }
+  }
+}

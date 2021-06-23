@@ -1,0 +1,9 @@
+<div class="pmd-HandleChannel-subtitle{% if display_ads_ga == true %} pmd-HandleChannel-subtitle--ads{% endif %}">
+  <span>
+    {% if channel.stream_access.country == false %}
+    {% trans from "player" %}channel_unavailable_in_country{% endtrans %}
+    {% else %}
+    {% trans from "player" %}channel_unavailable{% endtrans %}
+    {% endif %}
+  </span>
+</div>

@@ -1,0 +1,49 @@
+{% set edgepadding = 1 %}
+{% set padding = 2 %}
+
+{% set route_name = 'replay_videos' %}
+{% if page_params.channel_id is defined or page_params.channel_alias is defined %}
+  {% set route_name = 'replay_channel_videos' %}
+{% endif %}
+
+{% if page != 1 %}
+  <a href="{{ path(route_name, page_params|merge({'page': page - 1})) }}" class="previous">&laquo;</a>
+{% else %}
+  <span class="previous clear-grey">&laquo;</span>
+{% endif %}
+
+{% for paginate in 1..pages %}
+  {% if pages < 11 %}
+    <a href="{{ path(route_name, page_params|merge({'page': paginate})) }}" class="nb {% if paginate == page %}clear-grey{% endif %}">
+      {{ paginate }}
+    </a>
+  {% else %}
+    {% if paginate < (edgepadding + 1) or paginate > (pages - edgepadding) or paginate == page %}
+      {% if paginate == (pages - (edgepadding - 1)) and page > (pages - edgepadding + padding) %}
+        <span class="more">...</span>
+      {% endif %}
+      <a href="{{ path(route_name, page_params|merge({'page': paginate})) }}" class="nb {% if paginate == page %}clear-grey{% endif %}">
+        {{ paginate }}
+      </a>
+      {% if paginate == edgepadding and page < (edgepadding - padding + 1) %}
+        <span class="more">...</span>
+      {% endif %}
+    {% elseif (paginate > edgepadding and (paginate > page - padding - 1) and (paginate < page + padding + 1)) %}
+      {% if paginate == (page - padding) and (edgepadding + 1) != (page - padding) %}
+        <span class="more">...</span>
+      {% endif %}
+      <a href="{{ path(route_name, page_params|merge({'page': paginate})) }}" class="nb {% if paginate == page %}clear-grey{% endif %}">
+        {{ paginate }}
+      </a>
+      {% if paginate == (page + padding) and (pages - edgepadding) != (page + padding) %}
+        <span class="more">...</span>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% if page != pages %}
+  <a href="{{ path(route_name, page_params|merge({'page': page + 1})) }}" class="next">»</a>
+{% else %}
+  <span class="next clear-grey">»</span>
+{% endif %}

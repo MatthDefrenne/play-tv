@@ -1,0 +1,46 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="content" class="pmd-StaticPage">
+    <div class="container pmd-StaticPage-wrapper">
+
+      <div class="row">
+        <article class="span16 ptv-BrowserChoice">
+          <div class="page-title">
+            <h1 class="red">
+              Vous utilisez un navigateur <strong>dépassé</strong> et <strong>risqué</strong>, il est temps de changer.
+            </h1>
+            <p class="sub-title">
+              Nous vous invitons à mettre a jour votre navigateur pour profiter de toutes les fonctionnalités de Play TV.
+            </p>
+          </div>
+          <div class="text justify">
+            <h2>
+              Pourquoi est-il risqué de continuer à utiliser ce navigateur ?
+            </h2>
+            <p>
+              Il semblerait que votre la version de votre navigateur soit sortie il y a plusieurs années. Depuis ce temps, de l'eau a coulé sous les ponts et le Web a changé, évolué, progressé. Les navigateurs ont suivi le pas ! Ils deviennent de plus en plus performants, sécurisés et proposent plus d'options agréables pour la navigation. Cependant, votre version de navigateur est dépassée et ne permet plus de bénéficier pleinement de notre site playtv.fr ainsi que de millions d'autres sites web.
+            </p>
+            <h2>Que faire ?</h2>
+            <p>
+              Vous voulez changer ? Bien, vous êtes sur la bonne voie. Pour cela, nous vous proposons un certain nombre de navigateurs gratuits qui répondront très bien à vos besoins. Ils sont rapides et vous permettent de naviguer en toute sécurité. La démarche est simple, il vous suffit de cliquer sur l'un d'entre eux, de le télécharger et de l'installer.
+            </p>
+            <ul class="choice">
+              {% for browser in browsers %}
+                <a href="{{ browser.url }}" target="_blank">
+                  <li>
+                    <p>
+                      <i class="ptv-Browser-{{ browser.key }}"></i>
+                      {{ browser.name }}
+                    </p>
+                  </li>
+                </a>
+              {% endfor %}
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+<!-- /#content -->
+{% endblock %}

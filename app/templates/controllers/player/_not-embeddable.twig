@@ -1,0 +1,14 @@
+<div class="pmd-HandleChannel-subtitle">
+  <span>{% trans from "player" %}channel_available_at_home{% endtrans %}</span>
+</div>
+
+<button type="button" class="pmd-js-ExternalLive r-ResetButton pmd-Button pmd-Button--premium pmd-Button--lg pmd-PromoteRetailChannel-button pmd-Button--boldAlt">
+  {% trans from "player" %}access_to_channel{% endtrans %}
+</button>
+
+<script>
+  document.querySelector('.pmd-js-ExternalLive').addEventListener('click', function( e ) {
+    e.preventDefault()
+    window.open('{{ hosts.current_full }}{{ channel.channel_live_url }}', '_blank')
+  })
+</script>

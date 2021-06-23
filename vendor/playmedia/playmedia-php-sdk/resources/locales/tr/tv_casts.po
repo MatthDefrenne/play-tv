@@ -1,0 +1,327 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.6.8\n"
+
+msgid "Accessoiriste"
+msgstr "Aksesuar sorumlusu"
+
+msgid "Acteur"
+msgstr "Aktör"
+
+msgid "Adaptation"
+msgstr "Uyarlama"
+
+msgid "Animalier"
+msgstr "Hayvan sorumlusu"
+
+msgid "Animation"
+msgstr "Animasyon"
+
+msgid "Armurier"
+msgstr "Silah sorumlusu"
+
+msgid "Arrangement musical"
+msgstr "Müzik düzenlemesi"
+
+msgid "Assistant Réalisateur"
+msgstr "Realizatör asistanı"
+
+msgid "Auteur"
+msgstr "Yazar"
+
+msgid "Bruitage"
+msgstr "Ses efektleri"
+
+msgid "Cascades"
+msgstr "Dublörler"
+
+msgid "Casting"
+msgstr "Casting"
+
+msgid "Chansons"
+msgstr "Şarkılar"
+
+msgid "Chanteur lyrique"
+msgstr "Lirik şarkıcı"
+
+msgid "Chef d'orchestre"
+msgstr "Orkestra şefi"
+
+msgid "Chorégraphie"
+msgstr "Koreografi"
+
+msgid "Chroniqueur"
+msgstr "Eleştirmen"
+
+msgid "Co-producteur"
+msgstr "Ortak yapımcı"
+
+msgid "Coiffure"
+msgstr "Kuaför"
+
+msgid "Combats"
+msgstr "Mücadeleler"
+
+msgid "Commentaires"
+msgstr "Yorumlar"
+
+msgid "Compositeur"
+msgstr "Bestekar"
+
+msgid "Conseiller"
+msgstr "Danışman"
+
+msgid "Conseiller animalier"
+msgstr "Hayvan danışmanı"
+
+msgid "Conseiller historique"
+msgstr "Tarih danışmanı"
+
+msgid "Conseiller scientifique"
+msgstr "Bilim danışmanı"
+
+msgid "Consultant"
+msgstr "Uzman"
+
+msgid "Costumes"
+msgstr "Kostümler"
+
+msgid "Créateur"
+msgstr "Tasarımcı"
+
+msgid "Création personnages"
+msgstr "Karakter yaratma"
+
+msgid "Créatures"
+msgstr "Yaratıklar"
+
+msgid "D'après"
+msgstr ".... göre"
+
+msgid "D'après l'oeuvre de"
+msgstr "... eserine göre"
+
+msgid "D'après la bande dessinée de"
+msgstr ".... çizgi romanına göre"
+
+msgid "D'après la pièce de"
+msgstr "... piyesine göre"
+
+msgid "D'après la série de"
+msgstr ".... dizisine göre"
+
+msgid "D'après le film de"
+msgstr ".... filmine göre"
+
+msgid "D'après le livre de"
+msgstr ".... kitabına göre"
+
+msgid "D'après le roman de"
+msgstr "... romanına göre"
+
+msgid "D'après les personnages de"
+msgstr "..... karakterlerine göre"
+
+msgid "D'après un sujet original"
+msgstr "Orijinal bir konuya göre"
+
+msgid "D'après une histoire de"
+msgstr ".... tarihine göre"
+
+msgid "D'après une idée de"
+msgstr ".... fikrine göre"
+
+msgid "D'après une nouvelle de"
+msgstr ".... hikayesine göre"
+
+msgid "Danseur"
+msgstr "Dansçı"
+
+msgid "Décors"
+msgstr "Dekorlar"
+
+msgid "Dessins"
+msgstr "Desenler"
+
+msgid "Dialogues"
+msgstr "Diyaloglar"
+
+msgid "Direction artistique"
+msgstr "Sanat yönetimi"
+
+msgid "Direction orchestrale"
+msgstr "Orkestra yönetimi"
+
+msgid "Documentation"
+msgstr "Belgeler"
+
+msgid "Doublure"
+msgstr "Dublör"
+
+msgid "Dressage"
+msgstr "Giysiler"
+
+msgid "Eclairages"
+msgstr "Aydınlatma"
+
+msgid "Effets sonores"
+msgstr "Ses efektleri"
+
+msgid "Effets spéciaux"
+msgstr "Özel efektler"
+
+msgid "Effets spéciaux numériques"
+msgstr "Özel dijital efektler"
+
+msgid "Effets visuels"
+msgstr "Görsel efektler"
+
+msgid "Equitation"
+msgstr "Binicilik"
+
+msgid "Générique"
+msgstr "Jenerik"
+
+msgid "Graphisme"
+msgstr "Grafikler"
+
+msgid "Gravure"
+msgstr "Fotoğrafla klişe"
+
+msgid "Images"
+msgstr "Görseller"
+
+msgid "Interview"
+msgstr "Röportaj"
+
+msgid "Invité"
+msgstr "Davetli"
+
+msgid "Juré"
+msgstr "Jüri Üyesi"
+
+msgid "Machiniste"
+msgstr "Makinist"
+
+msgid "Magie"
+msgstr "Sihir"
+
+msgid "Maître d'armes"
+msgstr "Silah sorumlusu"
+
+msgid "Maquette"
+msgstr "Taslak"
+
+msgid "Maquillage"
+msgstr "Makyaj"
+
+msgid "Marionnettes"
+msgstr "Kuklalar"
+
+msgid "Metteur en scène"
+msgstr "Sahne yönetmeni"
+
+msgid "Mise en scène"
+msgstr "Sahneleme"
+
+msgid "Mixage"
+msgstr "Miksaj"
+
+msgid "Montage"
+msgstr "Montaj"
+
+msgid "Musicien"
+msgstr "Müzisyen"
+
+msgid "Musique"
+msgstr "Müzik"
+
+msgid "Narration"
+msgstr "Anlatım"
+
+msgid "Orchestration"
+msgstr "Orkestra düzeni"
+
+msgid "Paroles"
+msgstr "Sözler"
+
+msgid "Photographie"
+msgstr "Fotoğraf"
+
+msgid "Présentateur"
+msgstr "Sunucu"
+
+msgid "Presse"
+msgstr "Basın"
+
+msgid "Producteur"
+msgstr "Yapımcı"
+
+msgid "Producteur délégué"
+msgstr "Yardımcı Yapımcı"
+
+msgid "Producteur exécutif"
+msgstr "Yapımcı"
+
+msgid "Réalisateur"
+msgstr "Realizatör"
+
+msgid "Restauration"
+msgstr "Restorasyon"
+
+msgid "Scénario"
+msgstr "Senaryo"
+
+msgid "Scripte"
+msgstr "Script"
+
+msgid "Sculptures"
+msgstr "Heykeller"
+
+msgid "Société de Production"
+msgstr "Yapım Şirketi"
+
+msgid "Son"
+msgstr "Ses"
+
+msgid "Story board"
+msgstr "Görsel senaryo taslağı"
+
+msgid "Traduction"
+msgstr "Çeviri"
+
+msgid "Voix française"
+msgstr "Fransız ses"
+
+msgid "Voix originale"
+msgstr "Orijinal ses"
+
+msgid "Régisseur"
+msgstr "Rejisör"
+
+msgid "Mixage son"
+msgstr "Ses miksajı"
+
+msgid "Orchestre"
+msgstr "Orkestra"
+
+msgid "Chanteur"
+msgstr "Şarkıcı"
+
+msgid "Ballet"
+msgstr "Bale"
+
+msgid "Voix"
+msgstr "Ses"
+
+msgid "Choeur"
+msgstr "Koro"

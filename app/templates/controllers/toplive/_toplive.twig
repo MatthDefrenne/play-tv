@@ -1,0 +1,67 @@
+
+{% macro progress(audience_row) %}
+    <div class="progress-bar" title="{{ audience_row.share|number_format(1, ",") }}% de part d'audience">
+      <div class="cache"></div>
+      <div class="filled" style="width:{% if audience_row.share < 0 %}0{% else %}{{ audience_row.share|round }}{% endif %}%;"></div>
+    </div>
+    <div class="trend-icon {% if audience_row.trend|round > 0 %}up{% elseif audience_row.trend|round < 0 %}down{% else %}steady{% endif %}" title="{% if audience_row.trend|round > 0 %}Audience en progression{% elseif audience_row.trend|round < 0 %}Audience en baisse{% else %}Audience stable{% endif %}"></div>
+{% endmacro %}
+
+{% import _self as macro %}
+
+<div class="toplive">
+  {% for audience in toplive %}
+  <div class="channel clearfix">
+
+    <a href="{{ path('chaine_tv', {'channel_id': audience.channel.id, 'channel_alias': audience.channel.alias}) }}" title="À propos de {{ audience.channel.name }}" class="channel-button channel-button-mini">
+      <span>Regarder {{ audience.channel.name }} en direct</span>
+      <img src="{{ audience.channel.images.mini }}" alt="{{ audience.channel.name }}" width="36" height="36">
+      <div class="cache"></div>
+    </a>
+
+    <div class="infos clearfix">
+
+      <p{% if by_trend == false %} class="left"{% endif %}>
+        <a href="{{ path('chaine_tv', {'channel_id': audience.channel.id, 'channel_alias': audience.channel.alias}) }}" title="À propos de {{ audience.channel.name }}">
+          <strong>{{ audience.channel.name }}</strong> »
+        </a>
+        <span class="clear-grey">{% if by_trend == false %}{{ audience.share|number_format(1, ',') }}%{% endif %}</span>
+      </p>
+      {% if by_trend == false %}
+      <div class="right">{{ macro.progress(audience) }}</div>
+      {% endif %}
+
+    </div>
+
+    <div class="audience clearfix">
+
+      <div class="left">
+      {% if by_trend == false %}
+        {% if audience.broadcast is not null and audience.broadcast.program.fulltitle is not null %}
+        <span class="clear-grey">{{ audience.broadcast.start|date("H:i") }}</span>
+        <strong title="{{ audience.broadcast.program.fulltitle }}">{{ audience.broadcast.program.fulltitle }}</strong>
+        {% else %}
+        <span class="clear-grey">Programme inconnu</span>
+        {% endif %}
+      {% else %}
+        {{ macro.progress(audience) }}
+      {% endif %}
+      </div>
+
+      <p class="right smaller">
+      {% if by_trend == false %}
+        <a href="{{ path('television_channel_single', {'channel_id': audience.channel.id, 'channel_alias': audience.channel.alias}) }}" title="Regarder {{ audience.channel.name }} en direct">Regarder en live »</a>
+      {% else %}
+        <span {% if audience.trend < 0 %}class="red"{% else %}style="color:green"{% endif %}">{{ audience.trend }}%</span>
+      {% endif %}
+      </p>
+
+    </div>
+
+  </div>
+  {% else %}
+  <div class="text xbigger center clear-grey margin">
+    <p>Données d'audience indisponibles.</p>
+  </div>
+  {% endfor %}
+</div>

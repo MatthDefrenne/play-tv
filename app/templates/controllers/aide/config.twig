@@ -1,0 +1,66 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="content" class="pmd-js-HelpConfiguration">
+    <div class="container">
+      <div class="row">
+
+        <div class="span3 sep">
+          {% include "controllers/aide/_menu.twig" %}
+        </div>
+
+        <div class="span13">
+
+          <div class="page-title">
+            <h1>Aide. <span class="red">Configuration</span></h1>
+            <p class="sub-title">Avez-vous la configuration requise pour regarder la télévision sur {{ request.host }} ?</p>
+          </div>
+
+          <div class="row text bigger">
+            <div class="span6">
+              <h2 style="margin-top:0;">Votre configuration</h2>
+              <table class="data-table" style="width:100%;">
+                <tbody>
+                  <tr>
+                    <td style="width:60%"><strong>Adobe Flash Player</strong></td>
+                    <td><span class="pmd-js-HelpConfiguration-flash code">?</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Système d'exploitation</strong></td>
+                    <td><span class="pmd-js-HelpConfiguration-os code">{{ client_parsed_ua.os.toString|default('?') }}</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Navigateur web</strong></td>
+                    <td><span class="pmd-js-HelpConfiguration-browser code">{{ client_parsed_ua.ua.toString|default('?') }}</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="offset1 span6">
+              <h2 style="margin-top:0;">Accès internet</h2>
+              <table class="data-table" style="width:100%;">
+                <tbody>
+                  <tr>
+                    <td style="width:60%"><strong>Adresse IP</strong></td>
+                    <td><span class="code">{{ client_ip|default('x.x.x.x') }}</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Pays/région</strong></td>
+                    <td><span class="code">{{ client_country|default('?') }}</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fournisseur d'accès à Internet</strong></td>
+                    <td><span class="code">{{ client_provider|default('?') }}</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

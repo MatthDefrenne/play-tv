@@ -1,0 +1,44 @@
+{% if subnav_active is not defined %}{% set subnav_active = "" %}{% endif %}
+
+<div class="sub-menu">
+  <div class="container">
+
+    {% spaceless %}
+    <ul>
+    {% if is_website_fr %}
+      <li{% if subnav_active == 'home' %} class="tab-selected"{% endif %}>
+        <a href="{{ path('programmes') }}">
+          <span class="sub-menu_text">{% trans %}TV guide{% endtrans %}</span>
+        </a>
+      </li>
+    {% endif %}
+      <li{% if subnav_active == 'live' %} class="tab-selected"{% endif %}>
+      <a href="{{ path('programmes_en_direct') }}">
+        <span class="sub-menu_text">{% trans %}TV listings now{% endtrans %}</span>
+      </a>
+      </li>
+      <li{% if subnav_active == 'prime-time' %} class="tab-selected"{% endif %}>
+        <a href="{{ path('programmes_prime_tonight') }}">
+          <span class="sub-menu_text">{% trans %}Tonight on TV{% endtrans %}</span>
+        </a>
+      </li>
+    {% if is_website_fr %}
+      <li{% if subnav_active == 'featured' %} class="tab-selected"{% endif %}>
+        <a href="{{ path('programmes_prime_a_ne_pas_manquer') }}">
+          <span class="sub-menu_text">{% trans %}Do not miss{% endtrans %}</span>
+        </a>
+      </li>
+      <li{% if subnav_active == 'toplive' %} class="tab-selected"{% endif %}>
+        <a href="/toplive/">
+          <span class="sub-menu_text">Top Live!</span>
+        </a>
+      </li>
+    {% endif %}
+
+    </ul>
+    {% endspaceless %}
+
+    {% include "partials/share.twig" %}
+
+  </div>
+</div> <!-- /.sub-menu -->

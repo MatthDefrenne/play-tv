@@ -1,0 +1,62 @@
+{% extends "layouts/mobile.twig" %}
+
+{% block content %}
+<div class="pmd-OurSelection">
+
+  <div class="pmd-Heading">
+    <h2 class="pmd-OurSelection-heading pmd-Heading-words">Notre sélection</h2>
+  </div>
+
+  <div class="pmd-js-OurSelectionContent pmd-OurSelectionContent">
+
+    <ul class="pmd-OurSelectionContent-list">
+    {% set counter = 1 %}
+    {% for date, date_broadcasts in super_featured_broadcasts %}
+      {% for broadcast in date_broadcasts %}
+      <li class="pmd-OurSelectionContent-listItem">
+        <a href="{{ broadcast.program.program_url }}" class="pmd-OurSelectionItem">
+
+          <div style="background-image: url({{ broadcast.program.images.sf_image }}); background-repeat: no-repeat;" class="pmd-OurSelectionItem-preview pmd-OurSelectionItemPreview">
+            {% if broadcast.program.trailer %}
+            <div class="pmd-TrailerIcon pmd-TrailerIcon--large pmd-Icons-trailer pmd-OurSelectionItemPreview-icon"></div>
+            {% endif %}
+          </div>
+
+          <div class="pmd-OurSelectionItem-info pmd-OurSelectionItemInfo">
+
+            <div class="pmd-OurSelectionItemInfo-channel">
+              <img
+                src="{{ broadcast.channel.images.medium }}"
+                alt=""
+                width="34"
+                height="34"
+              />
+            </div>
+
+            <h3 class="pmd-OurSelectionItemInfo-heading pmd-Text--truncate">{{ broadcast.program.fulltitle }}</h3>
+
+            <div class="pmd-Cf">
+              <span class="pmd-ProgrammeGenre pmd-ProgrammeGenre--{{ broadcast.program.gender_id }} pmd-OurSelectionItemInfo-genre">{{ broadcast.program.gender }}</span>
+              <span class="pmd-OurSelectionItemInfo-time pmd-Text--truncate">
+                <strong>{% if date_for_humans(date) is not null %}{{ date_for_humans(date)|capitalize }}{% else %}{{ date|localizeddate('full', 'none', locale)|capitalize }}{% endif %}</strong> à <strong>{{ broadcast.start|date("H:i") }}</strong>
+              </span>
+            </div>
+
+          </div>
+
+        </a>
+      </li>
+      {% set counter = counter + 1 %}
+      {% endfor %}
+    {% endfor %}
+    </ul>
+
+  </div>
+
+  {% if is_website_fr %}
+  <div id="taboola-mobile-notre-selection"></div>
+  {% endif %}
+
+</div>
+
+{% endblock %}

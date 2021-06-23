@@ -1,0 +1,97 @@
+{% set priceInteger = (product.price/100)|round(0, 'floor') %}
+{% set priceCurrency = '€' %}
+{% set priceDecimal = (product.price/100)|split('.') %}
+
+{% if type == 'pack' %}
+  <div class="pmd-ProductPackBox">
+
+    <div class="pmd-ProductPackBox-heading">
+      <p class="pmd-ProductPackBox-title">{{ product.name }}</p>
+    </div>
+
+    <div class="pmd-ProductPackBoxPrice">
+      <div class="pmd-ProductPackBoxPrice-inner">
+        <span class="pmd-ProductPackBoxPrice-number">{{ priceInteger }}</span>
+        <span class="pmd-ProductPackBoxPrice-info">{{ priceCurrency }}{% if priceDecimal.1 is defined and priceDecimal.1 != '00' %},{{ priceDecimal.1 }}{% endif %} / mois<br>sans engagement</span>
+      </div>
+    </div>
+
+    {% spaceless %}
+      <div class="pmd-js-ProductPackChannelsWrapper-{{ product.alias }} pmd-ProductPackBox-channels">
+        {% for channel in product.channels %}
+          <span class="pmd-js-TooltipChannel" title="{{ channel.name }}">
+            <img class="pmd-ProductPackBox-channel" src="{{ channel.images.mini }}" alt="{{ channel.name }}" width="36" height="36">
+          </span>
+        {% endfor %}
+      </div>
+    {% endspaceless %}
+
+    {% if product.channels|length > 15 %}
+      <a href="#" data-toggle="collapse" data-target=".pmd-js-ProductPackChannelsWrapper-{{ product.alias }}" data-toggle-class="pmd-ProductPackBox-channels--full" class="pmd-ProductPackBox-more">Voir toutes les chaines</a>
+    {% else %}
+      <span class="pmd-ProductPackBox-more"> </span>
+    {% endif %}
+
+    <div class="pmd-ProductPackBox-actionWrapper">
+      <form action="{{ hosts.current_full_secure }}/panier/" method="post">
+        <input type="hidden" name="product_alias" value="{{ product.alias }}">
+        {% if is_connected == false or current_account.hasTrialPeriod() %}
+          <button type="submit" class="pmd-ProductPackBox-action pmd-Button pmd-Button--lg pmd-Button--block pmd-Button--{{ product.alias }}">
+            <span>Essayer gratuitement</span>
+          </button>
+        {% else %}
+          <button type="submit" class="pmd-ProductPackBox-action pmd-Button pmd-Button--lg pmd-Button--block pmd-Button--icon pmd-Button--{{ product.alias }}">
+            <svg role="img" class="pmd-Svg pmd-Svg--cart pmd-Svg--white">
+              <use xlink:href="#pmd-Svg--cart"></use>
+            </svg>
+            <span>M'abonner</span>
+          </button>
+        {% endif %}
+      </form>
+    </div>
+
+  </div>
+
+{% elseif type == 'retail' %}
+
+  <div class="pmd-ProductPackBox">
+
+    <div class="pmd-ProductPackBox-heading pmd-ProductPackBoxAlternativeHeading {% if product.hasAdultChannel %}pmd-ProductRetailBox-adult--highlight{% endif %}">
+      {% if product.hasAdultChannel %}
+        <svg role="img" class="pmd-Svg pmd-Svg--minus18 pmd-ProductRetailBox-adultIcon pmd-Svg--white pmd-SvgEvent">
+          <use xlink:href="#pmd-Svg--minus18"></use>
+        </svg>
+      {% endif %}
+      <img src="{{ product.channel.images.small }}" alt="{{ product.channel.name }}" title="{{ product.channel.name }}" class="pmd-js-Tooltip pmd-ProductPackBoxAlternativeHeading-logo" width="60" height="60">
+      <p class="pmd-ProductPackBoxAlternativeHeading-title pmd-Text--truncate">{{ product.name }}</p>
+      <p class="pmd-ProductPackBoxAlternativeHeading-description pmd-Text--truncate">&nbsp;</p>
+    </div>
+
+    <div class="pmd-ProductPackBoxPrice">
+      <div class="pmd-ProductPackBoxPrice-inner">
+        <span class="pmd-ProductPackBoxPrice-number">{{ priceInteger }}</span>
+        <span class="pmd-ProductPackBoxPrice-info">{{ priceCurrency }}{% if priceDecimal.1 is defined and priceDecimal.1 != '00' %},{{ priceDecimal.1 }}{% endif %} / mois<br>sans engagement</span>
+      </div>
+    </div>
+
+    <div class="pmd-ProductPackBox-actionWrapper">
+      <form action="{{ hosts.current_full_secure }}/panier/" method="post">
+        <input type="hidden" name="product_alias" value="{{ product.alias }}">
+        {% if is_connected == false or current_account.hasTrialPeriod() %}
+          <button type="submit" class="pmd-ProductPackBox-action pmd-Button pmd-Button--lg pmd-Button--block pmd-Button--default">
+            <span>Essayer gratuitement</span>
+          </button>
+        {% else %}
+          <button type="submit" class="pmd-ProductPackBox-action pmd-Button pmd-Button--lg pmd-Button--block pmd-Button--icon pmd-Button--default">
+            <svg role="img" class="pmd-Svg pmd-Svg--cart pmd-Svg--black">
+              <use xlink:href="#pmd-Svg--cart"></use>
+            </svg>
+            <span>M'abonner</span>
+          </button>
+        {% endif %}
+      </form>
+    </div>
+
+  </div>
+
+{% endif %}

@@ -1,0 +1,33 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <div class="span16 ptv-Error404">
+          <div class="page-title ptv-Error404Header">
+            <h1 class="ptv-Error404Header-heading">{% trans with {'%status_code%':404} %}%status_code% ERROR{% endtrans %}</h1>
+            <p class="ptv-Error404Header-subheading">{% trans %}The page you are looking for doesn't exist.{% endtrans %}</p>
+            <p>{% trans with {'%page%': request.uri|escape} %}Page <strong>%page%</strong> doesn't exist.{% endtrans %}</p>
+          </div>
+          <div class="ptv-Error404Content">
+            <p>
+              {% trans with {'%title%': 'Search'|trans, '%href%': path('recherche')} %}
+              Looking for something in particular ? Try the <a href="%href%" title="%title%"><strong>search form</strong>.</a>
+              {% endtrans %}
+            </p>
+            {% if has_feature('faq') %}
+            <p>{% trans %}OR{% endtrans %}</p>
+            <p>
+              {% trans with {'%title%': 'Frequently asked questions'|trans, '%href%': '/faq/'} %}
+              Refer to the <a href="%href%" title="%title%">FAQs</a>.
+              {% endtrans %}
+            </p>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

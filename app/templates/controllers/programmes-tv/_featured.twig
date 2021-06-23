@@ -1,0 +1,77 @@
+{% for date, date_broadcasts in broadcasts %}
+
+{% if has_column %}
+<div class="span-half">
+{% endif %}
+
+  <div class="grey-box margin">
+
+    <div class="text">
+      {% if has_column %}
+      <h2>{{ date_for_humans(date)|capitalize }}</h2>
+      {% else %}
+      <h3>{{ date_for_humans(date)|capitalize }}</h3>
+      {% endif %}
+    </div>
+
+    {% for broadcast in date_broadcasts %}
+    <div class="program clearfix">
+
+      {% if broadcast.program.images.small is not null %}
+      <a class="program-img program-img-small {% if broadcast.program.trailer %}pmd-js-TrailerButton{% endif %}" data-program-id="{{ broadcast.program.id }}" title="{{ broadcast.program.fulltitle }}" href="{{ broadcast.program.program_url }}">
+        <img src="{{ broadcast.program.images.small }}" alt="{{ broadcast.program.title }}" width="80" height="60">
+        <span class="cache"></span>
+        {% if broadcast.program.trailer %}
+        <span class="pmd-TrailerIcon"></span>
+        {% endif %}
+      </a>
+      {% endif %}
+
+      <small class="infos">
+        {% spaceless %}
+        <span class="program-gender small">
+          <span class="program-gender-icon program-gender-icon{{ broadcast.program.gender_id }}"></span>
+          <span>{{ broadcast.program.gender }}</span>
+        </span>
+        <span class="clear-grey">
+          <span title="Durée : {{ broadcast.program.duration|diff_for_humans }}">{{ broadcast.start|date("H:i") }}</span> sur
+          <strong>
+            <a href="{{ path('chaine_tv', {'channel_id': broadcast.channel.id, 'channel_alias': broadcast.channel.alias}) }}">{{ broadcast.channel.name }}</a>
+          </strong>
+        </span>
+        {% endspaceless %}
+      </small>
+
+      <p class="title pmd-Text--truncate">
+          <a href="{{ broadcast.program.program_url }}" title="{{ broadcast.program.title }}">
+            <strong>{{ broadcast.program.title }}</strong>
+          </a>
+      </p>
+
+      {% if broadcast.program.trailer %}
+      {% spaceless %}
+          <a href="#" class="pmd-js-TrailerButton pmd-Button pmd-TrailerButton" data-program-id="{{ broadcast.program.id }}" data-program-alias="{{ broadcast.program.alias }}">
+            <svg role="img" class="pmd-Svg pmd-Svg--trailer">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pmd-Svg--trailer"></use>
+            </svg>
+            {% trans %}Trailer{% endtrans %}
+          </a>
+      {% endspaceless %}
+      {% elseif broadcast.program.subtitle is not null %}
+      <p class="subtitle clear-grey pmd-Text--truncate" title="{{ broadcast.program.subtitle }}">{{ broadcast.program.subtitle }}</p>
+      {% endif %}
+
+    </div>
+  {% endfor %}
+
+  </div>
+
+{% if has_column %}
+</div>
+{% endif %}
+
+{% else %}
+<div class="text xbigger center clear-grey margin">
+  <p>Pas de programmes tv à venir.</p>
+</div>
+{% endfor %}

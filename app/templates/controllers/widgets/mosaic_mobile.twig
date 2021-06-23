@@ -1,0 +1,62 @@
+{% if context == 'homepage' %}
+
+{% elseif context == 'social_tv' %}
+
+{% elseif context == 'replay_tv_page' %}
+
+{% spaceless %}
+<div class="pmd-MosaicChannels pmd-ReplayTvContentMosaicChannels">
+  <ul class="pmd-js-ReplayTvCarrousel pmd-MosaicChannels-container pmd-ReplayTvContentMosaicChannels-container">
+  {% for channel_item in channels %}
+    {% include "partials/item-mosaic-channel.twig"
+      with {
+        "link_route_name": "replay_channel_videos",
+        "channel": channel_item,
+        "image_size": "small",
+        "classes": ['pmd-js-ReplayTvCarrousel-cell']
+      } %}
+  {% endfor %}
+  </ul>
+</div>
+{% endspaceless %}
+
+{% elseif context in ['live', 'replay_tv'] %}
+
+  {% spaceless %}
+  <div class="pmd-Remote">
+    <div class="pmd-MosaicChannels">
+      <ul class="pmd-MosaicChannels-container">
+      {% for channel_item in channels %}
+        {% include "partials/item-mosaic-channel.twig" with {"channel": channel_item, image_size: "small"} %}
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endspaceless %}
+
+{% elseif context in ['categories', 'themes'] %}
+
+  {% for key, channel_items in channels %}
+    <h3 class="margin">{{ key }}</h3>
+    {% spaceless %}
+    <div class="pmd-Remote">
+      <div class="pmd-MosaicChannels">
+        <ul class="pmd-MosaicChannels-container">
+        {% for channel_item in channel_items %}
+          {% include "partials/item-mosaic-channel.twig" with {"channel": channel_item, image_size: "small"} %}
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endspaceless %}
+  {% endfor %}
+
+{% else %}
+
+    {% spaceless %}
+    {% for channel in channels %}
+      {% include "partials/item-mosaic-channel.twig" with {"channel": channel, image_size: "small"} %}
+    {% endfor %}
+    {% endspaceless %}
+
+{% endif %}

@@ -1,0 +1,28 @@
+<div class="ptv-js-AccountNotifications main ptv-AccountProfile">
+
+  <h3 class="ptv-AccountProfile-heading">
+    <span class="ptv-AccountProfile-headingMain">Notifications</span>
+  </h3>
+
+  <div class="content ptv-AccountProfileContent">
+
+    <form method="post" action="/mon-compte/notifications/" class="ptv-js-AccountNotifications-form">
+
+      {% for segment in segments %}
+        <div class="ptv-AccountProfileLine">
+          <p class="ptv-AccountProfileLine-inputField">
+            <input type="checkbox" name="mailing[]" value="{{ segment.id }}" autocomplete="off" {% for subscription in subscriptions %}{% if subscription.id == segment.id %}checked{% endif %}{% endfor %}> <label class="ptv-AccountProfileLine-label" for="mailing">{{ segment.name }}</label>
+          </p>
+        </div>
+      {% endfor %}
+
+      <div class="ptv-js-AccountNotifications-alert ptv-Alert ptv-AccountProfileAlert"></div>
+
+      <p class="ptv-AccountProfileAction pmd-Text--right">
+        <button class="ptv-Button ptv-Button--large">Enregistrer les modifications</button>
+      </p>
+
+    </form>
+  </div>
+
+</div>

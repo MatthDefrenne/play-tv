@@ -1,0 +1,73 @@
+{% if pages > 0 %}
+  <nav class="paginate margin paginate-top">
+    {% include "partials/paginate-replay-tv.twig" %}
+    <div class="right text clear-grey">
+      {% trans with {'%page%': page, '%pages%': pages} %}
+      Page %page% / %pages%
+      {% endtrans %}
+      <span class="bullet">&bull;</span>
+      {% transchoice count %}
+      {1} <strong>%count% video</strong> on demand|]1,Inf] <strong>%count% videos</strong> on demand
+      {% endtranschoice %}
+    </div>
+  </nav>
+{% endif %}
+
+{% if videos is not null %}
+<div class="pmd-ReplayContent-wrapper">
+
+  {% if (display_ads == true) and (is_connected == false or (is_connected and current_account.isPremium() == false)) %}
+  <div class="pmd-ReplayContent-ads">
+    {% include "partials/ads-banner.twig" with {'unique': "aea23cf0", "zone_id": 36} %}
+  </div>
+  {% endif %}
+
+  {% spaceless %}
+  {% if videos is not null and videos|length > 0 %}
+  {% for video in videos %}
+    {% include "partials/item-replay-tv-page.twig" with {"filter":"filter", "video": video} %}
+  {% endfor %}
+  {% endif %}
+  {% endspaceless %}
+
+</div>
+{% else %}
+  <div class="pmd-ReplayContentNoResult">
+
+    <nav class="margin">
+        {% trans from "catchup" %}no_result.content{% endtrans %}
+    </nav>
+    {% if last_videos is not null and last_videos|length > 0 %}
+    <nav class="paginate paginate-top margin clear-grey">
+      {% trans from "catchup" %}no_result.other_channels{% endtrans %}
+    </nav>
+
+
+    <div class="pmd-ReplayContent-wrapper">
+
+      {% spaceless %}
+      {% for video in last_videos %}
+      {% include "partials/item-replay-tv-page.twig" with {"filter": "index", "video": video} %}
+      {% endfor %}
+      {% endspaceless %}
+
+    </div>
+
+  </div>
+  {% endif %}
+{% endif %}
+
+{% if pages > 0 %}
+  <nav class="paginate margin paginate-bottom" style="clear: both;">
+    {% include "partials/paginate-replay-tv.twig" %}
+    <div class="right text clear-grey">
+      {% trans with {'%page%': page, '%pages%': pages} %}
+      Page %page% / %pages%
+      {% endtrans %}
+      <span class="bullet">&bull;</span>
+      {% transchoice count %}
+      {1} <strong>%count% video</strong> on demand|]1,Inf] <strong>%count% videos</strong> on demand
+      {% endtranschoice %}
+    </div>
+  </nav>
+{% endif %}

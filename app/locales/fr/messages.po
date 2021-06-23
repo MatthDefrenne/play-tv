@@ -1,0 +1,1010 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+
+msgid "page %page%"
+msgstr "Page %page%"
+
+msgid ""
+"Our system has detected that you are blocking ads with <a href=\"http://"
+"adblockplus.org\" target=\"_blank\" rel=\"nofollow\"><strong>Adblock Plus</"
+"strong></a> or a similar software."
+msgstr ""
+"Notre système a détecté que vous bloquez les publicités avec <a href="
+"\"http://adblockplus.org\" target=\"_blank\" rel=\"nofollow"
+"\"><strong>Adblock Plus</strong></a> ou avec un logiciel similaire."
+
+msgid "To watch TV on %host%, please disable this software."
+msgstr ""
+"Pour regarder la télévision sur %host%, vous devez désactiver ce logiciel."
+
+msgid "How to disable Adblock Plus for %host%?"
+msgstr "Comment désactiver Adblock Plus pour %host% ?"
+
+msgid ""
+"<strong>Find the Adblock Plus icon</strong> in your web browser (Mozilla "
+"Firefox, Google Chrome etc.)."
+msgstr ""
+"<strong>Repérez l'icône Adblock Plus</strong> sur votre navigateur internet "
+"(Mozilla Firefox, Google Chrome etc.)."
+
+msgid ""
+"Generally it is located at the right of the address bar, or at the bottom "
+"right of the window."
+msgstr ""
+"Généralement elle se situe à droite de la barre d'adresse, ou tout en bas à "
+"droite de la fenêtre."
+
+msgid "Click on the icon and then (depending on browser):"
+msgstr "Cliquez sur l'icône puis.. (en fonction du navigateur) :"
+
+msgid ""
+"Click on « Disable <strong>everywhere</strong> ». (Yes, <strong>everywhere</"
+"strong>)."
+msgstr ""
+"Cliquez sur &laquo; Désactiver <strong>partout</strong> ». (Oui, "
+"<strong>partout</strong>. Malheureusement, la nouvelle version d'Adblock ne "
+"prend plus en compte vos choix. <a href=\"#adb-happen\">Comprendre ce qu'il "
+"se passe</a>.)"
+
+msgid "Google Chrome and others"
+msgstr "Google Chrome et autres"
+
+msgid "Click on « Disable on %host% »."
+msgstr ""
+"Cliquez sur &laquo; Ne rien bloquer sur les pages de ce domaine » ou "
+"décochez &laquo; Activé pour ce site »."
+
+msgid ""
+"Try accessing the previous page again or <a href=\"/\"><strong>click here</"
+"strong></a>."
+msgstr ""
+"Ré-essayez d'accéder à la page précédente ou <a href=\"/\"><strong>cliquez "
+"ici</strong></a>."
+
+msgid "Video tutorial"
+msgstr "Explication en vidéo"
+
+msgid "I can't disable Adblock Plus"
+msgstr "Je n'arrive pas à désactiver Adblock Plus"
+
+msgid ""
+"If you can't find the Adblock button or you can't manage to disable Adblock, "
+"you can try <strong>uninstalling completely the software</strong> in the "
+"options of your web browser."
+msgstr ""
+"Si vous ne trouvez pas le bouton Adblock ou si vous n'arrivez pas à "
+"désactiver Adblock, vous pouvez essayer de <strong>désinstaller complètement "
+"le logiciel</strong> dans les options de votre navigateur web."
+
+msgid ""
+"Go to Preferences > Extensions, select the extension from the list on the "
+"left, and click \"Uninstall\"."
+msgstr ""
+"Cliquez Safari, puis Préférences et enfin Extensions. Désactivez/"
+"désinstallez Adblock Plus."
+
+msgid ""
+"You haven't installed AdBlock or you have disabled Adblock for <strong>%host"
+"%</strong> but you are still redirected to this page."
+msgstr ""
+"Vous n'avez pas installé Adblock ou vous avez désactivé Adblock pour <strong>"
+"%host%</strong> mais vous êtes toujours redirigé sur cette page ?"
+
+msgid "This may be a false positive."
+msgstr "Il s'agit peut-être d'un faux positif."
+
+msgid "Next programs on <strong>%channel%</strong>"
+msgstr "À suivre sur <strong>%channel%</strong>"
+
+msgid "Now on <strong>%channel%</strong>"
+msgstr "En direct sur <strong>%channel%</strong>"
+
+msgid "Description of <strong>%channel%</strong>"
+msgstr "Description de la chaîne de TV <strong>%channel%</strong>"
+
+msgid "Description of <strong>%channel%</strong> radio"
+msgstr "Description de la station de radio <strong>%channel%</strong>"
+
+msgid "No description for <strong>%channel%</strong>"
+msgstr "Pas de description pour <strong>%channel%</strong>"
+
+msgid "Former names of <strong>%channel%</strong>"
+msgstr "Anciens noms de <strong>%channel%</strong>"
+
+msgid "Today"
+msgstr "Aujourd'hui"
+
+msgid "TV guide for <strong>%channel%</strong>"
+msgstr "Programme TV de <strong>%channel%</strong>"
+
+msgid "Watch %channel% live"
+msgstr "Regarder %channel% en direct"
+
+msgid "Listen %channel% live"
+msgstr "Écouter %channel% en direct"
+
+msgid "Category"
+msgstr "Catégorie"
+
+msgid "Official website"
+msgstr "Site internet officiel"
+
+msgid "Creation date"
+msgstr "Date de création"
+
+msgid "About %channel%"
+msgstr "À propos de %channel%"
+
+msgid "Summary"
+msgstr "Résumé"
+
+msgid "Now"
+msgstr "En direct"
+
+msgid "TV guide"
+msgstr "Programmes TV"
+
+msgid "%status_code% ERROR"
+msgstr "ERREUR %status_code%"
+
+msgid "The page you are looking for doesn't exist."
+msgstr "La page demandée n'existe pas."
+
+msgid "Page <strong>%page%</strong> doesn't exist."
+msgstr "La page <strong>%page%</strong> n'existe pas."
+
+msgid ""
+"Looking for something in particular ? Try the <a href=\"%href%\" title="
+"\"%title%\"><strong>search form</strong>.</a>"
+msgstr ""
+"Vous cherchez quelque chose en particulier ? Essayez le <a href=\"%href%\" "
+"title=\"%href%\"><strong>formulaire de recherche</strong>.</a>"
+
+msgid "Search"
+msgstr "Recherche"
+
+msgid "All episodes of the TV series <strong>%group%</strong>"
+msgstr "Tous les épisodes de la série télé <strong>%group%</strong>"
+
+msgid "Episodes of <strong>season %season%</strong>"
+msgstr "Épisodes de la <strong>saison %season%</strong>"
+
+msgid "{1} 1 season|]1,Inf] %count% seasons"
+msgstr "{1} 1 saison|]1,Inf] %count% saisons"
+
+msgid "{0} No episodes|{1} 1 episode|]1,Inf] %count% episodes"
+msgstr "{0} Aucun épisode|{1} 1 épisode|]1,Inf] %count% épisodes"
+
+msgid "{0} No show|{1} 1 show|]1,Inf] %count% shows"
+msgstr "{0} Aucun programme|{1} 1 programme|]1,Inf] %count% programmes"
+
+msgid "Summary of the TV series"
+msgstr "Résumé de la série"
+
+msgid "Summary of the TV show"
+msgstr "Résumé de l’émission"
+
+msgid "Episodes of the TV series"
+msgstr "Épisodes de la série"
+
+msgid "Episodes of the TV show"
+msgstr "Épisodes de l’émission"
+
+msgid "More infos about <strong>%group%</strong> TV series"
+msgstr "Plus d'infos sur la série télé <strong>%group%</strong>"
+
+msgid "More infos about <strong>%group%</strong> TV show"
+msgstr "Plus d'infos sur l ‘émission <strong>%group%</strong>"
+
+msgid "TV Guide"
+msgstr "Guide TV"
+
+msgid "Tonight on TV"
+msgstr "Votre soirée télé"
+
+msgid "On air"
+msgstr "En direct"
+
+msgid "More TV channels"
+msgstr "Plus de chaînes de télévision"
+
+msgid "TV programs with %cast%"
+msgstr "Fiche descriptive, programmes tv avec %cast%"
+
+msgid "Find <strong>%cast%</strong> soon in..."
+msgstr "Retrouver <strong>%cast%</strong> prochainement dans ..."
+
+msgid "%date% at <strong>%hour%</strong> on <strong>%channel%</strong>"
+msgstr "%date% à <strong>%hour%</strong> sur <strong>%channel%</strong>"
+
+msgid "Last TV programs with <strong>%cast%</strong>"
+msgstr "Derniers programmes TV avec <strong>%cast%</strong>"
+
+msgid "%date% on <strong>%channel%</strong>"
+msgstr "%date% sur <strong>%channel%</strong>"
+
+msgid "No programs with <strong>%cast%</strong> recently."
+msgstr "Pas de programmes avec <strong>%cast%</strong> récemment."
+
+msgid "Genre"
+msgstr "Genre du programme"
+
+msgid "Sub-genre"
+msgstr "Sous-genre"
+
+msgid "More infos"
+msgstr "Plus d'infos"
+
+msgid "Year"
+msgstr "Année"
+
+msgid "Duration"
+msgstr "Durée"
+
+msgid "Subtitles"
+msgstr "Sous-titres"
+
+msgid "Episode"
+msgstr "Épisode"
+
+msgid "Season"
+msgstr "Saison"
+
+msgid "Official hashtag"
+msgstr "Hashtag officiel"
+
+msgid "No summary for <strong>%program%</strong>"
+msgstr "Pas de résumé pour <strong>%program%</strong>"
+
+msgid "Watch the <strong>trailer</strong>"
+msgstr "Regarder la <strong>bande annonce</strong>"
+
+msgid "Presented by"
+msgstr "Présenté par"
+
+msgid "Created by"
+msgstr "Créé par"
+
+msgid "Directed by"
+msgstr "Réalisé par"
+
+msgid "Screenplay by"
+msgstr "Scénario de"
+
+msgid "With"
+msgstr "Avec"
+
+msgid "<strong>Next broadcasts</strong> on TV"
+msgstr "<strong>Prochaines diffusions</strong> à la télé"
+
+msgid "On <strong>%channel%</strong> at <strong>%hour%</strong>"
+msgstr "Sur <strong>%channel%</strong> à <strong>%hour%</strong>"
+
+msgid "%program% live"
+msgstr "%program% en direct"
+
+msgid "ON AIR"
+msgstr "EN DIRECT"
+
+msgid ""
+"{0} « <strong>%program%</strong> » will be broadcast on <strong>%channel%</"
+"strong> in a few moments|[1,Inf] « <strong>%program%</strong> » will be "
+"broadcast on <strong>%channel%</strong> in %count% minutes"
+msgstr ""
+"{0} « <strong>%program%</strong> » sera diffusé sur <strong>%channel%</"
+"strong> dans quelques instants|[1,Inf] <strong>%program%</strong> » sera "
+"diffusé sur <strong>%channel%</strong> dans %count% minutes"
+
+msgid "Full cast"
+msgstr "Casting complet"
+
+msgid "Broadcasts"
+msgstr "Diffusions"
+
+msgid "Watch <strong>%program%</strong> live on the web"
+msgstr "Regarder <strong>%program%</strong> en direct sur internet"
+
+msgid "Cast team for <strong>%program%</strong>."
+msgstr "L'équipe de casting pour <strong>%program%</strong>."
+
+msgid "No cast for <strong>%program%</strong>."
+msgstr "Pas de casting pour <strong>%program%</strong>."
+
+msgid ""
+"<strong class=\"red\">No replays</strong> for <strong>%program%</strong> in "
+"the next 7 days."
+msgstr ""
+"<strong class=\"red\">Pas de rediffusions</strong> pour <strong>%program%</"
+"strong> dans les 7 prochains jours."
+
+msgid "<strong>Previous broadcasts</strong> on TV"
+msgstr "<strong>Précédentes diffusions</strong> à la télé"
+
+msgid "Broadcasts in <strong>%year%</strong>"
+msgstr "Diffusions en <strong>%year%</strong>"
+
+msgid "No broadcasts for <strong>%program%</strong> on TV in the last 30 days."
+msgstr ""
+"<strong>%program%</strong> n'a pas été diffusé à la télé ces 30 derniers "
+"jours."
+
+msgid "This program is on air. Watch it now."
+msgstr "Ce programme est en direct. Regardez-le."
+
+msgid "This program is on air."
+msgstr "Ce programme est en direct."
+
+msgid "Evening"
+msgstr "Soirée"
+
+msgid "Live on TV"
+msgstr "En direct à la télé"
+
+msgid "TV programs guide"
+msgstr "Guide des programmes tv"
+
+msgid "TV evening of %date%"
+msgstr "Soirée télé du %date%"
+
+msgid "Today from %start_time% to %end_time%"
+msgstr "Aujourd'hui de %start_time% à %end_time%"
+
+msgid "%date% from %start_time% to %end_time%"
+msgstr "%date% de %start_time% à %end_time%"
+
+msgid ""
+"{23} From %start_time% to %end_time% (D-1)|]0,Inf] From %start_time% to "
+"%end_time%"
+msgstr ""
+"{23} De %start_time% à %end_time% (J-1)|]0,Inf] De %start_time% à %end_time%"
+
+msgid ""
+"{2} From %start_time% to %end_time% (D+1)|]0,Inf] From %start_time% to "
+"%end_time%"
+msgstr ""
+"{2} De %start_time% à %end_time% (J+1)|]0,Inf] De %start_time% à %end_time%"
+
+msgid "Scroll to top"
+msgstr "Remonter"
+
+msgid "Weather"
+msgstr "Météo"
+
+msgid "Duration: %duration%"
+msgstr "Durée: %duration%"
+
+msgid "Trailer"
+msgstr "Bande-annonce"
+
+msgid "Unknown program"
+msgstr "Programme non communiqué"
+
+msgid "Short programs"
+msgstr "Programmes courts"
+
+msgid "{1} 1 result.|]1,Inf] %count% results."
+msgstr "{1} 1 résultat.|]1,Inf] %count% résultats."
+
+msgid "No results."
+msgstr "Aucun résultat"
+
+msgid "TV channels"
+msgstr "Chaînes TV"
+
+msgid "TV programs"
+msgstr "Programmes TV"
+
+msgid "Videos"
+msgstr "Vidéos"
+
+msgid "People"
+msgstr "Personnes"
+
+msgid "All categories"
+msgstr "Toutes les catégories"
+
+msgid "Search for <strong>TV channels</strong>"
+msgstr "Recherche de <strong>chaînes TV</strong>"
+
+msgid "Search for <strong>TV programs</strong>"
+msgstr "Recherche de <strong>programmes TV</strong>"
+
+msgid "Search for <strong>videos</strong>"
+msgstr "Recherche de <strong>vidéos en replay</strong>"
+
+msgid "Search for <strong>people</strong>"
+msgstr "Recherche de <strong>personnalités</strong>"
+
+msgid "Search for <strong>?</strong>"
+msgstr "Recherche de <strong>?</strong>"
+
+msgid "Search results for « <em>%query%</em> »"
+msgstr "Résultats de recherche pour « <em>%query%</em> »"
+
+msgid "Enter your search keywords"
+msgstr "Entrez vos mots clés pour lancer une recherche"
+
+msgid "All"
+msgstr "Tous"
+
+msgid "Enter your search keywords above."
+msgstr "Entrez vos mots clés de recherche ci-dessus."
+
+msgid "Search..."
+msgstr "Rechercher..."
+
+msgid "How to watch television for free on the web"
+msgstr "La télévision gratuite sur internet : mode d'emploi"
+
+msgid "In a few seconds, you will be watching live television!"
+msgstr "Dans quelques secondes, vous pourrez regarder la télé en direct !"
+
+msgid "Select a TV channel"
+msgstr "Sélectionnez une chaîne de tv"
+
+msgid "<strong>Watching television</strong> on Play TV is fairly easy."
+msgstr "<strong>Regarder la télévision</strong> sur Play TV c'est très facile."
+
+msgid ""
+"Click on a <strong>TV channel</strong> logo in the mosaic on the right, "
+"<br>and enjoy your favourite <strong>TV shows</strong>."
+msgstr ""
+"Cliquez sur le logo d'une <strong>chaîne de télé</strong> dans la mosaïque "
+"ci-dessus,<br>et profitez en illimité de vos <strong>programmes TV</strong> "
+"favoris."
+
+msgid ""
+"<strong>Play TV</strong> is a <strong>legal</strong> service offering live "
+"television <strong>for free</strong> with advertising."
+msgstr ""
+"<strong>Play TV</strong> est un service <strong>légal</strong> qui propose "
+"une <strong>offre gratuite</strong> avec publicité et des <strong>offres "
+"payantes</strong>."
+
+msgid "Enjoy!"
+msgstr "Bon visionnage !"
+
+msgid ""
+"<p><strong>Pick a</strong></p><p><strong>TV channel</strong></"
+"p><p><strong>in the mosaic</strong></p><p><strong>on the right ...</strong></"
+"p>"
+msgstr ""
+"<p><strong>Sélectionnez une</strong></p><p><strong>chaîne de télé</strong></"
+"p><p><strong>dans la mosaïque</strong></p><p><strong>ci-contre ...</strong></"
+"p>"
+
+msgid "All TV channels"
+msgstr "Toutes les chaînes TV"
+
+msgid "TV channels available on Play TV"
+msgstr "Chaînes TV disponibles sur Play TV"
+
+msgid "Filter by country"
+msgstr "Filtrer par pays"
+
+msgid "Search a channel"
+msgstr "Rechercher une chaine"
+
+msgid "On air on %channel%"
+msgstr "En direct sur %channel%"
+
+msgid "Next program on %channel%"
+msgstr "À suivre sur <strong>%channel%</strong>"
+
+msgid "Next program"
+msgstr "Programme à suivre"
+
+msgid "Live comments on %channel%"
+msgstr "Commentez en direct sur %channel%"
+
+msgid "Live comments"
+msgstr "Commentez en direct"
+
+msgid "Watch %channel%"
+msgstr "Regardez %channel%"
+
+msgid "<strong>Watch %channel%</strong> live online"
+msgstr "<strong>Regarder %channel%</strong> en direct à la télévision ..."
+
+msgid "<strong>Listen %channel%</strong> live online"
+msgstr "<strong>Écouter %channel%</strong> en direct à la radio ..."
+
+msgid ""
+"<strong class=\"red\">No information</strong> about the current TV program."
+msgstr ""
+"<strong class=\"red\">Pas d'informations</strong> sur le programme tv en "
+"cours."
+
+msgid ""
+"<strong class=\"red\">No information</strong> about online radio."
+msgstr ""
+"<strong class=\"red\">Pas d'informations</strong> sur la radio en "
+"ligne."
+
+msgid ""
+"Next <strong>TV programs</strong> to watch live on <strong>%channel%</"
+"strong>."
+msgstr ""
+"<strong>Programmes TV</strong> à suivre en direct sur <strong>%channel%</"
+"strong>."
+
+msgid ""
+"Next to listen live on <strong>%channel%</"
+"strong>."
+msgstr ""
+"A suivre en direct sur <strong>%channel%</"
+"strong>."
+
+msgid ""
+"<strong class=\"red\">No information</strong> about this channel's TV "
+"programs."
+msgstr ""
+"<strong class=\"red\">Pas d'informations</strong> sur les programmes tv de "
+"cette chaîne."
+
+msgid "What's next on %channel%"
+msgstr "Suite du programme sur %channel%"
+
+msgid "What's next"
+msgstr "Suite du programme"
+
+msgid "Select a country in the list below"
+msgstr "Sélectionnez un pays de diffusion"
+
+msgid "Get in touch with Play TV on social media"
+msgstr "Retrouvez Play TV sur les réseaux sociaux !"
+
+msgid "Live TV"
+msgstr "Direct TV"
+
+msgid "All rights reserved."
+msgstr "Tous droits réservés."
+
+msgid "Go to standard website"
+msgstr "Accéder au site web classique"
+
+msgid "Search on Play TV..."
+msgstr "Rechercher sur Play TV..."
+
+msgid "TV listings now"
+msgstr "En direct"
+
+msgid "Prime time"
+msgstr "Ce soir"
+
+msgid "Late fringe"
+msgstr "2ème partie"
+
+msgid "Type of TV channel"
+msgstr "Type de chaîne TV"
+
+msgid "Unknown genre"
+msgstr "Genre inconnu"
+
+msgid "Share on %network%"
+msgstr "Partager sur %network%"
+
+msgid "Share via e-mail"
+msgstr "Partager par e-mail"
+
+msgid "Follow %account_name%"
+msgstr "Suivre %account_name%"
+
+msgid "OR"
+msgstr "OU"
+
+msgid "Refer to the <a href=\"%href%\" title=\"%title%\">FAQs</a>."
+msgstr ""
+"Reportez-vous à la rubrique <a href=\"%href%\" title=\"%title%\">questions "
+"fréquentes</a>."
+
+msgid "Frequently asked questions"
+msgstr "Questions fréquentes"
+
+msgid "Back to home"
+msgstr "Retour à l'accueil"
+
+msgid "Do not miss"
+msgstr "À ne pas manquer"
+
+msgid "%episode% of %episodes%"
+msgstr "%episode% sur %episodes%"
+
+msgid "Part"
+msgstr "Partie"
+
+msgid "%part% of %parts%"
+msgstr "%part% sur %parts%"
+
+msgid "On <strong>%channel%</strong>"
+msgstr "Sur <strong>%channel%</strong>"
+
+msgid "%date% at <strong>%hour%</strong>"
+msgstr "Le %date% à <strong>%hour%</strong>"
+
+msgid "Watch <strong>%channel%</strong> live on the channel website"
+msgstr "Regarder <strong>%channel%</strong> en direct sur le site de la chaîne"
+
+msgid "No listings for this timeframe."
+msgstr "Aucun programme tv pour cette période."
+
+msgid "All broadcasts for TV show <strong>%group%</strong>"
+msgstr "Tous les programmes de l'émission <strong>%group%</strong>"
+
+msgid "%program% on demand"
+msgstr "%program% en replay"
+
+msgid "TV REPLAY"
+msgstr "REPLAY TV"
+
+msgid "<strong>%date%</strong> at %hour% on %channel%"
+msgstr "<strong>%date%</strong> à %hour% sur %channel%"
+
+msgid "More results"
+msgstr "Plus de résultats"
+
+msgid "All the videos"
+msgstr "Replays du programme"
+
+msgid "All the videos from %channel%"
+msgstr "Tous les replays de %channel%"
+
+msgid "Live tweets"
+msgstr "Live tweets"
+
+msgid "Page %page% / %pages%"
+msgstr "Page %page% / %pages%"
+
+msgid ""
+"{1} <strong>%count% video</strong> on demand|]1,Inf] <strong>%count% videos</"
+"strong> on demand"
+msgstr ""
+"{1} <strong>%count% vidéo</strong> en tv replay|]1,Inf] <strong>%count% "
+"vidéos</strong> en tv replay"
+
+msgid ""
+"<strong>On demand video</strong> <span class=\"clear-grey\">from</span> "
+"<strong>%channel%</strong>"
+msgstr ""
+"<strong>Replay</strong> <span class=\"clear-grey\">de la chaîne</span> "
+"<strong>%channel%</strong>"
+
+msgid "Direct access to video »"
+msgstr "Aller directement à la vidéo »"
+
+msgid "On demand videos of <strong>%program%</strong>"
+msgstr "Replays du programme <strong>%program%</strong>"
+
+msgid "Previous"
+msgstr "Précédent"
+
+msgid "Next"
+msgstr "Suivant"
+
+msgid "Watch %replay% on demand online"
+msgstr "Regarder %replay% en replay"
+
+msgid "The latest videos on demand available"
+msgstr "Les derniers replay TV disponibles"
+
+msgid "No TV show from last night on demand."
+msgstr "Aucun programme TV d'hier soir en replay TV."
+
+msgid "The last videos on demand available online"
+msgstr "Les derniers replay TV disponibles"
+
+msgid "No video on demand added recently."
+msgstr "Aucune vidéo ajoutée en replay TV."
+
+msgid "All the latest videos"
+msgstr "Toutes les dernières vidéos"
+
+msgid "Direct access to live »"
+msgstr "Accéder directement au live »"
+
+msgid "Watch <strong>%replay%</strong> on demand"
+msgstr "Regarder <strong>%replay%</strong> en replay"
+
+msgid "Watch %channel% videos on demand"
+msgstr "Revoir les vidéos de %channel% en replay tv"
+
+msgid "On <a href=\"%href%\" title=\"%title%\">%channel%</a> %date% at %time%"
+msgstr ""
+"Sur <a href=\"%href%\" title=\"%title%\">%channel%</a> le %date% à %time%"
+
+msgid "On <a href=\"%href%\" title=\"%title%\">%channel%</a>"
+msgstr "Sur <a href=\"%href%\" title=\"%title%\">%channel%</a>"
+
+msgid "On <a href=\"%href%\" title=\"%title%\">%channel%</a> on demand"
+msgstr "Sur <a href=\"%href%\" title=\"%title%\">%channel%</a> en replay"
+
+msgid "%date% <span class=\"clear-grey\">at %time%</span>"
+msgstr "Le %date% <span class=\"clear-grey\">à %time%</span>"
+
+msgid "Yesterday TV Catch Up"
+msgstr "Les Programmes TV d’hier soir en Replay"
+
+msgid "By day"
+msgstr "Choix par jour (tous)"
+
+msgid "By genre"
+msgstr "Genres (tous)"
+
+msgid ""
+"Open your \"Add-ons Manager\" by going to \"Firefox\" > \"Add-ons\" (for Mac "
+"OS X / Linux, select \"Tools\" from the menubar > \"Add-Ons\"). Here you "
+"will find an overview of your currently installed add-ons. Find Adblock Plus "
+"here, and simply click on \"Remove\""
+msgstr ""
+"Cliquez sur Firefox, puis Modules complémentaires. Dans Extensions, "
+"désactivez/désinstallez Adblock Plus."
+
+msgid ""
+"Go to \"Settings\" in the menu in the top right corner. Then, select "
+"\"Extensions\" on the left side. Find Adblock Plus here, and select the "
+"small trashcan icon on the right side."
+msgstr ""
+"Cliquez sur la clé à outil en haut à droite, puis Outils et enfin "
+"Extensions. Désactivez/désinstallez Adblock Plus."
+
+msgid ""
+"Warning, the latest version of Adblock Plus isn't compatible anymore with "
+"our website. Please <a href=\"#adb-happen\" style=\"color: white;\">see why</"
+"a>."
+msgstr ""
+"Attention, la nouvelle version d'Adblock n'est plus compatible avec notre "
+"site. Veuillez <a href=\"#adb-happen\" style=\"color: white;\">lire la "
+"suite</a>."
+
+msgid "My browser has been redirected after I wanted to watch a stream"
+msgstr "Mon navigateur a été redirigé suite à la lecture d'un flux"
+
+msgid "You have been redirected because we think you are using Adblock Plus."
+msgstr ""
+"Si vous avez été redirigé sur cette page, c'est que vous utilisez "
+"probablement le logiciel Adblock Plus."
+
+msgid ""
+"We do not detect you have a plugin, we simply verify if the ads are well "
+"displayed after the loading of the page. If it's not the case, the access of "
+"our service is defiend and we assume you use this kind of software. "
+"<strong>You are free to disable or not the plugin on our website.</strong>"
+msgstr ""
+"Nous ne détectons pas explicitement que vous utilisez une telle extension, "
+"nous vérifions simplement que les publicités sont bien affichées après le "
+"chargement de la page. Si ce n'est pas le cas, l'accès au service vous est "
+"refusé et nous assumons que vous utilisez un tel logiciel. <strong>Vous êtes "
+"libre de désactiver, ou non, l'extension pour notre site."
+
+msgid "You are also free not to come on our website."
+msgstr "Au même titre que vous êtes libre d'aller ou non sur notre site."
+
+msgid "Still redirected?"
+msgstr "Vous êtes toujours redirigé(e) ?"
+
+msgid "Please <a href=\"%href%\"><strong>contact our support</strong></a>."
+msgstr ""
+"Nous vous invitons à <a href=\"%href%\"><strong>contacter le support</"
+"strong></a>."
+
+msgid "Contact support"
+msgstr "Contactez le support"
+
+msgid "Help"
+msgstr "Aide"
+
+msgid "Support"
+msgstr "Support"
+
+msgid ""
+"<strong>Error report</strong>: <span class=\"clear-grey\">an error report "
+"will be attached to your message.</span>"
+msgstr ""
+"<strong>Rapport d'erreur</strong>: <span class=\"clear-grey\">un rapport "
+"d'erreur sera joint à votre message.</span>"
+
+msgid "Email address"
+msgstr "Adresse email"
+
+msgid "ex: john.doe@email.com"
+msgstr "ex: pierre.dupont@email.com"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Insert your message here."
+msgstr "Insérez votre message ici."
+
+msgid "Any troubles with the form?"
+msgstr "Un problème avec le formulaire ?"
+
+msgid ""
+"You can't send messages from our form?<br>Contact Olivia directly via email:"
+"<br><strong><a href=\"mailto:%email%\">%email%</a></strong>"
+msgstr ""
+"Vous ne pouvez pas envoyer de message avec le formulaire ci-contre ?"
+"<br>Contactez Olivia directement par e-mail :<br><strong><a href=\"mailto:"
+"%email%\">%email%</a></strong>"
+
+msgid "adblocker.main_sentence"
+msgstr ""
+"<span>Il </span><span>semblerait </span><span>que </span><span>vous </"
+"span><span>utilisiez </span><span>un </span><span>bloqueur </"
+"span><span>publicitaire.</span><br><span>Soit </span><span>vous </"
+"span><span>le </span><span>désactivez </span><span>et </span><span><a href="
+"\"%refreshUrl%\">cliquez ici</a> </span><span>pour </span><span>rafraichir </"
+"span><span>la </span><span>page, </span><span>soit </span><span>vous </"
+"span><span>pouvez </span><span><a href=\"%faqUrl%\" target=\"_blank"
+"\">consulter notre FAQ</a>.</span>"
+
+msgid "%genre% TV shows on %channel% from %date% on demand"
+msgstr "Les Programmes TV %genre% de %channel% du %date% en Replay"
+
+msgid "%genre% TV shows on %channel% on demand"
+msgstr "Les Programmes TV %genre% de %channel% en Replay"
+
+msgid "%genre% TV shows from %date% on demand"
+msgstr "Les Programmes TV %genre% du %date% en Replay"
+
+msgid "TV shows on %channel% from %date% on demand"
+msgstr "Les Programmes TV de %channel% du %date% en Replay"
+
+msgid "%genre% TV shows on demand"
+msgstr "Les Programmes TV %genre% en Replay"
+
+msgid "TV shows from %channel% on demand"
+msgstr "Les Programmes TV de %channel% en Replay"
+
+msgid "TV shows from %date% on demand"
+msgstr "Les Programmes TV du %date% en Replay"
+
+msgid "The latest TV shows on demand"
+msgstr "Les derniers Programmes TV en Replay"
+
+msgid "disable_site_banner"
+msgstr ""
+"Il existe <a href=\"%url%\" rel=\"nofollow\">une version adaptée de Play TV</"
+"a> pour accéder aux chaines Françaises."
+
+msgid "no_tweets_available"
+msgstr "Pas de tweets disponibles."
+
+msgid "%from_hour% to %to_hour%"
+msgstr "%from_hour% à %to_hour%"
+
+msgid "Unknown date"
+msgstr "Date inconnue."
+
+msgid "Catch Up"
+msgstr "Replay"
+
+msgid "Summary of %group%"
+msgstr "Résumé de l'émission %group%"
+
+msgid "Episodes of %group%"
+msgstr "Les épisodes de %group%"
+
+msgid "No summary for <strong>%group%</strong>"
+msgstr "Pas de résumé pour <strong>%group%</strong>"
+
+msgid "No schedules for the TV series <strong>%group%</strong>"
+msgstr "Aucun programme pour la série télé <strong>%group%</strong>"
+
+msgid "No schedules for the TV show <strong>%group%</strong>"
+msgstr "Aucun programme pour l’émission <strong>%group%</strong>"
+
+msgid "View <strong>%group%</strong> in catch up.</p>"
+msgstr "Revoir <strong>%group%</strong> en Replay."
+
+msgid "Twitter Official hashtag"
+msgstr "Hashtag Officiel Twitter"
+
+msgid "Part %part%"
+msgstr "Partie %part%"
+
+msgid "View in catch up"
+msgstr "Revoir en vidéo"
+
+msgid "Broadcasts and Catch Up TV for <strong>%program%</strong>."
+msgstr "Diffusions et rediffusions pour <strong>%program%</strong>."
+
+msgid "Watch <strong>%channel%</strong> live"
+msgstr "Regarder <strong>%channel%</strong> en direct"
+
+msgid "Watch <strong>%program%</strong> in Catch Up TV for free."
+msgstr "Revoir <strong>%program%</strong> en vidéo à la demande gratuite."
+
+msgid "<strong>Other videos</strong> from %group%"
+msgstr "<strong>Autres vidéos</strong> de %group%"
+
+msgid "%count_seasons% saisons, %count_episodes% episodes"
+msgstr "%count_seasons% saisons, %count_episodes% épisodes"
+
+msgid "%count% programmes"
+msgstr "%count% programmes"
+
+msgid "Rebroadcasts"
+msgstr "Rediffusions"
+
+msgid "No summary for this program"
+msgstr "Aucune description pour ce programme"
+
+msgid "No rebroadcast for <strong>%program%</strong> in the next 7 days."
+msgstr ""
+"Pas de rediffusions pour <strong>%program%</strong> dans les 7 prochains "
+"jours."
+
+msgid "Live"
+msgstr "En direct"
+
+msgid "More TV channels »"
+msgstr "Plus de chaînes de télévision »"
+
+msgid "How to watch TV?"
+msgstr "Comment regarder la télévision ?"
+
+msgid "Need help?"
+msgstr "Besoin d'aide ?"
+
+msgid ""
+"Find the answers to your questions in the <a href=\"%help_url%"
+"\"><strong>support sections</strong></a>."
+msgstr ""
+"Retrouvez les réponses à vos questions dans les <a href=\"%help_url%"
+"\"><strong>rubriques d'assistance</strong></a>."
+
+msgid "On now"
+msgstr "Programme en direct"
+
+msgid "Live tweets for %channel%"
+msgstr "Live tweets sur %channel%"
+
+msgid "<strong>Social TV ></strong> %channel%"
+msgstr "<strong>Social TV ></strong> %channel%"
+
+msgid "Current program"
+msgstr "Programme en cours"
+
+msgid "No information"
+msgstr "Pas d'informations"
+
+msgid "Catch Up videos from %channel%"
+msgstr "Vidéos de %channel% en replay"
+
+msgid "Catch Up TV"
+msgstr "Replay TV"
+
+msgid "Watch <strong>%channel%</strong> live online for free"
+msgstr ""
+"Regarder <strong>%channel%</strong> gratuitement et en direct sur internet"
+
+msgid "Watch <strong>%channel%</strong> live online"
+msgstr "Regarder <strong>%channel%</strong> en direct sur internet"
+
+msgid "Listen <strong>%channel%</strong> live online"
+msgstr "Écouter <strong>%channel%</strong> en direct sur internet"
+
+msgid "No summary for this program."
+msgstr "Aucune description pour ce programme."
+
+msgid "No informations."
+msgstr "Pas d'informations."
+
+msgid "<strong>%title%</strong> in catch up"
+msgstr "<strong>%title%</strong> en replay tv"
+
+msgid "View %channel% videos in catch up"
+msgstr "Revoir les vidéos de %channel% en replay tv"
+
+msgid "<a href=\"%href%\">%date%</a> at %hour%"
+msgstr "<a href=\"%href%\">%date%</a> à %hour%"

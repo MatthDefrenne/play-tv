@@ -1,0 +1,16 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+
+  {% embed "controllers/chaine-tv/skeleton.twig" with {"tab_active": "live"} %}
+
+    {% block embed_content %}
+      <h2 class="block-title">
+        {% trans with {'%channel%': infos.name} %}Now on <strong>%channel%</strong>{% endtrans %}
+      </h2>
+      {{ block_broadcasts|raw }}
+    {% endblock %}
+
+  {% endembed %}
+
+{% endblock %}

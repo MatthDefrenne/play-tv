@@ -1,0 +1,23 @@
+{% spaceless %}
+<div id="fb-root"></div>
+<script>
+  var facebookScope = ['public_profile', 'email'];
+  window.fbAsyncInit = function() {
+    FB.init({
+      version: 'v3.2',
+      appId: '{{ external_apis.facebook.appId }}',
+      cookie: false,
+      status: false,
+      xfbml: true
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/{{ locale~"_"~locale|upper }}/sdk{% if true == debug %}/debug{% endif %}.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+{% endspaceless %}

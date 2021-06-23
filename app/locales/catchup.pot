@@ -1,0 +1,16 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "no_result.content"
+msgstr ""
+
+msgid "no_result.other_channels"
+msgstr ""
+
+msgid "yesterday_tab"
+msgstr ""
+
+msgid "last_tab"
+msgstr ""

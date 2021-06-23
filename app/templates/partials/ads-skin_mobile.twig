@@ -1,0 +1,18 @@
+{% spaceless %}
+<div class="pmd-js-root">
+
+{% if
+  (is_connected == false or (is_connected and false == current_account.isPremium())) and
+  (controller_name not in ['account', 'bouncer', 'adblock', 'aide', 'oauth', 'order', 'sales', 'television', 'trailer', 'url', 'player', 'errors', 'newsletter']) and
+  (controller_name != 'pages' and action_name != 'browser_choice')
+%}
+  {% include "partials/ads-impactify.twig" %}
+  <script async defer src="{{ assets.scripts['app-ads-mobile.js'] }}"></script>
+  {% if crowdfunding_iscapped %}
+  {# forced to sync download :-( #}
+  <script src="https://cpm1.affiz.net/tracking/ads_display.php?nodiv=1&amp;n=315f315f31383931_8d215e24cd&amp;rdads={{ random()|slice(0, 9) }}"></script>
+  {% endif %}
+{% endif %}
+
+</div>
+{% endspaceless %}

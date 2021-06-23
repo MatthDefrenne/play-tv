@@ -1,0 +1,297 @@
+{% extends "layouts/full.twig" %}
+
+{% block content %}
+{% include "partials/subnav-guide-tv.twig" with {"subnav_active": "live"} %}
+
+<div id="content">
+  <div class="container">
+
+    <div class="row">
+      <div class="span16">
+
+        <div class="section-title">
+          <p class="right clear-grey">{% trans %}TV programs guide{% endtrans %}</p>
+          {% spaceless %}
+          <h1>
+            <strong>
+              <a href="{{ request.uri }}">
+                {% if now >= from_time and now < to_time %}
+                  {% trans %}Live on TV{% endtrans %}
+                {% else %}
+                  {% set trans_params = {
+                    '%start_time%': selected_timeslot[0]|localizedtimeslot,
+                    '%end_time%': selected_timeslot[1]|localizedtimeslot
+                  } %}
+                  {% if selected_date == now_date %}
+                    {% trans with trans_params %}
+                    Today from %start_time% to %end_time%
+                    {% endtrans %}
+                  {% else %}
+                    {% set trans_params = trans_params|merge({
+                      '%date%': selected_date|localizeddate('full', 'none', locale)|capitalize
+                    }) %}
+                    {% trans with trans_params %}
+                    %date% from %start_time% to %end_time%
+                    {% endtrans %}
+                  {% endif %}
+                {% endif %}
+              </a>
+            </strong>
+            {% if selected_network %}
+            <span> (bouquet <strong>{{ selected_network.network }}</strong>)</span>
+            {% endif %}
+          </h1>
+          {% endspaceless %}
+        </div>
+
+        <div id="programs-timeslot">
+
+          <div id="programs-timeslot-hours">
+
+            <div id="programs-title-bar">
+              <div class="right">
+                {% include "controllers/programmes-tv/_filters.twig" %}
+              </div>
+            </div>
+
+            <div id="programs-timeslot-bar">
+
+              <div id="programs-timeslot-bar-bg">
+                <span class="hour-time t-1"></span>
+                <span class="half-time t-2"></span>
+                <span class="hour-time t-3"></span>
+                <span class="half-time t-4"></span>
+                <span class="hour-time t-5"></span>
+                <span class="half-time t-6"></span>
+                <span class="hour-time t-7"></span>
+              </div>
+
+              <div class="hour" style="left:104px;">
+                {{ selected_timeslot[0]|localizedtimeslot }}
+              </div>
+              <div class="hour hour-small" style="left:352px;">
+                {% if selected_timeslot[0] + 1 == 24 %}
+                  {{ '00:00'|localizedtimeslot }}
+                {% else %}
+                  {{ (selected_timeslot[0] + 1)|localizedtimeslot }}
+                {% endif %}
+              </div>
+              <div class="hour hour-small" style="left:599px;">
+                {{ (selected_timeslot[1] - 1)|localizedtimeslot }}
+              </div>
+              <div class="hour" style="left:846px;">
+                {{ selected_timeslot[1]|localizedtimeslot }}
+              </div>
+
+              {% set date_format = is_website_fr ? 'd-m-Y': 'Y-m-d' %}
+              {% set route_name = selected_network is not null ? 'programmes_timeslot_network' : 'programmes_timeslot' %}
+
+              {% set route_params = {
+                'date': previous_timeslot[0] == 23 ? (selected_date-86400)|date(date_format) : selected_date|date(date_format),
+                'from_hour': previous_timeslot[0],
+                'to_hour': previous_timeslot[1]
+              } %}
+              {% if selected_network is not null %}
+                {% set route_params = route_params|merge({
+                  'network': selected_network.alias
+                }) %}
+              {% endif %}
+              <a href="{{ path(route_name, route_params) }}" id="programs-timeslot-previous" class="nav-arrow" title="{% transchoice previous_timeslot[0] with {'%start_time%': previous_timeslot[0]|localizedtimeslot, '%end_time%': previous_timeslot[1]|localizedtimeslot} %}{23} From %start_time% to %end_time% (D-1)|]0,Inf] From %start_time% to %end_time%{% endtranschoice %}"></a>
+
+              {% set route_params = {
+                'date': next_timeslot[0] == 2 ? (selected_date+86400)|date(date_format) : selected_date|date(date_format),
+                'from_hour': next_timeslot[0],
+                'to_hour': next_timeslot[1]
+              } %}
+              {% if selected_network is not null %}
+                {% set route_params = route_params|merge({
+                  'network': selected_network.alias
+                }) %}
+              {% endif %}
+              <a href="{{ path(route_name, route_params) }}" id="programs-timeslot-next" class="nav-arrow" title="{% transchoice next_timeslot[0] with {'%start_time%': next_timeslot[0]|localizedtimeslot, '%end_time%': next_timeslot[1]|localizedtimeslot} %}{2} From %start_time% to %end_time% (D+1)|]0,Inf] From %start_time% to %end_time%{% endtranschoice %}"></a>
+
+              <a href="#" id="programs-timeslot-up" title="{% trans %}Scroll to top{% endtrans %}"></a>
+
+              {% if now >= from_time and now < to_time %}
+              <div id="programs-timeslot-now-icon" style="left:{{ 185 + ((now - from_time) / 60)|round(0, 'floor') * 4 }}px;" class="hour-mark">{{ now|date("H:i") }}</div>
+              {% endif %}
+
+            </div>
+          </div><!-- #programs-timeslot-hours -->
+
+          {% for channel in broadcasts_channels %}
+          <div class="channel{% if loop.first %} channel-first{% endif %}{% if loop.index is even %} channel-alt{% endif %}">
+
+            {% set route_params = is_website_fr ? {'channel_alias': channel.alias} : {'channel_id': channel.id, 'channel_alias': channel.alias} %}
+            <a class="channel-img" href="{{ path('chaine_tv', route_params) }}" title="{% trans with {'%channel%': channel.name} %}Watch %channel% live{% endtrans %}">
+              <span>{% trans with {'%channel%': channel.name} %}Watch %channel% live{% endtrans %}</span>
+              <img src="{{ channel.images.small }}" alt="{{ channel.name }}" width="60" height="60">
+            </a>
+
+            <div class="programs">
+              <div class="container"{% if channel.broadcasts[0].bcast_duration != channel.broadcasts[0].real_duration %} style="left:-{{ (channel.broadcasts[0].bcast_duration - channel.broadcasts[0].real_duration)*4 }}px;"{% endif %}>
+                {% for b in channel.broadcasts %}
+                  {% if b.program is defined %}
+                    {% set width = 4*b.bcast_duration %}
+
+                    {% if (last_program_short is defined and last_program_short != false) and (b.bcast_duration > 10 or (b.program.gender_id == 20 and b.bcast_duration > 3)) %}
+                      <div class="program" style="width:{{ last_program_short }}px;">
+                        {% if last_program_short > 15 %}
+                          <span class="icon-external" title="{{ last_program_title }}">...</span>
+                        {% endif %}
+                      </div> {# <!-- close .program for short programs --> #}
+                    {% endif %}
+
+                    {# <!-- Si le programme a une durée > 0 dans la tranche --> #}
+                    {% if b.real_duration > 0 %}
+                      {# <!-- Si le programme a une durée > 10mn OU que c'est une météo (> 3mn) --> #}
+                      {% if b.bcast_duration > 10 or (b.program.gender_id == 20 and b.bcast_duration > 3) %}
+                        <div class="program" style="width:{{ width }}px;">
+                          {% if b.program.gender_id == 20 and b.bcast_duration > 3 %} {# <!-- Si c'est une météo, on affiche un logo --> #}
+                            <a href="{{ b.program.program_url }}" title="{{ b.program.title }}">
+                              <i class="icons-meteo icon" title="{% trans %}Weather{% endtrans %}"></i>
+                            </a>
+                          {% else %}
+                            {# <!-- Si c'est un vrai programme dt la durée ds la tranche > 10mn --> #}
+                            {% if b.real_duration > 10 and b.program.program_id is defined %}
+                              <div class="content {% if b.program.trailer %}pmd-Text--truncate{% endif %}"{% if channel.broadcasts|first == b and b.bcast_duration != b.real_duration %} style="margin-left:{{ (b.bcast_duration*4 - b.real_duration*4)+8 }}px;"{% endif %}>
+
+                                <!-- Affichage de l'image -->
+                                {% if b.program.images.small is not null and b.real_duration > 59 %}
+                                  <a href="{{ b.program.program_url }}" title="{{ b.program.title }}" class="program-img program-img-small {% if b.program.trailer %}pmd-js-TrailerButton{% endif %}" data-program-id="{{ b.program.id }}">
+                                    <img src="{{ b.program.images.small }}" width="80" height="60" alt="{{ b.program.fulltitle }}">
+                                    <span class="cache"></span>
+                                    {% if b.program.trailer %}
+                                      <span class="pmd-TrailerIcon"></span>
+                                    {% endif %}
+                                  </a>
+                                {% endif %}
+
+                                <small class="infos">
+                                  {# <!-- Heure de début --> #}
+                                  <span class="start" title="{% trans with {'%duration%': b.program.duration|diff_for_humans} %}Duration: %duration%{% endtrans %}">{{ b.start|date('H:i') }}</span>
+                                  <!-- Note du programme -->
+                                  {% if b.program.stars > 0 %}
+                                  <span class="ptv-Timeslot-rating">
+                                    <i class="ptv-Rating-{{ b.program.stars }}"></i>
+                                  </span>
+                                  {% endif %}
+                                  <!-- Genre du programme -->
+                                  {% if b.real_duration > 14 and b.program.gender is not null %}
+                                    {% spaceless %}
+                                      <span class="program-gender small">
+                                        <span class="program-gender-icon program-gender-icon{{ b.program.gender_id }}"></span>
+                                        <span>{{ b.program.gender }}</span>
+                                      </span>
+                                    {% endspaceless %}
+                                  {% endif %}
+                                </small>
+
+                                <!-- Titre du programme -->
+                                {% if b.real_duration > 59 and b.program.fulltitle < 38 %}
+                                  <a href="{{ b.program.program_url }}" class="big-title" title="{{ b.program.fulltitle }}">{{ b.program.fulltitle }}</a>
+                                  {% if b.program.trailer %}
+                                    <br>
+                                    <a href="#" class="pmd-js-TrailerButton pmd-Button pmd-TrailerButton pmd-TrailerButton--timeslot" data-program-id="{{ b.program.id }}" data-program-alias="{{ b.program.alias}}">
+                                      <svg role="img" class="pmd-Svg pmd-Svg--trailer">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pmd-Svg--trailer"></use>
+                                      </svg>
+                                      {% trans %}Trailer{% endtrans %}
+                                    </a>
+                                  {% elseif b.program.subtitle is not null %}
+                                    <br>
+                                    <span class="clear-grey">{{ b.program.subtitle }}</span>
+                                  {% elseif b.program.originaltitle is not null %}
+                                    <br>
+                                    <span class="clear-grey">{{ b.program.originaltitle }}</span>
+                                  {% endif %}
+                                {% elseif b.real_duration > 29 %}
+                                  <a href="{{ b.program.program_url }}" class="medium-title" title="{{ b.program.fulltitle }}">{{ b.program.fulltitle }}</a>
+                                {% else %}
+                                  <a href="{{ b.program.program_url }}" title="{{ b.program.fulltitle }}">{{ b.program.fulltitle }}</a>
+                                {% endif %}
+
+                              </div>
+
+                            {% elseif b.program_id is not defined %} {# <!-- Pas de programme --> #}
+                              <span class="icon-unknown" title="{% trans %}Unknown program{% endtrans %}">?</span>
+                            {% else %} {# <!-- Programme trop court --> #}
+                              <span class="icon-external" title="{{ b.program.fulltitle }}">...</span>
+                            {% endif %}
+
+                          {% endif %}
+
+                        </div>
+
+                      {# <!-- Si le programme est hors de la tranche, traitements etc. --> #}
+                      {% else %}
+
+                        {% if last_program_short is not defined or last_program_short == false %}
+                          {% set last_program_short = 0 %}
+                          {% if b.program.fulltitle is not null %}
+                            {% set last_program_title = b.program.fulltitle ~ ' (' ~ b.bcast_duration|diff_for_humans ~ ')' %}
+                          {% endif %}
+                        {% else %}
+                          {% if b.program.fulltitle is not null %}
+                            {% set last_program_title = last_program_title %}
+                            {% if last_program_title is not empty %}
+                              {% set last_program_title = last_program_title ~ ',' %}
+                            {% endif %}
+                            {% set last_program_title = last_program_title ~ b.program.fulltitle ~ ' (' ~ b.bcast_duration|diff_for_humans ~ ')' %}
+                          {% endif %}
+                        {% endif %}
+
+                        {% set total = last_program_short + width %}
+
+                      {% endif %}
+
+                      {# <!-- Traitements et fermeture de balises --> #}
+                      {% if b.bcast_duration > 10 or (b.program.gender_id == 20 and b.bcast_duration > 3) %}
+                        {% set last_program_short = false %}
+                      {% elseif channel.broadcasts|last == b %}
+                        <div class="program" style="width:{{ last_program_short }}px;">
+                          {% if last_program_short > 15 %}
+                            <span class="icon-external" title="{% trans %}Short programs{% endtrans %}">...</span>
+                          {% endif %}
+                        </div> {# <!-- close .program for short programs --> #}
+                        {% set last_program_short = false %}
+                      {% else %}
+                        {% set last_program_short = total %}
+                      {% endif %}
+
+                    {% endif %}
+
+                  {% else %}
+                    {% set width = 880 %}
+                    <div class="program" style="width:{{ width }}px;">
+                      <span class="icon-unknown" title="{% trans %}Unknown program{% endtrans %}">?</span>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div><!-- program -->
+
+          </div>
+        {% endfor %}
+
+        {% if now >= from_time and now < to_time %}
+        <div id="programs-timeslot-now" style="left:{{ 185 + ((now - from_time) / 60)|round(0, 'floor') * 4 }}px;" class="hour-mark"></div>
+        {% endif %}
+        <div class="hour-mark" style="left:106px;"></div>
+        <div class="hour-mark hour-dash" style="left:186px;"></div>
+        <div class="hour-mark hour-dash" style="left:426px;"></div>
+        <div class="hour-mark hour-dash" style="left:666px;"></div>
+        <div class="hour-mark hour-dash" style="left:906px;"></div>
+        <div class="hour-mark" style="left:987px;"></div>
+
+      </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div> <!-- /#content -->
+
+<script>var from_time = {{ from_time|default(null) }};</script>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% set thumbnail_image = null %}
+{% if thumbnail.images is not empty and thumbnail.images.xlarge is defined and thumbnail.images.xlarge is not null %}
+  {% set thumbnail_image = thumbnail.images.xlarge %}
+{% endif %}
+
+
+{% set preview = {
+    'image': {
+      'src': thumbnail_image,
+      'title': "Watch %replay% on demand online"|trans({'%replay%': thumbnail.title})
+    },
+    'duration': thumbnail.duration,
+    'identifier': thumbnail.id,
+    'nofollow': true
+  }
+%}
+
+{# handle France Television exception case #}
+{% if thumbnail.channel.id in france_television|keys %}
+
+  {% set preview = preview|merge({
+    'link': thumbnail.program ? thumbnail.program.program_url : thumbnail.group ? thumbnail.group.url : null,
+    'classes': '',
+    })
+  %}
+  {% set text_link = thumbnail.program ? thumbnail.program.program_url : thumbnail.group ? thumbnail.group.url : null %}
+
+{% else %}
+
+  {% set preview = preview|merge({
+    'link': path('replay_replay', {'video_id': thumbnail.id, 'title': thumbnail.alias}),
+    'classes': not thumbnail.is_embed ? 'popup' : '',
+    })
+  %}
+  {% set text_link = thumbnail.program ? thumbnail.program.program_url : thumbnail.group ? thumbnail.group.url : path('replay_replay', {'video_id': thumbnail.id, 'title': thumbnail.alias}) %}
+
+{% endif %}
+
+{% set data_attributes = data_attributes|merge({
+    'poor_preview': thumbnail_image is not null ? 'false' : 'true',
+    'duration': thumbnail.duration is null ? 'false' : 'true'
+  })
+%}
+
+{# remove hover effect on preview image #}
+{% if not text_link %}
+  {% set data_attributes = data_attributes|merge({
+      'type': '',
+      'preview_animation': ''
+    })
+  %}
+{% endif %}
+
+{% set text_subtile = thumbnail.broadcast_date|localizeddate('ptv:full', 'none')|capitalize  ~ ' à '  ~ thumbnail.broadcast_date|localizeddate('none', 'short') ~ ' sur '  ~ thumbnail.channel.channel %}
+
+{% include 'partials/thumbnail.twig' with {
+    'type': 'slider',
+    'data_attributes': data_attributes,
+    'text': {
+      'firstline': text_link ? '<a href=' ~ text_link ~ '>' ~ thumbnail.title ~ '</a>': thumbnail.title,
+      'secondline': text_link ? '<a href=' ~ text_link ~ ' rel="nofollow">' ~ text_subtile ~ '</a>' : text_subtile,
+    },
+
+    'preview': preview,
+
+    'channel': {
+      'image': {
+        'src': thumbnail.channel.images.medium,
+        'alt': thumbnail.channel.channel
+      }
+    }
+  }
+%}
+
